@@ -1,3 +1,17 @@
+/*
+ *	This file "HomePanel" contains the JPanel which will be displayed on the 
+ *	Java Air Home Page.  This interface uses a Grid Bag Layout Manager.
+ *
+ *	Author: Amy Erxleben
+ *
+ *	Created 10/15/16
+ *
+ *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded buttons: flight status, check in, login, employee Login
+ *	
+ *	Updated 10/16/16, Erxleben, Added FlightSearchPanel
+ *
+ */
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,10 +48,12 @@ public class HomePanel extends JPanel{
 		GridBagConstraints constraints = new GridBagConstraints();
 		setLayout(layout);
 
+		//get image for panel background
 		background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
 
 		this.setBackground(Color.WHITE);
 
+		//create "Coffee Brown" color for buttons and fonts.
 		Color buttonColor = new Color(100,76,55);
 
 		JLabel javaAirLabel = new JLabel("Java Air");
@@ -148,6 +164,7 @@ public class HomePanel extends JPanel{
           layout.setConstraints(aboutButton, constraints);
           add(aboutButton);
 
+        //Create Annonymous Button that has no function to create uniform bar of buttons
         JButton annonymousButton = new JButton("");
           annonymousButton.setFont(new Font("Times",Font.PLAIN, 30));
           annonymousButton.setBackground(buttonColor);
@@ -177,6 +194,7 @@ public class HomePanel extends JPanel{
           layout.setConstraints(welcomeLabel, constraints);
           add(welcomeLabel);
 
+        //create flight search panel
         aFlightSearchPanel = new FlightSearchPanel();
           constraints.gridx = 1;
           constraints.gridy = 4;
@@ -236,6 +254,7 @@ public class HomePanel extends JPanel{
 
 	}
 
+	//method used to paint background with image
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(background,0,0,null);

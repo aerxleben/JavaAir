@@ -1,3 +1,15 @@
+/* 
+ *	This file "FlightSearchPanel" contains the JPanel which will bed reused on multiple pages of the 
+ *	Java Air Application.  This interface uses a Grid Bag Layout Manager.
+ *
+ *	Author: Amy Erxleben
+ *
+ *	Created 10/16/16
+ *
+ *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded JLabels
+ *
+ */
+ 
 import javax.swing.*;
 import java.awt.*;
 
@@ -26,6 +38,7 @@ public class FlightSearchPanel extends JPanel{
 		this.setBackground(new Color(255,255,255,150));
 		//this.setBackground(new Color(135,206,235,150));
 
+		//Create "Royal Blue" color for fonts
 		Color fontColor = new Color(0,35,102);
 
 		JLabel messageLabel = new JLabel("Search Flights");

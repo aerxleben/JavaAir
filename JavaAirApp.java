@@ -1,3 +1,15 @@
+/*
+ *	This file "JavaAirApp" contains the main method for this entire project.
+ *	It creates a JFrame in wich to view the user interface.
+ *	This file will contain all of the event handlers for this application.	
+ *  
+ *	Author: Amy Erxleben
+ *	
+ *	Date created: 10/15/16
+ *
+ *	Updated 10/17/17, Erxleben, added comments
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
