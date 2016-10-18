@@ -6,6 +6,8 @@
  *
  *	Created 10/16/16
  *
+ *	Updated 10/17/16, Erxleben, removed numPassengersField, changed to numPassengersComboBox
+ *
  *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded JLabels
  *
  */
@@ -17,16 +19,16 @@ public class FlightSearchPanel extends JPanel{
 
 	private JComboBox originComboBox;
 	private JComboBox destinationComboBox;
+	private JComboBox numPassengersComboBox;
 	private JTextField departTextField;
 	private JTextField returnTextField;
-	private JTextField numPassengersField;
 	private JButton searchButton;
 
 	public JComboBox getOriginComboBox(){return originComboBox;}
 	public JComboBox getDestinationComboBox(){return destinationComboBox;}
 	public JTextField getDepartTextField(){return departTextField;}
 	public JTextField getReturnTextField(){return returnTextField;}
-	public JTextField getNumPassengersField(){return numPassengersField;}
+	public JComboBox getNumPassengersComboBox(){return numPassengersComboBox;}
 	public JButton getSearchButton(){return searchButton;}
 
 	public FlightSearchPanel(){
@@ -183,8 +185,8 @@ public class FlightSearchPanel extends JPanel{
           layout.setConstraints(numPassengersLabel, constraints);
           add(numPassengersLabel);
 
-        numPassengersField = new JTextField();
-          numPassengersField.setFont(new Font("Times",Font.PLAIN, 30));
+        numPassengersComboBox = new JComboBox();
+//          numPassengersComboBox.setFont(new Font("Times",Font.PLAIN, 30));
           constraints.gridx = 3;
           constraints.gridy = 3;
           constraints.gridwidth = 1;
@@ -193,8 +195,8 @@ public class FlightSearchPanel extends JPanel{
           constraints.insets = new Insets(12, 12, 3, 3);
           constraints.weightx = 10;
           constraints.weighty = 10;
-          layout.setConstraints(numPassengersField, constraints);
-          add(numPassengersField);
+          layout.setConstraints(numPassengersComboBox, constraints);
+          add(numPassengersComboBox);
 
         searchButton = new JButton("SEARCH");
           searchButton.setFont(new Font("Times",Font.PLAIN, 30));
