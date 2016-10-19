@@ -27,14 +27,12 @@ public class HomePanel extends JPanel{
 
    private Image background;
 
-   public JButton getFlightStatusButton(){
-      return flightStatusButton;}
-   public JButton getCheckInButton(){
-      return checkInButton;}
-   public JButton getEmployeeLoginButton(){
-      return employeeLoginButton;}
-   public FlightSearchPanel getFlightSearchPanel(){
-      return aFlightSearchPanel;}
+   public JButton getFlightStatusButton(){return flightStatusButton;}
+   public JButton getCheckInButton(){return checkInButton;}
+   public JButton getEmployeeLoginButton(){return employeeLoginButton;}
+   
+   public FlightSearchPanel getFlightSearchPanel(){return aFlightSearchPanel;}
+   public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
 
    public HomePanel(){
    	//this.setBackground(new Color(WHITE));
