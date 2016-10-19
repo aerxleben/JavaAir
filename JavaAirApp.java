@@ -6,8 +6,11 @@
  *	Author: Amy Erxleben
  *	
  *	Date created: 10/15/16
- *
- *	Updated 10/17/17, Erxleben, added comments
+ * 
+ * Changelog:
+ *	2016-10-17  Erxleben added comments
+ * 2016-10-18  Jia   changed default height to 800, changed default 
+ *                   close operation to dispose    
  */
 
 import java.awt.*;
@@ -26,8 +29,8 @@ public class JavaAirApp extends JFrame{
 		
 
 		//Set frame to close when exit is clicked and default frame size
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1300, 600);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(1300, 800);
 	}
 	
 	//main method

@@ -5,7 +5,9 @@
  *	Author: Amy Erxleben
  *
  *	Created 10/17/16
- *
+ * 
+ * Changelog:
+ * 2016-10-18  S. Jia   changed font size, changed reservation panel gridx to 1
  */
 
 import javax.swing.*;
@@ -41,7 +43,7 @@ public class MenuBannerPanel extends JPanel{
 		Color buttonColor = new Color(100,76,55);
 
 		JLabel javaAirLabel = new JLabel("Java Air");
-          javaAirLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 128));
+          javaAirLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 96));
           javaAirLabel.setIcon(new ImageIcon("plane.jpg"));
           javaAirLabel.setHorizontalAlignment(JLabel.LEFT);
           javaAirLabel.setForeground(buttonColor);
