@@ -29,11 +29,14 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 public class EmployeeLogin extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtPleaseEnterEmployee;
+	private JTextField txtEmployeeId;
 
 	/**
 	 * Create the frame.
@@ -63,8 +66,8 @@ public class EmployeeLogin extends JFrame {
 		lbl_EmpLoginTitle.gridy = 0;
 		contentPane.add(lblJavaAirEmployee, lbl_EmpLoginTitle);
 		
-		txtPleaseEnterEmployee = new JTextField();
-		txtPleaseEnterEmployee.addMouseListener(new MouseAdapter() {
+		txtEmployeeId = new JTextField();
+		txtEmployeeId.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try{
@@ -76,19 +79,33 @@ public class EmployeeLogin extends JFrame {
 				}
 			}
 		});
-		txtPleaseEnterEmployee.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPleaseEnterEmployee.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtPleaseEnterEmployee.setText("Please Enter Employee ID");
-		GridBagConstraints txt_EmpLoginId = new GridBagConstraints();
-		txt_EmpLoginId.gridwidth = 1;
-		txt_EmpLoginId.ipady = 5;
-		txt_EmpLoginId.ipadx = 80;
-		txt_EmpLoginId.gridx = 0;
-		txt_EmpLoginId.gridy = 2;
-		contentPane.add(txtPleaseEnterEmployee, txt_EmpLoginId);
-		txtPleaseEnterEmployee.setColumns(10);
+		txtEmployeeId.setHorizontalAlignment(SwingConstants.CENTER);
+		txtEmployeeId.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtEmployeeId.setText("Please Enter Employee ID");
+		GridBagConstraints txtEmpIdConstraints = new GridBagConstraints();
+		txtEmpIdConstraints.gridwidth = 1;
+		txtEmpIdConstraints.ipady = 5;
+		txtEmpIdConstraints.ipadx = 80;
+		txtEmpIdConstraints.gridx = 0;
+		txtEmpIdConstraints.gridy = 2;
+		contentPane.add(txtEmployeeId, txtEmpIdConstraints);
+		txtEmployeeId.setColumns(10);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnLogin.addMouseListener(new MouseAdapter() {
+         @Override
+         public void mouseClicked(MouseEvent arg0) {
+               if(txtEmployeeId != null){
+                  //load employee function
+                  loadEmployeeFunction(txtEmployeeId.getText());
+                  //dispose();
+               }
+         }
+      });
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 16));
 		GridBagConstraints btn_EmpLogin = new GridBagConstraints();
 		btn_EmpLogin.ipady = 5;
@@ -98,7 +115,28 @@ public class EmployeeLogin extends JFrame {
 
 	}
 	
-	private void loadEmployeeFunction(){
-		
+	private void loadEmployeeFunction(String employeeIdString){
+		int employeeId = 0;
+      try{
+         employeeId = Integer.parseInt(employeeIdString);
+      }
+      catch(NumberFormatException e){
+         JOptionPane.showMessageDialog(null, "Incorrect Employee ID", "Employee Login Error", JOptionPane.ERROR_MESSAGE);
+         return;
+      }
+      
+      switch(employeeId){
+         case 1: 
+            new CustomerService().setVisible(true);
+            dispose();
+            break;
+         case 2: 
+            new Maintenance().setVisible(true);
+            dispose();
+            break;
+         default:
+            break;
+            
+      }
 	}
 }
