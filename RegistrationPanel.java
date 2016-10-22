@@ -16,8 +16,15 @@ public class RegistrationPanel extends JPanel{
 
    private JTextField firstField;
    private JTextField lastField;
+<<<<<<< HEAD
+   private JTextField gender;
+=======
    private JTextField addressField;
+<<<<<<< HEAD
    private JTextField cityField;
+=======
+>>>>>>> 24ab1a87590ed0edf20b3d3380a78829f4ebd221
+>>>>>>> 87c03babb03d3061cd8d718272b140a916f95128
    
    private JButton employeeLoginButton;
 	
