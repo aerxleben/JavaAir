@@ -16,6 +16,7 @@ public class RegistrationPanel extends JPanel{
 
    private JTextField firstField;
    private JTextField lastField;
+   private JTextField gender;
    
    private JButton employeeLoginButton;
 	
