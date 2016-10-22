@@ -21,8 +21,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 public class JavaAirApp extends JFrame{
+    private static boolean loggedIn = false;
+    
     private HomePanel aHomePanel;
     private RegistrationPanel aRegistrationPanel;
+    //private LoginLandingPanel aLoginPanel;
 
     private ActionListener homeListener;
     private ActionListener accountListener;
@@ -30,7 +33,7 @@ public class JavaAirApp extends JFrame{
     private ActionListener helpListener;
     private ActionListener aboutListener;
     private ActionListener loginListener;
-	
+
     public JavaAirApp(){
         this.setTitle("Welcome to Java Air!");
 		
@@ -116,13 +119,21 @@ public class JavaAirApp extends JFrame{
     }
 	
     public void handleLoginButtonPress(){
-            System.out.println("Login");
+            //System.out.println("Login");
+            /*this.getContentPane().removeAll();
+            aLoginPanel = new LoginLandingPanel();
+            this.getContentPane().add(aLoginPanel);
+            update();*/
     }
 	
     public void update(){
     	//disableListeners();
     	this.revalidate();
     	//enableListeners();
+    }
+    
+    public void setLoggedInStatus(boolean newStatus){
+        loggedIn = newStatus;
     }
 	
 	//main method
