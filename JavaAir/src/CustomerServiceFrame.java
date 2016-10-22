@@ -4,7 +4,7 @@
  * Project: Java Air
  * Team: Avian Limited
  * 
- * Filename: CustomerService.java
+ * Filename: CustomerServiceFrame.java
  * Author: Steve Jia
  * Creation: 2016/10/21
  * 
@@ -37,13 +37,13 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CustomerService extends JFrame {
+public class CustomerServiceFrame extends JFrame {
 
 
 	/**
 	 * Create the frame.
 	 */
-	public CustomerService() {
+	public CustomerServiceFrame() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 728, 561);
 		GridBagLayout gridBagLayout = new GridBagLayout();

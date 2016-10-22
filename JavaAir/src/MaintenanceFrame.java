@@ -4,7 +4,7 @@
  * Project: Java Air
  * Team: Avian Limited
  * 
- * Filename: Maintenance.java
+ * Filename: MaintenanceFrame.java
  * Author: Steve Jia
  * Creation: 2016/10/21
  * 
@@ -31,14 +31,14 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Maintenance extends JFrame {
+public class MaintenanceFrame extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public Maintenance(int employeeId) {
+	public MaintenanceFrame(int employeeId) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 400, 635);
 		contentPane = new JPanel();

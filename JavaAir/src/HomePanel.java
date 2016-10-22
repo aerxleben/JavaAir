@@ -123,7 +123,7 @@ public class HomePanel extends JPanel{
       employeeLoginButton.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		new EmployeeLogin().setVisible(true);
+        		new EmployeeLoginFrame().setVisible(true);
         	}
         });
       employeeLoginButton.setFont(new Font("Times",Font.PLAIN, 20));

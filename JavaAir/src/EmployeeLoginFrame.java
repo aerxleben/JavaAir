@@ -4,7 +4,7 @@
  * Project: Java Air
  * Team: Avian Limited
  * 
- * Filename: EmployeeLogin.java
+ * Filename: EmployeeLoginFrame.java
  * Author: Steve Jia
  * Creation: 2016/10/18
  * 
@@ -33,7 +33,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
-public class EmployeeLogin extends JFrame {
+public class EmployeeLoginFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtEmployeeId;
@@ -41,7 +41,7 @@ public class EmployeeLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EmployeeLogin() {
+	public EmployeeLoginFrame() {
 		setMaximumSize(new Dimension(500, 500));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 380, 250);
@@ -127,11 +127,11 @@ public class EmployeeLogin extends JFrame {
       
       switch(employeeId){
          case 1: 
-            new CustomerService().setVisible(true);
+            new CustomerServiceFrame().setVisible(true);
             dispose();
             break;
          case 2: 
-            new Maintenance(employeeId).setVisible(true);
+            new MaintenanceFrame(employeeId).setVisible(true);
             dispose();
             break;
          default:
