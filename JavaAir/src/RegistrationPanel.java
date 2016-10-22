@@ -22,6 +22,7 @@ public class RegistrationPanel extends JPanel{
    private JTextField cityField;
    private JTextField stateField;
    private JTextField zipField;
+   private JTextField phoneField;
    
    private JButton employeeLoginButton;
 	
@@ -33,6 +34,9 @@ public class RegistrationPanel extends JPanel{
    public JTextField getLastField(){return lastField;}
    public JTextField getAddressField(){return addressField;}
    public JTextField getCityField(){return addressField;}
+   public JTextField getStateField(){return stateField;}
+   public JTextField getZipField(){return zipField;}
+   public JTextField getphoneField(){return phoneField;}
    
    public JButton getEmployeeLoginButton(){return employeeLoginButton;}
 
@@ -255,41 +259,20 @@ public class RegistrationPanel extends JPanel{
       layout.setConstraints(phoneLabel, constraints);
       add(phoneLabel);
       
-      lastField = new JTextField("");
-      lastField.setFont(new Font("Times", Font.PLAIN, 30));
-      lastField.setHorizontalAlignment(JLabel.LEFT);
-      lastField.setForeground(buttonColor);
-      constraints.gridx = 4;
-      constraints.gridy = 2;
-      constraints.gridwidth = 1;
+      phoneField = new JTextField("");
+      phoneField.setFont(new Font("Times", Font.PLAIN, 30));
+      phoneField.setHorizontalAlignment(JLabel.LEFT);
+      phoneField.setForeground(buttonColor);
+      constraints.gridx = 2;
+      constraints.gridy = 5;
+      constraints.gridwidth = 2;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.HORIZONTAL;
           constraints.insets = new Insets(0,0,0,0);
       constraints.weightx = 10;
       constraints.weighty = 10;
-      layout.setConstraints(lastField, constraints);
-      add(lastField);
-      
-      employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
-      employeeLoginButton.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		new EmployeeLogin().setVisible(true);
-        	}
-        });
-      employeeLoginButton.setFont(new Font("Times",Font.PLAIN, 20));
-      employeeLoginButton.setHorizontalAlignment(JButton.RIGHT);
-      employeeLoginButton.setBackground(Color.WHITE);
-      constraints.gridx = 8;
-      constraints.gridy = 5;
-      constraints.gridwidth = 1;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.VERTICAL;
-          //constraints.insets = new Insets(12, 12, 3, 3);
-      constraints.weightx = 5;
-      constraints.weighty = 5;
-      layout.setConstraints(employeeLoginButton, constraints);
-      add(employeeLoginButton);
+      layout.setConstraints(phoneField, constraints);
+      add(phoneField);
    
    	//get image for panel background
       background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
