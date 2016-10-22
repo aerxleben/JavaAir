@@ -35,7 +35,7 @@ public class Maintenance extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Maintenance() {
+	public Maintenance(int employeeId) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 400, 635);
 		contentPane = new JPanel();
@@ -66,7 +66,7 @@ public class Maintenance extends JFrame {
 		gbc_lblFlightNo.gridy = 1;
 		contentPane.add(lblFlightNo, gbc_lblFlightNo);
 		
-		JLabel lblEmployeeId = new JLabel("Employee ID: ");
+		JLabel lblEmployeeId = new JLabel("Employee ID: " + employeeId);
 		lblEmployeeId.setFont(new Font("Tahoma", Font.BOLD, 16));
 		GridBagConstraints gbc_lblEmployeeId = new GridBagConstraints();
 		gbc_lblEmployeeId.insets = new Insets(0, 0, 5, 0);
@@ -96,6 +96,11 @@ public class Maintenance extends JFrame {
 		contentPane.add(chckbxNewCheckBox_2, gbc_chckbxNewCheckBox_2);
 		
 		JButton btnComplete = new JButton("Complete");
+      btnComplete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+            JOptionPane.showMessageDialog(null, "Tasks Complete", "Maintenance Tasks", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		GridBagConstraints gbc_btnComplete = new GridBagConstraints();
 		gbc_btnComplete.gridx = 1;
 		gbc_btnComplete.gridy = 4;

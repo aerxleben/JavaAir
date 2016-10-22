@@ -131,7 +131,7 @@ public class EmployeeLogin extends JFrame {
             dispose();
             break;
          case 2: 
-            new Maintenance().setVisible(true);
+            new Maintenance(employeeId).setVisible(true);
             dispose();
             break;
          default:

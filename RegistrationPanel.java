@@ -78,7 +78,7 @@ public class RegistrationPanel extends JPanel{
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,0,0,0);
+      constraints.insets = new Insets(0,0,0,0);
       constraints.weightx = 10;
       constraints.weighty = 10;
       layout.setConstraints(firstField, constraints);
