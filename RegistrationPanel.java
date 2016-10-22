@@ -16,6 +16,7 @@ public class RegistrationPanel extends JPanel{
 
    private JTextField firstField;
    private JTextField lastField;
+   private JTextField addressField;
    
    private JButton employeeLoginButton;
 	
@@ -25,6 +26,7 @@ public class RegistrationPanel extends JPanel{
 
    public JTextField getFirstField(){return firstField;}
    public JTextField getLastField(){return lastField;}
+   public JTextField getAddressField(){return addressField;}
    
    public JButton getEmployeeLoginButton(){return employeeLoginButton;}
 
@@ -111,6 +113,36 @@ public class RegistrationPanel extends JPanel{
       constraints.weighty = 10;
       layout.setConstraints(lastField, constraints);
       add(lastField);
+      
+      JLabel addressLabel = new JLabel("Address");
+      addressLabel.setFont(new Font("Times", Font.BOLD, 30));
+      addressLabel.setHorizontalAlignment(JLabel.RIGHT);
+      addressLabel.setForeground(buttonColor);
+      constraints.gridx = 1;
+      constraints.gridy = 3;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.NONE;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(addressLabel, constraints);
+      add(addressLabel);
+      
+      addressField = new JTextField("");
+      addressField.setFont(new Font("Times", Font.PLAIN, 30));
+      addressField.setHorizontalAlignment(JLabel.LEFT);
+      addressField.setForeground(buttonColor);
+      constraints.gridx = 2;
+      constraints.gridy = 3;
+      constraints.gridwidth = 3;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.HORIZONTAL;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(addressField, constraints);
+      add(addressField);
       
       employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
       employeeLoginButton.addMouseListener(new MouseAdapter() {
