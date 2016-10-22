@@ -35,11 +35,11 @@ public class HomePanel extends JPanel{
    public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
 
    public HomePanel(){
-   	//this.setBackground(new Color(WHITE));
+       //this.setBackground(new Color(WHITE));
    
-      GridBagLayout layout = new GridBagLayout();
-      GridBagConstraints constraints = new GridBagConstraints();
-      setLayout(layout);
+        GridBagLayout layout = new GridBagLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+        setLayout(layout);
    
    	//get image for panel background
       background = Toolkit.getDefaultToolkit().createImage("heart.jpg");

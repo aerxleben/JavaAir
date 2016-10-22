@@ -21,104 +21,114 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 public class JavaAirApp extends JFrame{
-	private HomePanel aHomeView;
-	private RegistrationPanel aRegistrationPanel;
+    private HomePanel aHomePanel;
+    private RegistrationPanel aRegistrationPanel;
+
+    private ActionListener homeListener;
+    private ActionListener accountListener;
+    private ActionListener reservationListener;
+    private ActionListener helpListener;
+    private ActionListener aboutListener;
+    private ActionListener loginListener;
 	
-	private ActionListener homeListener;
-	private ActionListener accountListener;
-	private ActionListener reservationListener;
-	private ActionListener helpListener;
-	private ActionListener aboutListener;
-	private ActionListener loginListener;
-	
-	public JavaAirApp(){
-		this.setTitle("Welcome to Java Air!");
+    public JavaAirApp(){
+        this.setTitle("Welcome to Java Air!");
 		
-		/********************* The View ***********************************/
-		aHomeView = new HomePanel();
-		add(aHomeView);
-		
-		/********************************** Action Listeners **************/
-		aHomeView.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+        /********************* The View ***********************************/
+        aHomePanel = new HomePanel();
+        add(aHomePanel);
+
+        /********************************** Action Listeners **************/
+        aHomePanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleHomeButtonPress();
             }
         });
         
-        aHomeView.getMenuBannerPanel().getReservationButton().addActionListener(reservationListener = new ActionListener() {
+        aHomePanel.getMenuBannerPanel().getReservationButton().addActionListener(reservationListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleReservationButtonPress();
             }
         });
 		
-		aHomeView.getMenuBannerPanel().getAccountButton().addActionListener(accountListener = new ActionListener() {
+        aHomePanel.getMenuBannerPanel().getAccountButton().addActionListener(accountListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleAccountButtonPress();
             }
         });
         
-        aHomeView.getMenuBannerPanel().getHelpButton().addActionListener(helpListener = new ActionListener() {
+        aHomePanel.getMenuBannerPanel().getHelpButton().addActionListener(helpListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleHelpButtonPress();
             }
         });
         
-        aHomeView.getMenuBannerPanel().getAboutButton().addActionListener(aboutListener = new ActionListener() {
+        aHomePanel.getMenuBannerPanel().getAboutButton().addActionListener(aboutListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleAboutButtonPress();
             }
         });
         
-        aHomeView.getMenuBannerPanel().getLoginButton().addActionListener(loginListener = new ActionListener() {
+        aHomePanel.getMenuBannerPanel().getLoginButton().addActionListener(loginListener = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
             	handleLoginButtonPress();
             }
         });
 		
 
-		//Set frame to close when exit is clicked and default frame size
+        //Set frame to close when exit is clicked and default frame size
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1300, 800);
-	}
+    }
 	
-	public void handleHomeButtonPress(){
-		System.out.println("Home");
-	}
+    public void handleHomeButtonPress(){
+            //System.out.println("Home");
+            this.getContentPane().removeAll();
+            aHomePanel = new HomePanel();
+            this.getContentPane().add(aHomePanel);
+            update();
+    }
 	
-	public void handleAccountButtonPress(){
-		System.out.println("Account");
-		this.getContentPane().removeAll();
-		aRegistrationPanel = new RegistrationPanel();
-		this.getContentPane().add(aRegistrationPanel);
-		update();
-	}
+    public void handleAccountButtonPress(){
+            //System.out.println("Account");
+            this.getContentPane().removeAll();
+            aRegistrationPanel = new RegistrationPanel();
+            this.getContentPane().add(aRegistrationPanel);
+            update();
+    }
 	
-	public void handleReservationButtonPress(){
-		System.out.println("Reservation");
-	}
+    public void handleReservationButtonPress(){
+            System.out.println("Reservation");
+    }
 	
-	public void handleHelpButtonPress(){
-		System.out.println("Help");
-	}
+    public void handleHelpButtonPress(){
+            System.out.println("Help");
+    }
 	
-	public void handleAboutButtonPress(){
-		System.out.println("About");
-	}
+    public void handleAboutButtonPress(){
+            System.out.println("About");
+    }
 	
-	public void handleLoginButtonPress(){
-		System.out.println("Login");
-	}
+    public void handleLoginButtonPress(){
+            System.out.println("Login");
+    }
 	
-	 public void update(){
+    public void update(){
     	//disableListeners();
     	this.revalidate();
     	//enableListeners();
     }
 	
 	//main method
-	public static void main(String args[]){
-		JFrame frame = new JavaAirApp();
-		new JavaAirApp().setVisible(true);
-	}
+    public static void main(String args[]){
+            JFrame frame = new JavaAirApp();
+            new JavaAirApp().setVisible(true);
+    }
 	
 }

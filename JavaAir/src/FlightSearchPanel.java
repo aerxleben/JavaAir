@@ -11,7 +11,7 @@
  *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded JLabels
  *
  */
- 
+
 import javax.swing.*;
 import java.awt.*;
 
