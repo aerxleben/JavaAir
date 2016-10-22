@@ -12,8 +12,8 @@
  * 
  */
 import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.Scanner;
  
 public class Customer{
  
@@ -30,7 +30,11 @@ public class Customer{
    private String emailAddress;		//index 9
    private String password;		//index 10*/
    
+   private int customerID;
+           
    private final String notApplicable = "N/A";
+   private final String textSetValueError = "Setting Customer Value Error; Null ";
+   
    
    /*public Customer(String newFirstName, String newLastName){
       this.firstName = newFirstName;
@@ -138,103 +142,140 @@ public class Customer{
    public void setFirstName(String newFirstName) throws Exception{
        if(newFirstName == null || !setCustomerAttribute(0, newFirstName)){
            //this.firstName = newFirstName;
-           throw new Exception("Setting Customer Value Error; Incorrect First Name");
+           throw new Exception(textSetValueError + "First Name");
        }
    }
    
    public void setLastName(String newLastName) throws Exception{
        if(newLastName == null || !setCustomerAttribute(1, newLastName)){
-           throw new Exception("Setting Customer Value Error; Incorrect Last Name");
+           throw new Exception(textSetValueError + "Last Name");
        }
    }
    
    public void setDateOfBirth(String newDateOfBirth) throws Exception{
-	   if(newDateOfBirth != null){
-		   this.dateOfBirth = newDateOfBirth;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect DOB");
-	   }
+       if(newDateOfBirth == null || !setCustomerAttribute(2, newDateOfBirth)){
+           throw new Exception(textSetValueError + "Date of Birth");
+       }
    }
    
    public void setGender(String newGender) throws Exception{
-	   if(newGender != null){
-		   this.gender = newGender;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect Gender");
-	   }
+       if(newGender == null || !setCustomerAttribute(3, newGender)){
+           throw new Exception(textSetValueError + "Gender");
+       }
    }
    
    public void setPhysicalAddress(String newPhysicalAddress) throws Exception{
-	   if(newPhysicalAddress != null){
-		   this.physicalAddress = newPhysicalAddress;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect Physical Address");
-	   }
+       if(newPhysicalAddress == null || !setCustomerAttribute(4, newPhysicalAddress)){
+           throw new Exception(textSetValueError + "Address");
+       }
    }
    
    public void setAddressCity(String newCity) throws Exception{
-	   if(newCity != null){
-		   this.addressCity = newCity;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect City Name");
-	   }
+       if(newCity == null || !setCustomerAttribute(5, newCity)){
+           throw new Exception(textSetValueError + "City");
+       }
    }
    
    public void setAddressState(String newState) throws Exception{
-	   if(newState != null){
-		   this.addressState = newState;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect State Name");
-	   }
+       if(newState == null || !setCustomerAttribute(6, newState)){
+           throw new Exception(textSetValueError + "State");
+       }
    }
    
    public void setAddressZipCode(String newZipCode) throws Exception{
-	   if(newZipCode != null){
-		   this.addressZipCode = newZipCode;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect Zip Code");
-	   }
+       if(newZipCode == null || !setCustomerAttribute(7, newZipCode)){
+           throw new Exception(textSetValueError + "Zip Code");
+       }
    }
    
    public void setPhoneNumber(String newPhoneNumber) throws Exception{
-       if(newPhoneNumber != null){
-           this.phoneNumber = newPhoneNumber;
-       }
-       else{
-           throw new Exception("Setting Customer Value Error; Incorrect Phone Number");
+       if(newPhoneNumber == null || !setCustomerAttribute(8, newPhoneNumber)){
+           throw new Exception(textSetValueError + "Phone Number");
        }
    }
    
    public void setEmailAddress(String newEmail) throws Exception{
-	   if(newEmail != null){
-		   this.emailAddress = newEmail;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect Email Address");
-	   }
+       if(newEmail == null || !setCustomerAttribute(9, newEmail)){
+           throw new Exception(textSetValueError + "E-mail");
+       }
    }
    
    public void setPassword(String newPassword) throws Exception{
-	   if(newPassword != null){
-		   this.password = newPassword;
-	   }
-	   else{
-		   throw new Exception("Setting Customer Value Error; Incorrect Password");
-	   }
+       if(newPassword == null || !setCustomerAttribute(10, newPassword)){
+           throw new Exception(textSetValueError + "Password");
+       }
    }
    
    private void saveCustomerInfo() throws Exception{
+       if(this.customerInfoList == null){
+           throw new NullPointerException("Customer.saveCustomerInfo(): Null customerInfoList");
+       }
+       
+       //save to file for now, later save to DB
        
    }
    
-   private static void loadCustomerInfo() throws Exception{
+   private static Customer loadCustomerInfo(String email, String password) throws Exception{
+       Customer newCustomer = null;
+               
+       if(email == null || password == null){
+           throw new NullPointerException("loadCustomerInfo(): Null Email or Password");
+       }
        
-   }
+       Scanner reader = null;
+       
+       try{
+           ArrayList<String> infoList = new ArrayList();
+           
+           reader = new Scanner(new File(email + ".txt"));
+           while(reader.hasNextLine()){
+               infoList.add(reader.nextLine());
+           }
+           
+           if(infoList.get(10).equals(password)){
+               newCustomer = new Customer(infoList);
+           }
+           else{
+               infoList = null;
+           }
+       }
+       catch(Exception x){
+           throw x;
+       }
+       finally{
+           if(reader != null) reader.close();
+       }
+       
+       return newCustomer;
+   }//end: loadCustomerInfo()
+   
+   private void saveToFile() throws Exception{
+       FileWriter fw = null;
+       
+       if(this.customerInfoList == null){
+           throw new Exception("Customer.saveToFile(): Null customerInfoList");
+       }
+       
+       if(this.customerInfoList.size() != 11){
+           throw new Exception("Customer.saveToFile(): customerInfoList Incorrect Size");
+       }
+       
+       try{
+           String fileName = this.customerInfoList.get(9) + ".txt";
+           fw = new FileWriter(fileName);
+           for(String value : this.customerInfoList){
+               fw.write(value + '\n');
+           }
+       }
+       catch(Exception x){
+           //display and log error
+           throw x;
+       }
+       finally{
+           if(fw != null){
+               fw.close();
+           }
+       }
+   }//end: saveToFile()
  
  }
