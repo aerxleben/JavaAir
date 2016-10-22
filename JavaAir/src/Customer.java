@@ -236,9 +236,6 @@ public class Customer{
            if(infoList.get(10).equals(password)){
                newCustomer = new Customer(infoList);
            }
-           else{
-               infoList = null;
-           }
        }
        catch(Exception x){
            throw x;
