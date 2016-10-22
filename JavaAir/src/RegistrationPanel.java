@@ -16,15 +16,12 @@ public class RegistrationPanel extends JPanel{
 
    private JTextField firstField;
    private JTextField lastField;
-<<<<<<< HEAD
    private JTextField gender;
-=======
+
    private JTextField addressField;
-<<<<<<< HEAD
    private JTextField cityField;
-=======
->>>>>>> 24ab1a87590ed0edf20b3d3380a78829f4ebd221
->>>>>>> 87c03babb03d3061cd8d718272b140a916f95128
+   private JTextField stateField;
+   private JTextField zipField;
    
    private JButton employeeLoginButton;
 	
@@ -54,7 +51,7 @@ public class RegistrationPanel extends JPanel{
       aMenuBannerPanel = new MenuBannerPanel();
       constraints.gridx = 0;
       constraints.gridy = 0;
-      constraints.gridwidth = 7;
+      constraints.gridwidth = 9;
       constraints.gridheight = 2;
       constraints.fill = GridBagConstraints.BOTH;
           //constraints.insets = new Insets(12,12,3,3);
@@ -84,7 +81,7 @@ public class RegistrationPanel extends JPanel{
       firstField.setForeground(buttonColor);
       constraints.gridx = 2;
       constraints.gridy = 2;
-      constraints.gridwidth = 1;
+      constraints.gridwidth = 2;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.HORIZONTAL;
       constraints.insets = new Insets(0,0,0,0);
@@ -97,7 +94,7 @@ public class RegistrationPanel extends JPanel{
       lastLabel.setFont(new Font("Times", Font.BOLD, 30));
       lastLabel.setHorizontalAlignment(JLabel.RIGHT);
       lastLabel.setForeground(buttonColor);
-      constraints.gridx = 3;
+      constraints.gridx = 4;
       constraints.gridy = 2;
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
@@ -112,9 +109,9 @@ public class RegistrationPanel extends JPanel{
       lastField.setFont(new Font("Times", Font.PLAIN, 30));
       lastField.setHorizontalAlignment(JLabel.LEFT);
       lastField.setForeground(buttonColor);
-      constraints.gridx = 4;
+      constraints.gridx = 5;
       constraints.gridy = 2;
-      constraints.gridwidth = 1;
+      constraints.gridwidth = 2;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.HORIZONTAL;
           constraints.insets = new Insets(0,0,0,0);
@@ -144,7 +141,7 @@ public class RegistrationPanel extends JPanel{
       addressField.setForeground(buttonColor);
       constraints.gridx = 2;
       constraints.gridy = 3;
-      constraints.gridwidth = 3;
+      constraints.gridwidth = 5;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.HORIZONTAL;
           constraints.insets = new Insets(0,0,0,0);
@@ -183,6 +180,96 @@ public class RegistrationPanel extends JPanel{
       layout.setConstraints(cityField, constraints);
       add(cityField);
       
+      JLabel stateLabel = new JLabel("State");
+      stateLabel.setFont(new Font("Times", Font.BOLD, 30));
+      stateLabel.setHorizontalAlignment(JLabel.RIGHT);
+      stateLabel.setForeground(buttonColor);
+      constraints.gridx = 3;
+      constraints.gridy = 4;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.NONE;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(stateLabel, constraints);
+      add(stateLabel);
+      
+      stateField = new JTextField("");
+      stateField.setFont(new Font("Times", Font.PLAIN, 30));
+      stateField.setHorizontalAlignment(JLabel.LEFT);
+      stateField.setForeground(buttonColor);
+      constraints.gridx = 4;
+      constraints.gridy = 4;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.HORIZONTAL;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(stateField, constraints);
+      add(stateField);
+      
+      JLabel zipLabel = new JLabel("Zip");
+      zipLabel.setFont(new Font("Times", Font.BOLD, 30));
+      zipLabel.setHorizontalAlignment(JLabel.RIGHT);
+      zipLabel.setForeground(buttonColor);
+      constraints.gridx = 5;
+      constraints.gridy = 4;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.NONE;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(zipLabel, constraints);
+      add(zipLabel);
+      
+      zipField = new JTextField("");
+      zipField.setFont(new Font("Times", Font.PLAIN, 30));
+      zipField.setHorizontalAlignment(JLabel.LEFT);
+      zipField.setForeground(buttonColor);
+      constraints.gridx = 6;
+      constraints.gridy = 4;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.HORIZONTAL;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(zipField, constraints);
+      add(zipField);
+      
+      JLabel phoneLabel = new JLabel("Phone");
+      phoneLabel.setFont(new Font("Times", Font.BOLD, 30));
+      phoneLabel.setHorizontalAlignment(JLabel.RIGHT);
+      phoneLabel.setForeground(buttonColor);
+      constraints.gridx = 1;
+      constraints.gridy = 5;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.NONE;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(phoneLabel, constraints);
+      add(phoneLabel);
+      
+      lastField = new JTextField("");
+      lastField.setFont(new Font("Times", Font.PLAIN, 30));
+      lastField.setHorizontalAlignment(JLabel.LEFT);
+      lastField.setForeground(buttonColor);
+      constraints.gridx = 4;
+      constraints.gridy = 2;
+      constraints.gridwidth = 1;
+      constraints.gridheight = 1;
+      constraints.fill = GridBagConstraints.HORIZONTAL;
+          constraints.insets = new Insets(0,0,0,0);
+      constraints.weightx = 10;
+      constraints.weighty = 10;
+      layout.setConstraints(lastField, constraints);
+      add(lastField);
+      
       employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
       employeeLoginButton.addMouseListener(new MouseAdapter() {
         	@Override
@@ -193,7 +280,7 @@ public class RegistrationPanel extends JPanel{
       employeeLoginButton.setFont(new Font("Times",Font.PLAIN, 20));
       employeeLoginButton.setHorizontalAlignment(JButton.RIGHT);
       employeeLoginButton.setBackground(Color.WHITE);
-      constraints.gridx = 6;
+      constraints.gridx = 8;
       constraints.gridy = 5;
       constraints.gridwidth = 1;
       constraints.gridheight = 1;

@@ -27,7 +27,7 @@
    
    public Customer(String newFirstName, String newLastName){
       this.firstName = newFirstName;
-      this.lastName
+      this.lastName = newLastName;
    }
  
  }
