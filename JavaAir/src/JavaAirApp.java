@@ -14,6 +14,8 @@
  *
  * 2016-10-19  Erxleben, added actionListerns for menuBar and supporting handler methods
  *						handler methods only print out the name of the button pressed to the command screen
+ *
+ * 2016-10-22 Erxleben, added more action listeners
  */
 
 import java.awt.*;
@@ -35,6 +37,7 @@ public class JavaAirApp extends JFrame{
     private ActionListener helpListener;
     private ActionListener aboutListener;
     private ActionListener loginListener;
+    private ActionListener registerListener;
     
     //private Image background;
 
@@ -110,15 +113,56 @@ public class JavaAirApp extends JFrame{
             this.getContentPane().removeAll();
             aHomePanel = new HomePanel();
             this.getContentPane().add(aHomePanel);
+            aHomePanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHomeButtonPress();
+            }
+        });
+        
+        aHomePanel.getMenuBannerPanel().getReservationButton().addActionListener(reservationListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleReservationButtonPress();
+            }
+        });
+		
+        aHomePanel.getMenuBannerPanel().getAccountButton().addActionListener(accountListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleAccountButtonPress();
+            }
+        });
+        
+        aHomePanel.getMenuBannerPanel().getHelpButton().addActionListener(helpListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHelpButtonPress();
+            }
+        });
+        
+        aHomePanel.getMenuBannerPanel().getAboutButton().addActionListener(aboutListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleAboutButtonPress();
+            }
+        });
+        
+        aHomePanel.getMenuBannerPanel().getLoginButton().addActionListener(loginListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleLoginButtonPress();
+            }
+        });
             update();
     }
 	
     public void handleAccountButtonPress(){
             //System.out.println("Account");
-            this.getContentPane().removeAll();
+            /*this.getContentPane().removeAll();
             aRegistrationPanel = new RegistrationPanel();
             this.getContentPane().add(aRegistrationPanel);
-            update();
+            update();*/
     }
 	
     public void handleReservationButtonPress(){
@@ -138,7 +182,34 @@ public class JavaAirApp extends JFrame{
             this.getContentPane().removeAll();
             aLoginPanel = new LoginLandingPanel();
             this.getContentPane().add(aLoginPanel);
+            aLoginPanel.getRegisterButton().addActionListener(registerListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleRegisterButtonPress();
+                }
+            });
+            
+            aLoginPanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHomeButtonPress();
+            }
+        });
             update();
+    }
+    
+    public void handleRegisterButtonPress(){
+        this.getContentPane().removeAll();
+        aRegistrationPanel = new RegistrationPanel();
+        this.getContentPane().add(aRegistrationPanel);
+        
+        aRegistrationPanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHomeButtonPress();
+            }
+        });
+        update();
     }
 	
     public void update(){

@@ -26,6 +26,10 @@ public class LoginLandingPanel extends JPanel{
     private JButton registerButton;
     private JButton employeeLoginButton;
     
+    private ActionListener registerListener;
+    
+    private Image background;
+    
     public JTextField getEmailField(){return emailField;}
     public JTextField getPasswordField(){return passwordField;}
     
@@ -33,10 +37,16 @@ public class LoginLandingPanel extends JPanel{
     public JButton getRegisterButton(){return registerButton;}
     public JButton getEmployeeLoginButton(){return employeeLoginButton;}
     
+    public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
+    
     public LoginLandingPanel(){
         GridBagLayout layout = new GridBagLayout();
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(layout);
+        
+      //get image for panel background
+      background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+   
 
         //create "Coffee Brown" color for buttons and fonts.
         Color buttonColor = new Color(100,76,55);
@@ -197,5 +207,24 @@ public class LoginLandingPanel extends JPanel{
         constraints.weighty = 5;
         layout.setConstraints(employeeLoginButton, constraints);
         add(employeeLoginButton);
+        
+       /* registerButton.addActionListener(registerListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleRegisterButtonPress();
+            }
+        });
+        */
     }
+    public void paintComponent(Graphics g){
+      super.paintComponent(g);
+      g.drawImage(background,0,0,null);
+   }
+    /*public void handleRegisterButtonPress(){
+        this.getContentPane().removeAll();
+        aHomePanel = new HomePanel();
+            this.getContentPane().add(aHomePanel);
+            update();
+    
+    }*/
 }

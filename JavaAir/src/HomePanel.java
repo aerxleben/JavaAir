@@ -82,7 +82,7 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 2;
       constraints.gridheight = 2;
       constraints.fill = GridBagConstraints.BOTH;
-          //constraints.insets = new Insets(12, 12, 3, 3);
+          constraints.insets = new Insets(0, 150, 100, 0);
       constraints.weightx = 10;
       constraints.weighty = 10;
       layout.setConstraints(aFlightSearchPanel, constraints);
@@ -97,7 +97,7 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.BOTH;
-      constraints.insets = new Insets(0, 12, 0, 0);
+      constraints.insets = new Insets(0, 12, 0, 150);
       constraints.weightx = 5;
       constraints.weighty = 5;
       layout.setConstraints(flightStatusButton, constraints);
@@ -112,7 +112,7 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.BOTH;
-      constraints.insets = new Insets(0, 12, 0, 0);
+      constraints.insets = new Insets(0, 12, 100, 150);
       constraints.weightx = 5;
       constraints.weighty = 5;
       layout.setConstraints(checkInButton, constraints);
