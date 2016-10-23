@@ -248,7 +248,8 @@ public class Customer{
    }//end: loadCustomerInfo()
    
    private void saveToFile() throws Exception{
-       FileWriter fw = null;
+       //FileWriter fw = null;
+       BufferedWriter bw = null;
        
        if(this.customerInfoList == null){
            throw new Exception("Customer.saveToFile(): Null customerInfoList");
@@ -260,9 +261,17 @@ public class Customer{
        
        try{
            String fileName = this.customerInfoList.get(9) + ".txt";
-           fw = new FileWriter(fileName);
+           /*fw = new FileWriter(fileName);
            for(String value : this.customerInfoList){
-               fw.write(value + '\n');
+               fw.append(value);
+               fw.append('\n');
+           }*/
+           
+           FileOutputStream fos = new FileOutputStream(new File(fileName));
+           bw = new BufferedWriter(new OutputStreamWriter(fos));
+           for(String value : this.customerInfoList){
+               bw.write(value);
+               bw.newLine();
            }
        }
        catch(Exception x){
@@ -270,8 +279,8 @@ public class Customer{
            throw x;
        }
        finally{
-           if(fw != null){
-               fw.close();
+           if(bw != null){
+               bw.close();
            }
        }
    }//end: saveToFile()

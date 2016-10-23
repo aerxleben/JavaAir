@@ -18,7 +18,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Properties;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -470,11 +469,9 @@ public class RegistrationPanel extends JPanel{
                 //String date = birthdayPicker.getModel().getYear() + "-" + birthdayPicker.getModel().getMonth();
                 
                 //JOptionPane.showMessageDialog(null, birthdayPicker.getJFormattedTextField().getText(), "Test", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, genderBox.getSelectedItem().toString(), "Test", JOptionPane.INFORMATION_MESSAGE);
-                //validate user inputs
-                //...
-                //create new account
-                //...
+                //JOptionPane.showMessageDialog(null, genderBox.getSelectedItem().toString(), "Test", JOptionPane.INFORMATION_MESSAGE);
+                //validate user inputs && create new account
+                createNewAccount();
             }
         });
         submitButton.setFont(new Font("Times", Font.PLAIN, 30));
@@ -518,10 +515,12 @@ public class RegistrationPanel extends JPanel{
         int missing = 0;
         ArrayList<String> list = new ArrayList<String>();
         Color error = Color.RED;
+        Color normal = Color.WHITE;
         
         //check first name
         if(firstField.getText().length() > 0){
             list.add(firstField.getText());
+            firstField.setBackground(normal);
         }
         else{
             firstField.setBackground(error);
@@ -531,6 +530,7 @@ public class RegistrationPanel extends JPanel{
         //check last name
         if(lastField.getText().length() > 0){
             list.add(lastField.getText());
+            lastField.setBackground(normal);
         }
         else{
             lastField.setBackground(error);
@@ -555,6 +555,7 @@ public class RegistrationPanel extends JPanel{
         //check birthday
         if(yearDifference >= 18){
             list.add(birthdayPicker.getJFormattedTextField().getText());
+            birthdayPicker.setBackground(normal);
         }
         else{
             birthdayPicker.setBackground(error);
@@ -564,6 +565,7 @@ public class RegistrationPanel extends JPanel{
         //check gender
         if(genderBox.getSelectedItem().toString().length() > 0){
             list.add(genderBox.getSelectedItem().toString());
+            genderBox.setBackground(normal);
         }
         else{
             genderBox.setBackground(error);
@@ -573,6 +575,7 @@ public class RegistrationPanel extends JPanel{
         //check address
         if(addressField.getText().length() > 0){
             list.add(addressField.getText());
+            addressField.setBackground(normal);
         }
         else{
             addressField.setBackground(error);
@@ -582,6 +585,7 @@ public class RegistrationPanel extends JPanel{
         //check city
         if(cityField.getText().length() > 0){
             list.add(cityField.getText());
+            cityField.setBackground(normal);
         }
         else{
             cityField.setBackground(error);
@@ -589,8 +593,9 @@ public class RegistrationPanel extends JPanel{
         }
         
         //check state
-        if(stateField.getText().length() > 0){
+        if(stateField.getText().length() == 2){
             list.add(stateField.getText());
+            stateField.setBackground(normal);
         }
         else{
             stateField.setBackground(error);
@@ -600,6 +605,7 @@ public class RegistrationPanel extends JPanel{
         //check zip code
         if(zipField.getText().length() == 5){
             list.add(zipField.getText());
+            zipField.setBackground(normal);
         }
         else{
             zipField.setBackground(error);
@@ -609,6 +615,7 @@ public class RegistrationPanel extends JPanel{
         //check phone number
         if(phoneField.getText().length() == 10){
             list.add(phoneField.getText());
+            phoneField.setBackground(normal);
         }
         else{
             phoneField.setBackground(error);
@@ -619,6 +626,7 @@ public class RegistrationPanel extends JPanel{
         if(emailField.getText().length() > 0
                 && emailField.getText().contains("@")){
             list.add(emailField.getText());
+            emailField.setBackground(normal);
         }
         else{
             emailField.setBackground(error);
@@ -630,6 +638,8 @@ public class RegistrationPanel extends JPanel{
                 && cPasswordField.getText().length() > 0
                 && passwordField.getText().equals(cPasswordField.getText())){
             list.add(passwordField.getText());
+            passwordField.setBackground(normal);
+            cPasswordField.setBackground(normal);
         }
         else{
             passwordField.setBackground(error);
@@ -648,6 +658,11 @@ public class RegistrationPanel extends JPanel{
             try{
                 Customer newAcct = new Customer(list);
                 newAcct.saveCustomerInfo();
+                
+                JOptionPane.showMessageDialog(null
+                    , "New Account Creation Successful"
+                    , "Good News!"
+                    , JOptionPane.INFORMATION_MESSAGE);
             }
             catch(Exception x){
                 JOptionPane.showMessageDialog(null
