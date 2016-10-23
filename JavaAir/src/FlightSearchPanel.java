@@ -14,6 +14,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 import org.jdatepicker.impl.*;
@@ -150,6 +151,9 @@ public class FlightSearchPanel extends JPanel{
             add(departTextField);*/
             
             UtilDateModel model=new UtilDateModel();
+            Calendar now = Calendar.getInstance();
+            model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
+            model.setSelected(true);
             Properties p = new Properties();
             p.put("text.today", "Today");
             p.put("text.month", "Month");

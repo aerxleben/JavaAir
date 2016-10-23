@@ -207,13 +207,13 @@ public class Customer{
        }
    }
    
-   private void saveCustomerInfo() throws Exception{
+   public void saveCustomerInfo() throws Exception{
        if(this.customerInfoList == null){
            throw new NullPointerException("Customer.saveCustomerInfo(): Null customerInfoList");
        }
        
        //save to file for now, later save to DB
-       
+       saveToFile();
    }
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{
