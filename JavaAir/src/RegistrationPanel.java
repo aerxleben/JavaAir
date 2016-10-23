@@ -6,6 +6,9 @@
  *
  *	Created 10/19/16
  *
+ *      Update Log:
+ *      10/22/16- Erxleben,added gender, birthdate, address, city, state, zip
+ *              phone, email, password, and confrim password fields, submit button.
  */
 
 import javax.swing.*;

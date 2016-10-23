@@ -36,6 +36,7 @@ public class HomePanel extends JPanel{
 
    public HomePanel(){
        //this.setBackground(new Color(WHITE));
+       //this.setOpaque(false);
    
         GridBagLayout layout = new GridBagLayout();
         GridBagConstraints constraints = new GridBagConstraints();
@@ -43,8 +44,6 @@ public class HomePanel extends JPanel{
    
    	//get image for panel background
       background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
-   
-      this.setBackground(Color.WHITE);
    
    	//create "Coffee Brown" color for buttons and fonts.
       Color buttonColor = new Color(100,76,55);
@@ -83,7 +82,7 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 2;
       constraints.gridheight = 2;
       constraints.fill = GridBagConstraints.BOTH;
-          //constraints.insets = new Insets(12, 12, 3, 3);
+          constraints.insets = new Insets(0, 150, 100, 0);
       constraints.weightx = 10;
       constraints.weighty = 10;
       layout.setConstraints(aFlightSearchPanel, constraints);
@@ -98,7 +97,7 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.BOTH;
-      constraints.insets = new Insets(0, 12, 0, 0);
+      constraints.insets = new Insets(0, 12, 0, 150);
       constraints.weightx = 5;
       constraints.weighty = 5;
       layout.setConstraints(flightStatusButton, constraints);
@@ -113,13 +112,13 @@ public class HomePanel extends JPanel{
       constraints.gridwidth = 1;
       constraints.gridheight = 1;
       constraints.fill = GridBagConstraints.BOTH;
-      constraints.insets = new Insets(0, 12, 0, 0);
+      constraints.insets = new Insets(0, 12, 100, 150);
       constraints.weightx = 5;
       constraints.weighty = 5;
       layout.setConstraints(checkInButton, constraints);
       add(checkInButton);
    
-      employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
+/*      employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
       employeeLoginButton.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
@@ -139,7 +138,7 @@ public class HomePanel extends JPanel{
       constraints.weighty = 5;
       layout.setConstraints(employeeLoginButton, constraints);
       add(employeeLoginButton);
-   
+  */ 
    }
 
 	//method used to paint background with image
