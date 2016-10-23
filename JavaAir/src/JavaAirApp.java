@@ -84,7 +84,6 @@ public class JavaAirApp extends JFrame{
             }
         });
 		
-
         //Set frame to close when exit is clicked and default frame size
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1300, 800);

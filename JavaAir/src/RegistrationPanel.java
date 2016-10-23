@@ -11,159 +11,175 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Properties;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 
 public class RegistrationPanel extends JPanel{
 
-   private JTextField firstField;
-   private JTextField lastField;
-   private JTextField birthdayField;
-   private JComboBox genderBox;
-   private JTextField addressField;
-   private JTextField cityField;
-   private JTextField stateField;
-   private JTextField zipField;
-   private JTextField phoneField;
-   private JTextField emailField;
-   private JTextField passwordField;
-   private JTextField cPasswordField;  //Confirm Password Field
+    private JTextField firstField;
+    private JTextField lastField;
+    //private JTextField birthdayField;
+    private JDatePickerImpl birthdayPicker;
+    private JComboBox genderBox;
+    private JTextField addressField;
+    private JTextField cityField;
+    private JTextField stateField;
+    private JTextField zipField;
+    private JTextField phoneField;
+    private JTextField emailField;
+    private JTextField passwordField;
+    private JTextField cPasswordField;  //Confirm Password Field
 
-   private JButton submitButton;
+    private JButton submitButton;
+
+    //private JButton employeeLoginButton;
+
+    private MenuBannerPanel aMenuBannerPanel;
+
+    private Image background;
+
+    public JTextField getFirstField(){return firstField;}
+    public JTextField getLastField(){return lastField;}
+    //public JTextField getBirthdayField(){return birthdayField;}
+    public JDatePickerImpl getBirthdayPicker(){return birthdayPicker;}
+    public JComboBox getGenderBox(){return genderBox;}
+    public JTextField getAddressField(){return addressField;}
+    public JTextField getCityField(){return addressField;}
+    public JTextField getStateField(){return stateField;}
+    public JTextField getZipField(){return zipField;}
+    public JTextField getPhoneField(){return phoneField;}
+    public JTextField getEmailField(){return emailField;}
+    public JTextField getPasswordField(){return passwordField;}
+    public JTextField getCPasswordField(){return cPasswordField;}
+
+    public JButton getSubmitButton(){return submitButton;}
+  //  public JButton getEmployeeLoginButton(){return employeeLoginButton;}
+
+    public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
+
+    public RegistrationPanel(){
+       //this.setBackground(new Color(WHITE));
    
-   //private JButton employeeLoginButton;
-	
-   private MenuBannerPanel aMenuBannerPanel;
+        GridBagLayout layout = new GridBagLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+        setLayout(layout);
 
-   private Image background;
+        //create "Coffee Brown" color for buttons and fonts.
+        Color buttonColor = new Color(100,76,55);
 
-   public JTextField getFirstField(){return firstField;}
-   public JTextField getLastField(){return lastField;}
-   public JTextField getBirthdayField(){return birthdayField;}
-   public JComboBox getGenderBox(){return genderBox;}
-   public JTextField getAddressField(){return addressField;}
-   public JTextField getCityField(){return addressField;}
-   public JTextField getStateField(){return stateField;}
-   public JTextField getZipField(){return zipField;}
-   public JTextField getPhoneField(){return phoneField;}
-   public JTextField getEmailField(){return emailField;}
-   public JTextField getPasswordField(){return passwordField;}
-   public JTextField getCPasswordField(){return cPasswordField;}
-   
-   public JButton getSubmitButton(){return submitButton;}
- //  public JButton getEmployeeLoginButton(){return employeeLoginButton;}
+        aMenuBannerPanel = new MenuBannerPanel();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 9;
+        constraints.gridheight = 2;
+        constraints.fill = GridBagConstraints.BOTH;
+            //constraints.insets = new Insets(12,12,3,3);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(aMenuBannerPanel, constraints);
+        add(aMenuBannerPanel);
 
-   public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
+        JLabel firstLabel = new JLabel("First");
+        firstLabel.setFont(new Font("Times", Font.BOLD, 30));
+        firstLabel.setHorizontalAlignment(JLabel.RIGHT);
+        firstLabel.setForeground(buttonColor);
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.NONE;
+            constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(firstLabel, constraints);
+        add(firstLabel);
 
-   public RegistrationPanel(){
-   	//this.setBackground(new Color(WHITE));
-   
-      GridBagLayout layout = new GridBagLayout();
-      GridBagConstraints constraints = new GridBagConstraints();
-      setLayout(layout);
+        firstField = new JTextField("");
+        firstField.setFont(new Font("Times", Font.PLAIN, 30));
+        firstField.setHorizontalAlignment(JLabel.LEFT);
+        firstField.setForeground(buttonColor);
+        constraints.gridx = 2;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(firstField, constraints);
+        add(firstField);
+
+        JLabel lastLabel = new JLabel("Last");
+        lastLabel.setFont(new Font("Times", Font.BOLD, 30));
+        lastLabel.setHorizontalAlignment(JLabel.RIGHT);
+        lastLabel.setForeground(buttonColor);
+        constraints.gridx = 4;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.NONE;
+            constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(lastLabel, constraints);
+        add(lastLabel);
+
+        lastField = new JTextField("");
+        lastField.setFont(new Font("Times", Font.PLAIN, 30));
+        lastField.setHorizontalAlignment(JLabel.LEFT);
+        lastField.setForeground(buttonColor);
+        constraints.gridx = 5;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+            constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(lastField, constraints);
+        add(lastField);
+
+        JLabel bDayLabel = new JLabel("Birthday");
+        bDayLabel.setFont(new Font("Times", Font.BOLD, 30));
+        bDayLabel.setHorizontalAlignment(JLabel.RIGHT);
+        bDayLabel.setForeground(buttonColor);
+        constraints.gridx = 1;
+        constraints.gridy = 3;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.NONE;
+            constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(bDayLabel, constraints);
+        add(bDayLabel);
       
-      //create "Coffee Brown" color for buttons and fonts.
-      Color buttonColor = new Color(100,76,55);
-   
-      aMenuBannerPanel = new MenuBannerPanel();
-      constraints.gridx = 0;
-      constraints.gridy = 0;
-      constraints.gridwidth = 9;
-      constraints.gridheight = 2;
-      constraints.fill = GridBagConstraints.BOTH;
-          //constraints.insets = new Insets(12,12,3,3);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(aMenuBannerPanel, constraints);
-      add(aMenuBannerPanel);
-      
-      JLabel firstLabel = new JLabel("First");
-      firstLabel.setFont(new Font("Times", Font.BOLD, 30));
-      firstLabel.setHorizontalAlignment(JLabel.RIGHT);
-      firstLabel.setForeground(buttonColor);
-      constraints.gridx = 1;
-      constraints.gridy = 2;
-      constraints.gridwidth = 1;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.NONE;
-          constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(firstLabel, constraints);
-      add(firstLabel);
-      
-      firstField = new JTextField("");
-      firstField.setFont(new Font("Times", Font.PLAIN, 30));
-      firstField.setHorizontalAlignment(JLabel.LEFT);
-      firstField.setForeground(buttonColor);
-      constraints.gridx = 2;
-      constraints.gridy = 2;
-      constraints.gridwidth = 2;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.HORIZONTAL;
-      constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(firstField, constraints);
-      add(firstField);
-      
-      JLabel lastLabel = new JLabel("Last");
-      lastLabel.setFont(new Font("Times", Font.BOLD, 30));
-      lastLabel.setHorizontalAlignment(JLabel.RIGHT);
-      lastLabel.setForeground(buttonColor);
-      constraints.gridx = 4;
-      constraints.gridy = 2;
-      constraints.gridwidth = 1;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.NONE;
-          constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(lastLabel, constraints);
-      add(lastLabel);
-      
-      lastField = new JTextField("");
-      lastField.setFont(new Font("Times", Font.PLAIN, 30));
-      lastField.setHorizontalAlignment(JLabel.LEFT);
-      lastField.setForeground(buttonColor);
-      constraints.gridx = 5;
-      constraints.gridy = 2;
-      constraints.gridwidth = 2;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(lastField, constraints);
-      add(lastField);
-      
-      JLabel bDayLabel = new JLabel("Birthday");
-      bDayLabel.setFont(new Font("Times", Font.BOLD, 30));
-      bDayLabel.setHorizontalAlignment(JLabel.RIGHT);
-      bDayLabel.setForeground(buttonColor);
-      constraints.gridx = 1;
-      constraints.gridy = 3;
-      constraints.gridwidth = 1;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.NONE;
-          constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(bDayLabel, constraints);
-      add(bDayLabel);
-      
-      birthdayField = new JTextField("");
-      birthdayField.setFont(new Font("Times", Font.PLAIN, 30));
-      birthdayField.setHorizontalAlignment(JLabel.LEFT);
-      birthdayField.setForeground(buttonColor);
-      constraints.gridx = 2;
-      constraints.gridy = 3;
-      constraints.gridwidth = 2;
-      constraints.gridheight = 1;
-      constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,0,0,0);
-      constraints.weightx = 10;
-      constraints.weighty = 10;
-      layout.setConstraints(birthdayField, constraints);
-      add(birthdayField);
+        //birthdayField = new JTextField("");
+        //birthdayField.setFont(new Font("Times", Font.PLAIN, 30));
+        //birthdayField.setHorizontalAlignment(JLabel.LEFT);
+        //birthdayField.setForeground(buttonColor);
+        UtilDateModel model=new UtilDateModel();
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+        birthdayPicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
+        birthdayPicker.setFont(new Font("Times", Font.PLAIN, 30));
+        constraints.gridx = 2;
+        constraints.gridy = 3;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(0,0,0,0);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        //layout.setConstraints(birthdayField, constraints);
+        //add(birthdayField);
+        layout.setConstraints(birthdayPicker, constraints);
+        add(birthdayPicker);
       
       JLabel genderLabel = new JLabel("Gender");
       genderLabel.setFont(new Font("Times", Font.BOLD, 30));
@@ -180,7 +196,8 @@ public class RegistrationPanel extends JPanel{
       layout.setConstraints(genderLabel, constraints);
       add(genderLabel);
       
-      genderBox = new JComboBox();
+      genderBox = new JComboBox(Tools.getGenderList());
+      genderBox.setSelectedIndex(0);
       genderBox.setFont(new Font("Times", Font.PLAIN, 30));
      // genderBox.setHorizontalAlignment(JLabel.LEFT);
       genderBox.setForeground(buttonColor);
@@ -436,6 +453,15 @@ public class RegistrationPanel extends JPanel{
       add(cPasswordField);
           
       submitButton = new JButton("Submit");
+      submitButton.addActionListener(new ActionListener(){
+          @Override
+          public void actionPerformed(ActionEvent arg0){
+              //validate user inputs
+              //...
+              //create new account
+              //...
+          }
+      });
       submitButton.setFont(new Font("Times", Font.PLAIN, 30));
       submitButton.setHorizontalAlignment(JLabel.LEFT);
       submitButton.setForeground(buttonColor);
@@ -463,13 +489,23 @@ public class RegistrationPanel extends JPanel{
       constraints.weighty = 10;
       layout.setConstraints(label, constraints);
       add(label);
-   
-   	//get image for panel background
+      
+      
+      
+      //get image for panel background
       background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
-   }
+    }
    
     public void paintComponent(Graphics g){
-      super.paintComponent(g);
-      g.drawImage(background,0,0,null);
-   }
+        super.paintComponent(g);
+        g.drawImage(background,0,0,null);
+    }
+    
+    private void validateUserInputs(){
+        
+    }//end: validateUserInputs()
+    
+    private void createNewAccount(){
+        
+    }//end: createNewAccount()
 }

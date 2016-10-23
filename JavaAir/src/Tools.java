@@ -23,4 +23,9 @@ public class Tools {
         String[] list = {"1", "2", "3", "4", "5"};
         return list;
     }
+    
+    public static String[] getGenderList(){
+        String[] list = {"Female", "Male"};
+        return list;
+    }
 }
