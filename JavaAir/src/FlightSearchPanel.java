@@ -14,6 +14,9 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
+import java.util.Properties;
+import org.jdatepicker.impl.*;
 
 public class FlightSearchPanel extends JPanel{
 
@@ -23,6 +26,8 @@ public class FlightSearchPanel extends JPanel{
 	private JTextField departTextField;
 	private JTextField returnTextField;
 	private JButton searchButton;
+        private JDatePickerImpl departDatePicker;
+        private JDatePickerImpl returnDatePicker;
 
 	public JComboBox getOriginComboBox(){return originComboBox;}
 	public JComboBox getDestinationComboBox(){return destinationComboBox;}
@@ -131,7 +136,7 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(departLabel, constraints);
             add(departLabel);
 
-            departTextField = new JTextField();
+            /*departTextField = new JTextField();
             departTextField.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 1;
             constraints.gridy = 2;
@@ -142,7 +147,26 @@ public class FlightSearchPanel extends JPanel{
             constraints.weightx = 10;
             constraints.weighty = 10;
             layout.setConstraints(departTextField, constraints);
-            add(departTextField);
+            add(departTextField);*/
+            
+            UtilDateModel model=new UtilDateModel();
+            Properties p = new Properties();
+            p.put("text.today", "Today");
+            p.put("text.month", "Month");
+            p.put("text.year", "Year");
+            JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+            departDatePicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
+            departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
+            constraints.gridx = 1;
+            constraints.gridy = 2;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.BOTH;
+            constraints.insets = new Insets(0, 0, 0, 0);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(departDatePicker, constraints);
+            add(departDatePicker);
 
             JLabel returnLabel = new JLabel("Return");
             returnLabel.setFont(new Font("Times", Font.PLAIN, 40));
@@ -159,8 +183,10 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(returnLabel, constraints);
             add(returnLabel);
 
-            returnTextField = new JTextField();
-            returnTextField.setFont(new Font("Times",Font.PLAIN, 30));
+            //returnTextField = new JTextField();
+            //returnTextField.setFont(new Font("Times",Font.PLAIN, 30));
+            returnDatePicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
+            returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
             constraints.gridx = 3;
             constraints.gridy = 2;
             constraints.gridwidth = 1;
@@ -169,8 +195,10 @@ public class FlightSearchPanel extends JPanel{
             constraints.insets = new Insets(12, 12, 3, 3);
             constraints.weightx = 10;
             constraints.weighty = 10;
-            layout.setConstraints(returnTextField, constraints);
-            add(returnTextField);
+            //layout.setConstraints(returnTextField, constraints);
+            layout.setConstraints(returnDatePicker, constraints);
+            //add(returnTextField);
+            add(returnDatePicker);
 
             JLabel numPassengersLabel = new JLabel("Number of Passengers");
             numPassengersLabel.setFont(new Font("Times", Font.PLAIN, 40));
@@ -217,56 +245,3 @@ public class FlightSearchPanel extends JPanel{
             add(searchButton);
 	}//end constructor
 }//end class
-
-//ComboBoxRenderer Class
-class ComboBoxRenderer extends JLabel
-                       implements ListCellRenderer{
-    private Font uhOhFont;
-    
-    public ComboBoxRenderer(){
-        setOpaque(true);
-        setHorizontalAlignment(CENTER);
-        setVerticalAlignment(CENTER);
-    }
-    
-    /*
-    * This method finds the image and text corresponding
-    * to the selected value and returns the label, set up
-    * to display the text and image.
-    */
-    public Component getListCellRendererComponent(
-                                       JList list,
-                                       Object value,
-                                       int index,
-                                       boolean isSelected,
-                                       boolean cellHasFocus) {
-        //Get the selected index. (The index param isn't
-        //always valid, so just use the value.)
-        int selectedIndex = index;
-        
-        if (isSelected) {
-            setBackground(list.getSelectionBackground());
-            setForeground(list.getSelectionForeground());
-        } else {
-            setBackground(list.getBackground());
-            setForeground(list.getForeground());
-        }
- 
-        //Set the icon and text.  If icon was null, say so.
-        String airport = Tools.getAirportList()[selectedIndex];
-        setText(airport);
-        setFont(list.getFont());
-
-        return this;
-    }
- 
-    //Set the font and text when no image was found.
-    protected void setUhOhText(String uhOhText, Font normalFont) {
-        if (uhOhFont == null) { //lazily create this font
-            uhOhFont = normalFont.deriveFont(Font.ITALIC);
-        }
-        setFont(uhOhFont);
-        setText(uhOhText);
-    }
-
-}//end class: ComboBoxRenderer
