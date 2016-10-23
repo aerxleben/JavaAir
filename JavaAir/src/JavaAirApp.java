@@ -20,12 +20,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+
 public class JavaAirApp extends JFrame{
     private static boolean loggedIn = false;
     
+    private MenuBannerPanel aMenuBannerPanel;
     private HomePanel aHomePanel;
     private RegistrationPanel aRegistrationPanel;
-    //private LoginLandingPanel aLoginPanel;
+    private LoginLandingPanel aLoginPanel;
 
     private ActionListener homeListener;
     private ActionListener accountListener;
@@ -33,16 +35,29 @@ public class JavaAirApp extends JFrame{
     private ActionListener helpListener;
     private ActionListener aboutListener;
     private ActionListener loginListener;
+    
+    //private Image background;
 
     public JavaAirApp(){
         this.setTitle("Welcome to Java Air!");
-		
+	
         /********************* The View ***********************************/
+     /*  background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        
+       BorderLayout layout = new BorderLayout(150,0);
+       setLayout(layout);
+       
+       aMenuBannerPanel = new MenuBannerPanel();
+       add(aMenuBannerPanel, BorderLayout.NORTH);
+       
+       add(new JLabel(), BorderLayout.LINE_START);
+       */
         aHomePanel = new HomePanel();
         add(aHomePanel);
+        //add(aHomePanel, BorderLayout.CENTER);
 
         /********************************** Action Listeners **************/
-        aHomePanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+       aHomePanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	handleHomeButtonPress();
@@ -87,7 +102,8 @@ public class JavaAirApp extends JFrame{
 
         //Set frame to close when exit is clicked and default frame size
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(1300, 800);
+        setSize(1920, 1080);
+        update();
     }
 	
     public void handleHomeButtonPress(){
@@ -119,11 +135,11 @@ public class JavaAirApp extends JFrame{
     }
 	
     public void handleLoginButtonPress(){
-            //System.out.println("Login");
-            /*this.getContentPane().removeAll();
+            System.out.println("Login");
+            this.getContentPane().removeAll();
             aLoginPanel = new LoginLandingPanel();
             this.getContentPane().add(aLoginPanel);
-            update();*/
+            update();
     }
 	
     public void update(){
@@ -135,6 +151,12 @@ public class JavaAirApp extends JFrame{
     public void setLoggedInStatus(boolean newStatus){
         loggedIn = newStatus;
     }
+    
+   //method used to paint background with image
+   /*public void paintComponent(Graphics g){
+     // super.paintComponent(g);
+     g.drawImage(background,0,0,null);
+   }*/
 	
 	//main method
     public static void main(String args[]){
