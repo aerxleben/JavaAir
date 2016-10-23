@@ -30,6 +30,7 @@ public class JavaAirApp extends JFrame{
     private HomePanel aHomePanel;
     private RegistrationPanel aRegistrationPanel;
     private LoginLandingPanel aLoginPanel;
+    private AccountConfirmationPanel anAccountConfirmationPanel;
 
     private ActionListener homeListener;
     private ActionListener accountListener;
@@ -38,6 +39,7 @@ public class JavaAirApp extends JFrame{
     private ActionListener aboutListener;
     private ActionListener loginListener;
     private ActionListener registerListener;
+    private ActionListener submitListener;
     
     //private Image background;
 
@@ -204,6 +206,29 @@ public class JavaAirApp extends JFrame{
         this.getContentPane().add(aRegistrationPanel);
         
         aRegistrationPanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHomeButtonPress();
+            }
+        });
+        
+        aRegistrationPanel.getSubmitButton().addActionListener(submitListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleSubmitButtonPress();
+            }
+        });
+        
+        update();
+    }
+    
+    public void handleSubmitButtonPress(){
+        System.out.println("Submit Registration");
+        this.getContentPane().removeAll();
+        anAccountConfirmationPanel = new AccountConfirmationPanel();
+        this.getContentPane().add(anAccountConfirmationPanel);
+        
+        anAccountConfirmationPanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	handleHomeButtonPress();
