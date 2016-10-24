@@ -10,6 +10,7 @@
  *
  *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded JLabels
  *
+ *      Updated 10/23/16, Erxleben, changed position settings of date pickers
  */
 
 import javax.swing.*;
@@ -165,8 +166,8 @@ public class FlightSearchPanel extends JPanel{
             constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
-            constraints.fill = GridBagConstraints.BOTH;
-            constraints.insets = new Insets(0, 0, 0, 0);
+            constraints.fill = GridBagConstraints.HORIZONTAL;
+            constraints.insets = new Insets(15, 10, 0, 0);
             constraints.weightx = 10;
             constraints.weighty = 10;
             layout.setConstraints(departDatePicker, constraints);
@@ -195,8 +196,8 @@ public class FlightSearchPanel extends JPanel{
             constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
-            constraints.fill = GridBagConstraints.BOTH;
-            constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.fill = GridBagConstraints.HORIZONTAL;
+            constraints.insets = new Insets(15, 10, 0, 0);
             constraints.weightx = 10;
             constraints.weighty = 10;
             //layout.setConstraints(returnTextField, constraints);

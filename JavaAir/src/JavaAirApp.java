@@ -31,6 +31,7 @@ public class JavaAirApp extends JFrame{
     private RegistrationPanel aRegistrationPanel;
     private LoginLandingPanel aLoginPanel;
     private AccountConfirmationPanel anAccountConfirmationPanel;
+    private FlightResultsPanel aResultsPanel;
 
     private ActionListener homeListener;
     private ActionListener accountListener;
@@ -40,6 +41,7 @@ public class JavaAirApp extends JFrame{
     private ActionListener loginListener;
     private ActionListener registerListener;
     private ActionListener submitListener;
+    private ActionListener searchListener;
     
     //private Image background;
 
@@ -103,7 +105,14 @@ public class JavaAirApp extends JFrame{
             	handleLoginButtonPress();
             }
         });
-		
+	
+        aHomePanel.getFlightSearchPanel().getSearchButton().addActionListener(searchListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleSearchButtonPress();
+            }
+        });
+        
         //Set frame to close when exit is clicked and default frame size
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1920, 1080);
@@ -156,7 +165,15 @@ public class JavaAirApp extends JFrame{
             	handleLoginButtonPress();
             }
         });
-            update();
+        
+        aHomePanel.getFlightSearchPanel().getSearchButton().addActionListener(searchListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleSearchButtonPress();
+            }
+        });
+        
+        update();
     }
 	
     public void handleAccountButtonPress(){
@@ -197,6 +214,30 @@ public class JavaAirApp extends JFrame{
             	handleHomeButtonPress();
             }
         });
+        
+        update();
+    }
+    
+      public void handleSearchButtonPress(){
+            System.out.println("Login");
+            this.getContentPane().removeAll();
+            aResultsPanel = new FlightResultsPanel();
+            this.getContentPane().add(aResultsPanel);
+                        
+            aResultsPanel.getMenuBannerPanel().getHomeButton().addActionListener(homeListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleHomeButtonPress();
+                }
+            });
+            
+            aResultsPanel.getMenuBannerPanel().getLoginButton().addActionListener(loginListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	handleLoginButtonPress();
+                }
+            });
+            
             update();
     }
     
