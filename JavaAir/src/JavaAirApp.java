@@ -27,8 +27,12 @@ public class JavaAirApp implements ActionListener{
         panelMenu.getReservationButton().addActionListener(this);
         panelMenu.getAccountButton().addActionListener(this);
         panelMenu.getHelpButton().addActionListener(this);
-        panelMenu.getAboutButton().addActionListener(this);
+        //panelMenu.getAboutButton().addActionListener(this);
         panelMenu.getLoginButton().addActionListener(this);
+        
+        panelMenu.getAboutButton().addActionListener(
+                new PanelAboutAction()
+        );
         
         //Home Panel
         HomePanel panelHome = new HomePanel();
@@ -96,6 +100,18 @@ public class JavaAirApp implements ActionListener{
         newButton.setForeground(new Color(255,204,0));
         return newButton;
     }
+    
+    public class PanelAboutAction extends AbstractAction{
+        public PanelAboutAction(){
+            
+        }
+        @Override
+        public void actionPerformed(ActionEvent e){
+            AboutPanel panelAbout = new AboutPanel();
+            panelAbout.setVisible(true);
+        }
+    }
+    
     
     public static void main(String[] args){
         javax.swing.SwingUtilities.invokeLater(new Runnable(){

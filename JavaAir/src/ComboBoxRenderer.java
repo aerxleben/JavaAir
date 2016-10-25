@@ -52,7 +52,7 @@ public class ComboBoxRenderer extends JLabel
         }
  
         //Set the icon and text.  If icon was null, say so.
-        String airport = Tools.getAirportList()[selectedIndex];
+        String airport = Global.airportList[selectedIndex];
         setText(airport);
         setFont(list.getFont());
 
