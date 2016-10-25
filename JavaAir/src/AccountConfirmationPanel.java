@@ -25,6 +25,8 @@ public class AccountConfirmationPanel extends JPanel{
     public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
     
     public JLabel getEmailLabel(){return emailLabel;}
+    
+    private String defaultMessage = "Your Java Air Account Username is: ";
 
     public AccountConfirmationPanel(){
         GridBagLayout layout = new GridBagLayout();
@@ -39,7 +41,7 @@ public class AccountConfirmationPanel extends JPanel{
         Color buttonColor = new Color(100,76,55);
         Color backgroundColor = new Color(255,255,255,150);
 
-        aMenuBannerPanel = new MenuBannerPanel();
+        /*aMenuBannerPanel = new MenuBannerPanel();
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 9;
@@ -49,10 +51,10 @@ public class AccountConfirmationPanel extends JPanel{
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);
+        add(aMenuBannerPanel);*/
         
         JLabel congratulationsLabel = new JLabel("Congratulations!");
-        congratulationsLabel.setFont(new Font("Times", Font.BOLD, 72));
+        congratulationsLabel.setFont(new Font("Times", Font.BOLD, 36));
         congratulationsLabel.setHorizontalAlignment(JLabel.LEFT);
         congratulationsLabel.setForeground(buttonColor);
         //congratulationsLabel.setOpaque(true);
@@ -68,8 +70,9 @@ public class AccountConfirmationPanel extends JPanel{
         layout.setConstraints(congratulationsLabel, constraints);
         add(congratulationsLabel);
         
-        emailLabel = new JLabel("Your Java Air username is: useremail@email.com");
-        emailLabel.setFont(new Font("Times", Font.BOLD, 30));
+        emailLabel = new JLabel("Your Java Air Account Username is: ");
+        //emailLabel.setFont(new Font("Times", Font.BOLD, 30));
+        emailLabel.setFont(Global.titleFont);
         emailLabel.setHorizontalAlignment(JLabel.CENTER);
         emailLabel.setForeground(buttonColor);
         //emailLabel.setOpaque(true);
@@ -86,7 +89,8 @@ public class AccountConfirmationPanel extends JPanel{
         add(emailLabel);
         
         JLabel passwordLabel = new JLabel("You're ready to start earning miles!");
-        passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
+        //passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
+        passwordLabel.setFont(Global.titleFont);
         passwordLabel.setHorizontalAlignment(JLabel.CENTER);
         //passwordLabel.setOpaque(true);
         passwordLabel.setForeground(buttonColor);
@@ -102,8 +106,9 @@ public class AccountConfirmationPanel extends JPanel{
         layout.setConstraints(passwordLabel, constraints);
         add(passwordLabel);
         
-        accountButton = new JButton("GO TO ACCOUNT");
-        accountButton.setFont(new Font("Times", Font.BOLD, 30));
+        /*accountButton = new JButton("GO TO ACCOUNT");
+        //accountButton.setFont(new Font("Times", Font.BOLD, 30));
+        accountButton.setFont(Global.titleFont);
         accountButton.setHorizontalAlignment(JButton.CENTER);
         accountButton.setBackground(buttonColor);
         accountButton.setForeground(Color.WHITE);
@@ -116,9 +121,16 @@ public class AccountConfirmationPanel extends JPanel{
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(accountButton, constraints);
-        add(accountButton);
+        add(accountButton);*/
         
     }
+    
+    public void setEmailLabelText(String newEmail){
+        if(this.emailLabel != null){
+            this.emailLabel.setText(defaultMessage + newEmail);
+        }
+    }
+    
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.drawImage(background,0,0,null);

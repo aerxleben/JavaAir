@@ -43,7 +43,7 @@ public class LoginLandingPanel extends JPanel{
         GridBagLayout layout = new GridBagLayout();
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(layout);
-        
+        this.setSize(750, 300);
       //get image for panel background
       background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
    
@@ -51,7 +51,7 @@ public class LoginLandingPanel extends JPanel{
         //create "Coffee Brown" color for buttons and fonts.
         Color buttonColor = new Color(100,76,55);
 
-        aMenuBannerPanel = new MenuBannerPanel();
+        /*aMenuBannerPanel = new MenuBannerPanel();
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 9;
@@ -61,11 +61,12 @@ public class LoginLandingPanel extends JPanel{
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);
-        
-        JLabel loginLabel = new JLabel("Login:");
-        loginLabel.setFont(new Font("Times", Font.BOLD, 50));
+        add(aMenuBannerPanel);*/
+       
+        JLabel loginLabel = new JLabel("Already Have An Account?");
+        loginLabel.setFont(new Font("Times", Font.BOLD, 36));
         loginLabel.setHorizontalAlignment(JLabel.RIGHT);
+        loginLabel.setHorizontalTextPosition(JLabel.CENTER);
         loginLabel.setForeground(buttonColor);
         constraints.gridx = 1;
         constraints.gridy = 2;
@@ -79,7 +80,8 @@ public class LoginLandingPanel extends JPanel{
         add(loginLabel);
         
         JLabel emailLabel = new JLabel("Email");
-        emailLabel.setFont(new Font("Times", Font.BOLD, 30));
+        //emailLabel.setFont(new Font("Times", Font.BOLD, 30));
+        emailLabel.setFont(Global.titleFont);
         emailLabel.setHorizontalAlignment(JLabel.RIGHT);
         emailLabel.setForeground(buttonColor);
         constraints.gridx = 1;
@@ -94,7 +96,8 @@ public class LoginLandingPanel extends JPanel{
         add(emailLabel);
       
         emailField = new JTextField("");
-        emailField.setFont(new Font("Times", Font.PLAIN, 30));
+        //emailField.setFont(new Font("Times", Font.PLAIN, 30));
+        emailField.setFont(Global.titleFont);
         emailField.setHorizontalAlignment(JTextField.LEFT);
         //emailField.setForeground(buttonColor);
         constraints.gridx = 2;
@@ -109,7 +112,8 @@ public class LoginLandingPanel extends JPanel{
         add(emailField);
         
         JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
+        //passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
+        passwordLabel.setFont(Global.titleFont);
         passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
         passwordLabel.setForeground(buttonColor);
         constraints.gridx = 1;
@@ -124,7 +128,8 @@ public class LoginLandingPanel extends JPanel{
         add(passwordLabel);
       
         passwordField = new JTextField("");
-        passwordField.setFont(new Font("Times", Font.PLAIN, 30));
+        //passwordField.setFont(new Font("Times", Font.PLAIN, 30));
+        passwordField.setFont(Global.titleFont);
         passwordField.setHorizontalAlignment(JTextField.LEFT);
         //passwordField.setForeground(buttonColor);
         constraints.gridx = 2;
@@ -138,8 +143,9 @@ public class LoginLandingPanel extends JPanel{
         layout.setConstraints(passwordField, constraints);
         add(passwordField);
         
-        loginButton = new JButton("LOGIN");
-        loginButton.setFont(new Font("Times", Font.BOLD, 30));
+        loginButton = new JButton("Login");
+        //loginButton.setFont(new Font("Times", Font.BOLD, 30));
+        loginButton.setFont(Global.titleFont);
         loginButton.setHorizontalAlignment(JButton.CENTER);
         loginButton.setBackground(buttonColor);
         loginButton.setForeground(Color.WHITE);
@@ -155,7 +161,8 @@ public class LoginLandingPanel extends JPanel{
         add(loginButton);
         
         JLabel newLabel = new JLabel("New Customer?");
-        newLabel.setFont(new Font("Times", Font.BOLD, 40));
+        //newLabel.setFont(new Font("Times", Font.BOLD, 40));
+        newLabel.setFont(Global.titleFont);
         newLabel.setHorizontalAlignment(JLabel.CENTER);
         newLabel.setVerticalAlignment(JLabel.BOTTOM);
         newLabel.setForeground(buttonColor);
@@ -170,8 +177,9 @@ public class LoginLandingPanel extends JPanel{
         layout.setConstraints(newLabel, constraints);
         add(newLabel);
       
-        registerButton = new JButton("REGISTER");
-        registerButton.setFont(new Font("Times", Font.PLAIN, 30));
+        registerButton = new JButton("Register");
+        //registerButton.setFont(new Font("Times", Font.PLAIN, 30));
+        registerButton.setFont(Global.titleFont);
         registerButton.setHorizontalAlignment(JButton.CENTER);
         registerButton.setBackground(buttonColor);
         registerButton.setForeground(Color.WHITE);
@@ -186,19 +194,20 @@ public class LoginLandingPanel extends JPanel{
         layout.setConstraints(registerButton, constraints);
         add(registerButton);
         
-        employeeLoginButton = new JButton("<html>" + "EMPLOYEE" + "<br>" + "LOGIN" + "</html>");
+        employeeLoginButton = new JButton("<html>" + "Employee" + "<br>" + "Login" + "</html>");
         employeeLoginButton.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		new EmployeeLoginFrame().setVisible(true);
         	}
         });
-        employeeLoginButton.setFont(new Font("Times",Font.PLAIN, 30));
+        //employeeLoginButton.setFont(new Font("Times",Font.PLAIN, 30));
+        employeeLoginButton.setFont(Global.titleFont);
         employeeLoginButton.setHorizontalAlignment(JButton.CENTER);
         employeeLoginButton.setBackground(buttonColor);
         employeeLoginButton.setForeground(Color.WHITE);
         constraints.gridx = 4;
-        constraints.gridy = 4;
+        constraints.gridy = 5;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;

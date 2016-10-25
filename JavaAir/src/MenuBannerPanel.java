@@ -43,7 +43,7 @@ public class MenuBannerPanel extends JPanel{
             Color buttonColor = new Color(100,76,55);
 
             JLabel javaAirLabel = new JLabel("Java Air");
-            javaAirLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 96));
+            javaAirLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 36));
             javaAirLabel.setIcon(new ImageIcon("plane.jpg"));
             javaAirLabel.setHorizontalAlignment(JLabel.LEFT);
             javaAirLabel.setForeground(buttonColor);
@@ -60,8 +60,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(javaAirLabel, constraints);
             add(javaAirLabel);
 
-            loginButton = new JButton("LOGIN");
-            loginButton.setFont(new Font("Times",Font.PLAIN, 30));
+            loginButton = new JButton(Global.textLogin);
+            //loginButton.setFont(new Font("Times",Font.PLAIN, 30));
+            loginButton.setFont(Global.titleFont);
             loginButton.setBackground(buttonColor);
             loginButton.setForeground(Color.WHITE);
             constraints.gridx = 6;
@@ -75,8 +76,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(loginButton, constraints);
             add(loginButton);
 
-            homeButton = new JButton("HOME");
-            homeButton.setFont(new Font("Times",Font.PLAIN, 30));
+            homeButton = new JButton(Global.textHome);
+            //homeButton.setFont(new Font("Times",Font.PLAIN, 30));
+            homeButton.setFont(Global.titleFont);
             homeButton.setBackground(buttonColor);
             homeButton.setForeground(Color.WHITE);
             constraints.gridx = 0;
@@ -90,8 +92,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(homeButton, constraints);
             add(homeButton);
 
-            reservationButton = new JButton("RESERVATIONS");
-            reservationButton.setFont(new Font("Times",Font.PLAIN, 30));
+            reservationButton = new JButton(Global.textFlights);
+            //reservationButton.setFont(new Font("Times",Font.PLAIN, 30));
+            reservationButton.setFont(Global.titleFont);
             reservationButton.setBackground(buttonColor);
             reservationButton.setForeground(Color.WHITE);
             constraints.gridx = 1;
@@ -105,8 +108,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(reservationButton, constraints);
             add(reservationButton);
 
-            accountButton = new JButton("ACCOUNT");
-            accountButton.setFont(new Font("Times",Font.PLAIN, 30));
+            accountButton = new JButton(Global.textAcct);
+            //accountButton.setFont(new Font("Times",Font.PLAIN, 30));
+            accountButton.setFont(Global.titleFont);
             accountButton.setBackground(buttonColor);
             accountButton.setForeground(Color.WHITE);
             constraints.gridx = 2;
@@ -120,8 +124,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(accountButton, constraints);
             add(accountButton);
 
-            helpButton = new JButton("HELP");
-            helpButton.setFont(new Font("Times",Font.PLAIN, 30));
+            helpButton = new JButton(Global.textHelp);
+            //helpButton.setFont(new Font("Times",Font.PLAIN, 30));
+            helpButton.setFont(Global.titleFont);
             helpButton.setBackground(buttonColor);
             helpButton.setForeground(Color.WHITE);
             constraints.gridx = 3;
@@ -135,8 +140,9 @@ public class MenuBannerPanel extends JPanel{
             layout.setConstraints(helpButton, constraints);
             add(helpButton);
 
-            aboutButton = new JButton("ABOUT");
-            aboutButton.setFont(new Font("Times",Font.PLAIN, 30));
+            aboutButton = new JButton(Global.textAbout);
+            //aboutButton.setFont(new Font("Times",Font.PLAIN, 30));
+            aboutButton.setFont(Global.titleFont);
             aboutButton.setBackground(buttonColor);
             aboutButton.setForeground(Color.WHITE);
             constraints.gridx = 4;
@@ -152,7 +158,8 @@ public class MenuBannerPanel extends JPanel{
 
             //Create Annonymous Button that has no function to create uniform bar of buttons
             JButton annonymousButton = new JButton("");
-            annonymousButton.setFont(new Font("Times",Font.PLAIN, 30));
+            //annonymousButton.setFont(new Font("Times",Font.PLAIN, 30));
+            annonymousButton.setFont(Global.titleFont);
             annonymousButton.setBackground(buttonColor);
             constraints.gridx = 5;
             constraints.gridy = 2;

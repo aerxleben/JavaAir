@@ -13,8 +13,6 @@
  *      Updated 10/23/16, Erxleben, changed position settings of date pickers
  */
 
-
-//Testing Git Hub!
 import javax.swing.*;
 import java.awt.*;
 import java.util.Calendar;
@@ -82,7 +80,7 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(originLabel, constraints);
             add(originLabel);
 
-            originComboBox = new JComboBox(Tools.getAirportList());
+            originComboBox = new JComboBox(Global.airportList);
             originComboBox.setSelectedIndex(0);
             // homeButton.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 1;
@@ -111,7 +109,7 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(destinationLabel, constraints);
             add(destinationLabel);
 
-            destinationComboBox = new JComboBox(Tools.getAirportList());
+            destinationComboBox = new JComboBox(Global.airportList);
             destinationComboBox.setSelectedIndex(1);
             //homeButton.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;
@@ -222,7 +220,7 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(numPassengersLabel, constraints);
             add(numPassengersLabel);
 
-            numPassengersComboBox = new JComboBox(Tools.getNumberList());
+            numPassengersComboBox = new JComboBox(Global.numberList);
             numPassengersComboBox.setSelectedIndex(0);
             //numPassengersComboBox.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;

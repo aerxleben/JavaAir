@@ -48,7 +48,7 @@ public class HomePanel extends JPanel{
    	//create "Coffee Brown" color for buttons and fonts.
       Color buttonColor = new Color(100,76,55);
    
-      aMenuBannerPanel = new MenuBannerPanel();
+      /*aMenuBannerPanel = new MenuBannerPanel();
       constraints.gridx = 0;
       constraints.gridy = 0;
       constraints.gridwidth = 7;
@@ -58,7 +58,7 @@ public class HomePanel extends JPanel{
       constraints.weightx = 10;
       constraints.weighty = 10;
       layout.setConstraints(aMenuBannerPanel, constraints);
-      add(aMenuBannerPanel);
+      add(aMenuBannerPanel);*/
         
       JLabel welcomeLabel = new JLabel("Welcome");
       welcomeLabel.setFont(new Font("Serif", Font.ITALIC, 48));

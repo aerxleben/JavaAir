@@ -41,7 +41,7 @@ public class FlightResultsPanel extends JPanel{
         Color buttonColor = new Color(100,76,55);
         Color backgroundColor = new Color(255,255,255,150);
 
-        aMenuBannerPanel = new MenuBannerPanel();
+        /*aMenuBannerPanel = new MenuBannerPanel();
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 3;
@@ -51,7 +51,7 @@ public class FlightResultsPanel extends JPanel{
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);
+        add(aMenuBannerPanel);*/
         
         aFlightSearchPanel = new FlightSearchPanel();
         constraints.gridx = 0;

@@ -91,53 +91,53 @@ public class Customer{
    
    public String getFirstName(){
        //return (this.firstName == null ? notApplicable : this.firstName);
-       return(validCustomerAttribute(0) ? notApplicable : this.customerInfoList.get(0));
+       return(validCustomerAttribute(0) ?  this.customerInfoList.get(0) : notApplicable);
    }
    
    public String getLastName(){
        //return (this.lastName == null ? notApplicable : this.firstName);
-       return(validCustomerAttribute(1) ? notApplicable : this.customerInfoList.get(1));
+       return(validCustomerAttribute(1) ? this.customerInfoList.get(1) : notApplicable);
          
    }
    
    public String getDateOfBirth(){
        //return (this.dateOfBirth == null ? notApplicable : this.dateOfBirth);
-       return(validCustomerAttribute(2) ? notApplicable : this.customerInfoList.get(2));
+       return(validCustomerAttribute(2) ? this.customerInfoList.get(2) : notApplicable);
    }
    
    public String getGender(){
        //return (this.gender == null ? notApplicable : this.gender);
-       return(validCustomerAttribute(3) ? notApplicable : this.customerInfoList.get(3));
+       return(validCustomerAttribute(3) ? this.customerInfoList.get(3) : notApplicable);
    }
    
    public String getPhysicalAddress(){
        //return (this.physicalAddress == null ? notApplicable : this.physicalAddress);
-       return(validCustomerAttribute(4) ? notApplicable : this.customerInfoList.get(4));
+       return(validCustomerAttribute(4) ? this.customerInfoList.get(4) : notApplicable);
    }
    
    public String getAddressCity(){
        //return (this.addressCity == null ? notApplicable : this.addressCity);
-       return(validCustomerAttribute(5) ? notApplicable : this.customerInfoList.get(5));
+       return(validCustomerAttribute(5) ? this.customerInfoList.get(5) : notApplicable);
    }
    
    public String getAddressState(){
        //return (this.addressState == null ? notApplicable : this.addressState);
-       return(validCustomerAttribute(6) ? notApplicable : this.customerInfoList.get(6));
+       return(validCustomerAttribute(6) ? this.customerInfoList.get(6) : notApplicable);
    }
    
    public String getAddressZipCode(){
        //return (this.addressZipCode == null ? notApplicable : this.addressZipCode);
-       return(validCustomerAttribute(7) ? notApplicable : this.customerInfoList.get(7));
+       return(validCustomerAttribute(7) ? this.customerInfoList.get(7) : notApplicable);
    }
    
    public String getPhoneNumber(){
        //return(this.phoneNumber == null ? notApplicable : this.phoneNumber);
-       return(validCustomerAttribute(8) ? notApplicable : this.customerInfoList.get(8));
+       return(validCustomerAttribute(8) ? this.customerInfoList.get(8) : notApplicable);
    }
    
    public String getEmailAddress(){
        //return (this.emailAddress == null ? notApplicable : this.emailAddress);
-       return(validCustomerAttribute(9) ? notApplicable : this.customerInfoList.get(9));
+       return(validCustomerAttribute(9) ? this.customerInfoList.get(9) : notApplicable);
    }
    
    public void setFirstName(String newFirstName) throws Exception{
