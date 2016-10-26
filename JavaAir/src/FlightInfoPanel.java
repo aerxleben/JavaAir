@@ -52,7 +52,7 @@ public class FlightInfoPanel extends JPanel{
 
             flightNumberLabel = new JLabel("Flight No: ");
             //flightNumberLabel.setFont(new Font("Times", Font.PLAIN, 40));
-            flightNumberLabel.setFont(Global.titleFont);
+            flightNumberLabel.setFont(Global.boldFont);
             flightNumberLabel.setForeground(fontColor);
             flightNumberLabel.setHorizontalAlignment(JLabel.CENTER);
             constraints.gridx = 0;
@@ -100,7 +100,7 @@ public class FlightInfoPanel extends JPanel{
 
             departTimeLabel = new JLabel("6:00AM");
             //departTimeLabel.setFont(new Font("Times", Font.PLAIN, 40));
-            departTimeLabel.setFont(Global.titleFont);
+            departTimeLabel.setFont(Global.normalFont);
             departTimeLabel.setForeground(fontColor);
             departTimeLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 1;
@@ -116,7 +116,7 @@ public class FlightInfoPanel extends JPanel{
 
             arrivalTimeLabel = new JLabel("9:30AM");
             //arrivalTimeLabel.setFont(new Font("Times", Font.PLAIN, 40));
-            arrivalTimeLabel.setFont(Global.titleFont);
+            arrivalTimeLabel.setFont(Global.normalFont);
             arrivalTimeLabel.setForeground(fontColor);
             arrivalTimeLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 2;
@@ -132,7 +132,7 @@ public class FlightInfoPanel extends JPanel{
            
             priceSelectButton = new JButton("$204");
             //priceSelectButton.setFont(new Font("Times",Font.PLAIN, 30));
-            priceSelectButton.setFont(Global.titleFont);
+            priceSelectButton.setFont(Global.boldFont);
             priceSelectButton.setForeground(fontColor);
             priceSelectButton.setHorizontalAlignment(JButton.CENTER);
             constraints.gridx = 3;

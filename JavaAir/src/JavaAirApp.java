@@ -54,8 +54,8 @@ public class JavaAirApp implements ActionListener{
         Global.jPanelMap.put(Global.textRegConfirm, panelAcctConfirm);
         
         //Flight Search Result Panel
-        FlightResultsPanel panelFlights = new FlightResultsPanel();
-        //FlightResultsTestPanel panelFlights = new FlightResultsTestPanel();
+        //FlightResultsPanel panelFlights = new FlightResultsPanel();
+        FlightResultsTestPanel panelFlights = new FlightResultsTestPanel();
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
         //Add panels to the CardLayout
