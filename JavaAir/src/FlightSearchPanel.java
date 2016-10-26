@@ -319,7 +319,17 @@ public class FlightSearchPanel extends JPanel{
             //search result against DB
             String numOfPassengers = this.numPassengersComboBox.getSelectedItem().toString();
             
+            if(Global.jPanelMap != null){
+                FlightResultsPanel resultsPanel = 
+                        (FlightResultsPanel)Global.jPanelMap.get(Global.textFlights);
+                resultsPanel.getComponentPanel().add(new FlightInfoPanel());
+                resultsPanel.validate();
+                
+                //resultsPanel.setFlightSearchPanel(this);
+            }
             
+            //CardLayout cl = (CardLayout)this.getParent().getParent().getLayout();
+            //cl.show(this.getParent(), Global.textFlights);
             
         }//end searchForFlights
 }//end class
