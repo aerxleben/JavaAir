@@ -1,98 +1,52 @@
-/* 
- * CS5900 - Software Engineering
- * Professor: Dr. Ruijian Zhang
- * Project: Java Air
- * Team: Avian Limited
- * 
- * Filename: FlightResultsPanel.java
- * Author: Amy Erxleben
- * Creation: 2016-10-23
- * 
- */
-import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
-public class FlightResultsPanel extends JPanel{
-    //private MenuBannerPanel aMenuBannerPanel;
-    
-    private FlightSearchPanel aFlightSearchPanel;
-    
-    private FlightInfoPanel aFlight;
-    private FlightInfoPanel anotherFlight;
-    
+class FlightResultsPanel extends JPanel{
     private Image background;
     
-    //public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
-    public FlightSearchPanel getFlightSearchPanel(){return aFlightSearchPanel;}
-    public FlightInfoPanel getResultPanel1(){return aFlight;}
-    public FlightInfoPanel getResultPanel2(){return anotherFlight;}
+    FlightResultsPanel() {
+        JPanel gui = (JPanel)this;
+        
+        background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        
+        this.setLayout(new BorderLayout(5,5));
+        this.setBorder(new EmptyBorder(3,3,3,3));
 
-    public FlightResultsPanel(){
-        GridBagLayout layout = new GridBagLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        setLayout(layout);
+        FlightSearchPanel panelSearch = new FlightSearchPanel();
+        this.add(panelSearch, BorderLayout.WEST);
         
-      //get image for panel background
-      background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
-   
+        JPanel scrollPanel = new JPanel(new BorderLayout(2,2));
+        scrollPanel.setBackground(Color.green);
+        //scrollPanel.add(new JLabel("Center"), BorderLayout.CENTER);
+        this.add(new JScrollPane(scrollPanel), BorderLayout.CENTER);
+        //this.add(new JScrollPane(scrollPanel), BorderLayout.EAST);
 
-        //create "Coffee Brown" color for buttons and fonts.
-        Color buttonColor = new Color(100,76,55);
-        Color backgroundColor = new Color(255,255,255,150);
+        final JPanel componentPanel = new JPanel(new GridLayout(0,1,3,3));
+        componentPanel.setBackground(Color.orange);
+        scrollPanel.add(componentPanel, BorderLayout.NORTH);
 
-        /*aMenuBannerPanel = new MenuBannerPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 3;
-        constraints.gridheight = 2;
-        constraints.fill = GridBagConstraints.BOTH;
-            //constraints.insets = new Insets(12,12,3,3);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);*/
-        
-        aFlightSearchPanel = new FlightSearchPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 2;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 4;
-        constraints.fill = GridBagConstraints.BOTH;
-        //  constraints.insets = new Insets(0, 150, 100, 0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(aFlightSearchPanel, constraints);
-        add(aFlightSearchPanel);
-        
-        aFlight = new FlightInfoPanel(true);
-        constraints.gridx = 1;
-        constraints.gridy = 2;
-        constraints.gridwidth = 2;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-          //constraints.insets = new Insets(0, 150, 100, 0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(aFlight, constraints);
-        add(aFlight);
-        
-        anotherFlight = new FlightInfoPanel(false);
-        constraints.gridx = 1;
-        constraints.gridy = 3;
-        constraints.gridwidth = 2;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-        //  constraints.insets = new Insets(0, 150, 100, 0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(anotherFlight, constraints);
-        add(anotherFlight);
+        JButton add = new JButton("Add Flights");
+        this.add(add, BorderLayout.NORTH);
+        add.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                //componentPanel.add(new JTextField());
+                componentPanel.add(new FlightInfoPanel());
+                gui.validate();
+            }
+        });
+
+        Dimension d = this.getPreferredSize();
+        d = new Dimension(d.width, d.height+100);
+        this.setPreferredSize(d);
     }
     
+    @Override
     public void paintComponent(Graphics g){
-      super.paintComponent(g);
-      g.drawImage(background,0,0,null);
-   }
-  
+        super.paintComponent(g);
+        g.drawImage(background,0,0,null);
+    }
 }

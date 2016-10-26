@@ -17,7 +17,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 
 public class Global {
-    public static String version = "0.50.0";
+    public static String version = "0.52.0";
     
     public static String textHome = "Home";
     public static String textFlights = "Flights";
