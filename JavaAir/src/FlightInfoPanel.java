@@ -1,3 +1,16 @@
+/* 
+ * CS5900 - Software Engineering
+ * Professor: Dr. Ruijian Zhang
+ * Project: Java Air
+ * Team: Avian Limited
+ * 
+ * Filename: FlightInfoPanel.java
+ * Author: Steve Jia
+ * Creation: 2016-10-25
+ * 
+ * Changelog:
+ * 
+ */
 
 public class FlightInfoPanel extends javax.swing.JPanel {
 
@@ -7,7 +20,54 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public FlightInfoPanel() {
         initComponents();
     }
+    
+    public String getFlightNo(){
+        return this.labelFlightNo.getText();
+    }
+    
+    public String getOrigin(){
+        return this.labelOrigin.getText();
+    }
+    
+    public String getDestination(){
+        return this.labelDestination.getText();
+    }
+    
+    public String getDepartureTime(){
+        return this.labelDepartureTime.getText();
+    }
+    
+    public String getArrivalTime(){
+        return this.labelArrivalTime.getText();
+    }
+    
+    public String getFlightPrice(){
+        return this.buttonFlightPrice.getText();
+    }
 
+    public void setFlightNo(String flightNo){
+        this.labelFlightNo.setText(flightNo);
+    }
+    
+    public void setOrigin(String origin){
+        this.labelOrigin.setText(origin);
+    }
+    
+    public void setDestination(String destination){
+        this.labelDestination.setText(destination);
+    }
+    
+    public void setDepartureTime(String depart){
+        this.labelDepartureTime.setText(depart);
+    }
+    
+    public void setArrivalTime(String arrival){
+        this.labelArrivalTime.setText(arrival);
+    }
+    
+    public void setFlightPrice(String price){
+        this.buttonFlightPrice.setText(price);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -17,31 +77,31 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelFlightNo = new javax.swing.JLabel();
+        buttonFlightPrice = new javax.swing.JButton();
+        labelOrigin = new javax.swing.JLabel();
+        labelDepartureTime = new javax.swing.JLabel();
+        labelDestination = new javax.swing.JLabel();
+        labelArrivalTime = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Flight No.");
+        labelFlightNo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        labelFlightNo.setText("Flight No.");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Price");
+        buttonFlightPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buttonFlightPrice.setText("Price");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Origin");
+        labelOrigin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelOrigin.setText("Origin");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Departure Time: ");
+        labelDepartureTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelDepartureTime.setText("Departure Time: ");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Destination");
+        labelDestination.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelDestination.setText("Destination");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Arrival Time:");
+        labelArrivalTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelArrivalTime.setText("Arrival Time:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("----->");
@@ -54,18 +114,18 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labelFlightNo)
                         .addGap(84, 84, 84)
-                        .addComponent(jLabel2)
+                        .addComponent(labelOrigin)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6))
-                    .addComponent(jLabel3))
+                    .addComponent(labelDepartureTime))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(labelDestination)
+                    .addComponent(labelArrivalTime))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonFlightPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -73,17 +133,17 @@ public class FlightInfoPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonFlightPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
+                            .addComponent(labelFlightNo)
+                            .addComponent(labelOrigin)
+                            .addComponent(labelDestination)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
+                            .addComponent(labelDepartureTime)
+                            .addComponent(labelArrivalTime))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -91,12 +151,12 @@ public class FlightInfoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton buttonFlightPrice;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel labelArrivalTime;
+    private javax.swing.JLabel labelDepartureTime;
+    private javax.swing.JLabel labelDestination;
+    private javax.swing.JLabel labelFlightNo;
+    private javax.swing.JLabel labelOrigin;
     // End of variables declaration//GEN-END:variables
 }

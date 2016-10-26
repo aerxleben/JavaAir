@@ -1,12 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Le
+/* 
+ * CS5900 - Software Engineering
+ * Professor: Dr. Ruijian Zhang
+ * Project: Java Air
+ * Team: Avian Limited
+ * 
+ * Filename: AboutPanel.java
+ * Author: Steve Jia
+ * Creation: 2016-10-25
+ * 
+ * Changelog:
+ * 
  */
 public class AboutPanel extends javax.swing.JFrame {
 
