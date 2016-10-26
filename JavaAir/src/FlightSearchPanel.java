@@ -51,7 +51,7 @@ public class FlightSearchPanel extends JPanel{
             Color fontColor = new Color(0,35,102);
 
             JLabel messageLabel = new JLabel("Search Flights");
-            messageLabel.setFont(new Font("Times", Font.PLAIN, 60));
+            messageLabel.setFont(new Font("Times", Font.PLAIN, 36));
             messageLabel.setForeground(fontColor);
             messageLabel.setHorizontalAlignment(JLabel.CENTER);
             constraints.gridx = 0;
@@ -66,7 +66,8 @@ public class FlightSearchPanel extends JPanel{
             add(messageLabel);
 
             JLabel originLabel = new JLabel("Origin");
-            originLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            //originLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            originLabel.setFont(Global.titleFont);
             originLabel.setForeground(fontColor);
             originLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
@@ -82,7 +83,7 @@ public class FlightSearchPanel extends JPanel{
 
             originComboBox = new JComboBox(Global.airportList);
             originComboBox.setSelectedIndex(0);
-            // homeButton.setFont(new Font("Times",Font.PLAIN, 30));
+            originComboBox.setRenderer(new ComboBoxRenderer());
             constraints.gridx = 1;
             constraints.gridy = 1;
             constraints.gridwidth = 1;
@@ -95,7 +96,8 @@ public class FlightSearchPanel extends JPanel{
             add(originComboBox);
 
             JLabel destinationLabel = new JLabel("Destination");
-            destinationLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            //destinationLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            destinationLabel.setFont(Global.titleFont);
             destinationLabel.setForeground(fontColor);
             destinationLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 2;
@@ -111,6 +113,7 @@ public class FlightSearchPanel extends JPanel{
 
             destinationComboBox = new JComboBox(Global.airportList);
             destinationComboBox.setSelectedIndex(1);
+            destinationComboBox.setRenderer(new ComboBoxRenderer());
             //homeButton.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;
             constraints.gridy = 1;
@@ -124,7 +127,8 @@ public class FlightSearchPanel extends JPanel{
             add(destinationComboBox);
 
             JLabel departLabel = new JLabel("Depart");
-            departLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            //departLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            departLabel.setFont(Global.titleFont);
             departLabel.setForeground(fontColor);
             departLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
@@ -159,8 +163,8 @@ public class FlightSearchPanel extends JPanel{
             p.put("text.today", "Today");
             p.put("text.month", "Month");
             p.put("text.year", "Year");
-            JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-            departDatePicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
+            JDatePanelImpl datePanelDepart = new JDatePanelImpl(model, p);
+            departDatePicker = new JDatePickerImpl(datePanelDepart, new DataLabelFormatter());
             departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
             constraints.gridx = 1;
             constraints.gridy = 2;
@@ -174,7 +178,8 @@ public class FlightSearchPanel extends JPanel{
             add(departDatePicker);
 
             JLabel returnLabel = new JLabel("Return");
-            returnLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            //returnLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            returnLabel.setFont(Global.titleFont);
             returnLabel.setForeground(fontColor);
             returnLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 2;
@@ -190,8 +195,13 @@ public class FlightSearchPanel extends JPanel{
 
             //returnTextField = new JTextField();
             //returnTextField.setFont(new Font("Times",Font.PLAIN, 30));
-            returnDatePicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
-            returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
+            model = new UtilDateModel();
+            now = Calendar.getInstance();
+            model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
+            model.setSelected(true);
+            JDatePanelImpl datePanelReturn = new JDatePanelImpl(model, p);
+            returnDatePicker = new JDatePickerImpl(datePanelReturn, new DataLabelFormatter());
+            //returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
             constraints.gridx = 3;
             constraints.gridy = 2;
             constraints.gridwidth = 1;
@@ -206,7 +216,8 @@ public class FlightSearchPanel extends JPanel{
             add(returnDatePicker);
 
             JLabel numPassengersLabel = new JLabel("Number of Passengers");
-            numPassengersLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            //numPassengersLabel.setFont(new Font("Times", Font.PLAIN, 40));
+            numPassengersLabel.setFont(Global.titleFont);
             numPassengersLabel.setForeground(fontColor);
             numPassengersLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
@@ -222,6 +233,7 @@ public class FlightSearchPanel extends JPanel{
 
             numPassengersComboBox = new JComboBox(Global.numberList);
             numPassengersComboBox.setSelectedIndex(0);
+            numPassengersComboBox.setRenderer(new ComboBoxRenderer());
             //numPassengersComboBox.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;
             constraints.gridy = 3;
@@ -234,8 +246,9 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(numPassengersComboBox, constraints);
             add(numPassengersComboBox);
 
-            searchButton = new JButton("SEARCH");
-            searchButton.setFont(new Font("Times",Font.PLAIN, 30));
+            searchButton = new JButton("Search");
+            //searchButton.setFont(new Font("Times",Font.PLAIN, 30));
+            searchButton.setFont(Global.titleFont);
             searchButton.setForeground(fontColor);
             searchButton.setHorizontalAlignment(JButton.CENTER);
             constraints.gridx = 0;

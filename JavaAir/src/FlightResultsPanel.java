@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class FlightResultsPanel extends JPanel{
-    private MenuBannerPanel aMenuBannerPanel;
+    //private MenuBannerPanel aMenuBannerPanel;
     
     private FlightSearchPanel aFlightSearchPanel;
     
@@ -23,7 +23,7 @@ public class FlightResultsPanel extends JPanel{
     
     private Image background;
     
-    public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
+    //public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
     public FlightSearchPanel getFlightSearchPanel(){return aFlightSearchPanel;}
     public FlightInfoPanel getResultPanel1(){return aFlight;}
     public FlightInfoPanel getResultPanel2(){return anotherFlight;}

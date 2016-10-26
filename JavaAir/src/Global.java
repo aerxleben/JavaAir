@@ -32,6 +32,7 @@ public class Global {
     public static String[] genderList = {"Female", "Male"};
     
     public static Font titleFont = new Font("Times", Font.BOLD, 24);
+    public static Font boldFont = new Font("Times", Font.BOLD, 18);
     public static Font normalFont = new Font("Times", Font.PLAIN, 16);
     
     public static Color colorError = Color.RED;

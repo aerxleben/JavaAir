@@ -61,7 +61,7 @@ public class HomePanel extends JPanel{
       add(aMenuBannerPanel);*/
         
       JLabel welcomeLabel = new JLabel("Welcome");
-      welcomeLabel.setFont(new Font("Serif", Font.ITALIC, 48));
+      welcomeLabel.setFont(new Font("Serif", Font.ITALIC, 36));
       welcomeLabel.setHorizontalAlignment(JLabel.LEFT);
       welcomeLabel.setForeground(buttonColor);
       constraints.gridx = 0;

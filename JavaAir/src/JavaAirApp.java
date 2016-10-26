@@ -27,7 +27,6 @@ public class JavaAirApp implements ActionListener{
         panelMenu.getReservationButton().addActionListener(this);
         panelMenu.getAccountButton().addActionListener(this);
         panelMenu.getHelpButton().addActionListener(this);
-        //panelMenu.getAboutButton().addActionListener(this);
         panelMenu.getLoginButton().addActionListener(this);
         
         panelMenu.getAboutButton().addActionListener(
@@ -45,7 +44,6 @@ public class JavaAirApp implements ActionListener{
         LoginLandingPanel panelLoginLanding = new LoginLandingPanel();
         panelLoginLanding.getRegisterButton().addActionListener(this);
         Global.jPanelMap.put(Global.textLogin, panelLoginLanding);
-        //LoginLandingTestPanel aLogin2 = new LoginLandingTestPanel();
         
         //Registration Panel
         RegistrationPanel panelRegister = new RegistrationPanel();
@@ -57,6 +55,7 @@ public class JavaAirApp implements ActionListener{
         
         //Flight Search Result Panel
         FlightResultsPanel panelFlights = new FlightResultsPanel();
+        //FlightResultsTestPanel panelFlights = new FlightResultsTestPanel();
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
         //Add panels to the CardLayout
@@ -77,8 +76,7 @@ public class JavaAirApp implements ActionListener{
     public void actionPerformed(ActionEvent event){
         CardLayout cl = (CardLayout)(cards.getLayout());
         cl.show(cards, (String)event.getActionCommand());
-        
-    }
+    }//end actionPerformed
     
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Java Air");
@@ -92,25 +90,24 @@ public class JavaAirApp implements ActionListener{
         frame.setVisible(true);
     }//end createAndShowGUI
     
-    private JButton createButton(String buttonText){
+    /*private JButton createButton(String buttonText){
         JButton newButton = new JButton(buttonText);
         newButton.addActionListener(this);
         newButton.setFont(Global.titleFont);
         newButton.setBackground(new Color(0,0,75));
         newButton.setForeground(new Color(255,204,0));
         return newButton;
-    }
+    }*/
     
+    //open the about JPanel
     public class PanelAboutAction extends AbstractAction{
-        public PanelAboutAction(){
-            
-        }
+        //public PanelAboutAction(){}
         @Override
         public void actionPerformed(ActionEvent e){
             AboutPanel panelAbout = new AboutPanel();
             panelAbout.setVisible(true);
         }
-    }
+    }//end class PanelAboutAction
     
     
     public static void main(String[] args){
