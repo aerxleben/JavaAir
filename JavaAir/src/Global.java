@@ -12,6 +12,7 @@
  * 
  */
 import java.awt.*;
+import java.text.*;
 import java.util.HashMap;
 import javax.swing.JPanel;
 
@@ -38,6 +39,8 @@ public class Global {
     public static Color colorError = Color.RED;
     
     public static Dimension appDimension = new Dimension(800,600);
+    
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     
     public static HashMap<String, JPanel> jPanelMap = new HashMap<String, JPanel>();
 }

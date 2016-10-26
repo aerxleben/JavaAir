@@ -15,9 +15,9 @@
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
+import java.awt.event.*;
+import java.util.*;
+import java.text.*;
 import org.jdatepicker.impl.*;
 
 public class FlightSearchPanel extends JPanel{
@@ -247,6 +247,12 @@ public class FlightSearchPanel extends JPanel{
             add(numPassengersComboBox);
 
             searchButton = new JButton("Search");
+            searchButton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent event){
+                    searchForFlights();
+                }
+            });
             //searchButton.setFont(new Font("Times",Font.PLAIN, 30));
             searchButton.setFont(Global.titleFont);
             searchButton.setForeground(fontColor);
@@ -262,4 +268,58 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(searchButton, constraints);
             add(searchButton);
 	}//end constructor
+        
+        private void searchForFlights(){
+            //validate user inputs
+            String origin = this.originComboBox.getSelectedItem().toString();
+            String destination = this.destinationComboBox.getSelectedItem().toString();
+            
+            //origin vs destination
+            if(origin.equals(destination)){
+                JOptionPane.showMessageDialog(null
+                        , "Origin and Destination Cannot Be The Same!"
+                        , "Location Conflict"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            //departure date vs return date
+            String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
+            String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
+            long dayDifference = 0;
+            
+            try{
+                SimpleDateFormat formater = Global.dateFormat;
+                
+                Calendar departDate = Calendar.getInstance();
+                departDate.setTime(formater.parse(departDateStr));
+                
+                Calendar returnDate = Calendar.getInstance();
+                returnDate.setTime(formater.parse(returnDateStr));
+                
+                long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
+                dayDifference = msDiff/(1000*60*60*24);
+            }
+            catch(Exception x){
+                JOptionPane.showMessageDialog(null
+                        , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
+                        , "Date Picker Error"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if(dayDifference <= 0){
+                JOptionPane.showMessageDialog(null
+                        , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
+                        , "Date Picker Error"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            //search result against DB
+            String numOfPassengers = this.numPassengersComboBox.getSelectedItem().toString();
+            
+            
+            
+        }//end searchForFlights
 }//end class

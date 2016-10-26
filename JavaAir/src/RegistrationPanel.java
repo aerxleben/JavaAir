@@ -215,6 +215,7 @@ public class RegistrationPanel extends JPanel{
       
         genderBox = new JComboBox(Global.genderList);
         genderBox.setSelectedIndex(0);
+        genderBox.setRenderer(new ComboBoxRenderer());
         //genderBox.setFont(new Font("Times", Font.PLAIN, 30));
         genderBox.setFont(Global.normalFont);
         //genderBox.setHorizontalAlignment(JLabel.LEFT);
@@ -560,7 +561,7 @@ public class RegistrationPanel extends JPanel{
         //validate picked date
         int yearDifference = 0;
         try{
-            SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formater = Global.dateFormat;
             Calendar pickedDate = Calendar.getInstance();
             pickedDate.setTime(formater.parse(birthdayPicker.getJFormattedTextField().getText()));
             Calendar today = Calendar.getInstance();
@@ -573,7 +574,7 @@ public class RegistrationPanel extends JPanel{
                     , JOptionPane.ERROR_MESSAGE);
         }
         //check birthday
-        if(yearDifference >= 18){
+        if(yearDifference >= 4){
             list.add(birthdayPicker.getJFormattedTextField().getText());
             birthdayPicker.setBackground(normal);
         }
