@@ -144,6 +144,13 @@ public class LoginLandingPanel extends JPanel{
         add(passwordField);
         
         loginButton = new JButton("Login");
+        loginButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                //validate user inputs && create new account
+                loginButtonPressed();
+            }
+        });
         //loginButton.setFont(new Font("Times", Font.BOLD, 30));
         loginButton.setFont(Global.titleFont);
         loginButton.setHorizontalAlignment(JButton.CENTER);
@@ -225,6 +232,12 @@ public class LoginLandingPanel extends JPanel{
         });
         */
     }
+    
+    public void loginButtonPressed(){
+         CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+         cl.show(Global.cardsPanel, Global.textAcct);
+    }
+    
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
