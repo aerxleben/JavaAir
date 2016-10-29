@@ -66,6 +66,9 @@ public class JavaAirApp implements ActionListener{
         cards.add(panelAcctConfirm, Global.textRegConfirm);
         //cards.add(aLogin2, Global.textLogin);
         
+        //2016-10-29 S. Jia : Testing
+        if(cards != null){ Global.cardsPanel = cards; }
+        
         pane.add(panelMenu, BorderLayout.PAGE_START);
         //pane.add(menu, BorderLayout.PAGE_START);
         pane.add(cards, BorderLayout.CENTER);

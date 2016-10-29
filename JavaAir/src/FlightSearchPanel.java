@@ -325,8 +325,12 @@ public class FlightSearchPanel extends JPanel{
                 resultsPanel.getComponentPanel().add(new FlightInfoPanel());
                 resultsPanel.validate();
                 
-                //resultsPanel.setFlightSearchPanel(this);
+                resultsPanel.setFlightSearchPanel(this);
             }
+            
+            //2016-10-29 S. Jia : Test
+            CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+            cl.show(Global.cardsPanel, Global.textFlights);
             
             //CardLayout cl = (CardLayout)this.getParent().getParent().getLayout();
             //cl.show(this.getParent(), Global.textFlights);

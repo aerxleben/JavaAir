@@ -43,4 +43,11 @@ public class Global {
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     
     public static HashMap<String, JPanel> jPanelMap = new HashMap<String, JPanel>();
+    
+    public static Customer currentCustomer; //currentCustomer will be null if not logged in
+    
+    //public static Reservation currentReservation; //currentReservation will be null if not started
+    
+    //Temporary - For Testing Purposes
+    public static JPanel cardsPanel;
 }
