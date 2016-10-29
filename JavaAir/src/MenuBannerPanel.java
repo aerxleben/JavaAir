@@ -42,9 +42,9 @@ public class MenuBannerPanel extends JPanel{
             //create "Coffee Brown" color for buttons and fonts.
             Color buttonColor = new Color(100,76,55);
 
-            JLabel javaAirLabel = new JLabel("Java Air");
+            JLabel javaAirLabel = new JLabel("Welcome to Smooth Flying!");
             javaAirLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 36));
-            javaAirLabel.setIcon(new ImageIcon("plane.jpg"));
+            javaAirLabel.setIcon(new ImageIcon("Logo.png"));
             javaAirLabel.setHorizontalAlignment(JLabel.LEFT);
             javaAirLabel.setForeground(buttonColor);
             javaAirLabel.setBackground(Color.WHITE);
