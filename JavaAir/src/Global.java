@@ -19,14 +19,15 @@ import javax.swing.JPanel;
 public class Global {
     public static String version = "0.52.0";
     
-    public static String textHome = "Home";
-    public static String textFlights = "Flights";
-    public static String textAcct = "Account";
-    public static String textRegister = "Register";
-    public static String textRegConfirm = "Confirm";
-    public static String textLogin = "Login";
-    public static String textHelp = "Help";
-    public static String textAbout = "About";
+    public static String textHome = "Home";//refrence home page
+    public static String textFlights = "Flights"; //reference flight results panel
+    public static String textAcct = "Account"; //reference welcome page
+    public static String textRegister = "Register"; //refrence registration page
+    public static String textRegConfirm = "Confirm"; // references account registration confirmation page
+    public static String textLogin = "Login";  // refernces login landinng page
+    public static String textHelp = "Help"; // references help page
+    public static String textAbout = "About"; // references about page
+//    public static String textAccountWelcome = ""
     
     public static String[] airportList = {"Chicago", "New York", "Los Angeles"};
     public static String[] numberList = {"1", "2", "3", "4", "5"};

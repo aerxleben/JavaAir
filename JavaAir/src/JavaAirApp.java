@@ -57,6 +57,10 @@ public class JavaAirApp implements ActionListener{
         FlightResultsPanel panelFlights = new FlightResultsPanel();
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
+       //Account Welcome Panel
+        AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
+        Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
+        
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
         cards.add(panelHome, Global.textHome);
@@ -64,7 +68,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(panelLoginLanding, Global.textLogin);
         cards.add(panelFlights, Global.textFlights);
         cards.add(panelAcctConfirm, Global.textRegConfirm);
-        //cards.add(aLogin2, Global.textLogin);
+        cards.add(anAccountWelcomePanel, Global.textAcct);
         
         //2016-10-29 S. Jia : Testing
         if(cards != null){ Global.cardsPanel = cards; }
