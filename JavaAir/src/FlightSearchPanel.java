@@ -24,7 +24,6 @@ import org.jdatepicker.impl.*;
 
 public class FlightSearchPanel extends JPanel{
 
-    
         private JRadioButton[] tripTypeButtons;
 	private JComboBox originComboBox;
 	private JComboBox destinationComboBox;
@@ -35,69 +34,9 @@ public class FlightSearchPanel extends JPanel{
         private JDatePickerImpl departDatePicker;
         private JDatePickerImpl returnDatePicker;
 
-	public JComboBox getOriginComboBox(){return originComboBox;}
-	public JComboBox getDestinationComboBox(){return destinationComboBox;}
-	public JTextField getDepartTextField(){return departTextField;}
-        public JDatePickerImpl getDepartDatePicker(){return departDatePicker;}
-	public JTextField getReturnTextField(){return returnTextField;}
-        public JDatePickerImpl getReturnDatePicker(){return returnDatePicker;}
-	public JComboBox getNumPassengersComboBox(){return numPassengersComboBox;}
-	public JButton getSearchButton(){return searchButton;}
+	private boolean isRoundTrip;
         
-        public void setOriginComboBox(String newOrigin){
-            if(newOrigin != null 
-                    && Arrays.asList(Global.airportList).contains(newOrigin)){
-                this.originComboBox.setSelectedItem(newOrigin);
-            }
-        }
-        
-        public void setDestinationComboBox(String newDestination){
-            if(newDestination != null
-                    && Arrays.asList(Global.airportList).contains(newDestination)){
-                this.destinationComboBox.setSelectedItem(newDestination);
-            }
-        }
-        
-        public void setDepartDate(String newDeparture){
-            if(newDeparture != null && departDatePicker != null){
-                try{
-                    int[] compArr = getDateComponents(newDeparture);
-                    departDatePicker.getModel().setDate(compArr[0]
-                            , compArr[1]
-                            , compArr[2]);
-                }
-                catch(Exception x){
-                    JOptionPane.showMessageDialog(null
-                            , "Unable to Parse and Set New Departure Date"
-                            , "JDatePicker Error"
-                            , JOptionPane.ERROR_MESSAGE);
-                }//end try-catch
-            }//end if
-        }//end setDepartDate
-        
-        public void setReturnDate(String newReturnDate){
-            if(newReturnDate != null && returnDatePicker != null){
-                try{
-                    int[] compArr = getDateComponents(newReturnDate);
-                    returnDatePicker.getModel().setDate(compArr[0]
-                            , compArr[1]
-                            , compArr[2]);
-                }catch(Exception x){
-                    JOptionPane.showMessageDialog(null
-                            , "Unable to Parse and Set New Return Date"
-                            , "JDatePicker Error"
-                            , JOptionPane.ERROR_MESSAGE);
-                }//end try-catch
-            }//end if
-        }//end setReturnDate()
-        
-        public void setPassengersNumber(String newNumber){
-            if(newNumber != null 
-                    && Arrays.asList(Global.numberList).contains(newNumber)){
-                this.numPassengersComboBox.setSelectedItem(newNumber);
-            }
-        }//end setPassengersNumber
-        
+        //FlightSearchPanel Constructor
 	public FlightSearchPanel(){
 
             GridBagLayout layout = new GridBagLayout();
@@ -128,7 +67,19 @@ public class FlightSearchPanel extends JPanel{
             ButtonGroup operations = new ButtonGroup();
             tripTypeButtons = new JRadioButton[2];
             tripTypeButtons[0] = new JRadioButton("Round Trip", true);
+            tripTypeButtons[0].addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    isRoundTrip = true;
+                }
+            });
             tripTypeButtons[1] = new JRadioButton("One Way", false);
+            tripTypeButtons[1].addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    isRoundTrip = false;
+                }
+            });
             tripTypeButtons[0].setOpaque(false);
             tripTypeButtons[1].setOpaque(false);
             tripTypeButtons[0].setHorizontalAlignment(JLabel.RIGHT);
@@ -363,6 +314,109 @@ public class FlightSearchPanel extends JPanel{
             add(searchButton);
 	}//end constructor
         
+        public JComboBox getOriginComboBox(){
+            return originComboBox;
+        }
+        
+	public JComboBox getDestinationComboBox(){
+            return destinationComboBox;
+        }
+        
+	public JTextField getDepartTextField(){
+            return departTextField;
+        }
+        
+        public JDatePickerImpl getDepartDatePicker(){
+            return departDatePicker;
+        }
+        
+	public JTextField getReturnTextField(){
+            return returnTextField;
+        }
+        
+        public JDatePickerImpl getReturnDatePicker(){
+            return returnDatePicker;
+        }
+        
+	public JComboBox getNumPassengersComboBox(){
+            return numPassengersComboBox;
+        }
+        
+	public JButton getSearchButton(){
+            return searchButton;
+        }
+        
+        public JRadioButton getRoundTripButton(){
+            return this.tripTypeButtons[0];
+        }
+        
+        public JRadioButton getOneWayButton(){
+            return this.tripTypeButtons[1];
+        }
+        
+        public void setOriginComboBox(String newOrigin){
+            if(newOrigin != null 
+                    && Arrays.asList(Global.airportList).contains(newOrigin)){
+                this.originComboBox.setSelectedItem(newOrigin);
+            }
+        }
+        
+        public void setDestinationComboBox(String newDestination){
+            if(newDestination != null
+                    && Arrays.asList(Global.airportList).contains(newDestination)){
+                this.destinationComboBox.setSelectedItem(newDestination);
+            }
+        }
+        
+        public void setDepartDate(String newDeparture){
+            if(newDeparture != null && departDatePicker != null){
+                try{
+                    int[] compArr = getDateComponents(newDeparture);
+                    departDatePicker.getModel().setDate(compArr[0]
+                            , compArr[1]
+                            , compArr[2]);
+                }
+                catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , "Unable to Parse and Set New Departure Date"
+                            , "JDatePicker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                }//end try-catch
+            }//end if
+        }//end setDepartDate
+        
+        public void setReturnDate(String newReturnDate){
+            if(newReturnDate != null && returnDatePicker != null){
+                try{
+                    int[] compArr = getDateComponents(newReturnDate);
+                    returnDatePicker.getModel().setDate(compArr[0]
+                            , compArr[1]
+                            , compArr[2]);
+                }catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , "Unable to Parse and Set New Return Date"
+                            , "JDatePicker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                }//end try-catch
+            }//end if
+        }//end setReturnDate()
+        
+        public void setPassengersNumber(String newNumber){
+            if(newNumber != null 
+                    && Arrays.asList(Global.numberList).contains(newNumber)){
+                this.numPassengersComboBox.setSelectedItem(newNumber);
+            }
+        }//end setPassengersNumber
+        
+        public void setTripType(boolean isRoundTrip){
+            this.tripTypeButtons[0].setSelected(isRoundTrip);
+            this.tripTypeButtons[1].setSelected(!isRoundTrip);
+        }
+        
+        
+        /*****
+         * Method: searchForFlights
+         *****/
         private void searchForFlights(){
             //validate user inputs
             String origin = this.originComboBox.getSelectedItem().toString();
@@ -420,6 +474,7 @@ public class FlightSearchPanel extends JPanel{
                 resultsPanel.validate();
                 
                 FlightSearchPanel searchPanel = resultsPanel.getFlightSearchPanel();
+                searchPanel.setTripType(this.isRoundTrip);
                 searchPanel.setOriginComboBox(this.originComboBox.getSelectedItem().toString());
                 searchPanel.setDestinationComboBox(this.destinationComboBox.getSelectedItem().toString());
                 searchPanel.setDepartDate(departDateStr);
