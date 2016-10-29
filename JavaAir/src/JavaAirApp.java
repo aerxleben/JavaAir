@@ -5,8 +5,8 @@
  * Team: Avian Limited
  * 
  * Filename: JavaAirApp.java
- * Author: 
- * Creation:
+ * Author: Steve Jia
+ * Creation: 2016-10-25
  * 
  * Changelog:
  * 
@@ -70,7 +70,6 @@ public class JavaAirApp implements ActionListener{
         cards.add(panelAcctConfirm, Global.textRegConfirm);
         cards.add(anAccountWelcomePanel, Global.textAcct);
         
-        //2016-10-29 S. Jia : Testing
         if(cards != null){ Global.cardsPanel = cards; }
         
         pane.add(panelMenu, BorderLayout.PAGE_START);
