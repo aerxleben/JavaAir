@@ -4,7 +4,7 @@
  * Project: Java Air
  * Team: Avian Limited
  * 
- * Filename: Flight
+ * Filename: Flight.java
  * Author: Steve Jia
  * Creation: 2016-10-22
  * 
@@ -12,6 +12,7 @@
  * 
  */
 public class Flight {
+    
     
     
 }

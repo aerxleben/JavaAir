@@ -11,6 +11,7 @@
  * Changelog:
  * 
  */
+
 public class Passenger {
     private String firstName;
     private String lastName;
@@ -19,7 +20,24 @@ public class Passenger {
     private String phoneNumber;
     private boolean isPrimaryPassenger;
     
-    public Passenger(){
+    public Passenger(String firstName
+            , String lastName
+            , String dateOfBirth
+            , String gender
+            , String phoneNumber
+            , boolean isPrimary) 
+            throws Exception{
+        try{
+            setFirstName(firstName);
+            setLastName(lastName);
+            setDateOfBirth(dateOfBirth);
+            setGender(gender);
+            setPhoneNumber(phoneNumber);
+            setPrimaryStatus(isPrimary);
+        }
+        catch(Exception x){
+            throw x;
+        }
         
     }
     
@@ -30,37 +48,52 @@ public class Passenger {
     public String getPhone(){ return this.phoneNumber; }
     public boolean getPrimaryStatus(){ return this.isPrimaryPassenger; }
     
-    public void setFirstName(String newFirst){
+    public void setFirstName(String newFirst) throws Exception{
         if(newFirst != null && !newFirst.isEmpty()){
             this.firstName = newFirst;
         }
+        else{
+            throw new Exception("Invalid Passenger First Name");
+        }
     }
     
-    public void setLastName(String newLast){
+    public void setLastName(String newLast) throws Exception{
         if(newLast != null && !newLast.isEmpty()){
             this.lastName = newLast;
         }
+        else{
+            throw new Exception("Invalid Passenger Last Name");
+        }
     }
     
-    public void setDateOfBirth(String newDate){
+    public void setDateOfBirth(String newDate)throws Exception{
         if(newDate != null && !newDate.isEmpty()){
             this.dateOfBirth = newDate;
         }
+        else{
+            throw new Exception("Invalid Passenger Date Of Birth");
+        }
     }
     
-    public void setGender(String newGender){
+    public void setGender(String newGender)throws Exception{
         if(newGender != null && !newGender.isEmpty()){
             this.gender = newGender;
         }
-    }
-    
-    public void setPhoneNumber(String newPhone){
-        if(newPhone != null && !newPhone.isEmpty()){
-            this.phoneNumber = newPhone;
+        else{
+            throw new Exception("Invalid Passenger Gender");
         }
     }
     
-    public void setPrimaryStatus(boolean newStatus){
+    public void setPhoneNumber(String newPhone)throws Exception{
+        if(newPhone != null && !newPhone.isEmpty()){
+            this.phoneNumber = newPhone;
+        }
+        else{
+            throw new Exception("Invalid Passenger Phone Number");
+        }
+    }
+    
+    public void setPrimaryStatus(boolean newStatus)throws Exception{
         this.isPrimaryPassenger = newStatus;
     }
 }
