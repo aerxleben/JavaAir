@@ -16,9 +16,10 @@ import java.util.ArrayList;
 
 public class Reservation {
     
-    public enum PaymentType{ CREDIT, REWARD }
-    public enum ReservationStatus { NORMAL, CANCELLED }
+    public static enum PaymentType{ CREDIT, REWARD }
+    public static enum ReservationStatus { NORMAL, CANCELLED }
     
+    private boolean isRoundTrip;
     private Flight originFlight;
     private Flight returnFlight;
     private ArrayList<Passenger> passengerList;
@@ -31,7 +32,8 @@ public class Reservation {
     private String billingEmail;
     private ReservationStatus status;
     
-    public Reservation(){
+    public Reservation(boolean isRoundTrip){
+        this.isRoundTrip = isRoundTrip;
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
     }
@@ -49,7 +51,7 @@ public class Reservation {
     }
 
     public void setReturnFlight(Flight returnFlight) {
-        this.returnFlight = returnFlight;
+        if(!isRoundTrip){ this.returnFlight = returnFlight; }
     }
 
     public ArrayList<Passenger> getPassengerList() {
