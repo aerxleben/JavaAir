@@ -11,30 +11,118 @@
  * Changelog:
  * 
  */
+
+import java.util.ArrayList;
+
 public class Reservation {
+    
+    public enum PaymentType{ CREDIT, REWARD }
+    public enum ReservationStatus { NORMAL, CANCELLED }
+    
     private Flight originFlight;
     private Flight returnFlight;
-    
-    //comment below section later
-    private String flighNumber;
-    private String origin;
-    private String destination;
-    private String departTime;
-    private String arrivalTime;
-    //comment above section later
-    
-    //private ArrayList<Passenger> passengerList;
+    private ArrayList<Passenger> passengerList;
     private int numberOfCheckedBags;
-    private String paymentType;
+    private PaymentType paymentType;
     private int pointsRedeemed;
     private float amountPaid;
     private String billingAddress;
     private String billingPhone;
     private String billingEmail;
+    private ReservationStatus status;
     
     public Reservation(){
-        
-    }//end constructor
+        this.passengerList = new ArrayList<Passenger>();
+        this.status = ReservationStatus.NORMAL;
+    }
+
+    public Flight getOriginFlight() {
+        return originFlight;
+    }
+
+    public void setOriginFlight(Flight originFlight) {
+        this.originFlight = originFlight;
+    }
+
+    public Flight getReturnFlight() {
+        return returnFlight;
+    }
+
+    public void setReturnFlight(Flight returnFlight) {
+        this.returnFlight = returnFlight;
+    }
+
+    public ArrayList<Passenger> getPassengerList() {
+        return passengerList;
+    }
+
+    public void setPassengerList(ArrayList<Passenger> passengerList) {
+        this.passengerList = passengerList;
+    }
+
+    public int getNumberOfCheckedBags() {
+        return numberOfCheckedBags;
+    }
+
+    public void setNumberOfCheckedBags(int numberOfCheckedBags) {
+        this.numberOfCheckedBags = numberOfCheckedBags;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public int getPointsRedeemed() {
+        return pointsRedeemed;
+    }
+
+    public void setPointsRedeemed(int pointsRedeemed) {
+        this.pointsRedeemed = pointsRedeemed;
+    }
+
+    public float getAmountPaid() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(float amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public String getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public String getBillingPhone() {
+        return billingPhone;
+    }
+
+    public void setBillingPhone(String billingPhone) {
+        this.billingPhone = billingPhone;
+    }
+
+    public String getBillingEmail() {
+        return billingEmail;
+    }
+
+    public void setBillingEmail(String billingEmail) {
+        this.billingEmail = billingEmail;
+    }
+
+    public ReservationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ReservationStatus status) {
+        this.status = status;
+    }
     
     
 }
