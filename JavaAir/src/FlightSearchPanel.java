@@ -11,6 +11,8 @@
  *	Updated 10/17/16, Erxleben, Added Comments, updated colors, addeded JLabels
  *
  *      Updated 10/23/16, Erxleben, changed position settings of date pickers
+ *      
+ *      Updated 10/29/16, Erxleben, added JRadioButtons to select one way or round trip flight
  */
 
 import javax.swing.*;
@@ -22,6 +24,8 @@ import org.jdatepicker.impl.*;
 
 public class FlightSearchPanel extends JPanel{
 
+    
+        private JRadioButton[] tripTypeButtons;
 	private JComboBox originComboBox;
 	private JComboBox destinationComboBox;
 	private JComboBox numPassengersComboBox;
@@ -120,6 +124,38 @@ public class FlightSearchPanel extends JPanel{
             constraints.weighty = 10;
             layout.setConstraints(messageLabel, constraints);
             add(messageLabel);
+            
+            ButtonGroup operations = new ButtonGroup();
+            tripTypeButtons = new JRadioButton[2];
+            tripTypeButtons[0] = new JRadioButton("Round Trip", true);
+            tripTypeButtons[1] = new JRadioButton("One Way", false);
+            tripTypeButtons[0].setOpaque(false);
+            tripTypeButtons[1].setOpaque(false);
+            tripTypeButtons[0].setHorizontalAlignment(JLabel.RIGHT);
+            constraints.gridx = 1;
+            constraints.gridy = 1;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.BOTH;
+            constraints.insets = new Insets(12,12,3,3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(tripTypeButtons[0], constraints);
+            add(tripTypeButtons[0]);
+            operations.add(tripTypeButtons[0]);
+            //tripTypeButtons[0].addActionListener(this);
+            constraints.gridx = 2;
+            constraints.gridy = 1;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.BOTH;
+            constraints.insets = new Insets(12,12,3,3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(tripTypeButtons[1], constraints);
+            add(tripTypeButtons[1]);
+            operations.add(tripTypeButtons[1]); 
+            
 
             JLabel originLabel = new JLabel("Origin");
             //originLabel.setFont(new Font("Times", Font.PLAIN, 40));
@@ -127,7 +163,7 @@ public class FlightSearchPanel extends JPanel{
             originLabel.setForeground(fontColor);
             originLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
-            constraints.gridy = 1;
+            constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -141,7 +177,7 @@ public class FlightSearchPanel extends JPanel{
             originComboBox.setSelectedIndex(0);
             originComboBox.setRenderer(new ComboBoxRenderer());
             constraints.gridx = 1;
-            constraints.gridy = 1;
+            constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -157,7 +193,7 @@ public class FlightSearchPanel extends JPanel{
             destinationLabel.setForeground(fontColor);
             destinationLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 2;
-            constraints.gridy = 1;
+            constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -172,7 +208,7 @@ public class FlightSearchPanel extends JPanel{
             destinationComboBox.setRenderer(new ComboBoxRenderer());
             //homeButton.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;
-            constraints.gridy = 1;
+            constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -188,7 +224,7 @@ public class FlightSearchPanel extends JPanel{
             departLabel.setForeground(fontColor);
             departLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
-            constraints.gridy = 2;
+            constraints.gridy = 3;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -224,7 +260,7 @@ public class FlightSearchPanel extends JPanel{
             //departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
             departDatePicker.setTextEditable(true);
             constraints.gridx = 1;
-            constraints.gridy = 2;
+            constraints.gridy = 3;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -240,7 +276,7 @@ public class FlightSearchPanel extends JPanel{
             returnLabel.setForeground(fontColor);
             returnLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 2;
-            constraints.gridy = 2;
+            constraints.gridy = 3;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -261,7 +297,7 @@ public class FlightSearchPanel extends JPanel{
             //returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
             returnDatePicker.setTextEditable(true);
             constraints.gridx = 3;
-            constraints.gridy = 2;
+            constraints.gridy = 3;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -279,7 +315,7 @@ public class FlightSearchPanel extends JPanel{
             numPassengersLabel.setForeground(fontColor);
             numPassengersLabel.setHorizontalAlignment(JLabel.RIGHT);
             constraints.gridx = 0;
-            constraints.gridy = 3;
+            constraints.gridy = 4;
             constraints.gridwidth = 3;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -294,7 +330,7 @@ public class FlightSearchPanel extends JPanel{
             numPassengersComboBox.setRenderer(new ComboBoxRenderer());
             //numPassengersComboBox.setFont(new Font("Times",Font.PLAIN, 30));
             constraints.gridx = 3;
-            constraints.gridy = 3;
+            constraints.gridy = 4;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.BOTH;
@@ -316,7 +352,7 @@ public class FlightSearchPanel extends JPanel{
             searchButton.setForeground(fontColor);
             searchButton.setHorizontalAlignment(JButton.CENTER);
             constraints.gridx = 0;
-            constraints.gridy = 4;
+            constraints.gridy = 5;
             constraints.gridwidth = 4;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.NONE;
