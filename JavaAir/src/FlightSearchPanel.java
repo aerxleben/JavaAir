@@ -34,9 +34,65 @@ public class FlightSearchPanel extends JPanel{
 	public JComboBox getOriginComboBox(){return originComboBox;}
 	public JComboBox getDestinationComboBox(){return destinationComboBox;}
 	public JTextField getDepartTextField(){return departTextField;}
+        public JDatePickerImpl getDepartDatePicker(){return departDatePicker;}
 	public JTextField getReturnTextField(){return returnTextField;}
+        public JDatePickerImpl getReturnDatePicker(){return returnDatePicker;}
 	public JComboBox getNumPassengersComboBox(){return numPassengersComboBox;}
 	public JButton getSearchButton(){return searchButton;}
+        
+        public void setOriginComboBox(String newOrigin){
+            if(newOrigin != null 
+                    && Arrays.asList(Global.airportList).contains(newOrigin)){
+                this.originComboBox.setSelectedItem(newOrigin);
+            }
+        }
+        
+        public void setDestinationComboBox(String newDestination){
+            if(newDestination != null
+                    && Arrays.asList(Global.airportList).contains(newDestination)){
+                this.destinationComboBox.setSelectedItem(newDestination);
+            }
+        }
+        
+        public void setDepartDate(String newDeparture){
+            if(newDeparture != null && departDatePicker != null){
+                try{
+                    int[] compArr = getDateComponents(newDeparture);
+                    departDatePicker.getModel().setDate(compArr[0]
+                            , compArr[1]
+                            , compArr[2]);
+                }
+                catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , "Unable to Parse and Set New Departure Date"
+                            , "JDatePicker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                }//end try-catch
+            }//end if
+        }//end setDepartDate
+        
+        public void setReturnDate(String newReturnDate){
+            if(newReturnDate != null && returnDatePicker != null){
+                try{
+                    int[] compArr = getDateComponents(newReturnDate);
+                    returnDatePicker.getModel().setDate(compArr[0]
+                            , compArr[1]
+                            , compArr[2]);
+                }catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , "Unable to Parse and Set New Return Date"
+                            , "JDatePicker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                }//end try-catch
+            }//end if
+        }//end setReturnDate()
+        
+        public void setPassengersNumber(String newNumber){
+            if(newNumber != null 
+                    && Arrays.asList(Global.numberList).contains(newNumber)){
+                this.numPassengersComboBox.setSelectedItem(newNumber);
+            }
+        }//end setPassengersNumber
         
 	public FlightSearchPanel(){
 
@@ -165,7 +221,8 @@ public class FlightSearchPanel extends JPanel{
             p.put("text.year", "Year");
             JDatePanelImpl datePanelDepart = new JDatePanelImpl(model, p);
             departDatePicker = new JDatePickerImpl(datePanelDepart, new DataLabelFormatter());
-            departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
+            //departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
+            departDatePicker.setTextEditable(true);
             constraints.gridx = 1;
             constraints.gridy = 2;
             constraints.gridwidth = 1;
@@ -202,6 +259,7 @@ public class FlightSearchPanel extends JPanel{
             JDatePanelImpl datePanelReturn = new JDatePanelImpl(model, p);
             returnDatePicker = new JDatePickerImpl(datePanelReturn, new DataLabelFormatter());
             //returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
+            returnDatePicker.setTextEditable(true);
             constraints.gridx = 3;
             constraints.gridy = 2;
             constraints.gridwidth = 1;
@@ -325,7 +383,12 @@ public class FlightSearchPanel extends JPanel{
                 resultsPanel.getComponentPanel().add(new FlightInfoPanel());
                 resultsPanel.validate();
                 
-                resultsPanel.setFlightSearchPanel(this);
+                FlightSearchPanel searchPanel = resultsPanel.getFlightSearchPanel();
+                searchPanel.setOriginComboBox(this.originComboBox.getSelectedItem().toString());
+                searchPanel.setDestinationComboBox(this.destinationComboBox.getSelectedItem().toString());
+                searchPanel.setDepartDate(departDateStr);
+                searchPanel.setReturnDate(returnDateStr);
+                searchPanel.setPassengersNumber(this.numPassengersComboBox.getSelectedItem().toString());
             }
             
             //2016-10-29 S. Jia : Test
@@ -336,4 +399,20 @@ public class FlightSearchPanel extends JPanel{
             //cl.show(this.getParent(), Global.textFlights);
             
         }//end searchForFlights
+        
+        private int[] getDateComponents(String dateString){
+            int[] compArr = new int[3];
+            String[] compArrStr= dateString.split("-");
+            
+            for(int i = 0; i < 3; i++){
+                if(i == 1){
+                    compArr[i] = Integer.parseInt(compArrStr[i]) - 1;
+                }
+                else{
+                    compArr[i] = Integer.parseInt(compArrStr[i]);
+                }
+            }
+
+            return compArr;
+        }//end getDateComponents
 }//end class
