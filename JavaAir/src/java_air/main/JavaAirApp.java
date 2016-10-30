@@ -16,6 +16,9 @@ package java_air.main;
 import java_air.Reservation.ReservationPanel;
 import java.awt.*;
 import java.awt.event.*;
+import java_air.Reservation.ReservationBillInformationPanel;
+import java_air.Reservation.ReservationConfirmationPanel;
+import java_air.Reservation.ReservationPassengerPanel;
 import javax.swing.*;
 
 public class JavaAirApp implements ActionListener{
@@ -64,9 +67,16 @@ public class JavaAirApp implements ActionListener{
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
-        // Reservation Panels
-        ReservationPanel reservationPanel = new ReservationPanel();
-        Global.jPanelMap.put(Global.textReservation,reservationPanel);
+        /* Reservation Panels */
+        // Reservation Confirmation Panel
+        ReservationConfirmationPanel reservationConfirmPanel = new ReservationConfirmationPanel();
+        Global.jPanelMap.put(Global.textReservationConfirmation,reservationConfirmPanel);
+        // Reservation Confirmation Panel
+        ReservationBillInformationPanel reservationBillPanel = new ReservationBillInformationPanel();
+        Global.jPanelMap.put(Global.textReservationBillInformation,reservationBillPanel);
+        // Reservation Confirmation Panel
+        ReservationPassengerPanel reservationPassengerPanel = new ReservationPassengerPanel();
+        Global.jPanelMap.put(Global.textReservationPassenger,reservationPassengerPanel);
         
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
@@ -78,7 +88,9 @@ public class JavaAirApp implements ActionListener{
         cards.add(anAccountWelcomePanel, Global.textAcct);
         
         //Add reservation panels to the CardLayout.
-        cards.add(reservationPanel, Global.textReservation);
+        cards.add(reservationConfirmPanel, Global.textReservationConfirmation);
+        cards.add(reservationBillPanel, Global.textReservationBillInformation);
+        cards.add(reservationPassengerPanel, Global.textReservationPassenger);
         
         if(cards != null){ Global.cardsPanel = cards; }
         
@@ -87,7 +99,7 @@ public class JavaAirApp implements ActionListener{
         pane.add(cards, BorderLayout.CENTER);
 
         //test panel
-        //new TestPanel();
+       // new TestPanel();
     }
     
     @Override
