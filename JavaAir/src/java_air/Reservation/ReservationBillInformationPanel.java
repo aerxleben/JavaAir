@@ -5,6 +5,8 @@
  */
 package java_air.Reservation;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Georege
@@ -16,6 +18,7 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
      */
     public ReservationBillInformationPanel() {
         initComponents();
+         reservationPanel1.getContentPanel().add(new ReservationBillInformDetailPanel(),BorderLayout.CENTER);
     }
 
     /**
