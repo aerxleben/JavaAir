@@ -5,6 +5,8 @@
  */
 package java_air.Reservation;
 
+import java_air.main.Global;
+
 /**
  *
  * @author Georege
@@ -27,21 +29,217 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(102, 255, 0));
+        jButton1 = new javax.swing.JButton();
+        travelerLabel = new javax.swing.JLabel();
+        paymentLabel = new javax.swing.JLabel();
+        confirmLabel = new javax.swing.JLabel();
+        connectLabel1 = new javax.swing.JLabel();
+        connectLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        paymentMethodTitleLabel = new java.awt.Label();
+        firstNameLabel = new javax.swing.JLabel();
+        firstNameText = new javax.swing.JTextField();
+        lastNameLabel = new javax.swing.JLabel();
+        lastNameText = new javax.swing.JTextField();
+        cardNumberLabel = new javax.swing.JLabel();
+        cardNumberText = new javax.swing.JTextField();
+        expireDateLabel = new javax.swing.JLabel();
+        expireMonthText = new javax.swing.JTextField();
+        expireYearText = new javax.swing.JTextField();
+        cvcLabel = new javax.swing.JLabel();
+        cvcText = new javax.swing.JTextField();
+
+        setBackground(Global.transparentColor);
+
+        jButton1.setBackground(new java.awt.Color(204, 153, 0));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jButton1.setText("Continue");
+
+        travelerLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        travelerLabel.setText("Traveler");
+
+        paymentLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        paymentLabel.setText("Payment");
+
+        confirmLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        confirmLabel.setText("Confirm");
+
+        connectLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        connectLabel1.setText("---------");
+
+        connectLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        connectLabel2.setText("----------");
+
+        paymentMethodTitleLabel.setBackground(new java.awt.Color(204, 153, 0));
+        paymentMethodTitleLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        paymentMethodTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        paymentMethodTitleLabel.setText("Payment Method");
+
+        firstNameLabel.setFont(Global.normalFont);
+        firstNameLabel.setText("First name");
+
+        firstNameText.setFont(Global.normalFont);
+        firstNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameTextActionPerformed(evt);
+            }
+        });
+
+        lastNameLabel.setFont(Global.normalFont);
+        lastNameLabel.setText("Last name");
+
+        lastNameText.setFont(Global.normalFont);
+        lastNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameTextActionPerformed(evt);
+            }
+        });
+
+        cardNumberLabel.setFont(Global.normalFont);
+        cardNumberLabel.setText("Card number");
+
+        cardNumberText.setFont(Global.normalFont);
+
+        expireDateLabel.setFont(Global.normalFont);
+        expireDateLabel.setText("Expire date");
+
+        expireMonthText.setFont(Global.normalFont);
+
+        expireYearText.setFont(Global.normalFont);
+
+        cvcLabel.setFont(Global.normalFont);
+        cvcLabel.setText("CVC");
+
+        cvcText.setFont(Global.normalFont);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(paymentMethodTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(expireDateLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(firstNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardNumberLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cardNumberText)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(expireMonthText, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(expireYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(cvcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cvcText, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(164, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(paymentMethodTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameLabel)
+                    .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardNumberLabel)
+                    .addComponent(cardNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(expireDateLabel)
+                    .addComponent(expireMonthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(expireYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cvcLabel)
+                    .addComponent(cvcText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 7, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(travelerLabel)
+                                .addGap(2, 2, 2)
+                                .addComponent(connectLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(paymentLabel)
+                                .addGap(4, 4, 4)
+                                .addComponent(connectLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 205, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(travelerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(connectLabel1)
+                    .addComponent(connectLabel2))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void firstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameTextActionPerformed
+
+    private void lastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTextActionPerformed
+    //private javax.swing.DefaultComboBoxModel monthList
+    //        = new javax.swing.DefaultComboBoxModel<>(
+    //                new String[] { "1","2","3","4","5","6","7","8","9","10","11","12" });
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cardNumberLabel;
+    private javax.swing.JTextField cardNumberText;
+    private javax.swing.JLabel confirmLabel;
+    private javax.swing.JLabel connectLabel1;
+    private javax.swing.JLabel connectLabel2;
+    private javax.swing.JLabel cvcLabel;
+    private javax.swing.JTextField cvcText;
+    private javax.swing.JLabel expireDateLabel;
+    private javax.swing.JTextField expireMonthText;
+    private javax.swing.JTextField expireYearText;
+    private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JTextField firstNameText;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JTextField lastNameText;
+    private javax.swing.JLabel paymentLabel;
+    private java.awt.Label paymentMethodTitleLabel;
+    private javax.swing.JLabel travelerLabel;
     // End of variables declaration//GEN-END:variables
 }
