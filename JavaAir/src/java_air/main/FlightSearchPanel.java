@@ -1,3 +1,5 @@
+package java_air.main;
+
 /* 
  *	This file "FlightSearchPanel" contains the JPanel which will bed reused on multiple pages of the 
  *	Java Air Application.  This interface uses a Grid Bag Layout Manager.

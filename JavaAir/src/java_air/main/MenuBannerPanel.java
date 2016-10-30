@@ -1,3 +1,5 @@
+package java_air.main;
+
 /*
  *	This file "MenuBannerPanel" contains a JPanel which will be displayed on the 
  *	top of every Java Air page.  This interface uses a Grid Bag Layout Manager.

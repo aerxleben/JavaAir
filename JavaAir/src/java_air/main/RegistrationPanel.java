@@ -1,3 +1,5 @@
+package java_air.main;
+
 /*
  *	This file "RegistrationPanel" contains the JPanel which will be displayed on the 
  *	when a customer Registers for an Account.  This interface uses a Grid Bag Layout Manager.

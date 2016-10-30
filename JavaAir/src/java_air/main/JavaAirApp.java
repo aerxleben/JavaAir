@@ -1,3 +1,5 @@
+package java_air.main;
+
 /* 
  * CS5900 - Software Engineering
  * Professor: Dr. Ruijian Zhang
@@ -11,6 +13,7 @@
  * Changelog:
  * 
  */
+import java_air.Reservation.ReservationPanel;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

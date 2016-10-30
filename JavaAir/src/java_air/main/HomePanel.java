@@ -1,3 +1,5 @@
+package java_air.main;
+
 /*
  *	This file "HomePanel" contains the JPanel which will be displayed on the 
  *	Java Air Home Page.  This interface uses a Grid Bag Layout Manager.

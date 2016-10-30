@@ -1,4 +1,7 @@
+package java_air.Reservation;
 
+
+import java_air.main.Global;
 import java.awt.CardLayout;
 import java.awt.Graphics;
 import java.awt.Image;
