@@ -195,7 +195,7 @@ public class ReservationDetailPanel extends javax.swing.JPanel {
         EditSearchLabel.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private Font generalFont = new java.awt.Font("Times New Roman", 0, 20);
+    private Font generalFont = new java.awt.Font("Times", 0, 18);
     private Color generalColor = new java.awt.Color(0, 102, 255);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EditSearchLabel;
