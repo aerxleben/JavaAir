@@ -30,8 +30,13 @@ public class Global {
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
     
-    // Reservation panels references
-    public static String textReservation = "Reservation"; // references of Reservation
+    /* Reservation panels references */
+    // reference of Reservation Confirmation
+    public static String textReservationConfirmation = "ReservationConfirmation";
+    // reference of Reservation BillInformation
+    public static String textReservationBillInformation = "ReservationBillInformation"; 
+    // reference of Reservation Passenger
+    public static String textReservationPassenger = "ReservationPassenger"; 
     
 //    public static String textAccountWelcome = ""
     
