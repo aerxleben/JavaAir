@@ -35,7 +35,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         confirmLabel = new javax.swing.JLabel();
         connectLabel1 = new javax.swing.JLabel();
         connectLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        paymentMethodPanel = new javax.swing.JPanel();
         paymentMethodTitleLabel = new java.awt.Label();
         firstNameLabel = new javax.swing.JLabel();
         firstNameText = new javax.swing.JTextField();
@@ -48,6 +48,22 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         expireYearText = new javax.swing.JTextField();
         cvcLabel = new javax.swing.JLabel();
         cvcText = new javax.swing.JTextField();
+        billAddressPanel = new javax.swing.JPanel();
+        paymentMethodTitleLabel1 = new java.awt.Label();
+        firstNameLabel1 = new javax.swing.JLabel();
+        firstNameText1 = new javax.swing.JTextField();
+        lastNameLabel1 = new javax.swing.JLabel();
+        lastNameText1 = new javax.swing.JTextField();
+        firstNameLabel2 = new javax.swing.JLabel();
+        firstNameText2 = new javax.swing.JTextField();
+        firstNameLabel3 = new javax.swing.JLabel();
+        firstNameText3 = new javax.swing.JTextField();
+        firstNameLabel4 = new javax.swing.JLabel();
+        firstNameText4 = new javax.swing.JTextField();
+        firstNameLabel5 = new javax.swing.JLabel();
+        firstNameText5 = new javax.swing.JTextField();
+        firstNameLabel6 = new javax.swing.JLabel();
+        firstNameText6 = new javax.swing.JTextField();
 
         setBackground(Global.transparentColor);
 
@@ -112,27 +128,27 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
 
         cvcText.setFont(Global.normalFont);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout paymentMethodPanelLayout = new javax.swing.GroupLayout(paymentMethodPanel);
+        paymentMethodPanel.setLayout(paymentMethodPanelLayout);
+        paymentMethodPanelLayout.setHorizontalGroup(
+            paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(paymentMethodTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(paymentMethodPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(expireDateLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(firstNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cardNumberLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(paymentMethodPanelLayout.createSequentialGroup()
                         .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cardNumberText)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(paymentMethodPanelLayout.createSequentialGroup()
                         .addComponent(expireMonthText, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(expireYearText, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,24 +156,24 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                         .addComponent(cvcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cvcText, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        paymentMethodPanelLayout.setVerticalGroup(
+            paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentMethodPanelLayout.createSequentialGroup()
                 .addComponent(paymentMethodTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastNameLabel)
                     .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cardNumberLabel)
                     .addComponent(cardNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paymentMethodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(expireDateLabel)
                     .addComponent(expireMonthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expireYearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,30 +182,174 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
+        paymentMethodTitleLabel1.setBackground(new java.awt.Color(204, 153, 0));
+        paymentMethodTitleLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        paymentMethodTitleLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        paymentMethodTitleLabel1.setText("Billing Address");
+
+        firstNameLabel1.setFont(Global.normalFont);
+        firstNameLabel1.setText("First name");
+
+        firstNameText1.setFont(Global.normalFont);
+        firstNameText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText1ActionPerformed(evt);
+            }
+        });
+
+        lastNameLabel1.setFont(Global.normalFont);
+        lastNameLabel1.setText("Last name");
+
+        lastNameText1.setFont(Global.normalFont);
+        lastNameText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameText1ActionPerformed(evt);
+            }
+        });
+
+        firstNameLabel2.setFont(Global.normalFont);
+        firstNameLabel2.setText("Street address");
+
+        firstNameText2.setFont(Global.normalFont);
+        firstNameText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText2ActionPerformed(evt);
+            }
+        });
+
+        firstNameLabel3.setFont(Global.normalFont);
+        firstNameLabel3.setText("State/Province");
+
+        firstNameText3.setFont(Global.normalFont);
+        firstNameText3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText3ActionPerformed(evt);
+            }
+        });
+
+        firstNameLabel4.setFont(Global.normalFont);
+        firstNameLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        firstNameLabel4.setText("City");
+
+        firstNameText4.setFont(Global.normalFont);
+        firstNameText4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText4ActionPerformed(evt);
+            }
+        });
+
+        firstNameLabel5.setFont(Global.normalFont);
+        firstNameLabel5.setText("Postal Code");
+
+        firstNameText5.setFont(Global.normalFont);
+        firstNameText5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText5ActionPerformed(evt);
+            }
+        });
+
+        firstNameLabel6.setFont(Global.normalFont);
+        firstNameLabel6.setText("Country");
+
+        firstNameText6.setFont(Global.normalFont);
+        firstNameText6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameText6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout billAddressPanelLayout = new javax.swing.GroupLayout(billAddressPanel);
+        billAddressPanel.setLayout(billAddressPanelLayout);
+        billAddressPanelLayout.setHorizontalGroup(
+            billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(billAddressPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(billAddressPanelLayout.createSequentialGroup()
+                        .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(firstNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(billAddressPanelLayout.createSequentialGroup()
+                                .addComponent(firstNameText3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(lastNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(firstNameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(billAddressPanelLayout.createSequentialGroup()
+                        .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billAddressPanelLayout.createSequentialGroup()
+                                .addComponent(firstNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(firstNameText6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billAddressPanelLayout.createSequentialGroup()
+                                .addComponent(firstNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(firstNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(53, 53, 53)
+                        .addComponent(firstNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(firstNameText4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(firstNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(firstNameText5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        billAddressPanelLayout.setVerticalGroup(
+            billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billAddressPanelLayout.createSequentialGroup()
+                .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameLabel1)
+                    .addComponent(lastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(paymentMethodPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(travelerLabel)
-                                .addGap(2, 2, 2)
-                                .addComponent(connectLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(paymentLabel)
-                                .addGap(4, 4, 4)
-                                .addComponent(connectLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 205, Short.MAX_VALUE)))
+                        .addComponent(travelerLabel)
+                        .addGap(2, 2, 2)
+                        .addComponent(connectLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(paymentLabel)
+                        .addGap(4, 4, 4)
+                        .addComponent(connectLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(billAddressPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -203,9 +363,13 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                     .addComponent(connectLabel1)
                     .addComponent(connectLabel2))
                 .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(paymentMethodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(billAddressPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -217,11 +381,40 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     private void lastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextActionPerformed
+
+    private void firstNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText1ActionPerformed
+
+    private void lastNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameText1ActionPerformed
+
+    private void firstNameText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText2ActionPerformed
+
+    private void firstNameText3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText3ActionPerformed
+
+    private void firstNameText4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText4ActionPerformed
+
+    private void firstNameText5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText5ActionPerformed
+
+    private void firstNameText6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameText6ActionPerformed
     //private javax.swing.DefaultComboBoxModel monthList
     //        = new javax.swing.DefaultComboBoxModel<>(
     //                new String[] { "1","2","3","4","5","6","7","8","9","10","11","12" });
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel billAddressPanel;
     private javax.swing.JLabel cardNumberLabel;
     private javax.swing.JTextField cardNumberText;
     private javax.swing.JLabel confirmLabel;
@@ -233,13 +426,28 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     private javax.swing.JTextField expireMonthText;
     private javax.swing.JTextField expireYearText;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JLabel firstNameLabel1;
+    private javax.swing.JLabel firstNameLabel2;
+    private javax.swing.JLabel firstNameLabel3;
+    private javax.swing.JLabel firstNameLabel4;
+    private javax.swing.JLabel firstNameLabel5;
+    private javax.swing.JLabel firstNameLabel6;
     private javax.swing.JTextField firstNameText;
+    private javax.swing.JTextField firstNameText1;
+    private javax.swing.JTextField firstNameText2;
+    private javax.swing.JTextField firstNameText3;
+    private javax.swing.JTextField firstNameText4;
+    private javax.swing.JTextField firstNameText5;
+    private javax.swing.JTextField firstNameText6;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JLabel lastNameLabel1;
     private javax.swing.JTextField lastNameText;
+    private javax.swing.JTextField lastNameText1;
     private javax.swing.JLabel paymentLabel;
+    private javax.swing.JPanel paymentMethodPanel;
     private java.awt.Label paymentMethodTitleLabel;
+    private java.awt.Label paymentMethodTitleLabel1;
     private javax.swing.JLabel travelerLabel;
     // End of variables declaration//GEN-END:variables
 }
