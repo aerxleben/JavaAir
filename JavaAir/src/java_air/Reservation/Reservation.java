@@ -1,4 +1,4 @@
-package java_air.main;
+package java_air.Reservation;
 
 /* 
  * CS5900 - Software Engineering
@@ -15,6 +15,8 @@ package java_air.main;
  */
 
 import java.util.ArrayList;
+import java_air.main.Flight;
+import java_air.main.Passenger;
 
 public class Reservation {
     
