@@ -17,6 +17,6 @@ public class TestPanel {
          //test
          public TestPanel(){
             CardLayout cl = (CardLayout)(Global.cardsPanel.getLayout());
-            cl.show(Global.cardsPanel, Global.textReservation);   
+            cl.show(Global.cardsPanel, Global.textReservationConfirmation);   
          }
 }
