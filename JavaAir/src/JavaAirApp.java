@@ -61,6 +61,10 @@ public class JavaAirApp implements ActionListener{
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
+        // Reservation Panels
+        ReservationPanel reservationPanel = new ReservationPanel();
+        Global.jPanelMap.put(Global.textReservation,reservationPanel);
+        
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
         cards.add(panelHome, Global.textHome);
@@ -70,11 +74,17 @@ public class JavaAirApp implements ActionListener{
         cards.add(panelAcctConfirm, Global.textRegConfirm);
         cards.add(anAccountWelcomePanel, Global.textAcct);
         
+        //Add reservation panels to the CardLayout.
+        cards.add(reservationPanel, Global.textReservation);
+        
         if(cards != null){ Global.cardsPanel = cards; }
         
         pane.add(panelMenu, BorderLayout.PAGE_START);
         //pane.add(menu, BorderLayout.PAGE_START);
         pane.add(cards, BorderLayout.CENTER);
+
+        //test panel
+        //new TestPanel();
     }
     
     @Override

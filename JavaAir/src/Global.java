@@ -27,6 +27,10 @@ public class Global {
     public static String textLogin = "Login";  // refernces login landinng page
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
+    
+    // Reservation panels references
+    public static String textReservation = "Reservation"; // references of Reservation
+    
 //    public static String textAccountWelcome = ""
     
     public static String[] airportList = {"Chicago", "New York", "Los Angeles"};
@@ -38,6 +42,7 @@ public class Global {
     public static Font normalFont = new Font("Times", Font.PLAIN, 16);
     
     public static Color colorError = Color.RED;
+    public static Color transparentColor = new Color(255,255,255,150);
     
     public static Dimension appDimension = new Dimension(800,600);
     
