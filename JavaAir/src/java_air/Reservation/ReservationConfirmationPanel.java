@@ -5,6 +5,7 @@
  */
 package java_air.Reservation;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java_air.main.Global;
 
@@ -19,7 +20,7 @@ public class ReservationConfirmationPanel extends ReservationPanel {
      */
     public ReservationConfirmationPanel() {
         initComponents();
-
+        reservationPanel1.getContentPanel().add(new ReservationConfirmDetailPanel(),BorderLayout.CENTER);
     }
 
     /**
