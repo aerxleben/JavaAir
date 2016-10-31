@@ -110,7 +110,7 @@ public class JavaAirApp implements ActionListener{
         pane.add(cards, BorderLayout.CENTER);
 
         //test panel
-       // new TestPanel();
+       new TestPanel();
     }
     
     @Override
