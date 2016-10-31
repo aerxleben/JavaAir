@@ -29,6 +29,7 @@ public class Global {
     public static String textLogin = "Login";  // refernces login landinng page
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
+    public static String textForgot = "Forgot"; // refrence password reset panel
     
     /* Reservation panels references */
     // reference of Reservation Confirmation

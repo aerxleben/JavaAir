@@ -13,6 +13,8 @@ package java_air.main;
  * Changelog:
  * Erxleben- 2016-10-22, added email and passowrd fields, login button, register button, employee login button
  * 
+ * Erxleben- 2016-10-31, added forgotPassword Button
+ *
  */
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +27,7 @@ public class LoginLandingPanel extends JPanel{
     private JTextField passwordField;
     
     private JButton loginButton;
+    private JButton forgotPasswordButton;
     private JButton registerButton;
     private JButton employeeLoginButton;
     
@@ -36,6 +39,7 @@ public class LoginLandingPanel extends JPanel{
     public JTextField getPasswordField(){return passwordField;}
     
     public JButton getLoginButton(){return loginButton;}
+    public JButton getForgotPasswordButton(){return forgotPasswordButton;}
     public JButton getRegisterButton(){return registerButton;}
     public JButton getEmployeeLoginButton(){return employeeLoginButton;}
     
@@ -71,9 +75,9 @@ public class LoginLandingPanel extends JPanel{
         loginLabel.setHorizontalTextPosition(JLabel.CENTER);
         loginLabel.setForeground(buttonColor);
         constraints.gridx = 1;
-        constraints.gridy = 2;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 2;
         constraints.fill = GridBagConstraints.NONE;
           constraints.insets = new Insets(0,0,0,0);
         constraints.weightx = 10;
@@ -136,7 +140,7 @@ public class LoginLandingPanel extends JPanel{
         //passwordField.setForeground(buttonColor);
         constraints.gridx = 2;
         constraints.gridy = 4;
-        constraints.gridwidth = 2;
+        constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(0,0,0,0);
@@ -162,19 +166,42 @@ public class LoginLandingPanel extends JPanel{
         constraints.gridy = 5;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-          constraints.insets = new Insets(100,0,100,400);
+        constraints.fill = GridBagConstraints.NONE;
+        //  constraints.insets = new Insets(100,0,100,400);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(loginButton, constraints);
         add(loginButton);
+        
+        forgotPasswordButton = new JButton("forgot password?");
+        forgotPasswordButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                //validate user inputs && create new account
+                forgotPasswordButtonPressed();
+            }
+        });
+        forgotPasswordButton.setFont(Global.titleFont);
+        forgotPasswordButton.setHorizontalAlignment(JButton.CENTER);
+        forgotPasswordButton.setBackground(buttonColor);
+        forgotPasswordButton.setForeground(Color.WHITE);
+        constraints.gridx = 3;
+        constraints.gridy = 4;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.NONE;
+     //     constraints.insets = new Insets(0, 150, 50, 150);
+        constraints.weightx = 5;
+        constraints.weighty = 5;
+        layout.setConstraints(forgotPasswordButton, constraints);
+        add(forgotPasswordButton);
         
         JLabel newLabel = new JLabel("New Customer?");
         //newLabel.setFont(new Font("Times", Font.BOLD, 40));
         newLabel.setFont(Global.titleFont);
         newLabel.setHorizontalAlignment(JLabel.CENTER);
         newLabel.setVerticalAlignment(JLabel.BOTTOM);
-        newLabel.setForeground(buttonColor);
+        newLabel.setForeground(Color.WHITE);//buttonColor);
         constraints.gridx = 4;
         constraints.gridy = 2;
         constraints.gridwidth = 1;
@@ -216,7 +243,7 @@ public class LoginLandingPanel extends JPanel{
         employeeLoginButton.setBackground(buttonColor);
         employeeLoginButton.setForeground(Color.WHITE);
         constraints.gridx = 4;
-        constraints.gridy = 5;
+        constraints.gridy = 4;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;
@@ -238,6 +265,11 @@ public class LoginLandingPanel extends JPanel{
     public void loginButtonPressed(){
          CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
          cl.show(Global.cardsPanel, Global.textAcct);
+    }
+    
+    public void forgotPasswordButtonPressed(){
+        CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+        cl.show(Global.cardsPanel, Global.textForgot);
     }
     
     public void paintComponent(Graphics g){

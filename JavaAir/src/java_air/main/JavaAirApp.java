@@ -12,6 +12,7 @@ package java_air.main;
  * 
  * Changelog:
  * 
+ *  2016-10-31, Erxleben, added password reset panel to card layout
  */
 import java_air.Reservation.ReservationPanel;
 import java.awt.*;
@@ -67,6 +68,12 @@ public class JavaAirApp implements ActionListener{
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
+        //Pasword Reset Panel
+        //Account Welcome Panel
+        PasswordResetPanel aPasswordResetPanel = new PasswordResetPanel();
+        Global.jPanelMap.put(Global.textForgot, aPasswordResetPanel);
+        
+        
         /* Reservation Panels */
         // Reservation Confirmation Panel
         ReservationConfirmationPanel reservationConfirmPanel = new ReservationConfirmationPanel();
@@ -86,6 +93,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(panelFlights, Global.textFlights);
         cards.add(panelAcctConfirm, Global.textRegConfirm);
         cards.add(anAccountWelcomePanel, Global.textAcct);
+        cards.add(aPasswordResetPanel, Global.textForgot);
         
         //Add reservation panels to the CardLayout.
         cards.add(reservationConfirmPanel, Global.textReservationConfirmation);
