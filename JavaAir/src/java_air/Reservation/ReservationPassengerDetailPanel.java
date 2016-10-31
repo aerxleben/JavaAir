@@ -22,7 +22,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         initComponents();
         jScrollPane1.setOpaque(false);
         travelerLabelSet();
-        jScrollPane1.validate();
+        validate();
         //Dimension d = this.getPreferredSize();
         //d = new Dimension(d.width, d.height+100);
         this.setPreferredSize(d);

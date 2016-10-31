@@ -49,7 +49,7 @@ public class ReservationDetailPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         travelTypeLabel.setFont(generalFont);
-        travelTypeLabel.setText("Oneway (1 traveler)");
+        travelTypeLabel.setText("Oneway (4 traveler)");
 
         EditSearchLabel.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         EditSearchLabel.setForeground(generalColor);

@@ -128,7 +128,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="generalFont" type="code"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Oneway (1 traveler)"/>
+        <Property name="text" type="java.lang.String" value="Oneway (4 traveler)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="EditSearchLabel">
