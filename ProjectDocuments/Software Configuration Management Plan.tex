@@ -46,6 +46,7 @@
 0.1.0 & Erxleben & Created first draft  & 10/01/16 \\ \hline
 0.2.0 & Erxleben & Added sections ``Approvals'', ``Revision History'', and ``Annex A'', added content to sections 3.2.2.1-3.2.4 & 10/03/16 \\ \hline
 1.0.0 & Erxleben & addded content to sections 3.3.2.1, 3.4, 3.6.  Updated content in section 3.2.2.1 \& 3.3.6, modified format of Approvals and Revision History & 10/05/16 \\ \hline
+2.0.0 & Erxleben & sections 3.3.2.1 modified, Added Annex A, backup plan \\ \hline
 \end{tabular}
 \end{center}
 \newpage
@@ -117,7 +118,7 @@ The cconfiguration leader has the responsibility of naming all CIs.  The file co
 \end{itemize}
 \paragraph{Acquiring configuration items}
 Engineers who require CIs to make changes will check them out using GitHub in conjuction with TortoiseGit.
-Anyone who requires acces to a file that is checked out for modification will need to negotiate with the engineer who checked it out first.  Read-only versions of all documents will be available at any time.  Under no circumstances may an engineer transfer a CI directly to anyone.
+Engineers should create and designate a folder on their workstation as a clone of the GitHub repository.  Each time an engineer wishes to modify a file, a ``pull'' action should be berformed to ensure the most recent versions of all files are on their local drive.  Under no circumstances may an engineer transfer a CI directly to anyone.
 
 \subsubsection{Configuration control}
 \paragraph{Requesting changes}
@@ -136,7 +137,7 @@ The project manager shall schedule a review by the CM leader of the project conf
 \subsubsection{Interface control}
 
 \subsubsection{Subcontractor / vendor control}
-The configuration leader will track all upgrades and bug reports of the GitHub and TortoiseGit tools.  A backup plan will be develooped by the CM leader that will be utilized in the event of GitHub and TortoiseGit failing, becoming discontinued, or no longer supported.  This plan will be submitted to the Project Manager within 2 weeks of the release of this document (Version 1.0.0).
+The configuration leader will track all upgrades and bug reports of the GitHub and TortoiseGit tools.  A backup plan will be develooped by the CM leader that will be utilized in the event of GitHub and TortoiseGit failing, becoming discontinued, or no longer supported.  This plan will be submitted to the Project Manager within 2 weeks of the release of this document (Version 1.0.0).  A copy of this plan is available in Annex A.
 \subsubsection{Release management and delivery}
 Release of versions must be approved by the project manager.
 
@@ -168,7 +169,10 @@ The configuration leader will do the following for the CM process improvement se
 
 \newpage
 \setcounter{secnumdepth}{0} 
-\subsection{Annex A: Bibliography}
+\subsection{AnnexA: Configuration Management Tool Backup Plan}
+The Configuration Leader will obtain and dedicate a USB flash drive for this project.  Once a week the Configuratin Leader will create a new clone of the current configuration of the project from GitHub on the USB drive.  All previous clone versions will be retained.  In the event of a failure or discontiunation of the GitHub service all requests to access files will be sent to the Configuration Leader.  Any changes will then be returned to the Configuration Leader for integration. 
+\newpage
+\subsection{Annex B: Bibliography}
 Braude, Eric J., and Michael E. Bernstein. \textit{Software Engineering: Modern Approaches.} 2nd ed. Hoboken, NJ: J. Wiley \& Sons, 2011. Print.
 \newline
 
