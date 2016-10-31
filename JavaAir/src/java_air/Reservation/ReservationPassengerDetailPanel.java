@@ -21,6 +21,8 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         Dimension d = this.getPreferredSize();
         initComponents();
         jScrollPane1.setOpaque(false);
+        // increase the scroll bar speed
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(5);
         travelerLabelSet();
         validate();
         //Dimension d = this.getPreferredSize();
@@ -84,6 +86,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         insideScrollPanel.setBackground(Global.transparentColor);
         insideScrollPanel.setLayout(new java.awt.BorderLayout());
