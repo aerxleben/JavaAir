@@ -5,6 +5,7 @@
  */
 package java_air.Reservation;
 
+import java.awt.Dimension;
 import java_air.main.Global;
 
 /**
@@ -17,9 +18,30 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
      * Creates new form ReservationPassengerDetailPanel
      */
     public ReservationPassengerDetailPanel() {
+        Dimension d = this.getPreferredSize();
         initComponents();
+        jScrollPane1.setOpaque(false);
+        travelerLabelSet();
+        jScrollPane1.validate();
+        //Dimension d = this.getPreferredSize();
+        //d = new Dimension(d.width, d.height+100);
+        this.setPreferredSize(d);
     }
-
+    public void travelerLabelSet(){
+        for(int i = 0; i < rowNumber; i++){
+            ReservationSinglePassengerPanel reservationSinglePassenger
+                    = new ReservationSinglePassengerPanel();
+            contentPanel.add(reservationSinglePassenger);
+            String travelNumberText;
+            if(i!=0){
+                travelNumberText= "Traveler " + (i+1);
+            }else{
+                travelNumberText= "Traveler " + (i+1) + " - primary traveler"; 
+            }
+            
+            reservationSinglePassenger.getTravelerLabel().setText(travelNumberText);
+        } 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,10 +56,12 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        continueButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        insideScrollPanel = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(Global.transparentColor);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setText("Traveler");
@@ -54,21 +78,33 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel3.setText("Confirm");
 
-        jButton1.setBackground(new java.awt.Color(204, 153, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton1.setText("Continue");
+        continueButton.setBackground(new java.awt.Color(204, 153, 0));
+        continueButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        continueButton.setText("Continue");
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        insideScrollPanel.setBackground(Global.transparentColor);
+        insideScrollPanel.setLayout(new java.awt.BorderLayout());
+
+        contentPanel.setLayout(new java.awt.GridLayout(rowNumber, 1, 3, 5));
+        insideScrollPanel.add(contentPanel, java.awt.BorderLayout.CENTER);
+
+        jScrollPane1.setViewportView(insideScrollPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(continueButton))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
                         .addComponent(jLabel4)
@@ -78,8 +114,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 386, Short.MAX_VALUE))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,22 +127,26 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(continueButton))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private int rowNumber = 4;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel contentPanel;
+    private javax.swing.JButton continueButton;
+    private javax.swing.JPanel insideScrollPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
