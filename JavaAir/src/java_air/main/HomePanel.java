@@ -12,6 +12,8 @@ package java_air.main;
  *	
  *	Updated 10/16/16, Erxleben, Added FlightSearchPanel
  *
+ *      Updated 10/31/16, Erxleben, added action listener for CheckIn Button
+ *
  */
 
 import javax.swing.*;
@@ -106,6 +108,13 @@ public class HomePanel extends JPanel{
       add(flightStatusButton);
    
       checkInButton = new JButton("CHECK IN");
+      checkInButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                //validate user inputs && create new account
+                checkInButtonPressed();
+            }
+        });
       checkInButton.setFont(new Font("Times",Font.PLAIN, 24));
       checkInButton.setBackground(buttonColor);
       checkInButton.setForeground(Color.WHITE);
@@ -148,4 +157,10 @@ public class HomePanel extends JPanel{
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
    }
+   
+   public void checkInButtonPressed(){
+         CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+         cl.show(Global.cardsPanel, Global.textCheckIn);
+    }
+   
 }

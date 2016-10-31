@@ -6,9 +6,9 @@ package java_air.main;
  * Project: Java Air
  * Team: Avian Limited
  * 
- * Filename: AccountWelcomePanel.java
+ * Filename: PasswordResetPanel.java
  * Author: Amy Erxleben
- * Creation: 2016-10-29
+ * Creation: 2016-10-31
  * 
  */
 import javax.swing.*;
@@ -255,6 +255,24 @@ public class PasswordResetPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(cPasswordField, constraints);
         add(cPasswordField);
+        
+        resetButton = new JButton("RESET");
+        //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
+        resetButton.setFont(Global.normalFont);
+        resetButton.setHorizontalAlignment(JLabel.LEFT);
+        resetButton.setBackground(buttonColor);
+        resetButton.setForeground(Color.WHITE);
+        constraints.gridx = 3;
+        constraints.gridy = 5;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.insets = new Insets(0,0,0,50);
+        constraints.weightx = 10;
+        constraints.weighty = 10;
+        layout.setConstraints(resetButton, constraints);
+        add(resetButton);
+        
         
     }
     

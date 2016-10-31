@@ -12,6 +12,8 @@ package java_air.main;
  * 
  * Changelog:
  * 
+ * 2016-10-31, Erxleben, added reference strings for CheckInPanel and PasswordResetPanel
+ *
  */
 import java.awt.*;
 import java.text.*;
@@ -30,6 +32,8 @@ public class Global {
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
     public static String textForgot = "Forgot"; // refrence password reset panel
+    public static String textCheckIn ="CheckIn"; //refernce Check In Panel
+    
     
     /* Reservation panels references */
     // reference of Reservation Confirmation
