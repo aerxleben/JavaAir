@@ -110,6 +110,13 @@ public class AccountWelcomePanel extends JPanel{
         add(reservationsButton);
         
         rewardsButton = new JButton("REWARDS");
+        rewardsButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                //validate user inputs && create new account
+                rewardsButtonPressed();
+            }
+        });
         //accountButton.setFont(new Font("Times", Font.BOLD, 30));
         rewardsButton.setFont(Global.titleFont);
         rewardsButton.setHorizontalAlignment(JButton.CENTER);
@@ -126,6 +133,11 @@ public class AccountWelcomePanel extends JPanel{
         layout.setConstraints(rewardsButton, constraints);
         add(rewardsButton);
         
+    }
+    
+    public void rewardsButtonPressed(){
+        CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+        cl.show(Global.cardsPanel, Global.textRewards);
     }
     
     public void paintComponent(Graphics g){

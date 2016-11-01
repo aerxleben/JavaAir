@@ -14,6 +14,7 @@ package java_air.main;
  * 
  * 2016-10-31, Erxleben, added reference strings for CheckInPanel and PasswordResetPanel
  *
+ *  2016-11-01, Erxleben, added constants for rewards program.
  */
 import java.awt.*;
 import java.text.*;
@@ -32,8 +33,8 @@ public class Global {
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
     public static String textForgot = "Forgot"; // refrence password reset panel
-    public static String textCheckIn ="CheckIn"; //refernce Check In Panel
-    
+    public static String textCheckIn = "CheckIn"; //refernce Check In Panel
+    public static String textRewards = "Rewards"; // refrence rewards panel
     
     /* Reservation panels references */
     // reference of Reservation Confirmation
@@ -68,4 +69,10 @@ public class Global {
     
     //Temporary - For Testing Purposes
     public static JPanel cardsPanel;
+    
+    public static int maxRewards = 60000;
+    public static int bronzeRewards = 5000;
+    public static int silverRewards = 15000;
+    public static int goldRewards = 30000;
+    public static int platinumRewards = 50000;
 }
