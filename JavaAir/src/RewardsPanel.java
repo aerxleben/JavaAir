@@ -55,27 +55,110 @@ public class RewardsPanel extends JPanel{
             layout.setConstraints(messageLabel, constraints);
             add(messageLabel);
             
+            JLabel pointsLabel = new JLabel("You have 40,000 AirBeans!");
+            pointsLabel.setFont(new Font("Times", Font.PLAIN, 36));
+            pointsLabel.setForeground(fontColor);
+            pointsLabel.setHorizontalAlignment(JLabel.CENTER);
+            constraints.gridx = 0;
+            constraints.gridy = 2;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.BOTH;
+            constraints.insets = new Insets(12,12,3,3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(pointsLabel, constraints);
+            add(pointsLabel);
+            
             rewardsSlider = new JSlider(JSlider.VERTICAL);
             rewardsSlider.setMaximum(Global.maxRewards);
+            rewardsSlider.setBackground(new Color(255,255,255,0));
+            rewardsSlider.setOpaque(false);
             rewardsSlider.setMinimum(0);
             rewardsSlider.setMajorTickSpacing(5000);
             rewardsSlider.setPaintTicks(true);
             rewardsSlider.setLabelTable(rewardsLabels);
             rewardsSlider.setPaintLabels(true);
-//            rewardsSlider.enable(false);
             rewardsSlider.setValue(40000);
-            rewardsSlider.setEnabled(false);
-            rewardsSlider.setOpaque(true);
+//            rewardsSlider.setEnabled(false);
             constraints.gridx = 1;
             constraints.gridy = 1;
             constraints.gridwidth = 1;
-            constraints.gridheight = 3;
+            constraints.gridheight = 4;
             constraints.fill = GridBagConstraints.BOTH;
            // constraints.insets = new Insets(12, 12, 3, 3);
             constraints.weightx = 10;
             constraints.weighty = 10;
+//            layout.setConstraints(label, constraints);
+  //          add(label);
             layout.setConstraints(rewardsSlider, constraints);
             add(rewardsSlider);
+            
+            
+            String bronzeText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
+                    + "about the Brozne Level rewards program");
+            JLabel bronzeLabel = new JLabel (bronzeText);
+            bronzeLabel.setFont(Global.normalFont);
+            bronzeLabel.setOpaque(false);
+            constraints.gridx = 2;
+            constraints.gridy = 1;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+           // constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(bronzeLabel, constraints);
+            add(bronzeLabel);
+            
+            String silverText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
+                    + "about the Silver Level rewards program");
+            JLabel silverLabel = new JLabel (silverText);
+            silverLabel.setFont(Global.normalFont);
+            silverLabel.setOpaque(false);
+            constraints.gridx = 2;
+            constraints.gridy = 2;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+           // constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(silverLabel, constraints);
+            add(silverLabel);
+            
+            String goldText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
+                    + "about the Gold Level rewards program");
+            JLabel goldLabel = new JLabel (goldText);
+            goldLabel.setFont(Global.normalFont);
+            goldLabel.setOpaque(false);
+            constraints.gridx = 2;
+            constraints.gridy = 3;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+           // constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(goldLabel, constraints);
+            add(goldLabel);
+            
+            String platinumText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
+                    + "about the Platinum Level rewards program");
+            JLabel platinumLabel = new JLabel (platinumText);
+            platinumLabel.setFont(Global.normalFont);
+            platinumLabel.setOpaque(false);
+            constraints.gridx = 2;
+            constraints.gridy = 4;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+           // constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(platinumLabel, constraints);
+            add(platinumLabel);
+                    
            
 	}//end constructor 
         

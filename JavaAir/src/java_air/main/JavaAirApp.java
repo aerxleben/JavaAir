@@ -69,8 +69,9 @@ public class JavaAirApp implements ActionListener{
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
         //Rewards Panel
-        RewardsPanel aRewardsPanel = new RewardsPanel();
+        /*RewardsPanel aRewardsPanel = new RewardsPanel();
         Global.jPanelMap.put(Global.textRewards, aRewardsPanel);
+        */
         
         //Pasword Reset Panel
         PasswordResetPanel aPasswordResetPanel = new PasswordResetPanel();
@@ -91,6 +92,7 @@ public class JavaAirApp implements ActionListener{
         ReservationPassengerPanel reservationPassengerPanel = new ReservationPassengerPanel();
         Global.jPanelMap.put(Global.textReservationPassenger,reservationPassengerPanel);
         
+        
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
         cards.add(panelHome, Global.textHome);
@@ -101,7 +103,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(anAccountWelcomePanel, Global.textAcct);
         cards.add(aPasswordResetPanel, Global.textForgot);
         cards.add(aCheckInPanel, Global.textCheckIn);
-        cards.add(aRewardsPanel,Global.textRewards);
+        //cards.add(aRewardsPanel,Global.textRewards);
         
         //Add reservation panels to the CardLayout.
         cards.add(reservationConfirmPanel, Global.textReservationConfirmation);

@@ -68,7 +68,7 @@ public class RegistrationPanel extends JPanel{
 
     //public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
 
-    public RegistrationPanel(){
+    public RegistrationPanel(boolean paint){
         
         //this.setBackground(new Color(WHITE));
        
@@ -78,18 +78,6 @@ public class RegistrationPanel extends JPanel{
 
         //create "Coffee Brown" color for buttons and fonts.
         Color buttonColor = new Color(100,76,55);
-
-        /*aMenuBannerPanel = new MenuBannerPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 9;
-        constraints.gridheight = 2;
-        constraints.fill = GridBagConstraints.BOTH;
-            //constraints.insets = new Insets(12,12,3,3);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);*/
 
         JLabel firstLabel = new JLabel("First");
         //firstLabel.setFont(new Font("Times", Font.BOLD, 30));
@@ -524,10 +512,22 @@ public class RegistrationPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(label, constraints);
         add(label);
-
-        //get image for panel background
-        background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        
+        if(paint){
+            //get image for panel background
+            background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        }
+        else{
+            this.setBackground(new Color(255,255,255,150));
+        } 
+               
     }
+    
+    public RegistrationPanel(){
+        this(true);
+    }
+    
+   
    
     public void paintComponent(Graphics g){
         super.paintComponent(g);

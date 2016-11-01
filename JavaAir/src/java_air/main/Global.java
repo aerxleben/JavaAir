@@ -34,7 +34,7 @@ public class Global {
     public static String textAbout = "About"; // references about page
     public static String textForgot = "Forgot"; // refrence password reset panel
     public static String textCheckIn = "CheckIn"; //refernce Check In Panel
-    public static String textRewards = "Rewards"; // refrence rewards panel
+    //public static String textRewards = "Rewards"; // refrence rewards panel
     
     /* Reservation panels references */
     // reference of Reservation Confirmation
