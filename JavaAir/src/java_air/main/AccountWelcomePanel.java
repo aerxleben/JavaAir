@@ -10,6 +10,8 @@ package java_air.main;
  * Author: Amy Erxleben
  * Creation: 2016-10-29
  * 
+ *
+ *  Updated 11/02/16 - added reservagtions pannel
  */
 import javax.swing.*;
 import java.awt.*;
@@ -87,6 +89,13 @@ public class AccountWelcomePanel extends JPanel{
         add(personalInfoButton);
         
         reservationsButton = new JButton("RESERVATIONS");
+        reservationsButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                //validate user inputs && create new account
+                reservationsButtonPressed();
+            }
+        });
         //passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
         reservationsButton.setFont(Global.titleFont);
         reservationsButton.setHorizontalAlignment(JLabel.CENTER);
@@ -137,6 +146,12 @@ public class AccountWelcomePanel extends JPanel{
         cards.add(aRewardsPanel, "Rewards");
         RegistrationPanel aRegistrationPanel = new RegistrationPanel(false);
         aRegistrationPanel.setBackground(new Color(255,255,255,150));
+        ReservationInfoPanel aReservationInfoPanel = new ReservationInfoPanel();
+        cards.add(aReservationInfoPanel, "Reservation");
+      //  aRegistrationPanel.getPasswordLabel().setVisible(false);
+      //  aRegistrationPanel.getPasswordField().setVisible(false);
+      //  aRegistrationPanel.getConfirmLabel().setVisible(false);
+      //  aRegistrationPanel.getCPasswordField().setVisible(false);
         cards.add(aRegistrationPanel,"Info");
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -160,6 +175,11 @@ public class AccountWelcomePanel extends JPanel{
     public void personalInformationButtonPressed(){
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Info");
+    }
+    
+    public void reservationsButtonPressed(){
+        CardLayout c2 = (CardLayout)(cards.getLayout());
+        c2.show(cards,"Reservation");
     }
     
     public void paintComponent(Graphics g){

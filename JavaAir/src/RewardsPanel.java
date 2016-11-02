@@ -80,6 +80,7 @@ public class RewardsPanel extends JPanel{
             rewardsSlider.setLabelTable(rewardsLabels);
             rewardsSlider.setPaintLabels(true);
             rewardsSlider.setValue(40000);
+//            rewardsSlider.setSize(100,100);
 //            rewardsSlider.setEnabled(false);
             constraints.gridx = 1;
             constraints.gridy = 1;
