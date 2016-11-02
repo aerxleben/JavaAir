@@ -57,7 +57,7 @@ public class Global {
     public static Color colorError = Color.RED;
     public static Color transparentColor = new Color(255,255,255,150);
     
-    public static Dimension appDimension = new Dimension(800,600);
+    public static Dimension appDimension = new Dimension(1200,800);
     
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     

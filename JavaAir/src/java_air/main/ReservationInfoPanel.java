@@ -71,7 +71,6 @@ public class ReservationInfoPanel extends JPanel{
         Color buttonColor = new Color(100,76,55);
         Color backgroundColor = new Color(255,255,255,150);
         this.setBackground(backgroundColor);
-
            
         reservationNumberLabel = new JLabel("Reservation # "); // append reservationInfo to this label
         reservationNumberLabel.setFont(Global.boldFont);

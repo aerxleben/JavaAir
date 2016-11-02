@@ -13,6 +13,8 @@ package java_air.main;
  * Changelog:
  * 
  *  2016-10-31, Erxleben, added password reset panel to card layout
+ *
+ *  2016-11-02, Erxleben, changed frame method to set size from setSize to setPreferredSize
  */
 import java_air.Reservation.ReservationPanel;
 import java.awt.*;
@@ -129,7 +131,8 @@ public class JavaAirApp implements ActionListener{
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Java Air");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(Global.appDimension);
+        //frame.setSize(Global.appDimension);
+        frame.setPreferredSize(Global.appDimension);
         
         JavaAirApp javaAirMain = new JavaAirApp();
         javaAirMain.addComponentToPane(frame.getContentPane());
