@@ -1,4 +1,4 @@
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 
 import java.awt.BorderLayout;

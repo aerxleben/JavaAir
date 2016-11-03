@@ -16,12 +16,12 @@ package java_air.main;
  *
  *  2016-11-02, Erxleben, changed frame method to set size from setSize to setPreferredSize
  */
-import java_air.Reservation.ReservationPanel;
+import java_air.panel.reservation.ReservationPanel;
 import java.awt.*;
 import java.awt.event.*;
-import java_air.Reservation.ReservationBillInformationPanel;
-import java_air.Reservation.ReservationConfirmationPanel;
-import java_air.Reservation.ReservationPassengerPanel;
+import java_air.panel.reservation.ReservationBillInformationPanel;
+import java_air.panel.reservation.ReservationConfirmationPanel;
+import java_air.panel.reservation.ReservationPassengerPanel;
 import javax.swing.*;
 
 public class JavaAirApp implements ActionListener{

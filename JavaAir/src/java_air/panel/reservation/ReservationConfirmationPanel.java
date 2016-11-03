@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -32,7 +32,7 @@ public class ReservationConfirmationPanel extends ReservationPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        reservationConfirmDetailPanel1 = new java_air.Reservation.ReservationConfirmDetailPanel();
+        reservationConfirmDetailPanel1 = new java_air.panel.reservation.ReservationConfirmDetailPanel();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,6 +54,6 @@ public class ReservationConfirmationPanel extends ReservationPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java_air.Reservation.ReservationConfirmDetailPanel reservationConfirmDetailPanel1;
+    private java_air.panel.reservation.ReservationConfirmDetailPanel reservationConfirmDetailPanel1;
     // End of variables declaration//GEN-END:variables
 }

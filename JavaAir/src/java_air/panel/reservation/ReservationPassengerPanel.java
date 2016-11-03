@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 import java.awt.BorderLayout;
 
@@ -11,14 +11,14 @@ import java.awt.BorderLayout;
  *
  * @author Georege
  */
-public class ReservationBillInformationPanel extends javax.swing.JPanel {
+public class ReservationPassengerPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ReservationBillInformationPanel
+     * Creates new form ReservationPassengerPanel
      */
-    public ReservationBillInformationPanel() {
+    public ReservationPassengerPanel() {
         initComponents();
-         reservationPanel1.getContentPanel().add(new ReservationBillInformDetailPanel(),BorderLayout.CENTER);
+        reservationPanel1.getContentPanel().add(new ReservationPassengerDetailPanel(),BorderLayout.CENTER);
     }
 
     /**
@@ -30,7 +30,7 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        reservationPanel1 = new java_air.Reservation.ReservationPanel();
+        reservationPanel1 = new java_air.panel.reservation.ReservationPanel();
 
         setLayout(new java.awt.BorderLayout());
         add(reservationPanel1, java.awt.BorderLayout.CENTER);
@@ -38,6 +38,6 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java_air.Reservation.ReservationPanel reservationPanel1;
+    private java_air.panel.reservation.ReservationPanel reservationPanel1;
     // End of variables declaration//GEN-END:variables
 }
