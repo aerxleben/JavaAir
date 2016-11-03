@@ -1,4 +1,4 @@
-package java_air.main;
+package java_air.panel.flight;
 
 /* 
  * CS5900 - Software Engineering
