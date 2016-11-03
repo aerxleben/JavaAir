@@ -34,18 +34,19 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
 
         firstNameText = new javax.swing.JTextField();
         lastNameText = new javax.swing.JTextField();
-        dateBirthLabel = new javax.swing.JLabel();
+        generLabel = new javax.swing.JLabel();
         monthText = new javax.swing.JTextField();
         dayText = new javax.swing.JTextField();
         yearText = new javax.swing.JTextField();
         travelContactLabel = new javax.swing.JLabel();
         maleRadioButton = new javax.swing.JRadioButton();
         femaleRadioButton = new javax.swing.JRadioButton();
-        dateBirthLabel2 = new javax.swing.JLabel();
+        dateBirthLabel = new javax.swing.JLabel();
         mobileNumberText = new javax.swing.JTextField();
         emailText = new javax.swing.JTextField();
         travelerlLabel = new java.awt.Label();
         jSeparator1 = new javax.swing.JSeparator();
+        passIDText = new javax.swing.JTextField();
 
         firstNameText.setFont(Global.normalFont);
         firstNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -61,8 +62,9 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
             }
         });
 
-        dateBirthLabel.setFont(Global.normalFont);
-        dateBirthLabel.setText("Gender*");
+        generLabel.setFont(Global.normalFont);
+        generLabel.setForeground(new java.awt.Color(102, 102, 102));
+        generLabel.setText("Gender*");
 
         monthText.setFont(Global.normalFont);
         monthText.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +88,7 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         });
 
         travelContactLabel.setFont(Global.normalFont);
+        travelContactLabel.setForeground(new java.awt.Color(102, 102, 102));
         travelContactLabel.setText("Travel contact information");
 
         maleRadioButton.setFont(Global.normalFont);
@@ -99,8 +102,9 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         femaleRadioButton.setFont(Global.normalFont);
         femaleRadioButton.setText("Female");
 
-        dateBirthLabel2.setFont(Global.normalFont);
-        dateBirthLabel2.setText("Date of birth*");
+        dateBirthLabel.setFont(Global.normalFont);
+        dateBirthLabel.setForeground(new java.awt.Color(102, 102, 102));
+        dateBirthLabel.setText("Date of birth*");
 
         mobileNumberText.setFont(Global.normalFont);
         mobileNumberText.addActionListener(new java.awt.event.ActionListener() {
@@ -121,11 +125,19 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         travelerlLabel.setForeground(new java.awt.Color(255, 255, 255));
         travelerlLabel.setText("label1");
 
+        passIDText.setFont(Global.normalFont);
+        passIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passIDTextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(travelerlLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,14 +149,14 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
                                 .addComponent(dayText, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(yearText, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dateBirthLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dateBirthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(maleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(femaleRadioButton))
-                            .addComponent(dateBirthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(generLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(mobileNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,9 +165,9 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(passIDText, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +179,8 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
                     .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateBirthLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateBirthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateBirthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(generLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,13 +188,15 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
                     .addComponent(yearText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(maleRadioButton)
                     .addComponent(femaleRadioButton))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passIDText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(travelContactLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mobileNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -218,6 +232,10 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     private void emailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextActionPerformed
+
+    private void passIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passIDTextActionPerformed
     
     public Label getTravelerLabel(){
         return travelerlLabel;
@@ -230,19 +248,21 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         new TextPrompt("YYYY*", yearText);
         new TextPrompt("Mobile number", mobileNumberText);
         new TextPrompt("Email address", emailText);
+        new TextPrompt("Know Traveler Number/PASS ID", passIDText);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateBirthLabel;
-    private javax.swing.JLabel dateBirthLabel2;
     private javax.swing.JTextField dayText;
     private javax.swing.JTextField emailText;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JTextField firstNameText;
+    private javax.swing.JLabel generLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField lastNameText;
     private javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JTextField mobileNumberText;
     private javax.swing.JTextField monthText;
+    private javax.swing.JTextField passIDText;
     private javax.swing.JLabel travelContactLabel;
     private java.awt.Label travelerlLabel;
     private javax.swing.JTextField yearText;
