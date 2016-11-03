@@ -70,6 +70,11 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(204, 153, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jButton1.setText("Continue");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         travelerLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         travelerLabel.setText("Traveler");
@@ -409,6 +414,12 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     private void firstNameText6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameText6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        // TODO add your handling code here:
+        Global.panelSwitch(Global.textReservationConfirmation);
+    }//GEN-LAST:event_jButton1ActionPerformed
     //private javax.swing.DefaultComboBoxModel monthList
     //        = new javax.swing.DefaultComboBoxModel<>(
     //                new String[] { "1","2","3","4","5","6","7","8","9","10","11","12" });
