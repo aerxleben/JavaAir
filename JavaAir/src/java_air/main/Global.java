@@ -70,6 +70,11 @@ public class Global {
     //Temporary - For Testing Purposes
     public static JPanel cardsPanel;
     
+    public static void panelSwitch(String targetPanel){
+            CardLayout cl = (CardLayout)(Global.cardsPanel.getLayout());
+            cl.show(Global.cardsPanel, targetPanel); 
+    }
+    
     public static int maxRewards = 60000;
     public static int bronzeRewards = 5000;
     public static int silverRewards = 15000;
