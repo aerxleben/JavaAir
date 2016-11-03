@@ -13,6 +13,8 @@ package java_air.main;
  * Changelog:
  * 
  *  2016-10-31, Erxleben, added password reset panel to card layout
+ *
+ *  2016-11-02, Erxleben, changed frame method to set size from setSize to setPreferredSize
  */
 import java_air.Reservation.ReservationPanel;
 import java.awt.*;
@@ -68,6 +70,11 @@ public class JavaAirApp implements ActionListener{
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
+        //Rewards Panel
+        /*RewardsPanel aRewardsPanel = new RewardsPanel();
+        Global.jPanelMap.put(Global.textRewards, aRewardsPanel);
+        */
+        
         //Pasword Reset Panel
         PasswordResetPanel aPasswordResetPanel = new PasswordResetPanel();
         Global.jPanelMap.put(Global.textForgot, aPasswordResetPanel);
@@ -87,6 +94,7 @@ public class JavaAirApp implements ActionListener{
         ReservationPassengerPanel reservationPassengerPanel = new ReservationPassengerPanel();
         Global.jPanelMap.put(Global.textReservationPassenger,reservationPassengerPanel);
         
+        
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
         cards.add(panelHome, Global.textHome);
@@ -97,6 +105,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(anAccountWelcomePanel, Global.textAcct);
         cards.add(aPasswordResetPanel, Global.textForgot);
         cards.add(aCheckInPanel, Global.textCheckIn);
+        //cards.add(aRewardsPanel,Global.textRewards);
         
         //Add reservation panels to the CardLayout.
         cards.add(reservationConfirmPanel, Global.textReservationConfirmation);
@@ -122,7 +131,8 @@ public class JavaAirApp implements ActionListener{
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Java Air");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(Global.appDimension);
+        //frame.setSize(Global.appDimension);
+        frame.setPreferredSize(Global.appDimension);
         
         JavaAirApp javaAirMain = new JavaAirApp();
         javaAirMain.addComponentToPane(frame.getContentPane());

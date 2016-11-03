@@ -11,7 +11,11 @@ package java_air.main;
  *      Update Log:
  *      10/22/16- Erxleben,added gender, birthdate, address, city, state, zip
  *              phone, email, password, and confrim password fields, submit button.
- */
+ *
+ *      11/02/15- Erxleben, passwordLabel and confirmPasswordLabel are no longer local
+ *              changed passwordField and cPasswordField to JPassowrdFields
+ *
+*/
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,9 +42,14 @@ public class RegistrationPanel extends JPanel{
     private JTextField zipField;
     private JTextField phoneField;
     private JTextField emailField;
-    private JTextField passwordField;
-    private JTextField cPasswordField;  //Confirm Password Field
+    //private JTextField passwordField;
+    private JPasswordField passwordField;
+    //private JTextField cPasswordField;  //Confirm Password Field
+    private JPasswordField cPasswordField; //Confirm Password Field
 
+    private JLabel passwordLabel;
+    private JLabel confirmLabel;
+    
     private JButton submitButton;
 
     //private JButton employeeLoginButton;
@@ -60,15 +69,20 @@ public class RegistrationPanel extends JPanel{
     public JTextField getZipField(){return zipField;}
     public JTextField getPhoneField(){return phoneField;}
     public JTextField getEmailField(){return emailField;}
-    public JTextField getPasswordField(){return passwordField;}
-    public JTextField getCPasswordField(){return cPasswordField;}
+//    public JTextField getPasswordField(){return passwordField;}
+    public JPasswordField getPasswordField(){return passwordField;}
+//    public JTextField getCPasswordField(){return cPasswordField;}
+    public JPasswordField getCPasswordField(){return cPasswordField;}
+    
+    public JLabel getPasswordLabel(){return passwordLabel;}
+    public JLabel getConfirmLabel(){return confirmLabel;}
 
     public JButton getSubmitButton(){return submitButton;}
     //public JButton getEmployeeLoginButton(){return employeeLoginButton;}
 
     //public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
 
-    public RegistrationPanel(){
+    public RegistrationPanel(boolean paint){
         
         //this.setBackground(new Color(WHITE));
        
@@ -78,18 +92,6 @@ public class RegistrationPanel extends JPanel{
 
         //create "Coffee Brown" color for buttons and fonts.
         Color buttonColor = new Color(100,76,55);
-
-        /*aMenuBannerPanel = new MenuBannerPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 9;
-        constraints.gridheight = 2;
-        constraints.fill = GridBagConstraints.BOTH;
-            //constraints.insets = new Insets(12,12,3,3);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(aMenuBannerPanel, constraints);
-        add(aMenuBannerPanel);*/
 
         JLabel firstLabel = new JLabel("First");
         //firstLabel.setFont(new Font("Times", Font.BOLD, 30));
@@ -425,7 +427,7 @@ public class RegistrationPanel extends JPanel{
         layout.setConstraints(emailField, constraints);
         add(emailField);
 
-        JLabel passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Password");
         //passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
         passwordLabel.setFont(Global.normalFont);
         passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -441,7 +443,7 @@ public class RegistrationPanel extends JPanel{
         layout.setConstraints(passwordLabel, constraints);
         add(passwordLabel);
 
-        passwordField = new JTextField("");
+        passwordField = new JPasswordField("");
         //passwordField.setFont(new Font("Times", Font.PLAIN, 30));
         passwordField.setFont(Global.normalFont);
         passwordField.setHorizontalAlignment(JLabel.LEFT);
@@ -457,7 +459,7 @@ public class RegistrationPanel extends JPanel{
         layout.setConstraints(passwordField, constraints);
         add(passwordField);
 
-        JLabel confirmLabel = new JLabel("Confirm Password");
+        confirmLabel = new JLabel("Confirm Password");
         //confirmLabel.setFont(new Font("Times", Font.BOLD, 30));
         confirmLabel.setFont(Global.normalFont);
         confirmLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -473,7 +475,7 @@ public class RegistrationPanel extends JPanel{
         layout.setConstraints(confirmLabel, constraints);
         add(confirmLabel);
 
-        cPasswordField = new JTextField("");
+        cPasswordField = new JPasswordField("");
         //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
         cPasswordField.setFont(Global.normalFont);
         cPasswordField.setHorizontalAlignment(JLabel.LEFT);
@@ -524,10 +526,22 @@ public class RegistrationPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(label, constraints);
         add(label);
-
-        //get image for panel background
-        background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        
+        if(paint){
+            //get image for panel background
+            background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
+        }
+        else{
+            this.setBackground(new Color(255,255,255,150));
+        } 
+               
     }
+    
+    public RegistrationPanel(){
+        this(true);
+    }
+    
+   
    
     public void paintComponent(Graphics g){
         super.paintComponent(g);
