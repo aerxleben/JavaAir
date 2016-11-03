@@ -20,7 +20,7 @@ public class ReservationConfirmationPanel extends ReservationPanel {
      */
     public ReservationConfirmationPanel() {
         initComponents();
-        reservationPanel1.getContentPanel().add(new ReservationConfirmDetailPanel(),BorderLayout.CENTER);
+        //reservationPanel1.getContentPanel().add(new ReservationConfirmDetailPanel(),BorderLayout.CENTER);
     }
 
     /**
@@ -32,14 +32,28 @@ public class ReservationConfirmationPanel extends ReservationPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        reservationPanel1 = new java_air.Reservation.ReservationPanel();
+        reservationConfirmDetailPanel1 = new java_air.Reservation.ReservationConfirmDetailPanel();
 
-        setLayout(new java.awt.BorderLayout());
-        add(reservationPanel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(reservationConfirmDetailPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(200, 200, 200))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reservationConfirmDetailPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(24, 24, 24))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java_air.Reservation.ReservationPanel reservationPanel1;
+    private java_air.Reservation.ReservationConfirmDetailPanel reservationConfirmDetailPanel1;
     // End of variables declaration//GEN-END:variables
 }
