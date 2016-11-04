@@ -24,51 +24,51 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     }
     
     public String getFlightNo(){
-        return this.labelFlightNo.getText();
+        return this.flightNumLabel.getText();
     }
     
     public String getOrigin(){
-        return this.labelOrigin.getText();
+        return this.departureAirportLabel.getText();
     }
     
     public String getDestination(){
-        return this.labelDestination.getText();
+        return this.arriveAirportLabel.getText();
     }
     
     public String getDepartureTime(){
-        return this.labelDepartureTime.getText();
+        return this.departureAirportLabel.getText();
     }
     
     public String getArrivalTime(){
-        return this.labelArrivalTime.getText();
+        return this.arriveTimeLabel.getText();
     }
     
     public String getFlightPrice(){
-        return this.buttonFlightPrice.getText();
+        return this.flightPriveLabel.getText();
     }
 
     public void setFlightNo(String flightNo){
-        this.labelFlightNo.setText(flightNo);
+        this.flightNumLabel.setText(flightNo);
     }
     
     public void setOrigin(String origin){
-        this.labelOrigin.setText(origin);
+        this.departureAirportLabel.setText(origin);
     }
     
     public void setDestination(String destination){
-        this.labelDestination.setText(destination);
+        this.arriveAirportLabel.setText(destination);
     }
     
     public void setDepartureTime(String depart){
-        this.labelDepartureTime.setText(depart);
+        this.departureTimeLabel.setText(depart);
     }
     
     public void setArrivalTime(String arrival){
-        this.labelArrivalTime.setText(arrival);
+        this.arriveTimeLabel.setText(arrival);
     }
     
     public void setFlightPrice(String price){
-        this.buttonFlightPrice.setText(price);
+        this.flightPriveLabel.setText(price);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,86 +79,146 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelFlightNo = new javax.swing.JLabel();
-        buttonFlightPrice = new javax.swing.JButton();
-        labelOrigin = new javax.swing.JLabel();
-        labelDepartureTime = new javax.swing.JLabel();
-        labelDestination = new javax.swing.JLabel();
-        labelArrivalTime = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        flightNumLabel = new javax.swing.JLabel();
+        flightPriveLabel = new javax.swing.JButton();
+        departureAirportLabel = new javax.swing.JLabel();
+        directionLabel = new javax.swing.JLabel();
+        departureDateLabel = new javax.swing.JLabel();
+        arriveDateLabel = new javax.swing.JLabel();
+        arriveTimeLabel = new javax.swing.JLabel();
+        departureTimeLabel = new javax.swing.JLabel();
+        arriveAirportLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        arriveAirportLabel1 = new javax.swing.JLabel();
+        arriveAirportLabel2 = new javax.swing.JLabel();
 
-        labelFlightNo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        labelFlightNo.setText("Flight No.");
+        flightNumLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        flightNumLabel.setText("JA 2045");
 
-        buttonFlightPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        buttonFlightPrice.setText("Price");
+        flightPriveLabel.setBackground(new java.awt.Color(204, 153, 0));
+        flightPriveLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        flightPriveLabel.setForeground(new java.awt.Color(255, 255, 255));
+        flightPriveLabel.setText("$560");
+        flightPriveLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flightPriveLabelActionPerformed(evt);
+            }
+        });
 
-        labelOrigin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelOrigin.setText("Origin");
+        departureAirportLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        departureAirportLabel.setForeground(new java.awt.Color(0, 102, 204));
+        departureAirportLabel.setText("Chicago");
 
-        labelDepartureTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelDepartureTime.setText("Departure Time: ");
+        directionLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        directionLabel.setText("----------->");
 
-        labelDestination.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelDestination.setText("Destination");
+        departureDateLabel.setForeground(new java.awt.Color(0, 102, 0));
+        departureDateLabel.setText("Tue, Nov 22");
 
-        labelArrivalTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelArrivalTime.setText("Arrival Time:");
+        arriveDateLabel.setForeground(new java.awt.Color(0, 102, 0));
+        arriveDateLabel.setText("Tue, Nov 22");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("----->");
+        arriveTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        arriveTimeLabel.setText("12:00");
+
+        departureTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        departureTimeLabel.setText("9:00");
+
+        arriveAirportLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        arriveAirportLabel.setForeground(new java.awt.Color(0, 102, 204));
+        arriveAirportLabel.setText("NewYork");
+
+        arriveAirportLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        arriveAirportLabel1.setText("3h");
+
+        arriveAirportLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        arriveAirportLabel2.setForeground(new java.awt.Color(0, 102, 204));
+        arriveAirportLabel2.setText("nonstop");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelFlightNo)
-                        .addGap(84, 84, 84)
-                        .addComponent(labelOrigin)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6))
-                    .addComponent(labelDepartureTime))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelDestination)
-                    .addComponent(labelArrivalTime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(buttonFlightPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(jSeparator1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(flightNumLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(departureTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(directionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(departureAirportLabel)
+                            .addComponent(departureDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(arriveDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(arriveTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(arriveAirportLabel))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(arriveAirportLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(arriveAirportLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))))
+                        .addGap(10, 10, 10)
+                        .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonFlightPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(flightNumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelFlightNo)
-                            .addComponent(labelOrigin)
-                            .addComponent(labelDestination)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
+                            .addComponent(departureAirportLabel)
+                            .addComponent(arriveAirportLabel)
+                            .addComponent(arriveAirportLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelDepartureTime)
-                            .addComponent(labelArrivalTime))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(departureTimeLabel)
+                            .addComponent(arriveTimeLabel)
+                            .addComponent(directionLabel))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(departureDateLabel)
+                            .addComponent(arriveDateLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(arriveAirportLabel1))
+                        .addGap(18, 18, 18)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void flightPriveLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriveLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_flightPriveLabelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonFlightPrice;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel labelArrivalTime;
-    private javax.swing.JLabel labelDepartureTime;
-    private javax.swing.JLabel labelDestination;
-    private javax.swing.JLabel labelFlightNo;
-    private javax.swing.JLabel labelOrigin;
+    private javax.swing.JLabel arriveAirportLabel;
+    private javax.swing.JLabel arriveAirportLabel1;
+    private javax.swing.JLabel arriveAirportLabel2;
+    private javax.swing.JLabel arriveDateLabel;
+    private javax.swing.JLabel arriveTimeLabel;
+    private javax.swing.JLabel departureAirportLabel;
+    private javax.swing.JLabel departureDateLabel;
+    private javax.swing.JLabel departureTimeLabel;
+    private javax.swing.JLabel directionLabel;
+    private javax.swing.JLabel flightNumLabel;
+    private javax.swing.JButton flightPriveLabel;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
