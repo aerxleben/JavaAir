@@ -19,6 +19,7 @@ package java_air.main;
 import java_air.panel.reservation.ReservationPanel;
 import java.awt.*;
 import java.awt.event.*;
+import java_air.panel.flight.FlightResultPanel;
 import java_air.panel.reservation.ReservationBillInformationPanel;
 import java_air.panel.reservation.ReservationConfirmationPanel;
 import java_air.panel.reservation.ReservationPassengerPanel;
@@ -63,7 +64,7 @@ public class JavaAirApp implements ActionListener{
         Global.jPanelMap.put(Global.textRegConfirm, panelAcctConfirm);
         
         //Flight Search Result Panel
-        FlightResultsPanel panelFlights = new FlightResultsPanel();
+        FlightResultPanel panelFlights = new FlightResultPanel();
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
        //Account Welcome Panel
