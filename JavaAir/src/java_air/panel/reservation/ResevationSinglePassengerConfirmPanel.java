@@ -40,9 +40,11 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
         mobileNumberLabel1 = new javax.swing.JLabel();
         mobileNumberLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        genderInforLabel1 = new javax.swing.JLabel();
+        genderInforLabel2 = new javax.swing.JLabel();
 
         firstNameInforLabel.setFont(generalFont);
-        firstNameInforLabel.setText("First name");
+        firstNameInforLabel.setText("First name,");
 
         lastNameInforLabel1.setFont(generalFont);
         lastNameInforLabel1.setText("Last name");
@@ -51,25 +53,36 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
         dateBirthInforLabel.setText("09/08/1980");
 
         genderInforLabel.setFont(generalFont);
-        genderInforLabel.setText("Gender");
+        genderInforLabel.setForeground(new java.awt.Color(102, 102, 102));
+        genderInforLabel.setText("Gender:");
 
         mobileNumberInforLabel.setFont(generalFont);
-        mobileNumberInforLabel.setText("Mobile number");
+        mobileNumberInforLabel.setText("219-548-6814");
 
         passIDInforLabel.setFont(generalFont);
         passIDInforLabel.setText("777700757");
 
         passIDLabel1.setFont(generalFont);
+        passIDLabel1.setForeground(new java.awt.Color(102, 102, 102));
         passIDLabel1.setText("PASS ID:");
 
         mobileNumberLabel.setFont(generalFont);
+        mobileNumberLabel.setForeground(new java.awt.Color(102, 102, 102));
         mobileNumberLabel.setText("Mobile number:");
 
         mobileNumberLabel1.setFont(generalFont);
         mobileNumberLabel1.setText("demo@gmail.com");
 
         mobileNumberLabel2.setFont(generalFont);
+        mobileNumberLabel2.setForeground(new java.awt.Color(102, 102, 102));
         mobileNumberLabel2.setText("Email address:");
+
+        genderInforLabel1.setFont(generalFont);
+        genderInforLabel1.setText("Male");
+
+        genderInforLabel2.setFont(generalFont);
+        genderInforLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        genderInforLabel2.setText("Date birth:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,31 +91,38 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mobileNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mobileNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(genderInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dateBirthInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(genderInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(genderInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(genderInforLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(mobileNumberLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dateBirthInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(passIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(passIDInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(passIDInforLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(mobileNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mobileNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mobileNumberLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mobileNumberLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(mobileNumberLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addComponent(jSeparator1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,8 +134,10 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
                     .addComponent(dateBirthInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(genderInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passIDInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(passIDInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genderInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genderInforLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mobileNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mobileNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,6 +153,8 @@ private Font generalFont = new java.awt.Font("Times", 0, 18);
     private javax.swing.JLabel dateBirthInforLabel;
     private javax.swing.JLabel firstNameInforLabel;
     private javax.swing.JLabel genderInforLabel;
+    private javax.swing.JLabel genderInforLabel1;
+    private javax.swing.JLabel genderInforLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lastNameInforLabel1;
     private javax.swing.JLabel mobileNumberInforLabel;

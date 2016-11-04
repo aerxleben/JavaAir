@@ -102,7 +102,6 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
 
         insideSrollPanel.setLayout(new java.awt.BorderLayout());
 
-        label1.setAlignment(java.awt.Label.CENTER);
         label1.setBackground(new java.awt.Color(204, 153, 0));
         label1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +144,6 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("$528.33");
 
-        PassengerTitleLabel.setAlignment(java.awt.Label.CENTER);
         PassengerTitleLabel.setBackground(new java.awt.Color(204, 153, 0));
         PassengerTitleLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         PassengerTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,7 +167,6 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         cardNumberInforLabel.setFont(generalFont);
         cardNumberInforLabel.setText("**********5487");
 
-        paymentMethodTitleLabel1.setAlignment(java.awt.Label.CENTER);
         paymentMethodTitleLabel1.setBackground(new java.awt.Color(204, 153, 0));
         paymentMethodTitleLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         paymentMethodTitleLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,7 +194,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                                 .addComponent(flightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(flightTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(fareLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fareFeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +226,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addComponent(travelerContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE))
+                .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE))
         );
         ContentPanelLayout.setVerticalGroup(
             ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

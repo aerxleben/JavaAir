@@ -162,7 +162,7 @@
                                           <Component id="flightTimeLabel" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="97" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="fareLabel" min="-2" pref="58" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="fareFeeLabel" min="-2" pref="68" max="-2" attributes="0"/>
@@ -204,7 +204,7 @@
                       </Group>
                       <Component id="travelerContentPanel" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="paymentMethodTitleLabel1" alignment="0" pref="808" max="32767" attributes="0"/>
+                          <Component id="paymentMethodTitleLabel1" alignment="0" pref="717" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -263,7 +263,6 @@
               <SubComponents>
                 <Component class="java.awt.Label" name="label1">
                   <Properties>
-                    <Property name="alignment" type="int" value="1"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="99" red="cc" type="rgb"/>
                     </Property>
@@ -373,7 +372,6 @@
                 </Component>
                 <Component class="java.awt.Label" name="PassengerTitleLabel">
                   <Properties>
-                    <Property name="alignment" type="int" value="1"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="99" red="cc" type="rgb"/>
                     </Property>
@@ -436,7 +434,6 @@
                 </Component>
                 <Component class="java.awt.Label" name="paymentMethodTitleLabel1">
                   <Properties>
-                    <Property name="alignment" type="int" value="1"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="99" red="cc" type="rgb"/>
                     </Property>

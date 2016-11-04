@@ -1,5 +1,7 @@
 package java_air.panel.flight;
 
+import java_air.main.Global;
+
 /* 
  * CS5900 - Software Engineering
  * Professor: Dr. Ruijian Zhang
@@ -203,7 +205,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void flightPriveLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriveLabelActionPerformed
-        // TODO add your handling code here:
+       Global.panelSwitch(Global.textReservationPassenger);
     }//GEN-LAST:event_flightPriveLabelActionPerformed
 
 
