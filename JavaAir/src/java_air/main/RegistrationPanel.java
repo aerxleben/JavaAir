@@ -28,13 +28,15 @@ import java.util.Properties;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+import org.jdesktop.swingx.*;
 
 public class RegistrationPanel extends JPanel{
     
     private JTextField firstField;
     private JTextField lastField;
     //private JTextField birthdayField;
-    private JDatePickerImpl birthdayPicker;
+    //private JDatePickerImpl birthdayPicker;
+    private JXDatePicker birthdayPicker;
     private JComboBox genderBox;
     private JTextField addressField;
     private JTextField cityField;
@@ -61,7 +63,8 @@ public class RegistrationPanel extends JPanel{
     public JTextField getFirstField(){return firstField;}
     public JTextField getLastField(){return lastField;}
     //public JTextField getBirthdayField(){return birthdayField;}
-    public JDatePickerImpl getBirthdayPicker(){return birthdayPicker;}
+    //public JDatePickerImpl getBirthdayPicker(){return birthdayPicker;}
+    public JXDatePicker getBirthdayPicker(){return birthdayPicker;}
     public JComboBox getGenderBox(){return genderBox;}
     public JTextField getAddressField(){return addressField;}
     public JTextField getCityField(){return addressField;}
@@ -177,7 +180,7 @@ public class RegistrationPanel extends JPanel{
         //birthdayField.setFont(new Font("Times", Font.PLAIN, 30));
         //birthdayField.setHorizontalAlignment(JLabel.LEFT);
         //birthdayField.setForeground(buttonColor);
-        UtilDateModel model = new UtilDateModel();
+        /*UtilDateModel model = new UtilDateModel();
         Calendar now = Calendar.getInstance();
         model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
         model.setSelected(true);
@@ -185,9 +188,10 @@ public class RegistrationPanel extends JPanel{
         p.put("text.today", "Today");
         p.put("text.month", "Month");
         p.put("text.year", "Year");
-        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-        birthdayPicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
-        birthdayPicker.setFont(new Font("Times", Font.PLAIN, 30));
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);*/
+        //birthdayPicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
+        birthdayPicker = new JXDatePicker();
+        birthdayPicker.setFont(Global.normalFont);
         constraints.gridx = 2;
         constraints.gridy = 3;
         constraints.gridwidth = 2;
@@ -604,11 +608,12 @@ public class RegistrationPanel extends JPanel{
         try{
             SimpleDateFormat formater = Global.dateFormat;
             Calendar pickedDate = Calendar.getInstance();
-            pickedDate.setTime(formater.parse(birthdayPicker.getJFormattedTextField().getText()));
+            //pickedDate.setTime(formater.parse(birthdayPicker.getJFormattedTextField().getText()));
+            pickedDate.setTime(birthdayPicker.getDate());
             Calendar today = Calendar.getInstance();
             yearDifference = today.get(Calendar.YEAR) - pickedDate.get(Calendar.YEAR);
         }
-        catch(ParseException x){
+        catch(Exception x){
             JOptionPane.showMessageDialog(null
                     , "Unable to Parse Picked Date; " + x.getMessage()
                     , "Birthday Picker Error"
@@ -616,7 +621,8 @@ public class RegistrationPanel extends JPanel{
         }
         //check birthday
         if(yearDifference >= 4){
-            list.add(birthdayPicker.getJFormattedTextField().getText());
+            //list.add(birthdayPicker.getJFormattedTextField().getText());
+            list.add(Global.dateFormat.format(birthdayPicker.getDate()));
             birthdayPicker.setBackground(normal);
         }
         else{

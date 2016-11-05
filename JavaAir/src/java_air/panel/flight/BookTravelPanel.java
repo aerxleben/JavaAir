@@ -6,13 +6,18 @@
 package java_air.panel.flight;
 
 import java.awt.Color;
+import java.text.ParseException;
 import java_air.main.Global;
 import java_air.panel.reservation.TextPrompt;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
@@ -30,6 +35,79 @@ public class BookTravelPanel extends javax.swing.JPanel {
     
     }
     
+    public String getDestination(){
+        return this.comboBoxDestination.getSelectedItem().toString();
+    }
+
+    public JButton getButtonSearch() {
+        return buttonSearch;
+    }
+
+    public String getNumOfPassengers() {
+        return comboBoxNumOfPassengers.getSelectedItem().toString();
+    }
+
+    public String getOrigin() {
+        return comboBoxOrigin.getSelectedItem().toString();
+    }
+
+    public String getDepartDate() {
+        return Global.dateFormat.format(datePickerDepart.getDate());
+    }
+
+    public String getReturnDate() {
+        return Global.dateFormat.format(datePickerReturn.getDate());
+    }
+
+    public JRadioButton getOneWayButton() {
+        return oneWayButton;
+    }
+
+    public JRadioButton getRoundTripButton() {
+        return roundTripButton;
+    }
+    
+    public boolean isRoundTrip(){
+        return (roundTripButton.isSelected() && !oneWayButton.isSelected());
+    }
+
+    public void setDestination(String newDestination) {
+        this.comboBoxDestination.setSelectedItem(newDestination);
+    }
+
+    public void setNumOfPassengers(String NumOfPassengers) {
+        this.comboBoxNumOfPassengers.setSelectedItem(NumOfPassengers);
+    }
+
+    public void setOrigin(String newOrigin) {
+        this.comboBoxOrigin.setSelectedItem(newOrigin);
+    }
+
+    public void setDepartDate(String newDate) {
+        try{
+            this.datePickerDepart.setDate(Global.dateFormat.parse(newDate));
+        }
+        catch(ParseException x){
+            
+        }
+        
+    }
+
+    public void setReturnDate(String newDate) {
+        try{
+            this.datePickerReturn.setDate(Global.dateFormat.parse(newDate));
+        }
+        catch(ParseException x){
+            
+        }
+    }
+
+    public void setTripButtons(boolean isRoundTrip){
+        this.roundTripButton.setSelected(isRoundTrip);
+        this.oneWayButton.setSelected(!isRoundTrip);
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,13 +121,13 @@ public class BookTravelPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         roundTripButton = new javax.swing.JRadioButton();
         oneWayButton = new javax.swing.JRadioButton();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
-        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        datePickerDepart = new org.jdesktop.swingx.JXDatePicker();
+        datePickerReturn = new org.jdesktop.swingx.JXDatePicker();
+        comboBoxOrigin = new javax.swing.JComboBox<>();
+        comboBoxDestination = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        comboBoxNumOfPassengers = new javax.swing.JComboBox<>();
+        buttonSearch = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,14 +152,14 @@ public class BookTravelPanel extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jComboBox1.setModel(new DefaultComboBoxModel(Global.airportList));
+        comboBoxOrigin.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        comboBoxOrigin.setModel(new DefaultComboBoxModel(Global.airportList));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jComboBox2.setModel(new DefaultComboBoxModel(Global.airportList));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxDestination.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        comboBoxDestination.setModel(new DefaultComboBoxModel(Global.airportList));
+        comboBoxDestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboBoxDestinationActionPerformed(evt);
             }
         });
 
@@ -89,16 +167,15 @@ public class BookTravelPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Passenger");
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jComboBox3.setModel(passengerModel);
+        comboBoxNumOfPassengers.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        comboBoxNumOfPassengers.setModel(passengerModel);
 
-        jButton1.setBackground(new java.awt.Color(204, 153, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jButton1.setText("Flind Flights");
-        jButton1.setActionCommand("Flind Flights");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonSearch.setBackground(new java.awt.Color(204, 153, 0));
+        buttonSearch.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        buttonSearch.setText("Flind Flights");
+        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonSearchActionPerformed(evt);
             }
         });
 
@@ -131,14 +208,14 @@ public class BookTravelPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(datePickerDepart, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(datePickerReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))))
                         .addGap(0, 25, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -150,9 +227,9 @@ public class BookTravelPanel extends javax.swing.JPanel {
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(comboBoxNumOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -166,29 +243,29 @@ public class BookTravelPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(datePickerDepart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datePickerReturn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addComponent(jLabel2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboBoxNumOfPassengers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(roundTripButton)
                             .addComponent(oneWayButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(buttonSearch)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -197,13 +274,13 @@ public class BookTravelPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_roundTripButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonSearchActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void comboBoxDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDestinationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_comboBoxDestinationActionPerformed
 
     private void oneWayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneWayButtonActionPerformed
         // TODO add your handling code here:
@@ -212,18 +289,18 @@ public class BookTravelPanel extends javax.swing.JPanel {
    // private DefaultComboBoxModel airportModel = new DefaultComboBoxModel(Global.airportList);
     private DefaultComboBoxModel passengerModel = new DefaultComboBoxModel(Global.numberList);
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton buttonSearch;
+    private javax.swing.JComboBox<String> comboBoxDestination;
+    private javax.swing.JComboBox<String> comboBoxNumOfPassengers;
+    private javax.swing.JComboBox<String> comboBoxOrigin;
+    private org.jdesktop.swingx.JXDatePicker datePickerDepart;
+    private org.jdesktop.swingx.JXDatePicker datePickerReturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     private javax.swing.JRadioButton oneWayButton;
     private javax.swing.JRadioButton roundTripButton;
     // End of variables declaration//GEN-END:variables
