@@ -17,7 +17,7 @@ package java_air.main;
  *      Updated 10/29/16, Erxleben, added JRadioButtons to select one way or round trip flight
  */
 
-import java_air.panel.flight.FlightInfoPanel;
+import java_air.panel.flight.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -315,6 +315,8 @@ public class FlightSearchPanel extends JPanel{
             constraints.weighty = 10;
             layout.setConstraints(searchButton, constraints);
             add(searchButton);
+            
+            this.isRoundTrip = this.tripTypeButtons[0].isSelected();
 	}//end constructor
         
         public JComboBox getOriginComboBox(){
@@ -471,18 +473,28 @@ public class FlightSearchPanel extends JPanel{
             String numOfPassengers = this.numPassengersComboBox.getSelectedItem().toString();
             
             if(Global.jPanelMap != null){
-                FlightResultsPanel resultsPanel = 
-                        (FlightResultsPanel)Global.jPanelMap.get(Global.textFlights);
-                resultsPanel.getComponentPanel().add(new FlightInfoPanel());
-                resultsPanel.validate();
+                try{
+                    FlightResultPanel resultsPanel = 
+                        (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+                    //resultsPanel.getComponentPanel().add(new FlightInfoPanel());
+                    //resultsPanel.validate();
+
+                    //FlightSearchPanel searchPanel = resultsPanel.getFlightSearchPanel();
+                    BookTravelPanel searchPanel = resultsPanel.getSearchInputPanel();
+                    searchPanel.setTripButtons(this.tripTypeButtons[0].isSelected());
+                    searchPanel.setOrigin(this.originComboBox.getSelectedItem().toString());
+                    searchPanel.setDestination(this.destinationComboBox.getSelectedItem().toString());
+                    searchPanel.setDepartDate(departDateStr);
+                    searchPanel.setReturnDate(returnDateStr);
+                    searchPanel.setNumOfPassengers(this.numPassengersComboBox.getSelectedItem().toString());
+                }
+                catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , x.getMessage()
+                            , "BookTravelPanel Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                }
                 
-                FlightSearchPanel searchPanel = resultsPanel.getFlightSearchPanel();
-                searchPanel.setTripType(this.isRoundTrip);
-                searchPanel.setOriginComboBox(this.originComboBox.getSelectedItem().toString());
-                searchPanel.setDestinationComboBox(this.destinationComboBox.getSelectedItem().toString());
-                searchPanel.setDepartDate(departDateStr);
-                searchPanel.setReturnDate(returnDateStr);
-                searchPanel.setPassengersNumber(this.numPassengersComboBox.getSelectedItem().toString());
             }
             
             //2016-10-29 S. Jia : Test

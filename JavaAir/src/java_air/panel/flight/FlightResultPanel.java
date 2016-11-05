@@ -13,15 +13,27 @@ import java.awt.Color;
  * @author Georege
  */
 public class FlightResultPanel extends javax.swing.JPanel {
-
+    
+    private BookTravelPanel panelSearchInput;
+    
     /**
      * Creates new form FlightResultPanel
      */
     public FlightResultPanel() {
         initComponents();
-        searchPanel.add(new BookTravelPanel(), BorderLayout.CENTER);
+        panelSearchInput = new BookTravelPanel();
+        searchPanel.add(panelSearchInput, BorderLayout.CENTER);
         flightLabelSet();
     }
+
+    public BookTravelPanel getSearchInputPanel() {
+        return panelSearchInput;
+    }
+
+    public void setSearchInputPanel(BookTravelPanel newSearchInput) {
+        this.panelSearchInput = newSearchInput;
+    }
+    
     
     public void flightLabelSet(){
         for(int i = 0; i < flightNumber; i++){
