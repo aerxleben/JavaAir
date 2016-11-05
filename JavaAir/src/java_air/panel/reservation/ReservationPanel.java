@@ -1,4 +1,4 @@
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 
 import java.awt.BorderLayout;
@@ -52,10 +52,10 @@ public class ReservationPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(50, 50, 50)
                 .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reservationDetialContainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addComponent(reservationDetialContainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
@@ -65,9 +65,9 @@ public class ReservationPanel extends javax.swing.JPanel {
                 .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(reservationDetialContainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                .addGap(53, 53, 53))
+                .addGap(80, 80, 80)
+                .addComponent(reservationDetialContainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
     public void paintComponent(Graphics g){

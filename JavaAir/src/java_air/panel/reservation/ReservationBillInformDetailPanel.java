@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 import java_air.main.Global;
 
@@ -416,7 +416,9 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_firstNameText6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Global.switchCard(Global.textReservationConfirmation);
+
+        // TODO add your handling code here:
+        Global.panelSwitch(Global.textReservationConfirmation);
     }//GEN-LAST:event_jButton1ActionPerformed
     //private javax.swing.DefaultComboBoxModel monthList
     //        = new javax.swing.DefaultComboBoxModel<>(

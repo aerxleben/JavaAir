@@ -14,6 +14,7 @@ package java_air.main;
  * 
  * 2016-10-31, Erxleben, added reference strings for CheckInPanel and PasswordResetPanel
  *
+ *  2016-11-01, Erxleben, added constants for rewards program.
  */
 import java.awt.*;
 import java.text.*;
@@ -33,8 +34,8 @@ public class Global {
     public static String textHelp = "Help"; // references help page
     public static String textAbout = "About"; // references about page
     public static String textForgot = "Forgot"; // refrence password reset panel
-    public static String textCheckIn ="CheckIn"; //refernce Check In Panel
-    
+    public static String textCheckIn = "CheckIn"; //refernce Check In Panel
+    //public static String textRewards = "Rewards"; // refrence rewards panel
     
     /* Reservation panels references */
     // reference of Reservation Confirmation
@@ -57,7 +58,7 @@ public class Global {
     public static Color colorError = Color.RED;
     public static Color transparentColor = new Color(255,255,255,150);
     
-    public static Dimension appDimension = new Dimension(800,600);
+    public static Dimension appDimension = new Dimension(1300,800);
     
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     
@@ -70,9 +71,22 @@ public class Global {
     //Temporary - For Testing Purposes
     public static JPanel cardsPanel;
     
+<<<<<<< HEAD
     
     public static void switchCard(String cardName){
         CardLayout cl = (CardLayout)cardsPanel.getLayout();
         cl.show(cardsPanel, cardName);
     }
+=======
+    public static void panelSwitch(String targetPanel){
+            CardLayout cl = (CardLayout)(Global.cardsPanel.getLayout());
+            cl.show(Global.cardsPanel, targetPanel); 
+    }
+    
+    public static int maxRewards = 60000;
+    public static int bronzeRewards = 5000;
+    public static int silverRewards = 15000;
+    public static int goldRewards = 30000;
+    public static int platinumRewards = 50000;
+>>>>>>> ecc1d7c40ba093812dffa74d3eb3fa8cb4d16b6e
 }

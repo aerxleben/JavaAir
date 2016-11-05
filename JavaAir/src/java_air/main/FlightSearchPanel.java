@@ -17,6 +17,7 @@ package java_air.main;
  *      Updated 10/29/16, Erxleben, added JRadioButtons to select one way or round trip flight
  */
 
+import java_air.panel.flight.FlightInfoPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

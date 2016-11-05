@@ -13,6 +13,7 @@ package java_air.main;
  * Changelog:
  * 
  */
+import java_air.panel.flight.FlightInfoPanel;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

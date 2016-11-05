@@ -1,4 +1,4 @@
-package java_air.Reservation;
+package java_air.panel.reservation;
 
 /* 
  * CS5900 - Software Engineering

@@ -13,13 +13,16 @@ package java_air.main;
  * Changelog:
  * 
  *  2016-10-31, Erxleben, added password reset panel to card layout
+ *
+ *  2016-11-02, Erxleben, changed frame method to set size from setSize to setPreferredSize
  */
-import java_air.Reservation.ReservationPanel;
+import java_air.panel.reservation.ReservationPanel;
 import java.awt.*;
 import java.awt.event.*;
-import java_air.Reservation.ReservationBillInformationPanel;
-import java_air.Reservation.ReservationConfirmationPanel;
-import java_air.Reservation.ReservationPassengerPanel;
+import java_air.panel.flight.FlightResultPanel;
+import java_air.panel.reservation.ReservationBillInformationPanel;
+import java_air.panel.reservation.ReservationConfirmationPanel;
+import java_air.panel.reservation.ReservationPassengerPanel;
 import javax.swing.*;
 
 public class JavaAirApp implements ActionListener{
@@ -61,12 +64,17 @@ public class JavaAirApp implements ActionListener{
         Global.jPanelMap.put(Global.textRegConfirm, panelAcctConfirm);
         
         //Flight Search Result Panel
-        FlightResultsPanel panelFlights = new FlightResultsPanel();
+        FlightResultPanel panelFlights = new FlightResultPanel();
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
        //Account Welcome Panel
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
+        
+        //Rewards Panel
+        /*RewardsPanel aRewardsPanel = new RewardsPanel();
+        Global.jPanelMap.put(Global.textRewards, aRewardsPanel);
+        */
         
         //Pasword Reset Panel
         PasswordResetPanel aPasswordResetPanel = new PasswordResetPanel();
@@ -87,6 +95,7 @@ public class JavaAirApp implements ActionListener{
         ReservationPassengerPanel reservationPassengerPanel = new ReservationPassengerPanel();
         Global.jPanelMap.put(Global.textReservationPassenger,reservationPassengerPanel);
         
+        
         //Add panels to the CardLayout
         cards = new JPanel(new CardLayout());
         cards.add(panelHome, Global.textHome);
@@ -97,6 +106,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(anAccountWelcomePanel, Global.textAcct);
         cards.add(aPasswordResetPanel, Global.textForgot);
         cards.add(aCheckInPanel, Global.textCheckIn);
+        //cards.add(aRewardsPanel,Global.textRewards);
         
         //Add reservation panels to the CardLayout.
         cards.add(reservationConfirmPanel, Global.textReservationConfirmation);
@@ -110,7 +120,7 @@ public class JavaAirApp implements ActionListener{
         pane.add(cards, BorderLayout.CENTER);
 
         //test panel
-       // new TestPanel();
+       new TestPanel();
     }
     
     @Override
@@ -122,7 +132,8 @@ public class JavaAirApp implements ActionListener{
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Java Air");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(Global.appDimension);
+        //frame.setSize(Global.appDimension);
+        frame.setPreferredSize(Global.appDimension);
         
         JavaAirApp javaAirMain = new JavaAirApp();
         javaAirMain.addComponentToPane(frame.getContentPane());

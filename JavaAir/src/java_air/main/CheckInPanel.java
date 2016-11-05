@@ -13,12 +13,13 @@ package java_air.main;
  */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+/*import java.awt.event.*;
 import java.util.Calendar;
 import java.util.Properties;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+*/
 
 public class CheckInPanel extends JPanel{
     //private MenuBannerPanel aMenuBannerPanel;

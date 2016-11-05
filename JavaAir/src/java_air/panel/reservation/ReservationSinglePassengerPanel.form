@@ -17,7 +17,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="travelerlLabel" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
+          <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -29,7 +30,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="yearText" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="dateBirthLabel2" min="-2" pref="136" max="-2" attributes="0"/>
+                          <Component id="dateBirthLabel" min="-2" pref="136" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -38,7 +39,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="femaleRadioButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="dateBirthLabel" min="-2" pref="74" max="-2" attributes="0"/>
+                          <Component id="generLabel" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -53,10 +54,10 @@
                           <Component id="emailText" min="-2" pref="227" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="passIDText" alignment="0" min="-2" pref="323" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -70,8 +71,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateBirthLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="dateBirthLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="generLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -81,14 +82,16 @@
                   <Component id="maleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="femaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="passIDText" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="travelContactLabel" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mobileNumberText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="emailText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -115,10 +118,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="dateBirthLabel">
+    <Component class="javax.swing.JLabel" name="generLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="Global.normalFont" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Gender*"/>
       </Properties>
@@ -158,6 +164,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="Global.normalFont" type="code"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Travel contact information"/>
       </Properties>
     </Component>
@@ -180,10 +189,13 @@
         <Property name="text" type="java.lang.String" value="Female"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="dateBirthLabel2">
+    <Component class="javax.swing.JLabel" name="dateBirthLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="Global.normalFont" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Date of birth*"/>
       </Properties>
@@ -223,6 +235,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="passIDText">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Global.normalFont" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passIDTextActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
