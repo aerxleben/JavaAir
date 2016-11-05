@@ -1,5 +1,7 @@
 package java_air.main;
 
+import java.awt.CardLayout;
+
 /* 
  * CS5900 - Software Engineering
  * Professor: Dr. Ruijian Zhang
@@ -92,6 +94,11 @@ public class FlightInfoPanel extends javax.swing.JPanel {
 
         buttonFlightPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonFlightPrice.setText("Price");
+        buttonFlightPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFlightPriceActionPerformed(evt);
+            }
+        });
 
         labelOrigin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelOrigin.setText("Origin");
@@ -150,6 +157,11 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonFlightPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFlightPriceActionPerformed
+        CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+        cl.show(Global.cardsPanel, Global.textReservationPassenger);
+    }//GEN-LAST:event_buttonFlightPriceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

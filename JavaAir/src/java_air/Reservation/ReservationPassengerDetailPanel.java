@@ -83,6 +83,11 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         continueButton.setBackground(new java.awt.Color(204, 153, 0));
         continueButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         continueButton.setText("Continue");
+        continueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continueButtonActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -132,13 +137,17 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(continueButton))
-                    .addComponent(jScrollPane1))
+                        .addComponent(continueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
+        Global.switchCard(Global.textReservationBillInformation);
+    }//GEN-LAST:event_continueButtonActionPerformed
     private int rowNumber = 4;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

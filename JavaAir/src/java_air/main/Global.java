@@ -18,6 +18,7 @@ package java_air.main;
 import java.awt.*;
 import java.text.*;
 import java.util.HashMap;
+import java_air.Reservation.Reservation;
 import javax.swing.JPanel;
 
 public class Global {
@@ -64,8 +65,14 @@ public class Global {
     
     public static Customer currentCustomer; //currentCustomer will be null if not logged in
     
-    //public static Reservation currentReservation; //currentReservation will be null if not started
+    public static Reservation currentReservation; //currentReservation will be null if not started
     
     //Temporary - For Testing Purposes
     public static JPanel cardsPanel;
+    
+    
+    public static void switchCard(String cardName){
+        CardLayout cl = (CardLayout)cardsPanel.getLayout();
+        cl.show(cardsPanel, cardName);
+    }
 }
