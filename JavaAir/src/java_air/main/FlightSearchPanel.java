@@ -24,6 +24,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.text.*;
 import org.jdatepicker.impl.*;
+import org.jdesktop.swingx.*;
 
 public class FlightSearchPanel extends JPanel{
 
@@ -34,8 +35,10 @@ public class FlightSearchPanel extends JPanel{
 	private JTextField departTextField;
 	private JTextField returnTextField;
 	private JButton searchButton;
-        private JDatePickerImpl departDatePicker;
-        private JDatePickerImpl returnDatePicker;
+        //private JDatePickerImpl departDatePicker;
+        private JXDatePicker departDatePicker;
+        //private JDatePickerImpl returnDatePicker;
+        private JXDatePicker returnDatePicker;
 
 	private boolean isRoundTrip;
         
@@ -201,7 +204,7 @@ public class FlightSearchPanel extends JPanel{
             layout.setConstraints(departTextField, constraints);
             add(departTextField);*/
             
-            UtilDateModel model=new UtilDateModel();
+            /*UtilDateModel model=new UtilDateModel();
             Calendar now = Calendar.getInstance();
             model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
             model.setSelected(true);
@@ -209,10 +212,11 @@ public class FlightSearchPanel extends JPanel{
             p.put("text.today", "Today");
             p.put("text.month", "Month");
             p.put("text.year", "Year");
-            JDatePanelImpl datePanelDepart = new JDatePanelImpl(model, p);
-            departDatePicker = new JDatePickerImpl(datePanelDepart, new DataLabelFormatter());
+            JDatePanelImpl datePanelDepart = new JDatePanelImpl(model, p);*/
+            //departDatePicker = new JDatePickerImpl(datePanelDepart, new DataLabelFormatter());
+            departDatePicker = new JXDatePicker();
             //departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
-            departDatePicker.setTextEditable(true);
+            departDatePicker.setFont(Global.normalFont);
             constraints.gridx = 1;
             constraints.gridy = 3;
             constraints.gridwidth = 1;
@@ -242,14 +246,15 @@ public class FlightSearchPanel extends JPanel{
 
             //returnTextField = new JTextField();
             //returnTextField.setFont(new Font("Times",Font.PLAIN, 30));
-            model = new UtilDateModel();
+            /*model = new UtilDateModel();
             now = Calendar.getInstance();
             model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
             model.setSelected(true);
-            JDatePanelImpl datePanelReturn = new JDatePanelImpl(model, p);
-            returnDatePicker = new JDatePickerImpl(datePanelReturn, new DataLabelFormatter());
+            JDatePanelImpl datePanelReturn = new JDatePanelImpl(model, p);*/
+            //returnDatePicker = new JDatePickerImpl(datePanelReturn, new DataLabelFormatter());
+            returnDatePicker = new JXDatePicker();
             //returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
-            returnDatePicker.setTextEditable(true);
+            returnDatePicker.setFont(Global.normalFont);
             constraints.gridx = 3;
             constraints.gridy = 3;
             constraints.gridwidth = 1;
@@ -331,7 +336,7 @@ public class FlightSearchPanel extends JPanel{
             return departTextField;
         }
         
-        public JDatePickerImpl getDepartDatePicker(){
+        public JXDatePicker getDepartDatePicker(){
             return departDatePicker;
         }
         
@@ -339,7 +344,7 @@ public class FlightSearchPanel extends JPanel{
             return returnTextField;
         }
         
-        public JDatePickerImpl getReturnDatePicker(){
+        public JXDatePicker getReturnDatePicker(){
             return returnDatePicker;
         }
         
@@ -376,14 +381,15 @@ public class FlightSearchPanel extends JPanel{
         public void setDepartDate(String newDeparture){
             if(newDeparture != null && departDatePicker != null){
                 try{
-                    int[] compArr = getDateComponents(newDeparture);
-                    departDatePicker.getModel().setDate(compArr[0]
-                            , compArr[1]
-                            , compArr[2]);
+                    //int[] compArr = getDateComponents(newDeparture);
+                    //departDatePicker.getModel().setDate(compArr[0]
+                    //        , compArr[1]
+                    //        , compArr[2]);
+                    departDatePicker.setDate(Global.dateFormat.parse(newDeparture));
                 }
                 catch(Exception x){
                     JOptionPane.showMessageDialog(null
-                            , "Unable to Parse and Set New Departure Date"
+                            , "Unable to Parse and Set New Departure Date; " + x.getMessage()
                             , "JDatePicker Error"
                             , JOptionPane.ERROR_MESSAGE);
                 }//end try-catch
@@ -393,13 +399,14 @@ public class FlightSearchPanel extends JPanel{
         public void setReturnDate(String newReturnDate){
             if(newReturnDate != null && returnDatePicker != null){
                 try{
-                    int[] compArr = getDateComponents(newReturnDate);
-                    returnDatePicker.getModel().setDate(compArr[0]
-                            , compArr[1]
-                            , compArr[2]);
+                    //int[] compArr = getDateComponents(newReturnDate);
+                    //returnDatePicker.getModel().setDate(compArr[0]
+                    //        , compArr[1]
+                    //        , compArr[2]);
+                    returnDatePicker.setDate(Global.dateFormat.parse(newReturnDate));
                 }catch(Exception x){
                     JOptionPane.showMessageDialog(null
-                            , "Unable to Parse and Set New Return Date"
+                            , "Unable to Parse and Set New Return Date; " + x.getMessage()
                             , "JDatePicker Error"
                             , JOptionPane.ERROR_MESSAGE);
                 }//end try-catch
@@ -437,8 +444,11 @@ public class FlightSearchPanel extends JPanel{
             }
             
             //departure date vs return date
-            String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
-            String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
+            //String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
+            String departDateStr = Global.dateFormat.format(this.departDatePicker.getDate());
+            //String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
+            String returnDateStr = Global.dateFormat.format(this.returnDatePicker.getDate());
+            
             long dayDifference = 0;
             
             try{
