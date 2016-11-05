@@ -29,7 +29,8 @@ public class BookTravelPanel extends javax.swing.JPanel {
         //jComboBox1.setEditable(true);
     
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

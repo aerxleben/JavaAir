@@ -19,6 +19,7 @@ package java_air.main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java_air.panel.flight.*;
 
 public class HomePanel extends JPanel{
 
@@ -27,7 +28,8 @@ public class HomePanel extends JPanel{
    private JButton employeeLoginButton;
 	
    private MenuBannerPanel aMenuBannerPanel;
-   private FlightSearchPanel aFlightSearchPanel;
+   private FlightSearchPanel searchPanel;
+   //private BookTravelPanel searchPanel;
 
    private Image background;
 
@@ -35,7 +37,8 @@ public class HomePanel extends JPanel{
    public JButton getCheckInButton(){return checkInButton;}
    public JButton getEmployeeLoginButton(){return employeeLoginButton;}
    
-   public FlightSearchPanel getFlightSearchPanel(){return aFlightSearchPanel;}
+   public FlightSearchPanel getFlightSearchPanel(){return searchPanel;}
+   //public BookTravelPanel getFlightSearchPanel(){return this.searchPanel;}
    public MenuBannerPanel getMenuBannerPanel(){return aMenuBannerPanel;}
 
    public HomePanel(){
@@ -80,7 +83,8 @@ public class HomePanel extends JPanel{
       add(welcomeLabel);
    
         //create flight search panel
-      aFlightSearchPanel = new FlightSearchPanel();
+      searchPanel = new FlightSearchPanel();
+      //searchPanel = new BookTravelPanel();
       constraints.gridx = 1;
       constraints.gridy = 3;
       constraints.gridwidth = 2;
@@ -89,8 +93,8 @@ public class HomePanel extends JPanel{
           constraints.insets = new Insets(0, 150, 100, 0);
       constraints.weightx = 10;
       constraints.weighty = 10;
-      layout.setConstraints(aFlightSearchPanel, constraints);
-      add(aFlightSearchPanel);
+      layout.setConstraints(searchPanel, constraints);
+      add(searchPanel);
    
       flightStatusButton = new JButton("FLIGHT STATUS");
       flightStatusButton.setFont(new Font("Times",Font.PLAIN, 24));

@@ -19,8 +19,8 @@ package java_air.main;
 import java.awt.*;
 import java.text.*;
 import java.util.HashMap;
-import java_air.Reservation.Reservation;
 import javax.swing.JPanel;
+import java_air.panel.reservation.Reservation;
 
 public class Global {
     public static String version = "0.52.0";
@@ -71,13 +71,13 @@ public class Global {
     //Temporary - For Testing Purposes
     public static JPanel cardsPanel;
     
-<<<<<<< HEAD
+
     
     public static void switchCard(String cardName){
         CardLayout cl = (CardLayout)cardsPanel.getLayout();
         cl.show(cardsPanel, cardName);
     }
-=======
+
     public static void panelSwitch(String targetPanel){
             CardLayout cl = (CardLayout)(Global.cardsPanel.getLayout());
             cl.show(Global.cardsPanel, targetPanel); 
@@ -88,5 +88,5 @@ public class Global {
     public static int silverRewards = 15000;
     public static int goldRewards = 30000;
     public static int platinumRewards = 50000;
->>>>>>> ecc1d7c40ba093812dffa74d3eb3fa8cb4d16b6e
+
 }

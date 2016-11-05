@@ -541,6 +541,31 @@ public class RegistrationPanel extends JPanel{
         this(true);
     }
     
+    public void loadCustomerInfo(){
+        if(Global.currentCustomer == null){
+            JOptionPane.showMessageDialog(null
+                    , "Current Customer Null Reference"
+                    , "Customer Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }//end if
+        
+        try{
+            this.firstField.setText(Global.currentCustomer.getFirstName());
+            this.lastField.setText(Global.currentCustomer.getLastName());
+            this.genderBox.setSelectedItem(Global.currentCustomer.getGender());
+            this.addressField.setText(Global.currentCustomer.getPhysicalAddress());
+            this.cityField.setText(Global.currentCustomer.getAddressCity());
+            this.stateField.setText(Global.currentCustomer.getAddressState());
+            this.zipField.setText(Global.currentCustomer.getAddressZipCode());
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , x.getMessage()
+                    , "Load Customer Info Error"
+                    , JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+    }//end loadCustomerInfo()
    
    
     public void paintComponent(Graphics g){

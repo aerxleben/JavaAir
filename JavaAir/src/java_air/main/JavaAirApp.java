@@ -45,7 +45,7 @@ public class JavaAirApp implements ActionListener{
         
         //Home Panel
         HomePanel panelHome = new HomePanel();
-        panelHome.getFlightSearchPanel().getSearchButton().addActionListener(this);
+        //panelHome.getFlightSearchPanel().getSearchButton().addActionListener(this);
         panelHome.getFlightStatusButton().addActionListener(this);
         panelHome.getCheckInButton().addActionListener(this);
         Global.jPanelMap.put(Global.textHome, panelHome);
@@ -119,8 +119,6 @@ public class JavaAirApp implements ActionListener{
         //pane.add(menu, BorderLayout.PAGE_START);
         pane.add(cards, BorderLayout.CENTER);
 
-        //test panel
-       new TestPanel();
     }
     
     @Override

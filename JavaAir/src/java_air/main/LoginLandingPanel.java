@@ -173,7 +173,7 @@ public class LoginLandingPanel extends JPanel{
         layout.setConstraints(loginButton, constraints);
         add(loginButton);
         
-        forgotPasswordButton = new JButton("forgot password?");
+        forgotPasswordButton = new JButton("Forgot Password?");
         forgotPasswordButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0){
@@ -263,6 +263,13 @@ public class LoginLandingPanel extends JPanel{
     }
     
     public void loginButtonPressed(){
+        
+        //validate user inputs
+        //to-do
+        
+        //check against DB
+        //to-do
+        
          CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
          cl.show(Global.cardsPanel, Global.textAcct);
     }
