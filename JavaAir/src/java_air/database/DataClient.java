@@ -23,18 +23,16 @@ public class DataClient {
     }//end getConnection()
     
     
-    public static ResultSet getData(Connection dbConnection
-            , String query) 
+    public static ResultSet getData(String query) 
             throws Exception{
         ResultSet set = null;
         try{
-            if(dbConnection == null){ throw new NullPointerException(); }
-            
-            Statement stmt = dbConnection.createStatement();
+            Connection c = getConnection();
+            Statement stmt = c.createStatement();
             set = stmt.executeQuery(query);
             
             stmt.close();
-            dbConnection.close();
+            c.close();
         }//end try
         catch(Exception x){
             throw x;
@@ -43,19 +41,17 @@ public class DataClient {
         return set;
     }//end getData()
     
-    public static void dbInsertOrUpdate(Connection dbConnection
-            , String query) throws Exception{
+    public static void dbInsertOrUpdate(String query) throws Exception{
         try{
-            if(dbConnection == null){ throw new NullPointerException(); }
-            
-            Statement stmt = dbConnection.createStatement();
+            Connection c = getConnection();
+            Statement stmt = c.createStatement();
             int res = stmt.executeUpdate(query);
             
             if(res <= 0){ throw new Exception("No Rows Inserted/Updated"); }
             
             stmt.close();
-            dbConnection.commit();
-            dbConnection.close();
+            c.commit();
+            c.close();
         }
         catch(Exception x){
             throw x;

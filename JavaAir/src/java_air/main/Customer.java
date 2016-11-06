@@ -215,7 +215,17 @@ public class Customer{
        }
        
        //save to file for now, later save to DB
-       saveToFile();
+       //saveToFile();
+       
+       //prepare sql query
+       String query = "INSERT INTO CUSTOMERS " + 
+               "(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, DOB, " + 
+               "ADDRESS, CITY, STATE, ZIPCODE, REWARDMILES)" + 
+               "VALUES " + 
+               "('" + customerInfoList.get(0) + "', " +
+               "'" + customerInfoList.get(1) + "', " +
+               "'" + customerInfoList.get(9) + "', " +
+               "'" + customerInfoList.get(10) + "', ";
    }
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{
