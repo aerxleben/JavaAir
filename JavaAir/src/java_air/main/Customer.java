@@ -222,14 +222,18 @@ public class Customer{
        
        String queryExist = "SELECT COUNT(CUSTOMERID) AS ROWCOUNT " +
                "FROM CUSTOMERS " +
-               "WHERE CUSTOMERID = " + customerId;
+               "WHERE FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
+               "LASTNAME = '" + customerInfoList.get(1) + "'";
        
-       ResultSet res = DataClient.getData(queryExist);
-       int rowCount = res.getInt("ROWCOUNT");
+       //ResultSet res = DataClient.getData(queryExist);
+       //int rowCount = res.getInt("ROWCOUNT");
+       int rowCount = DataClient.getCount(queryExist);
+       
+       String query = null;
        
        if(rowCount <= 0){
            //perform insert operation
-            String query = "INSERT INTO CUSTOMERS " + 
+            query = "INSERT INTO CUSTOMERS " + 
                     "(FIRSTNAME, LASTNAME, DOB, GENDER, " + 
                     "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, " +
                     "EMAIL, PASSWORD, REWARDMILES)" + 
@@ -246,11 +250,10 @@ public class Customer{
                     "'" + customerInfoList.get(9) + "', " +
                     "'" + customerInfoList.get(10) + "', " +
                     "0)";
-            
        }
        else{
            //perform update operation
-           String query = "UPDATE CUSTOMERS " +
+           query = "UPDATE CUSTOMERS " +
                    "SET ADDRESS = '" + customerInfoList.get(4) + "', " +
                    "CITY = '" + customerInfoList.get(5) + "', " +
                    "STATE = '" + customerInfoList.get(6) + "', " +
@@ -262,7 +265,9 @@ public class Customer{
                    "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
                    "LASTNAME = '" + customerInfoList.get(1) + "'";
        }
-   }
+       
+       DataClient.dbInsertOrUpdate(query);
+   }//end saveCustomerInfo()
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{
        Customer newCustomer = null;

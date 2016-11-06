@@ -265,7 +265,14 @@ public class LoginLandingPanel extends JPanel{
     public void loginButtonPressed(){
         
         //validate user inputs
-        //to-do
+        if(this.emailField.getText() == null
+                && this.passwordField.getText() == null){
+            JOptionPane.showMessageDialog(null
+                    , "Invalid E-mail or Password"
+                    , "Login Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         //check against DB
         //to-do

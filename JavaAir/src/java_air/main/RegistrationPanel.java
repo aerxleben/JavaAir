@@ -620,7 +620,7 @@ public class RegistrationPanel extends JPanel{
                     , JOptionPane.ERROR_MESSAGE);
         }
         //check birthday
-        if(yearDifference >= 4){
+        if(yearDifference >= 1){
             //list.add(birthdayPicker.getJFormattedTextField().getText());
             list.add(Global.dateFormat.format(birthdayPicker.getDate()));
             birthdayPicker.setBackground(normal);

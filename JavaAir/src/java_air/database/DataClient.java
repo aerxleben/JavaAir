@@ -52,7 +52,6 @@ public class DataClient {
             if(res <= 0){ throw new Exception("No Rows Inserted/Updated"); }
             
             stmt.close();
-            c.commit();
             c.close();
         }
         catch(Exception x){
@@ -63,4 +62,26 @@ public class DataClient {
         }
     }//get insertData()
     
+    public static int getCount(String query) 
+            throws Exception{
+        ResultSet set = null;
+        int count = 0;
+        try{
+            Connection c = getConnection();
+            Statement stmt = c.createStatement();
+            set = stmt.executeQuery(query);
+            count = set.getInt(1);
+            
+            stmt.close();
+            c.close();
+        }//end try
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"DB Select Error"
+                    ,JOptionPane.ERROR_MESSAGE);
+        }//end catch
+        
+        return count;
+    }//end getData()
 }
