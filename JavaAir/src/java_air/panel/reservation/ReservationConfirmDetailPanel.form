@@ -187,14 +187,14 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="firstNameInforLabel" min="-2" pref="87" max="-2" attributes="0"/>
+                                      <Component id="cardNumberInforLabel" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="firstNameInforLabel" min="-2" pref="131" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lastNameLabel" min="-2" pref="94" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lastNameInforLabel1" min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="lastNameInforLabel1" min="-2" pref="118" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="cardNumberInforLabel" min="-2" pref="222" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -405,6 +405,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Last name"/>
                   </Properties>
                 </Component>
@@ -412,6 +415,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="First name"/>
                   </Properties>

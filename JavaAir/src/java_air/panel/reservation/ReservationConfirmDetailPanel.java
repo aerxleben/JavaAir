@@ -156,9 +156,11 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         cardNumberLabel.setText("Card number");
 
         lastNameLabel.setFont(generalFont);
+        lastNameLabel.setForeground(new java.awt.Color(102, 102, 102));
         lastNameLabel.setText("Last name");
 
         firstNameLabel1.setFont(generalFont);
+        firstNameLabel1.setForeground(new java.awt.Color(102, 102, 102));
         firstNameLabel1.setText("First name");
 
         lastNameInforLabel1.setFont(generalFont);
@@ -214,13 +216,13 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                             .addComponent(cardNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cardNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ContentPanelLayout.createSequentialGroup()
-                                .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cardNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
