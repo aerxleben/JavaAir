@@ -19,6 +19,9 @@ package java_air.main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java_air.database.DataClient;
 
 public class LoginLandingPanel extends JPanel{
     private MenuBannerPanel aMenuBannerPanel;
@@ -275,10 +278,38 @@ public class LoginLandingPanel extends JPanel{
         }
         
         //check against DB
-        //to-do
+        String query = "SELECT TOP 1 * FROM CUSTOMERS WHERE " +
+                "EMAIL = '" + emailField.getText() + "' AND " +
+                "PASSWORD = '" + passwordField.getText() + "'";
         
-         CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
-         cl.show(Global.cardsPanel, Global.textAcct);
+        ResultSet dataSet = null;
+        try{
+            dataSet = DataClient.getData(query);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , x.getMessage()
+                    , "Login DB Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        ArrayList<String> customerData = null;
+        try{
+            //customerData = new ArrayList<String>();
+            
+            
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , x.getMessage()
+                    , "Login Load Customer Data Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
+        cl.show(Global.cardsPanel, Global.textAcct);
     }
     
     public void forgotPasswordButtonPressed(){

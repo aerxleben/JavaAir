@@ -261,7 +261,7 @@ public class Customer{
                    "PHONENUMBER = '" + customerInfoList.get(8) + "', " +
                    "EMAIL = '" + customerInfoList.get(9) + "', " +
                    "PASSWORD = '" + customerInfoList.get(10) + "' " +
-                   "WHERE CUSTOMERID = " + customerId + " AND " +
+                   "WHERE CUSTOMERID = " + Global.currentCustomer.getCustomerID() + " AND " +
                    "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
                    "LASTNAME = '" + customerInfoList.get(1) + "'";
        }
@@ -337,5 +337,23 @@ public class Customer{
            }
        }
    }//end: saveToFile()
+   
+   public int getCustomerID(){
+       return this.customerId;
+   }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+    }
+
+    public int getRewardPoints() {
+        return rewardPoints;
+    }
+   
+   
  
  }
