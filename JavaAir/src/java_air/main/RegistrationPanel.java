@@ -37,7 +37,7 @@ public class RegistrationPanel extends JPanel{
     //private JTextField birthdayField;
     //private JDatePickerImpl birthdayPicker;
     private JXDatePicker birthdayPicker;
-    private JComboBox genderBox;
+    private JComboBox<String> genderBox;
     private JTextField addressField;
     private JTextField cityField;
     private JTextField stateField;
@@ -65,7 +65,7 @@ public class RegistrationPanel extends JPanel{
     //public JTextField getBirthdayField(){return birthdayField;}
     //public JDatePickerImpl getBirthdayPicker(){return birthdayPicker;}
     public JXDatePicker getBirthdayPicker(){return birthdayPicker;}
-    public JComboBox getGenderBox(){return genderBox;}
+    public JComboBox<String> getGenderBox(){return genderBox;}
     public JTextField getAddressField(){return addressField;}
     public JTextField getCityField(){return addressField;}
     public JTextField getStateField(){return stateField;}

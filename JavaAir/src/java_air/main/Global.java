@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import java_air.panel.reservation.Reservation;
 
 public class Global {
-    public static String version = "0.52.0";
+    public static String version = "0.145.0";
     
     public static String textHome = "Home";//refrence home page
     public static String textFlights = "Flights"; //reference flight results panel
@@ -48,7 +48,8 @@ public class Global {
 //    public static String textAccountWelcome = ""
     
     public static String[] airportList = {"Chicago", "New York", "Los Angeles"};
-    public static String[] numberList = {"1", "2", "3", "4", "5"};
+    //2016-11-5 S. Jia: changed number list from 5 to 3; change back if something breaks
+    public static String[] numberList = {"1", "2", "3"}; 
     public static String[] genderList = {"Female", "Male"};
     
     public static Font titleFont = new Font("Times", Font.BOLD, 24);

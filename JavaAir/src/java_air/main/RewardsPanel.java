@@ -29,7 +29,7 @@ public class RewardsPanel extends JPanel{
             GridBagConstraints constraints = new GridBagConstraints();
             setLayout(layout);
 
-            this.setBackground(new Color(255,255,255,150));
+            //this.setBackground(new Color(255,255,255,150));
 
             //Create "Royal Blue" color for fonts
             Color fontColor = new Color(0,35,102);
