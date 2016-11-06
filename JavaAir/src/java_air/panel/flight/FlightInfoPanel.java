@@ -146,8 +146,9 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         departureAirportLabel.setForeground(new java.awt.Color(0, 102, 204));
         departureAirportLabel.setText("Chicago");
 
-        directionLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        directionLabel.setText("----------->");
+        directionLabel.setFont(Global.titleFont);
+        directionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        directionLabel.setText("--------->");
 
         departureDateLabel.setForeground(new java.awt.Color(0, 102, 0));
         departureDateLabel.setText("Tue, Nov 22");
@@ -155,10 +156,10 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         arriveDateLabel.setForeground(new java.awt.Color(0, 102, 0));
         arriveDateLabel.setText("Tue, Nov 22");
 
-        arriveTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        arriveTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         arriveTimeLabel.setText("12:00");
 
-        departureTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        departureTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         departureTimeLabel.setText("9:00");
 
         arriveAirportLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -228,7 +229,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(departureDateLabel)
                             .addComponent(arriveDateLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
