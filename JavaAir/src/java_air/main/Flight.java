@@ -21,6 +21,9 @@ import java.util.Random;
 
 public class Flight{
 
+    public Flight() {
+    }
+
     public enum FlightStatus{ DELAYED, ONTIME, EARLY }
     
     private String flightNumber;
