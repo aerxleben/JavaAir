@@ -32,6 +32,7 @@ public class Flight{
     private Date actualDeparture;
     private Date actualArrival;
     private int tripMileage;
+    private float flightDuration;
     private FlightStatus flightStatus;
     private int totalCheckedBags;
     
@@ -133,6 +134,14 @@ public class Flight{
         this.tripMileage = tripMileage;
     }
 
+    public float getFlightDuration() {
+        return flightDuration;
+    }
+
+    public void setFlightDuration(float flightDuration) {
+        this.flightDuration = flightDuration;
+    }
+    
     public FlightStatus getFlightStatus() {
         return flightStatus;
     }

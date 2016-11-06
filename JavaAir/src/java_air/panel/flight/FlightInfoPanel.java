@@ -1,6 +1,8 @@
 package java_air.panel.flight;
 
+import java_air.main.Flight;
 import java_air.main.Global;
+import javax.swing.JLabel;
 
 /* 
  * CS5900 - Software Engineering
@@ -17,12 +19,24 @@ import java_air.main.Global;
  */
 
 public class FlightInfoPanel extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form FlightInfoTestPanel
      */
     public FlightInfoPanel() {
         initComponents();
+    }
+    
+    public FlightInfoPanel(Flight flight){
+        initComponents();
+        
+        setFlightNo(flight.getFlightNumber());
+        setOrigin(flight.getOriginAirport());
+        setDestination(flight.getDestinationAirport());
+        setDepartureTime(flight.getScheduledDeparture());
+        setArrivalTime(flight.getScheduledArrival());
+        setFlightPrice(Double.toString(flight.getTripMileage()*1.2)); //$1.2 per mile; change later
+        setFlightDuration(Float.toString(flight.getFlightDuration()));
     }
     
     public String getFlightNo(){
@@ -72,6 +86,16 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public void setFlightPrice(String price){
         this.flightPriveLabel.setText(price);
     }
+
+    public String getFlightDuration() {
+        return labelFlightDuration.getText();
+    }
+
+    public void setFlightDuration(String newDuration) {
+        this.labelFlightDuration.setText(newDuration);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,7 +115,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         departureTimeLabel = new javax.swing.JLabel();
         arriveAirportLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        arriveAirportLabel1 = new javax.swing.JLabel();
+        labelFlightDuration = new javax.swing.JLabel();
         arriveAirportLabel2 = new javax.swing.JLabel();
 
         flightNumLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -130,8 +154,8 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         arriveAirportLabel.setForeground(new java.awt.Color(0, 102, 204));
         arriveAirportLabel.setText("NewYork");
 
-        arriveAirportLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        arriveAirportLabel1.setText("3h");
+        labelFlightDuration.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelFlightDuration.setText("3h");
 
         arriveAirportLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         arriveAirportLabel2.setForeground(new java.awt.Color(0, 102, 204));
@@ -165,7 +189,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                                     .addComponent(arriveAirportLabel))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(arriveAirportLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelFlightDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(arriveAirportLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))))
                         .addGap(10, 10, 10)
                         .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,10 +208,11 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                             .addComponent(arriveAirportLabel)
                             .addComponent(arriveAirportLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(departureTimeLabel)
-                            .addComponent(arriveTimeLabel)
-                            .addComponent(directionLabel))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(departureTimeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(arriveTimeLabel)
+                                .addComponent(directionLabel)))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(departureDateLabel)
@@ -197,7 +222,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(arriveAirportLabel1))
+                            .addComponent(labelFlightDuration))
                         .addGap(18, 18, 18)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
@@ -211,7 +236,6 @@ public class FlightInfoPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel arriveAirportLabel;
-    private javax.swing.JLabel arriveAirportLabel1;
     private javax.swing.JLabel arriveAirportLabel2;
     private javax.swing.JLabel arriveDateLabel;
     private javax.swing.JLabel arriveTimeLabel;
@@ -222,5 +246,6 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel flightNumLabel;
     private javax.swing.JButton flightPriveLabel;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelFlightDuration;
     // End of variables declaration//GEN-END:variables
 }

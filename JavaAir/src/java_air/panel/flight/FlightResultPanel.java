@@ -7,6 +7,8 @@ package java_air.panel.flight;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
+import java_air.main.Flight;
 
 /**
  *
@@ -40,6 +42,13 @@ public class FlightResultPanel extends javax.swing.JPanel {
                     = new FlightInfoPanel();
             scrollContentPanel.add(flightInfoPanel);
         } 
+    }
+    
+    public void flightLabelSet(ArrayList<Flight> flightList){
+        for(Flight flight : flightList){
+            FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
+            scrollContentPanel.add(flightInfoPanel);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
