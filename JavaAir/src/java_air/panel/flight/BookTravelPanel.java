@@ -5,9 +5,11 @@
  */
 package java_air.panel.flight;
 
+import java_air.main.*;
 import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java_air.main.Global;
 import java_air.panel.reservation.TextPrompt;
@@ -276,7 +278,9 @@ public class BookTravelPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roundTripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundTripButtonActionPerformed
-        // TODO add your handling code here:
+        this.roundTripButton.setSelected(true);
+        this.oneWayButton.setSelected(false);
+        this.datePickerReturn.setVisible(true);
     }//GEN-LAST:event_roundTripButtonActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
@@ -299,36 +303,40 @@ public class BookTravelPanel extends javax.swing.JPanel {
         //String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
         String departDateStr = Global.dateFormat.format(this.datePickerDepart.getDate());
         //String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
-        String returnDateStr = Global.dateFormat.format(this.datePickerReturn.getDate());
+        String returnDateStr;
+        
+        if(this.roundTripButton.isSelected()){
+            returnDateStr = Global.dateFormat.format(this.datePickerReturn.getDate());
 
-        long dayDifference = 0;
+            long dayDifference = 0;
 
-        try{
-            SimpleDateFormat formater = Global.dateFormat;
+            try{
+                SimpleDateFormat formater = Global.dateFormat;
 
-            Calendar departDate = Calendar.getInstance();
-            departDate.setTime(formater.parse(departDateStr));
+                Calendar departDate = Calendar.getInstance();
+                departDate.setTime(formater.parse(departDateStr));
 
-            Calendar returnDate = Calendar.getInstance();
-            returnDate.setTime(formater.parse(returnDateStr));
+                Calendar returnDate = Calendar.getInstance();
+                returnDate.setTime(formater.parse(returnDateStr));
 
-            long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
-            dayDifference = msDiff/(1000*60*60*24);
-        }
-        catch(Exception x){
-            JOptionPane.showMessageDialog(null
-                    , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
-                    , "Date Picker Error"
-                    , JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+                long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
+                dayDifference = msDiff/(1000*60*60*24);
+            }
+            catch(Exception x){
+                JOptionPane.showMessageDialog(null
+                        , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
+                        , "Date Picker Error"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-        if(dayDifference <= 0){
-            JOptionPane.showMessageDialog(null
-                    , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
-                    , "Date Picker Error"
-                    , JOptionPane.ERROR_MESSAGE);
-            return;
+            if(dayDifference <= 0){
+                JOptionPane.showMessageDialog(null
+                        , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
+                        , "Date Picker Error"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
 
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
@@ -338,6 +346,16 @@ public class BookTravelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonSearchActionPerformed
 
     public void showFlights(){
+        //pass inputs into DB; use two queries if roundtrip
+        
+        //DB return data table
+        
+        //create Flight objects based on data record(s)
+        //for each record... new Flight(...)
+        
+        //store flights into one or two ArrayList depends on roundtrip
+        ArrayList<Flight> departFlights = new ArrayList<Flight>();
+        ArrayList<Flight> returnFlights = new ArrayList<Flight>();
         
     }
     
@@ -346,7 +364,9 @@ public class BookTravelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboBoxDestinationActionPerformed
 
     private void oneWayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneWayButtonActionPerformed
-        // TODO add your handling code here:
+        this.roundTripButton.setSelected(false);
+        this.oneWayButton.setSelected(true);
+        this.datePickerReturn.setVisible(false);
     }//GEN-LAST:event_oneWayButtonActionPerformed
 
    // private DefaultComboBoxModel airportModel = new DefaultComboBoxModel(Global.airportList);

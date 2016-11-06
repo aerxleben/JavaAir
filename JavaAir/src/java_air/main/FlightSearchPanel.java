@@ -77,6 +77,9 @@ public class FlightSearchPanel extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e){
                     isRoundTrip = true;
+                    tripTypeButtons[0].setSelected(true);
+                    tripTypeButtons[1].setSelected(false);
+                    returnDatePicker.setVisible(true);
                 }
             });
             tripTypeButtons[1] = new JRadioButton("One Way", false);
@@ -84,6 +87,9 @@ public class FlightSearchPanel extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e){
                     isRoundTrip = false;
+                    tripTypeButtons[0].setSelected(false);
+                    tripTypeButtons[1].setSelected(true);
+                    returnDatePicker.setVisible(false);
                 }
             });
             tripTypeButtons[0].setOpaque(false);
@@ -447,36 +453,40 @@ public class FlightSearchPanel extends JPanel{
             //String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
             String departDateStr = Global.dateFormat.format(this.departDatePicker.getDate());
             //String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
-            String returnDateStr = Global.dateFormat.format(this.returnDatePicker.getDate());
+            String returnDateStr = "";
             
-            long dayDifference = 0;
-            
-            try{
-                SimpleDateFormat formater = Global.dateFormat;
-                
-                Calendar departDate = Calendar.getInstance();
-                departDate.setTime(formater.parse(departDateStr));
-                
-                Calendar returnDate = Calendar.getInstance();
-                returnDate.setTime(formater.parse(returnDateStr));
-                
-                long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
-                dayDifference = msDiff/(1000*60*60*24);
-            }
-            catch(Exception x){
-                JOptionPane.showMessageDialog(null
-                        , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
-                        , "Date Picker Error"
-                        , JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            
-            if(dayDifference <= 0){
-                JOptionPane.showMessageDialog(null
-                        , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
-                        , "Date Picker Error"
-                        , JOptionPane.ERROR_MESSAGE);
-                return;
+            if(isRoundTrip){
+                returnDateStr = Global.dateFormat.format(this.returnDatePicker.getDate());
+
+                long dayDifference = 0;
+
+                try{
+                    SimpleDateFormat formater = Global.dateFormat;
+
+                    Calendar departDate = Calendar.getInstance();
+                    departDate.setTime(formater.parse(departDateStr));
+
+                    Calendar returnDate = Calendar.getInstance();
+                    returnDate.setTime(formater.parse(returnDateStr));
+
+                    long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
+                    dayDifference = msDiff/(1000*60*60*24);
+                }
+                catch(Exception x){
+                    JOptionPane.showMessageDialog(null
+                            , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
+                            , "Date Picker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                if(dayDifference <= 0){
+                    JOptionPane.showMessageDialog(null
+                            , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
+                            , "Date Picker Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
             }
             
             //search result against DB
@@ -497,6 +507,9 @@ public class FlightSearchPanel extends JPanel{
                     searchPanel.setDepartDate(departDateStr);
                     searchPanel.setReturnDate(returnDateStr);
                     searchPanel.setNumOfPassengers(this.numPassengersComboBox.getSelectedItem().toString());
+                    
+                    //load flight data
+                    searchPanel.showFlights();
                 }
                 catch(Exception x){
                     JOptionPane.showMessageDialog(null
