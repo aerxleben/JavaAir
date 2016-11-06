@@ -23,22 +23,42 @@ public class DataClient {
     }//end getConnection()
     
     
-    public static ArrayList<String> getData(Connection dbConnection
+    public static ResultSet getData(Connection dbConnection
             , String query) 
             throws Exception{
-        ArrayList<String> dataList = null; 
+        ResultSet set = null;
         try{
-            if(dbConnection != null){
-                dataList = new ArrayList<String>();
+            if(dbConnection == null){ throw new NullPointerException(); }
             
+            Statement stmt = dbConnection.createStatement();
+            set = stmt.executeQuery(query);
             
-            }//end if
+            stmt.close();
+            dbConnection.close();
         }//end try
         catch(Exception x){
             throw x;
         }//end catch
         
-        
-        return dataList;
-    }
+        return set;
+    }//end getData()
+    
+    public static void dbInsertOrUpdate(Connection dbConnection
+            , String query) throws Exception{
+        try{
+            if(dbConnection == null){ throw new NullPointerException(); }
+            
+            Statement stmt = dbConnection.createStatement();
+            int res = stmt.executeUpdate(query);
+            
+            if(res <= 0){ throw new Exception("No Rows Inserted/Updated"); }
+            
+            stmt.close();
+            dbConnection.commit();
+            dbConnection.close();
+        }
+        catch(Exception x){
+            throw x;
+        }
+    }//get insertData()
 }
