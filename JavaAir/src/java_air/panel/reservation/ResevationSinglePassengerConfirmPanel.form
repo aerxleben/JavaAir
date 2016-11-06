@@ -19,7 +19,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Component id="jSeparator1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="mobileNumberLabel" min="-2" pref="126" max="-2" attributes="0"/>
@@ -27,39 +28,41 @@
                               <Component id="mobileNumberInforLabel" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <Component id="genderInforLabel" min="-2" pref="80" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="genderInforLabel1" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="firstNameInforLabel" min="-2" pref="104" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lastNameInforLabel1" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="genderInforLabel" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="genderInforLabel1" min="-2" pref="39" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="genderInforLabel2" min="-2" pref="96" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="mobileNumberLabel2" min="-2" pref="131" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="dateBirthInforLabel" min="-2" pref="103" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="passIDLabel1" min="-2" pref="87" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="passIDInforLabel" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="mobileNumberLabel1" min="-2" pref="164" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="mobileNumberLabel2" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="mobileNumberLabel1" min="-2" pref="164" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="genderInforLabel2" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="dateBirthInforLabel" min="-2" pref="103" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="104" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jSeparator1" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -71,14 +74,19 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="firstNameInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="lastNameInforLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateBirthInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="genderInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="passIDLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="passIDInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="genderInforLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="genderInforLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="genderInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="genderInforLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Component id="dateBirthInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="genderInforLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mobileNumberLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="mobileNumberInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
@@ -151,7 +159,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PASS ID:"/>
+        <Property name="text" type="java.lang.String" value="Pass ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="mobileNumberLabel">
