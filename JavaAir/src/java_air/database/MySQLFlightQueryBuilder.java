@@ -16,7 +16,7 @@ public class MySQLFlightQueryBuilder implements FlightQueryBuilder{
     @Override
     public String buildQueryStrForSearchFlight(Flight flight) {
         String sql = "SELECT scheduledDepartureDate, scheduledArriveDate "
-                + "FROM Flight "
+                + "FROM table_flight "
                 + "WHERE "
                 +"originAirport = '" + flight.getOriginAirport() + "' and "
                 + "destinationAirport = '" + flight.getDestinationAirport() + "'";
