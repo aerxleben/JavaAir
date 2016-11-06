@@ -2,7 +2,7 @@
 package java_air.database;
 
 import java.sql.*;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class DataClient {
     
@@ -35,7 +35,10 @@ public class DataClient {
             c.close();
         }//end try
         catch(Exception x){
-            throw x;
+            JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"DB Select Error"
+                    ,JOptionPane.ERROR_MESSAGE);
         }//end catch
         
         return set;
@@ -54,7 +57,10 @@ public class DataClient {
             c.close();
         }
         catch(Exception x){
-            throw x;
+            JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"DB Insert/Update Error"
+                    ,JOptionPane.ERROR_MESSAGE);
         }
     }//get insertData()
     

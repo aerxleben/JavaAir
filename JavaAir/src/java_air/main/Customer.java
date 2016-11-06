@@ -16,7 +16,9 @@ package java_air.main;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.sql.ResultSet;
 import java.util.Scanner;
+import java_air.database.DataClient;
  
 public class Customer{
  
@@ -33,7 +35,7 @@ public class Customer{
    private String emailAddress;		//index 9
    private String password;		//index 10*/
    
-   private int customerID;
+   private int customerId;
            
    private final String notApplicable = "N/A";
    private final String textSetValueError = "Setting Customer Value Error; Null ";
@@ -217,15 +219,47 @@ public class Customer{
        //save to file for now, later save to DB
        //saveToFile();
        
-       //prepare sql query
-       String query = "INSERT INTO CUSTOMERS " + 
-               "(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, DOB, " + 
-               "ADDRESS, CITY, STATE, ZIPCODE, REWARDMILES)" + 
-               "VALUES " + 
-               "('" + customerInfoList.get(0) + "', " +
-               "'" + customerInfoList.get(1) + "', " +
-               "'" + customerInfoList.get(9) + "', " +
-               "'" + customerInfoList.get(10) + "', ";
+       String queryExist = "SELECT COUNT(CUSTOMERID) AS ROWCOUNT " +
+               "FROM CUSTOMERS " +
+               "WHERE CUSTOMERID = " + customerId;
+       
+       ResultSet res = DataClient.getData(queryExist);
+       int rowCount = res.getInt("ROWCOUNT");
+       
+       if(rowCount <= 0){
+           //perform insert operation
+            String query = "INSERT INTO CUSTOMERS " + 
+                    "(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, DOB, " + 
+                    "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, REWARDMILES)" + 
+                    "VALUES " + 
+                    "('" + customerInfoList.get(0) + "', " +
+                    "'" + customerInfoList.get(1) + "', " +
+                    "'" + customerInfoList.get(9) + "', " +
+                    "'" + customerInfoList.get(10) + "', " +
+                    "'" + customerInfoList.get(3) + "', " +
+                    "'" + customerInfoList.get(2) + "', " +
+                    "'" + customerInfoList.get(4) + "', " +
+                    "'" + customerInfoList.get(5) + "', " +
+                    "'" + customerInfoList.get(6) + "', " +
+                    "'" + customerInfoList.get(7) + "', " +
+                    "'" + customerInfoList.get(8) + "', " +
+                    "0)";
+            
+       }
+       else{
+           //perform update operation
+           String query = "UPDATE CUSTOMERS " +
+                   "SET ADDRESS = '" + customerInfoList.get(4) + "', " +
+                   "CITY = '" + customerInfoList.get(5) + "', " +
+                   "STATE = '" + customerInfoList.get(6) + "', " +
+                   "ZIPCODE = '" + customerInfoList.get(7) + "', " +
+                   "PHONENUMBER = '" + customerInfoList.get(8) + "', " +
+                   "EMAIL = '" + customerInfoList.get(9) + "', " +
+                   "PASSWORD = '" + customerInfoList.get(10) + "' " +
+                   "WHERE CUSTOMERID = " + customerId + " AND " +
+                   "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
+                   "LASTNAME = '" + customerInfoList.get(1) + "'";
+       }
    }
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{
