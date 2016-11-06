@@ -278,13 +278,13 @@ public class LoginLandingPanel extends JPanel{
         }
         
         //check against DB
-        String query = "SELECT TOP 1 * FROM CUSTOMERS WHERE " +
+        String query = "SELECT * FROM CUSTOMERS WHERE " +
                 "EMAIL = '" + emailField.getText() + "' AND " +
-                "PASSWORD = '" + passwordField.getText() + "'";
+                "PASSWORD = '" + passwordField.getText() + "' LIMIT 1";
         
-        ResultSet dataSet = null;
+        ArrayList<Customer> customerList = null;
         try{
-            dataSet = DataClient.getData(query);
+            customerList = DataClient.getCustomerData(query);
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
@@ -294,22 +294,22 @@ public class LoginLandingPanel extends JPanel{
             return;
         }
         
-        ArrayList<String> customerData = null;
-        try{
-            //customerData = new ArrayList<String>();
+        if(!customerList.isEmpty()){
+            Global.currentCustomer = customerList.get(0);
             
+            AccountWelcomePanel acctPanel = 
+                    (AccountWelcomePanel)Global.jPanelMap.get(Global.textAcct);
+            acctPanel.setHelloText(Global.currentCustomer.getFirstName()
+                    + " " + Global.currentCustomer.getLastName());
             
+            Global.switchCard(Global.textAcct);
         }
-        catch(Exception x){
+        else{
             JOptionPane.showMessageDialog(null
-                    , x.getMessage()
-                    , "Login Load Customer Data Error"
+                    , "No Customer Found With This Login"
+                    , "Login Error"
                     , JOptionPane.ERROR_MESSAGE);
-            return;
         }
-        
-        CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
-        cl.show(Global.cardsPanel, Global.textAcct);
     }
     
     public void forgotPasswordButtonPressed(){

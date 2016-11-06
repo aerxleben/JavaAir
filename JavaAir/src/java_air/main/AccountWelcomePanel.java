@@ -19,7 +19,7 @@ import java.awt.event.*;
 
 public class AccountWelcomePanel extends JPanel{
     //private MenuBannerPanel aMenuBannerPanel;
-    
+    private JLabel helloLabel;
     private JButton personalInfoButton;
     private JButton reservationsButton;
     private JButton rewardsButton;
@@ -48,7 +48,7 @@ public class AccountWelcomePanel extends JPanel{
         Color buttonColor = new Color(100,76,55);
         Color backgroundColor = new Color(255,255,255,150);
    
-        JLabel helloLabel = new JLabel("Hello, First Last");//+Global.currentCustomer.getFirstName()+" "+Global.currentCustomer.getLastName());
+        helloLabel = new JLabel("Hello, First Last");//+Global.currentCustomer.getFirstName()+" "+Global.currentCustomer.getLastName());
         helloLabel.setFont(new Font("Times", Font.BOLD, 36));
         helloLabel.setHorizontalAlignment(JLabel.LEFT);
         helloLabel.setForeground(buttonColor);
@@ -188,5 +188,9 @@ public class AccountWelcomePanel extends JPanel{
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
    }
+    
+    public void setHelloText(String newName){
+        this.helloLabel.setText("Hello! " + newName);
+    }
   
 }
