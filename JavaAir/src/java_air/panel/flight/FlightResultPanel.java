@@ -17,6 +17,7 @@ import java_air.main.Flight;
 public class FlightResultPanel extends javax.swing.JPanel {
     
     private BookTravelPanel panelSearchInput;
+    private FlightResultPanel gui = (FlightResultPanel)this;
     
     /**
      * Creates new form FlightResultPanel
@@ -25,7 +26,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
         initComponents();
         panelSearchInput = new BookTravelPanel();
         searchPanel.add(panelSearchInput, BorderLayout.CENTER);
-        flightLabelSet();
+        //flightLabelSet();
     }
 
     public BookTravelPanel getSearchInputPanel() {
@@ -41,7 +42,8 @@ public class FlightResultPanel extends javax.swing.JPanel {
             FlightInfoPanel flightInfoPanel
                     = new FlightInfoPanel();
             scrollContentPanel.add(flightInfoPanel);
-        } 
+        }
+        gui.validate();
     }
     
     public void flightLabelSet(ArrayList<Flight> flightList){
@@ -49,6 +51,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
             FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
             scrollContentPanel.add(flightInfoPanel);
         }
+        gui.validate();
     }
     /**
      * This method is called from within the constructor to initialize the form.

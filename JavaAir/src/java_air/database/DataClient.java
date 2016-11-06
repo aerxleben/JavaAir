@@ -159,6 +159,10 @@ public class DataClient {
                         , set.getString("ScheduledDepartureTime")
                         , set.getString("ScheduledArriveTime"));
                 
+                tempFlight.setAircraftName(set.getString("AircraftType"));
+                tempFlight.setTripMileage(set.getInt("FlightDistance"));
+                tempFlight.setFlightDuration(Float.parseFloat(set.getString("FlightDuration")));
+                
                 flightsList.add(tempFlight);
             }
             

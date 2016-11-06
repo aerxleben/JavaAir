@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java_air.database.DataClient;
 import java_air.main.Global;
 import java_air.panel.reservation.TextPrompt;
 import javax.swing.ComboBoxModel;
@@ -342,20 +343,50 @@ public class BookTravelPanel extends javax.swing.JPanel {
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
         
         //display flight search results
-        showFlights();
+        showFlights(origin, destination, this.isRoundTrip());
     }//GEN-LAST:event_buttonSearchActionPerformed
 
-    public void showFlights(){
+    public void showFlights(String origin
+            , String destination
+            , boolean isRoundTrip){
+        ArrayList<Flight> departFlights = null;
+        ArrayList<Flight> returnFlights = null;
+        
         //pass inputs into DB; use two queries if roundtrip
+        String queryDepart = "SELECT * FROM FLIGHTS " +
+                "WHERE ORIGINAIRPORT = '" + origin + "' AND " +
+                "DESTINATIONAIRPORT = '" + destination + "'";
         
         //DB return data table
+        try{
+            departFlights = DataClient.getFlightData(queryDepart);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"Depart Flights Select Error"
+                    ,JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
         
-        //create Flight objects based on data record(s)
-        //for each record... new Flight(...)
+        if(isRoundTrip){
+            String queryReturn = "SELECT * FROM FLIGHTS " +
+                "WHERE ORIGINAIRPORT = '" + destination + "' AND " +
+                "DESTINATIONAIRPORT = '" + origin + "'";
+            
+            try{
+                returnFlights = DataClient.getFlightData(queryReturn);
+            }
+            catch(Exception x){
+                JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"Return Flights Select Error"
+                    ,JOptionPane.ERROR_MESSAGE);
+            }
+        }//end if
         
-        //store flights into one or two ArrayList depends on roundtrip
-        ArrayList<Flight> departFlights = new ArrayList<Flight>();
-        ArrayList<Flight> returnFlights = new ArrayList<Flight>();
+        FlightResultPanel resultsPanel = 
+                (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+        resultsPanel.flightLabelSet(departFlights);
         
     }
     

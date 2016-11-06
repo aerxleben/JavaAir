@@ -30,10 +30,10 @@ public class Flight{
     private String aircraftName;
     private String originAirport;
     private String destinationAirport;
-    private Date scheduledDeparture;
-    private Date scheduledArrival;
-    private Date actualDeparture;
-    private Date actualArrival;
+    private String scheduledDeparture;
+    private String scheduledArrival;
+    private String actualDeparture;
+    private String actualArrival;
     private int tripMileage;
     private float flightDuration;
     private FlightStatus flightStatus;
@@ -53,8 +53,10 @@ public class Flight{
             this.flightNumber = flightNumber;
             this.originAirport = originAirport;
             this.destinationAirport = destinationAirport;
-            this.scheduledDeparture = sdf.parse(scheduledDeparture);
-            this.scheduledArrival = sdf.parse(scheduledArrival);
+            //this.scheduledDeparture = sdf.parse(scheduledDeparture);
+            this.scheduledDeparture = scheduledDeparture;
+            //this.scheduledArrival = sdf.parse(scheduledArrival);
+            this.scheduledArrival = scheduledArrival;
         }
         catch(Exception x){
             throw x;
@@ -94,38 +96,38 @@ public class Flight{
     }
 
     public String getScheduledDeparture() {
-        //return scheduledDeparture;
-        return sdf.format(scheduledDeparture);
+        return scheduledDeparture;
+        //return sdf.format(scheduledDeparture);
     }
 
-    public void setScheduledDeparture(Date scheduledDeparture) {
+    public void setScheduledDeparture(String scheduledDeparture) {
         this.scheduledDeparture = scheduledDeparture;
     }
 
     public String getScheduledArrival() {
-        //return scheduledArrival;
-        return sdf.format(scheduledArrival);
+        return scheduledArrival;
+        //return sdf.format(scheduledArrival);
     }
 
-    public void setScheduledArrival(Date scheduledArrival) {
+    public void setScheduledArrival(String scheduledArrival) {
         this.scheduledArrival = scheduledArrival;
     }
 
     public String getActualDeparture() {
-        //return actualDeparture;
-        return sdf.format(actualDeparture);
+        return actualDeparture;
+        //return sdf.format(actualDeparture);
     }
 
-    public void setActualDeparture(Date actualDeparture) {
+    public void setActualDeparture(String actualDeparture) {
         this.actualDeparture = actualDeparture;
     }
 
     public String getActualArrival() {
-        //return actualArrival;
-        return sdf.format(actualArrival);
+        return actualArrival;
+        //return sdf.format(actualArrival);
     }
 
-    public void setActualArrival(Date actualArrival) {
+    public void setActualArrival(String actualArrival) {
         this.actualArrival = actualArrival;
     }
 
@@ -178,8 +180,8 @@ public class Flight{
         }
         
         //update actual times
-        this.actualDeparture = updateTime(randomDelay);
-        this.actualArrival = updateTime(randomDelay);
+        //this.actualDeparture = updateTime(randomDelay);
+        //this.actualArrival = updateTime(randomDelay);
     }//end generateRandomDelay
     
     private Date updateTime(int timeToAdjust){
