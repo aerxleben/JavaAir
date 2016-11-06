@@ -34,7 +34,6 @@ public class FlightResultPanel extends javax.swing.JPanel {
         this.panelSearchInput = newSearchInput;
     }
     
-    
     public void flightLabelSet(){
         for(int i = 0; i < flightNumber; i++){
             FlightInfoPanel flightInfoPanel

@@ -7,12 +7,15 @@ package java_air.panel.flight;
 
 import java.awt.Color;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java_air.main.Global;
 import java_air.panel.reservation.TextPrompt;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -32,6 +35,8 @@ public class BookTravelPanel extends javax.swing.JPanel {
         
         initComponents();
         //jComboBox1.setEditable(true);
+        this.roundTripButton.setSelected(true);
+        this.oneWayButton.setSelected(false);
     
     }
     
@@ -275,9 +280,67 @@ public class BookTravelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_roundTripButtonActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-        // TODO add your handling code here:
+        //check inputs and display a list of results
+        
+        //validate user inputs
+        String origin = this.comboBoxOrigin.getSelectedItem().toString();
+        String destination = this.comboBoxDestination.getSelectedItem().toString();
+
+        //origin vs destination
+        if(origin.equals(destination)){
+            JOptionPane.showMessageDialog(null
+                    , "Origin and Destination Cannot Be The Same!"
+                    , "Location Conflict"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //departure date vs return date
+        //String departDateStr = this.departDatePicker.getJFormattedTextField().getText();
+        String departDateStr = Global.dateFormat.format(this.datePickerDepart.getDate());
+        //String returnDateStr = this.returnDatePicker.getJFormattedTextField().getText();
+        String returnDateStr = Global.dateFormat.format(this.datePickerReturn.getDate());
+
+        long dayDifference = 0;
+
+        try{
+            SimpleDateFormat formater = Global.dateFormat;
+
+            Calendar departDate = Calendar.getInstance();
+            departDate.setTime(formater.parse(departDateStr));
+
+            Calendar returnDate = Calendar.getInstance();
+            returnDate.setTime(formater.parse(returnDateStr));
+
+            long msDiff = returnDate.getTimeInMillis() - departDate.getTimeInMillis();
+            dayDifference = msDiff/(1000*60*60*24);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , "Unable to Parse Picked Date or Failed To Calculate Day Difference; " + x.getMessage()
+                    , "Date Picker Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if(dayDifference <= 0){
+            JOptionPane.showMessageDialog(null
+                    , "Return Date Must Be At Least 1 Day Ahead of Departure Date"
+                    , "Date Picker Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
+        
+        //display flight search results
+        showFlights();
     }//GEN-LAST:event_buttonSearchActionPerformed
 
+    public void showFlights(){
+        
+    }
+    
     private void comboBoxDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDestinationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxDestinationActionPerformed
