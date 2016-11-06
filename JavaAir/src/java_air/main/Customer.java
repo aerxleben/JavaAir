@@ -36,6 +36,7 @@ public class Customer{
    private String password;		//index 10*/
    
    private int customerId;
+   private int rewardPoints;
            
    private final String notApplicable = "N/A";
    private final String textSetValueError = "Setting Customer Value Error; Null ";
@@ -229,20 +230,21 @@ public class Customer{
        if(rowCount <= 0){
            //perform insert operation
             String query = "INSERT INTO CUSTOMERS " + 
-                    "(FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, DOB, " + 
-                    "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, REWARDMILES)" + 
+                    "(FIRSTNAME, LASTNAME, DOB, GENDER, " + 
+                    "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, " +
+                    "EMAIL, PASSWORD, REWARDMILES)" + 
                     "VALUES " + 
                     "('" + customerInfoList.get(0) + "', " +
                     "'" + customerInfoList.get(1) + "', " +
-                    "'" + customerInfoList.get(9) + "', " +
-                    "'" + customerInfoList.get(10) + "', " +
-                    "'" + customerInfoList.get(3) + "', " +
                     "'" + customerInfoList.get(2) + "', " +
+                    "'" + customerInfoList.get(3) + "', " +
                     "'" + customerInfoList.get(4) + "', " +
                     "'" + customerInfoList.get(5) + "', " +
                     "'" + customerInfoList.get(6) + "', " +
                     "'" + customerInfoList.get(7) + "', " +
                     "'" + customerInfoList.get(8) + "', " +
+                    "'" + customerInfoList.get(9) + "', " +
+                    "'" + customerInfoList.get(10) + "', " +
                     "0)";
             
        }

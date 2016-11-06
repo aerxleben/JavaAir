@@ -8,8 +8,7 @@ public class DataClient {
     
     private static final String dbUrl = "jdbc:sqlite:java_air.db";
     
-    
-    private static Connection getConnection() 
+    public static Connection getConnection() 
             throws SQLException{
         Connection dbConnection = null;
         try{
