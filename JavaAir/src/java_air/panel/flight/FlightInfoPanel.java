@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 
 public class FlightInfoPanel extends javax.swing.JPanel {
     
+    private Flight currentFlight;
+    
     /**
      * Creates new form FlightInfoTestPanel
      */
@@ -29,6 +31,8 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     
     public FlightInfoPanel(Flight flight){
         initComponents();
+        
+        this.currentFlight = flight;
         
         setFlightNo(flight.getFlightNumber());
         setOrigin(flight.getOriginAirport());
@@ -95,6 +99,13 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         this.labelFlightDuration.setText(newDuration);
     }
     
+    public void setCurrentFlight(Flight newflight){
+        this.currentFlight = newflight;
+    }
+    
+    public Flight getCurrentFlight(){
+        return this.currentFlight;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
