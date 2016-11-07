@@ -509,7 +509,7 @@ public class FlightSearchPanel extends JPanel{
                     searchPanel.setNumOfPassengers(this.numPassengersComboBox.getSelectedItem().toString());
                     
                     //load flight data
-                    searchPanel.showFlights(origin, destination, isRoundTrip);
+                    searchPanel.setFlights(origin, destination, isRoundTrip);
                 }
                 catch(Exception x){
                     JOptionPane.showMessageDialog(null
