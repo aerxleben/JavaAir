@@ -2,8 +2,10 @@ package java_air.panel.flight;
 
 import java_air.main.Flight;
 import java_air.main.Global;
+import java_air.panel.reservation.ReservationOneWayDetailPanel;
 import java_air.panel.reservation.ReservationPassengerDetailPanel;
 import java_air.panel.reservation.ReservationPassengerPanel;
+import java_air.panel.reservation.ReservationRoundTripDetailPanel;
 import javax.swing.JLabel;
 
 /* 
@@ -257,16 +259,35 @@ public class FlightInfoPanel extends javax.swing.JPanel {
        BookTravelPanel bookTravelPanel =  resultsPanel.getSearchInputPanel();
        if(Global.currentReservation.getIsRoundTrip() 
                && bookTravelPanel.getOriginFlightOn()){
+           Global.currentReservation.setOriginFlight(currentFlight);
            bookTravelPanel.showReturnFlights();
            bookTravelPanel.setOriginFlightOn(false);
            
        }else{
+           // get reference of ReservationPassengerDetailPanel.
            ReservationPassengerPanel reservationPassengerPanel = 
             (ReservationPassengerPanel)Global.jPanelMap.get(Global.textReservationPassenger);
            ReservationPassengerDetailPanel reservationPassengerDetailPanel =
-           (ReservationPassengerDetailPanel)
-           reservationPassengerPanel.getReservPassengerDetailPanel();
-          reservationPassengerDetailPanel.getContentPanel().removeAll();
+           (ReservationPassengerDetailPanel) reservationPassengerPanel.getReservPassengerDetailPanel();
+           // if reservation is roundTrip, set return flight,
+           // if not, set originFlight.
+           if(Global.currentReservation.getIsRoundTrip()){
+               Global.currentReservation.setReturnFlight(currentFlight);
+            ReservationPassengerPanel reservPassengerPanel = 
+               (ReservationPassengerPanel )Global.jPanelMap.get(Global.textReservationPassenger);
+            ReservationRoundTripDetailPanel reservRoundTripDetailPanel
+                    = new ReservationRoundTripDetailPanel();
+            reservPassengerPanel.getReservationPanel().setReservationFlightDetail(reservRoundTripDetailPanel);
+           }else{
+               ReservationPassengerPanel reservPassengerPanel = 
+               (ReservationPassengerPanel )Global.jPanelMap.get(Global.textReservationPassenger);
+               ReservationOneWayDetailPanel reservOneWayDetailPanel
+                       = new ReservationOneWayDetailPanel();
+               reservPassengerPanel.getReservationPanel().setReservationFlightDetail(reservOneWayDetailPanel);
+               Global.currentReservation.setOriginFlight(currentFlight);
+           }
+           
+           reservationPassengerDetailPanel.getContentPanel().removeAll();
            reservationPassengerDetailPanel.travelerLabelSet();
            reservationPassengerDetailPanel.validate();
            

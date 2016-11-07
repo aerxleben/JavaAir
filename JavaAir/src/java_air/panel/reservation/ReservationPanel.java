@@ -28,9 +28,11 @@ public class ReservationPanel extends javax.swing.JPanel {
         initComponents();
         contentPanel.setBackground(Global.transparentColor);
         //reservationDetialContainPanel.setBackground(Global.transparentColor);
-       reservationDetialContainPanel.add(new ReservationDetailPanel(), BorderLayout.CENTER);
+       
     }
-
+    public void setReservationFlightDetail(JPanel flightDetailPanel){
+        reservationDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

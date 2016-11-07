@@ -26,8 +26,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="travelTypeLabel" min="-2" pref="165" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="EditSearchLabel" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -37,8 +36,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="flightDateLabel" min="-2" pref="174" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="reviseDateLabel" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="flightCityLabel" min="-2" pref="184" max="-2" attributes="0"/>
@@ -70,7 +68,7 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="97" max="-2" attributes="0"/>
+                      <Component id="totalPriceLabel" min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -82,17 +80,11 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="title" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="travelTypeLabel" max="32767" attributes="0"/>
-                  <Component id="EditSearchLabel" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="travelTypeLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="flightDateLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="reviseDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="flightDateLabel" min="-2" pref="27" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="flightCityLabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -115,7 +107,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" max="32767" attributes="0"/>
-                  <Component id="jLabel2" pref="33" max="32767" attributes="0"/>
+                  <Component id="totalPriceLabel" pref="33" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -130,21 +122,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Oneway (4 traveler)"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="EditSearchLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="15" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="generalColor" type="code"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Edit search"/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
       <Properties>
@@ -171,18 +148,6 @@
           <Font name="Times New Roman" size="20" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tue, Nov 23, 2016"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="reviseDateLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="15" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="generalColor" type="code"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Revise"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="flightCityLabel">
@@ -267,7 +232,7 @@
         <Property name="text" type="java.lang.String" value="TOTAL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="totalPriceLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="20" style="0"/>
