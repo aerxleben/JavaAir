@@ -1,6 +1,5 @@
 package java_air.panel.flight;
 
-import java_air.controller.ReservationBuilder;
 import java_air.main.Flight;
 import java_air.main.Global;
 import javax.swing.JLabel;
