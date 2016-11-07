@@ -6,6 +6,7 @@
 package java_air.panel.reservation;
 
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,7 +19,8 @@ public class ReservationPassengerPanel extends javax.swing.JPanel {
      */
     public ReservationPassengerPanel() {
         initComponents();
-        reservationPanel1.getContentPanel().add(new ReservationPassengerDetailPanel(),BorderLayout.CENTER);
+        reservationPassengerDetailPanel = new ReservationPassengerDetailPanel();
+        reservationPanel1.getContentPanel().add(reservationPassengerDetailPanel,BorderLayout.CENTER);
     }
 
     /**
@@ -35,8 +37,11 @@ public class ReservationPassengerPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
         add(reservationPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-
+    
+    public ReservationPassengerDetailPanel getReservPassengerDetailPanel(){
+        return reservationPassengerDetailPanel;
+    }
+    private ReservationPassengerDetailPanel reservationPassengerDetailPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java_air.panel.reservation.ReservationPanel reservationPanel1;
     // End of variables declaration//GEN-END:variables

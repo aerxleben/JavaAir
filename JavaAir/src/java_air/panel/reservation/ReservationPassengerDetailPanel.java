@@ -6,7 +6,10 @@
 package java_air.panel.reservation;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java_air.main.Global;
+import java_air.main.Passenger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,17 +26,22 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         jScrollPane1.setOpaque(false);
         // increase the scroll bar speed
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(5);
-        travelerLabelSet();
+        //travelerLabelSet();
         validate();
         //Dimension d = this.getPreferredSize();
         //d = new Dimension(d.width, d.height+100);
         this.setPreferredSize(d);
     }
     public void travelerLabelSet(){
+        rowNumber = Global.currentReservation.getNumberOfPassenger();
+        reservationPassengerList = new ArrayList<ReservationSinglePassengerPanel>();
+        
         for(int i = 0; i < rowNumber; i++){
             ReservationSinglePassengerPanel reservationSinglePassenger
                     = new ReservationSinglePassengerPanel();
             contentPanel.add(reservationSinglePassenger);
+            reservationPassengerList.add(reservationSinglePassenger);
+            
             String travelNumberText;
             if(i!=0){
                 travelNumberText= "Traveler " + (i+1);
@@ -144,13 +152,16 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public JPanel getContentPanel(){
+        return contentPanel;
+    }
+        
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         // TODO add your handling code here:
         Global.panelSwitch(Global.textReservationBillInformation);
     }//GEN-LAST:event_continueButtonActionPerformed
     private int rowNumber = 4;
-
+    private ArrayList<ReservationSinglePassengerPanel> reservationPassengerList;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton continueButton;

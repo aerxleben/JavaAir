@@ -28,6 +28,7 @@ public class Reservation {
     private Flight returnFlight;
     private ArrayList<Passenger> passengerList;
     private int numberOfCheckedBags;
+    private int numberOfPassenger;
     private PaymentType paymentType;
     private int pointsRedeemed;
     private float amountPaid;
@@ -41,7 +42,13 @@ public class Reservation {
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
     }
-
+    
+    public void setNumberOfPassenger(int numOfPassenger){
+        numberOfPassenger = numOfPassenger;
+    }
+    public int getNumberOfPassenger(){
+        return numberOfPassenger;
+    }
     public boolean getIsRoundTrip(){
         return isRoundTrip;
     }

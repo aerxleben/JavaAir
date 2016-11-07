@@ -2,6 +2,8 @@ package java_air.panel.flight;
 
 import java_air.main.Flight;
 import java_air.main.Global;
+import java_air.panel.reservation.ReservationPassengerDetailPanel;
+import java_air.panel.reservation.ReservationPassengerPanel;
 import javax.swing.JLabel;
 
 /* 
@@ -259,6 +261,15 @@ public class FlightInfoPanel extends javax.swing.JPanel {
            bookTravelPanel.setOriginFlightOn(false);
            
        }else{
+           ReservationPassengerPanel reservationPassengerPanel = 
+            (ReservationPassengerPanel)Global.jPanelMap.get(Global.textReservationPassenger);
+           ReservationPassengerDetailPanel reservationPassengerDetailPanel =
+           (ReservationPassengerDetailPanel)
+           reservationPassengerPanel.getReservPassengerDetailPanel();
+          reservationPassengerDetailPanel.getContentPanel().removeAll();
+           reservationPassengerDetailPanel.travelerLabelSet();
+           reservationPassengerDetailPanel.validate();
+           
           Global.panelSwitch(Global.textReservationPassenger); 
        }
     }//GEN-LAST:event_flightPriveLabelActionPerformed

@@ -361,7 +361,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         Global.currentReservation = new Reservation(this.isRoundTrip());
         //Global.currentReservation.se
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
-        
+        Global.currentReservation.setNumberOfPassenger(Integer.parseInt(numOfPassengers));
         //display flight search results
         setFlights(origin, destination, this.isRoundTrip());
         if(originFlightOn = true){
