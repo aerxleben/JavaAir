@@ -49,6 +49,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
     public void flightLabelSet(ArrayList<Flight> flightList){
         for(Flight flight : flightList){
             FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
+                //flightInfoPanel.setFlightDate();
             scrollContentPanel.add(flightInfoPanel);
         }
         gui.validate();

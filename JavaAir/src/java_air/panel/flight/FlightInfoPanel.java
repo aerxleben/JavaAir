@@ -107,6 +107,11 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         return this.currentFlight;
     }
     
+    public void setFlightDate(String newDate){
+        this.departureDateLabel.setText(newDate);
+        this.arriveDateLabel.setText(newDate);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
