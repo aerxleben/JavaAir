@@ -12,7 +12,7 @@ import java_air.main.Flight;
 
 /**
  *
- * @author Georege
+ * @author Rui Zhang
  */
 public class FlightResultPanel extends javax.swing.JPanel {
     
@@ -47,6 +47,10 @@ public class FlightResultPanel extends javax.swing.JPanel {
     }
     
     public void flightLabelSet(ArrayList<Flight> flightList){
+        //clear the resultPanel
+        scrollContentPanel.removeAll();
+        gui.validate();
+        //fill in new flight results.
         for(Flight flight : flightList){
             FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
                 //flightInfoPanel.setFlightDate();
@@ -87,7 +91,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
         searchPanel.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel1.setText("Outbound: Chicago ---> NewYork ");
+        jLabel1.setText("  ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

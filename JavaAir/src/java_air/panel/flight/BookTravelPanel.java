@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java_air.database.DataClient;
 import java_air.main.Global;
+import java_air.panel.reservation.Reservation;
 import java_air.panel.reservation.TextPrompt;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -25,9 +26,20 @@ import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 import org.jdesktop.swingx.JXDatePicker;
 
-/**
- *
- * @author Georege
+/* 
+ * CS5900 - Software Engineering
+ * Professor: Dr. Ruijian Zhang
+ * Project: Java Air
+ * Team: Avian Limited
+ * 
+ * Filename:
+ * Author: Steve, Rui
+ * Creation:
+ * 
+ * Changelog:
+ * 1. change showFlight() to setFlight(), showOriginFlight() and showReturnFlight();
+ * 2. create boolean variable originFlightOn for checking whether resultPanel is 
+ *    showing the originFlights. 
  */
 public class BookTravelPanel extends javax.swing.JPanel {
 
@@ -283,7 +295,14 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.oneWayButton.setSelected(false);
         this.datePickerReturn.setVisible(true);
     }//GEN-LAST:event_roundTripButtonActionPerformed
-
+    
+    private boolean originFlightOn = true;
+    public boolean getOriginFlightOn(){
+        return originFlightOn;
+    }
+    public void setOriginFlightOn(Boolean originFlightOn){
+        this.originFlightOn = originFlightOn;
+    }
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         //check inputs and display a list of results
         
@@ -339,18 +358,35 @@ public class BookTravelPanel extends javax.swing.JPanel {
                 return;
             }
         }
-
+        Global.currentReservation = new Reservation(this.isRoundTrip());
+        //Global.currentReservation.se
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
         
         //display flight search results
-        showFlights(origin, destination, this.isRoundTrip());
+        setFlights(origin, destination, this.isRoundTrip());
+        if(originFlightOn = true){
+            showOriginFlights();
+        }
+        
     }//GEN-LAST:event_buttonSearchActionPerformed
-
-    public void showFlights(String origin
+    public void showOriginFlights() {
+        FlightResultPanel resultsPanel = 
+            (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+       resultsPanel.flightLabelSet(departFlights);
+    }
+    
+    public void showReturnFlights() {
+        FlightResultPanel resultsPanel = 
+            (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+       resultsPanel.flightLabelSet(returnFlights);
+    }
+    private ArrayList<Flight> departFlights;
+    private ArrayList<Flight> returnFlights;
+    public void setFlights(String origin
             , String destination
             , boolean isRoundTrip){
-        ArrayList<Flight> departFlights = null;
-        ArrayList<Flight> returnFlights = null;
+        departFlights = null;
+        returnFlights = null;
         
         //pass inputs into DB; use two queries if roundtrip
         String queryDepart = "SELECT * FROM FLIGHTS " +
@@ -384,9 +420,9 @@ public class BookTravelPanel extends javax.swing.JPanel {
             }
         }//end if
         
-        FlightResultPanel resultsPanel = 
-                (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
-        resultsPanel.flightLabelSet(departFlights);
+       // FlightResultPanel resultsPanel = 
+        //        (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+       // resultsPanel.flightLabelSet(departFlights);
         
     }
     
@@ -418,4 +454,6 @@ public class BookTravelPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton oneWayButton;
     private javax.swing.JRadioButton roundTripButton;
     // End of variables declaration//GEN-END:variables
+
+
 }

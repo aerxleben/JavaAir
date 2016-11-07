@@ -42,6 +42,9 @@ public class Reservation {
         this.status = ReservationStatus.NORMAL;
     }
 
+    public boolean getIsRoundTrip(){
+        return isRoundTrip;
+    }
     public Flight getOriginFlight() {
         return originFlight;
     }

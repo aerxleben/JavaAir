@@ -23,6 +23,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import java.text.*;
+import java_air.panel.reservation.Reservation;
 import org.jdatepicker.impl.*;
 import org.jdesktop.swingx.*;
 
@@ -509,7 +510,9 @@ public class FlightSearchPanel extends JPanel{
                     searchPanel.setNumOfPassengers(this.numPassengersComboBox.getSelectedItem().toString());
                     
                     //load flight data
+                    Global.currentReservation = new Reservation(isRoundTrip);
                     searchPanel.setFlights(origin, destination, isRoundTrip);
+                    searchPanel.showOriginFlights();
                 }
                 catch(Exception x){
                     JOptionPane.showMessageDialog(null

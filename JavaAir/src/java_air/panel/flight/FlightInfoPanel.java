@@ -1,5 +1,6 @@
 package java_air.panel.flight;
 
+import java_air.controller.ReservationBuilder;
 import java_air.main.Flight;
 import java_air.main.Global;
 import javax.swing.JLabel;
@@ -247,7 +248,20 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void flightPriveLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriveLabelActionPerformed
-       Global.panelSwitch(Global.textReservationPassenger);
+       //Global.panelSwitch(Global.textReservationPassenger);
+       //new ReservationBuilder(currentFlight);
+       FlightResultPanel resultsPanel = 
+            (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+       //check roundTrip.
+       BookTravelPanel bookTravelPanel =  resultsPanel.getSearchInputPanel();
+       if(Global.currentReservation.getIsRoundTrip() 
+               && bookTravelPanel.getOriginFlightOn()){
+           bookTravelPanel.showReturnFlights();
+           bookTravelPanel.setOriginFlightOn(false);
+           
+       }else{
+          Global.panelSwitch(Global.textReservationPassenger); 
+       }
     }//GEN-LAST:event_flightPriveLabelActionPerformed
 
 
