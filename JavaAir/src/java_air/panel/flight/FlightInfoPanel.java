@@ -278,12 +278,14 @@ public class FlightInfoPanel extends javax.swing.JPanel {
             ReservationRoundTripDetailPanel reservRoundTripDetailPanel
                     = new ReservationRoundTripDetailPanel();
             reservPassengerPanel.getReservationPanel().setReservationFlightDetail(reservRoundTripDetailPanel);
+            //reservPassengerPanel.getReservationPanel().validate();
            }else{
                ReservationPassengerPanel reservPassengerPanel = 
                (ReservationPassengerPanel )Global.jPanelMap.get(Global.textReservationPassenger);
                ReservationOneWayDetailPanel reservOneWayDetailPanel
                        = new ReservationOneWayDetailPanel();
                reservPassengerPanel.getReservationPanel().setReservationFlightDetail(reservOneWayDetailPanel);
+               //reservPassengerPanel.getReservationPanel().validate();
                Global.currentReservation.setOriginFlight(currentFlight);
            }
            

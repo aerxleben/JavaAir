@@ -31,7 +31,9 @@ public class ReservationPanel extends javax.swing.JPanel {
        
     }
     public void setReservationFlightDetail(JPanel flightDetailPanel){
+        reservationDetialContainPanel.removeAll();
         reservationDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
+        reservationDetialContainPanel.validate();
     }
     /**
      * This method is called from within the constructor to initialize the form.
