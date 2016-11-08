@@ -28,7 +28,7 @@ public class ReservationPanel extends javax.swing.JPanel {
         initComponents();
         contentPanel.setBackground(Global.transparentColor);
         //reservationDetialContainPanel.setBackground(Global.transparentColor);
-       reservationDetialContainPanel.add(new ReservationDetailPanel(), BorderLayout.CENTER);
+       
     }
 
     /**
@@ -79,6 +79,9 @@ public class ReservationPanel extends javax.swing.JPanel {
     }
     public JPanel getContentPanel(){
         return contentPanel;
+    }
+    public JPanel getReservationDetialContainPanel(){
+        return reservationDetialContainPanel;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;

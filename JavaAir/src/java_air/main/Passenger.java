@@ -20,22 +20,24 @@ public class Passenger {
     private String dateOfBirth;
     private String gender;
     private String phoneNumber;
-    private boolean isPrimaryPassenger;
+    private boolean isPrimaryPassenger = false;
+    private String passID;
     
     public Passenger(String firstName
             , String lastName
             , String dateOfBirth
             , String gender
-            , String phoneNumber
-            , boolean isPrimary) 
+            , String passID
+            , String phoneNumber) 
             throws Exception{
         try{
             setFirstName(firstName);
             setLastName(lastName);
             setDateOfBirth(dateOfBirth);
             setGender(gender);
+            setPassID(passID);
             setPhoneNumber(phoneNumber);
-            setPrimaryStatus(isPrimary);
+            //setPrimaryStatus(isPrimary);
         }
         catch(Exception x){
             throw x;
@@ -49,7 +51,7 @@ public class Passenger {
     public String getGender(){ return this.gender; }
     public String getPhone(){ return this.phoneNumber; }
     public boolean getPrimaryStatus(){ return this.isPrimaryPassenger; }
-    
+    public String getPassID(){ return this.passID;}
     public void setFirstName(String newFirst) throws Exception{
         if(newFirst != null && !newFirst.isEmpty()){
             this.firstName = newFirst;
@@ -98,4 +100,9 @@ public class Passenger {
     public void setPrimaryStatus(boolean newStatus)throws Exception{
         this.isPrimaryPassenger = newStatus;
     }
+
+    public void setPassID(String passID) {
+        this.passID = passID;
+    }
+    
 }

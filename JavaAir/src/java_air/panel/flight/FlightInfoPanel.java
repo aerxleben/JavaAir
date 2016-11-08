@@ -1,7 +1,14 @@
 package java_air.panel.flight;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java_air.main.Flight;
 import java_air.main.Global;
+import java_air.panel.reservation.ReservationBillInformationPanel;
+import java_air.panel.reservation.ReservationOneWayDetailPanel;
+import java_air.panel.reservation.ReservationPassengerDetailPanel;
+import java_air.panel.reservation.ReservationPassengerPanel;
+import java_air.panel.reservation.ReservationRoundTripDetailPanel;
 import javax.swing.JLabel;
 
 /* 
@@ -62,9 +69,15 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public String getArrivalTime(){
         return this.arriveTimeLabel.getText();
     }
+    public String getDepartureDate(){
+        return this.departureDateLabel.getText();
+    }
     
+    public String getArrivalDate(){
+        return this.arriveDateLabel.getText();
+    }    
     public String getFlightPrice(){
-        return this.flightPriveLabel.getText();
+        return this.flightPriceLabel.getText();
     }
 
     public void setFlightNo(String flightNo){
@@ -86,9 +99,15 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public void setArrivalTime(String arrival){
         this.arriveTimeLabel.setText(arrival);
     }
+      public void setDepartureDate(String depart){
+        this.departureDateLabel.setText(depart);
+    }
     
+    public void setArrivalDate(String arrival){
+        this.arriveDateLabel.setText(arrival);
+    }  
     public void setFlightPrice(String price){
-        this.flightPriveLabel.setText(price);
+        this.flightPriceLabel.setText(price);
     }
 
     public String getFlightDuration() {
@@ -122,7 +141,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         flightNumLabel = new javax.swing.JLabel();
-        flightPriveLabel = new javax.swing.JButton();
+        flightPriceLabel = new javax.swing.JButton();
         departureAirportLabel = new javax.swing.JLabel();
         directionLabel = new javax.swing.JLabel();
         departureDateLabel = new javax.swing.JLabel();
@@ -137,13 +156,13 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         flightNumLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         flightNumLabel.setText("JA 2045");
 
-        flightPriveLabel.setBackground(new java.awt.Color(204, 153, 0));
-        flightPriveLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        flightPriveLabel.setForeground(new java.awt.Color(255, 255, 255));
-        flightPriveLabel.setText("$560");
-        flightPriveLabel.addActionListener(new java.awt.event.ActionListener() {
+        flightPriceLabel.setBackground(new java.awt.Color(204, 153, 0));
+        flightPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        flightPriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        flightPriceLabel.setText("$560");
+        flightPriceLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                flightPriveLabelActionPerformed(evt);
+                flightPriceLabelActionPerformed(evt);
             }
         });
 
@@ -209,7 +228,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                                     .addComponent(labelFlightDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(arriveAirportLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))))
                         .addGap(10, 10, 10)
-                        .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(flightPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );
         layout.setVerticalGroup(
@@ -238,7 +257,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(flightPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelFlightDuration))
                         .addGap(18, 18, 18)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,9 +265,67 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void flightPriveLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriveLabelActionPerformed
-       Global.panelSwitch(Global.textReservationPassenger);
-    }//GEN-LAST:event_flightPriveLabelActionPerformed
+    private void flightPriceLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriceLabelActionPerformed
+       //Global.panelSwitch(Global.textReservationPassenger);
+       //new ReservationBuilder(currentFlight);
+       FlightResultPanel resultsPanel = 
+            (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
+       //check roundTrip.
+       BookTravelPanel bookTravelPanel =  resultsPanel.getSearchInputPanel();
+       if(Global.currentReservation.getIsRoundTrip() 
+               && bookTravelPanel.getOriginFlightOn()){
+           Global.currentReservation.setOriginFlight(currentFlight);           
+           bookTravelPanel.setOriginFlightOn(false);
+           bookTravelPanel.showReturnFlights();
+           
+           
+       }else{
+           // get reference of ReservationPassengerDetailPanel.
+           ReservationPassengerPanel reservationPassengerPanel = 
+            (ReservationPassengerPanel)Global.jPanelMap.get(Global.textReservationPassenger);
+           // get reference of ReservationBillInformationPanel.
+           ReservationBillInformationPanel reservationBillInformationPanel =
+            (ReservationBillInformationPanel)Global.jPanelMap.get(Global.textReservationBillInformation);
+           // ger reference of ReservationPassengerDetailPanel.
+           ReservationPassengerDetailPanel reservationPassengerDetailPanel =
+           (ReservationPassengerDetailPanel) reservationPassengerPanel.getReservPassengerDetailPanel();
+           // if reservation is roundTrip, set return flight,
+           // if not, set originFlight. 
+           if(Global.currentReservation.getIsRoundTrip()){
+                //set Return flight
+                Global.currentReservation.setReturnFlight(currentFlight);
+                // create ReservationRoundTripDetailPanel
+                ReservationRoundTripDetailPanel reservRoundTripDetailPanel
+                        = new ReservationRoundTripDetailPanel();
+                // set ReservationRoundTripDetailPanel to Passenger Panel
+                reservationPassengerPanel.setReservationFlightDetail(reservRoundTripDetailPanel);
+                // set ReservationRoundTripDetailPanel to BillInformation Panel
+                ReservationRoundTripDetailPanel reservationRoundTripDetailPanelcopy
+                       = new ReservationRoundTripDetailPanel();
+                reservationBillInformationPanel.setReservationFlightDetail(reservationRoundTripDetailPanelcopy);
+                Global.currentReservation.setAmountPaid((float) reservationRoundTripDetailPanelcopy.getAmoutPaid());
+           }else{
+               // get reference of ReservationPassengerPanel.
+                Global.currentReservation.setOriginFlight(currentFlight);
+                //create ReservationOneWayDetailPanel;
+                ReservationOneWayDetailPanel reservOneWayDetailPanel
+                       = new ReservationOneWayDetailPanel();
+               // set ReservationOneWayDetailPanel to Passenger Panel
+               reservationPassengerPanel.setReservationFlightDetail(reservOneWayDetailPanel);
+               // set ReservationOneWayDetailPanel to BillInformation Panel
+               ReservationOneWayDetailPanel reservOneWayDetailPanelcopy
+                       = new ReservationOneWayDetailPanel();
+               reservationBillInformationPanel.setReservationFlightDetail(reservOneWayDetailPanelcopy);
+               // set Reservation amout paid.
+               Global.currentReservation.setAmountPaid((float) reservOneWayDetailPanelcopy.getAmoutPaid());
+              
+           }
+           // fill in Passenger panel.
+           reservationPassengerDetailPanel.travelerLabelSet(); 
+           // switch to Reservation Passenger Panel
+           Global.panelSwitch(Global.textReservationPassenger); 
+       }
+    }//GEN-LAST:event_flightPriceLabelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,7 +338,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel departureTimeLabel;
     private javax.swing.JLabel directionLabel;
     private javax.swing.JLabel flightNumLabel;
-    private javax.swing.JButton flightPriveLabel;
+    private javax.swing.JButton flightPriceLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelFlightDuration;
     // End of variables declaration//GEN-END:variables

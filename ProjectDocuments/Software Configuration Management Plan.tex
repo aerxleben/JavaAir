@@ -49,6 +49,7 @@
 1.0.0 & Erxleben & addded content to sections 3.3.2.1, 3.4, 3.6.  Updated content in section 3.2.2.1 \& 3.3.6, modified format of Approvals and Revision History & 10/05/16 \\ \hline
 2.0.0 & Erxleben & sections 3.3.2.1 modified, Added Annex A, backup plan & 10/31/16\\ \hline
 2.1.0 & Erxleben & updated sections 3.2.3 and 3.3.2.1 &11/04/16 \\ \hline
+2.1.1 & Erxleben & corrected typos & 11/07/16 \\ \hline
 \end{tabular}
 \end{center}
 \newpage
@@ -60,14 +61,14 @@
 \newpage
 \setcounter{section}{3}
 \subsection{Introduction}
-This Software Configuration Management Plan (SCMP) describes how the artifacts for the Java Air ticket bookking project are to be managed.
+This Software Configuration Management Plan (SCMP) describes how the artifacts for the Java Air ticket booking project are to be managed.
 \subsubsection{Definitions}
 Approved CIs: CIs that have been approved by the project management \newline
 Artifact: Any product of the project (e.g document, source code, object code, test result) \newline
 Master file: A particular file designated for this project to describe version history, described in section 3.3.1.2
 \subsubsection{Acronyms}
 CI: configuration item-an item (artifact) tracked by the configuration system \newline
-CM: configuration management-the process of maintaing the relevent versions of the project \newline
+CM: configuration management-the process of maintaining the relevent versions of the project \newline
 SCMP: the Software Configuration Management Plan (this document)\newline
 SDD: the Software Design Document \newline
 SPMP: the Software Project Management Plan \newline
@@ -106,7 +107,7 @@ Java Air will use GitHub in conjuction with TortoiseGit as a configuation manage
 \paragraph{Identifying configuration items}
 The project leader is responsible for identifying all CIs.  Engineers may propose new CIs to the project leader.  The project leader's approval is required before a new CI is created.  Approval must be documented via email correspondance or team meeting minnutes.  If the project leader has not responded to a CI request within one day, the engineer may gain approval from the configuration leader.
 \paragraph{Naming configuration items}
-The cconfiguration leader has the responsibility of naming all CIs.  The file conventions are as follows:
+The configuration leader has the responsibility of naming all CIs.  The file conventions are as follows:
 \begin{itemize}[label={}, leftmargin=.5in]
 \item Root directory: JavaAir
 
@@ -126,7 +127,7 @@ Engineers should create and designate a folder on their workstation as a clone o
 
 \subsubsection{Configuration control}
 \paragraph{Requesting changes}
-Every request for change to a CI must include the following: The name and version of the CI in wich the change is being requested,  the date of the request, the name of the engineer(s) making the request, a description of the change requested and explaination of need for the change.  Additional information may be included in the request to clarify the significance and to assist in the evaluation of the request.
+Every request for change to a CI must include the following: The name and version of the CI in which the change is being requested,  the date of the request, the name of the engineer(s) making the request, a description of the change requested and explaination of need for the change.  Additional information may be included in the request to clarify the significance and to assist in the evaluation of the request.
 
 \paragraph{Evaluating changes}
 The project leader will evaluate all proposed changes and must also specify the required quality standards for incorporation.
@@ -141,7 +142,7 @@ The project manager shall schedule a review by the CM leader of the project conf
 \subsubsection{Interface control}
 
 \subsubsection{Subcontractor / vendor control}
-The configuration leader will track all upgrades and bug reports of the GitHub, TortoiseGit, and NetBeans IDE tools.  A backup plan will be develooped by the CM leader that will be utilized in the event of GitHub and TortoiseGit failing, becoming discontinued, or no longer supported.  This plan will be submitted to the Project Manager within 2 weeks of the release of this document (Version 1.0.0).  A copy of this plan is available in Annex A.
+The configuration leader will track all upgrades and bug reports of the GitHub, TortoiseGit, and NetBeans IDE tools.  A backup plan will be developed by the CM leader that will be utilized in the event of GitHub and TortoiseGit failing, becoming discontinued, or no longer supported.  This plan will be submitted to the Project Manager within 2 weeks of the release of this document (Version 1.0.0).  A copy of this plan is available in Annex A.
 \subsubsection{Release management and delivery}
 Release of versions must be approved by the project manager.
 
@@ -155,17 +156,17 @@ The schedule for configuration management reporting, archiving, and upgrading is
 \end{figure}
 
 \subsection{SCM resources}
-The configuration leader will require an esstimated average of 2 hours a week to maintain the system configuration for the duration of the project.  Time spent on CM activities by other members of the team are not accounted for here.
+The configuration leader will require an estimated average of 2 hours a week to maintain the system configuration for the duration of the project.  Time spent on CM activities by other members of the team are not accounted for here.
 
 \subsection{SCM plan maintenance}
-Due to the importance of a stable SCM plan, all changees to this document must be approved by the configuration leader and the project manager.
+Due to the importance of a stable SCM plan, all changes to this document must be approved by the configuration leader and the project manager.
 \newline \newline
 The configuration leader will do the following for the CM process improvement sessions:
 \begin{itemize}
 \item Review the effectiveness of this plan
 \item Quantify losses due to defects in this plan
-\item Review the efectiveness of GitHub and TortoiseGit
-\item Investigate the literature for new CM methods, quntify the costs and benefits of improvements
+\item Review the effectiveness of GitHub and TortoiseGit
+\item Investigate the literature for new CM methods, quantify the costs and benefits of improvements
 \item Investigate new CM tools
 \item Suggest specific improvements to this CM process
 \item List the benefits of improvements
@@ -174,7 +175,7 @@ The configuration leader will do the following for the CM process improvement se
 \newpage
 \setcounter{secnumdepth}{0} 
 \subsection{AnnexA: Configuration Management Tool Backup Plan}
-The Configuration Leader will obtain and dedicate a USB flash drive for this project.  Once a week the Configuratin Leader will create a new clone of the current configuration of the project from GitHub on the USB drive.  All previous clone versions will be retained.  In the event of a failure or discontiunation of the GitHub service all requests to access files will be sent to the Configuration Leader.  Any changes will then be returned to the Configuration Leader for integration. 
+The Configuration Leader will obtain and dedicate a USB flash drive for this project.  Once a week the Configuratin Leader will create a new clone of the current configuration of the project from GitHub on the USB drive.  All previous clone versions will be retained.  In the event of a failure or discontinunation of the GitHub service all requests to access files will be sent to the Configuration Leader.  Any changes will then be returned to the Configuration Leader for integration. 
 \newpage
 \subsection{Annex B: Bibliography}
 Braude, Eric J., and Michael E. Bernstein. \textit{Software Engineering: Modern Approaches.} 2nd ed. Hoboken, NJ: J. Wiley \& Sons, 2011. Print.

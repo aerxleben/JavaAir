@@ -11,7 +11,7 @@ package java_air.panel.reservation;
  * Creation: 2016-10-29
  * 
  * Changelog:
- * 
+ * 1. change getAmountPaid()
  */
 
 import java.util.ArrayList;
@@ -28,6 +28,7 @@ public class Reservation {
     private Flight returnFlight;
     private ArrayList<Passenger> passengerList;
     private int numberOfCheckedBags;
+    private int numberOfPassenger;
     private PaymentType paymentType;
     private int pointsRedeemed;
     private float amountPaid;
@@ -35,13 +36,36 @@ public class Reservation {
     private String billingPhone;
     private String billingEmail;
     private ReservationStatus status;
+    private String flightOriginDatePrint;
+    private String flightReturnDatePrint;
     
     public Reservation(boolean isRoundTrip){
         this.isRoundTrip = isRoundTrip;
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
     }
-
+    public void setflightOriginDatePrint(String flightOriginDatePrint){
+        this.flightOriginDatePrint =flightOriginDatePrint;
+    }
+    public String getflightOriginDatePrint(){
+        return flightOriginDatePrint;
+    }
+    public void setflightReturnDatePrint(String flightReturnDatePrint){
+        this.flightReturnDatePrint =flightReturnDatePrint;
+    }
+    public String getflightReturnDatePrint(){
+        return flightReturnDatePrint;
+    }
+    
+    public void setNumberOfPassenger(int numOfPassenger){
+        numberOfPassenger = numOfPassenger;
+    }
+    public int getNumberOfPassenger(){
+        return numberOfPassenger;
+    }
+    public boolean getIsRoundTrip(){
+        return isRoundTrip;
+    }
     public Flight getOriginFlight() {
         return originFlight;
     }
@@ -55,7 +79,7 @@ public class Reservation {
     }
 
     public void setReturnFlight(Flight returnFlight) {
-        if(!isRoundTrip){ this.returnFlight = returnFlight; }
+        if(isRoundTrip){ this.returnFlight = returnFlight; }
     }
 
     public ArrayList<Passenger> getPassengerList() {

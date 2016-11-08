@@ -38,13 +38,11 @@ public class FlightDAO implements IFlightDAO{
             rs = stmt.executeQuery(sql); 
             // loop through the result set
             while (rs.next()) {
-                flight.setScheduledDeparture(simpleDateFormat.parse(rs.getString("scheduledDepartureDate")));
+              //  flight.setScheduledDeparture(simpleDateFormat.parse(rs.getString("scheduledDepartureDate")));
             }
             return flight;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } catch (ParseException ex) {
-            Logger.getLogger(FlightDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
             try {
                 stmt.close();

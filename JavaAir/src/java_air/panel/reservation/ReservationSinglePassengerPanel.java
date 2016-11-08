@@ -10,7 +10,7 @@ import java_air.main.Global;
 
 /**
  *
- * @author Georege
+ * @author Rui Zhang
  */
 public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
 
@@ -101,6 +101,11 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
 
         femaleRadioButton.setFont(Global.normalFont);
         femaleRadioButton.setText("Female");
+        femaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleRadioButtonActionPerformed(evt);
+            }
+        });
 
         dateBirthLabel.setFont(Global.normalFont);
         dateBirthLabel.setForeground(new java.awt.Color(102, 102, 102));
@@ -222,7 +227,7 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_yearTextActionPerformed
 
     private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
-        // TODO add your handling code here:
+        genderInformation = "Male";
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
     private void mobileNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileNumberTextActionPerformed
@@ -236,9 +241,33 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     private void passIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passIDTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passIDTextActionPerformed
+
+    private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed
+       genderInformation = "Female";
+    }//GEN-LAST:event_femaleRadioButtonActionPerformed
     
     public Label getTravelerLabel(){
         return travelerlLabel;
+    }
+    public String getGender(){
+        return genderInformation;
+    }
+    public String getFirstName(){
+        return firstNameText.getText();
+    }
+    public String getLastName(){
+        return lastNameText.getText();
+    }
+    public String getDateBirth(){
+        dataBirthInformation = monthText.getText() + "/" + dayText.getText()
+                                + "/" + yearText.getText();
+        return dataBirthInformation;
+    }
+    public String getPhoneNumber(){
+        return mobileNumberText.getText();
+    }
+    public String getPassID(){
+        return passIDText.getText();
     }
     public void textPrompt(){
         new TextPrompt("First name*", firstNameText);
@@ -250,6 +279,8 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         new TextPrompt("Email address", emailText);
         new TextPrompt("Know Traveler Number/PASS ID", passIDText);
     }
+    private String dataBirthInformation;
+    private String genderInformation;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateBirthLabel;
     private javax.swing.JTextField dayText;

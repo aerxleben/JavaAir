@@ -8,6 +8,7 @@ package java_air.panel.reservation;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java_air.main.Flight;
 import java_air.main.Global;
 
 /**
@@ -23,6 +24,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         Dimension d = this.getPreferredSize();
         initComponents();
         travelerLabelSet();
+//        setFlightInformation();
         validate();
         this.setPreferredSize(d);
     }
@@ -32,6 +34,22 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                     = new ResevationSinglePassengerConfirmPanel();
             travelerContentPanel.add(reservationSingleConfirmPassenger);
         } 
+    }
+    public void setFlightInformation(){
+        Reservation reservation = Global.currentReservation;
+        Flight orginFlight = reservation.getOriginFlight();
+        Flight returnFlight;
+        if(reservation.getIsRoundTrip()){
+          returnFlight = reservation.getReturnFlight();
+          orginFlightAirport.setText(orginFlight.getOriginAirport()+ " - " + orginFlight.getDestinationAirport());
+          returnFlightAirport.setText(returnFlight.getOriginAirport()+ " - " + returnFlight.getDestinationAirport());
+          orginFlightDateLabel.setText(reservation.getflightOriginDatePrint());
+          returnFlightDateLabel.setText(reservation.getflightReturnDatePrint());
+          orginFlightTimeLabel.setText(orginFlight.getScheduledDeparture() + " - "
+                                        + orginFlight.getScheduledArrival());
+          returnFTimeLabel.setText(returnFlight.getScheduledDeparture() + " - "
+                                        + returnFlight.getScheduledArrival());
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,16 +70,10 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         insideSrollPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
         label1 = new java.awt.Label();
-        travelTypeLabel = new javax.swing.JLabel();
-        flightDateLabel = new javax.swing.JLabel();
-        flightCityLabel = new javax.swing.JLabel();
-        flightTimeLabel = new javax.swing.JLabel();
-        fareLabel = new javax.swing.JLabel();
-        taxLabel = new javax.swing.JLabel();
-        taxFeeLabel = new javax.swing.JLabel();
-        fareFeeLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        orginTravelTypeLabel = new javax.swing.JLabel();
+        orginFlightDateLabel = new javax.swing.JLabel();
+        orginFlightAirport = new javax.swing.JLabel();
+        orginFlightTimeLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         PassengerTitleLabel = new java.awt.Label();
         firstNameInforLabel = new javax.swing.JLabel();
@@ -73,6 +85,20 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         paymentMethodTitleLabel1 = new java.awt.Label();
         jSeparator2 = new javax.swing.JSeparator();
         travelerContentPanel = new javax.swing.JPanel();
+        fareLabel1 = new javax.swing.JLabel();
+        fareFeeLabel1 = new javax.swing.JLabel();
+        taxLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        taxFeeLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        returnFlightAirport = new javax.swing.JLabel();
+        returnTravelTypeLabel1 = new javax.swing.JLabel();
+        returnFlightDateLabel = new javax.swing.JLabel();
+        returnFTimeLabel = new javax.swing.JLabel();
+        outBoundLabel = new javax.swing.JLabel();
+        returnLabel = new javax.swing.JLabel();
 
         setBackground(Global.transparentColor);
 
@@ -107,42 +133,20 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setText("Flight");
 
-        travelTypeLabel.setFont(generalFont);
-        travelTypeLabel.setText("Oneway (4 traveler)");
+        orginTravelTypeLabel.setFont(generalFont);
+        orginTravelTypeLabel.setText("Oneway (4 traveler)");
 
-        flightDateLabel.setFont(generalFont);
-        flightDateLabel.setForeground(generalColor);
-        flightDateLabel.setText("Tue, Nov 23, 2016");
+        orginFlightDateLabel.setFont(generalFont);
+        orginFlightDateLabel.setForeground(generalColor);
+        orginFlightDateLabel.setText("Tue, Nov 23, 2016");
 
-        flightCityLabel.setFont(generalFont);
-        flightCityLabel.setForeground(generalColor);
-        flightCityLabel.setText("Chicago - NewYork");
+        orginFlightAirport.setFont(generalFont);
+        orginFlightAirport.setForeground(generalColor);
+        orginFlightAirport.setText("Chicago - NewYork");
 
-        flightTimeLabel.setFont(generalFont);
-        flightTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        flightTimeLabel.setText("6:00 am - 9:07 am");
-
-        fareLabel.setFont(generalFont);
-        fareLabel.setText("Fare");
-
-        taxLabel.setFont(generalFont);
-        taxLabel.setText("Taxes and fees");
-
-        taxFeeLabel.setFont(generalFont);
-        taxFeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        taxFeeLabel.setText("$28.33");
-
-        fareFeeLabel.setFont(generalFont);
-        fareFeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fareFeeLabel.setText("$500,00");
-
-        jLabel6.setFont(generalFont);
-        jLabel6.setText("Total");
-
-        jLabel7.setFont(generalFont);
-        jLabel7.setForeground(generalColor);
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("$528.33");
+        orginFlightTimeLabel.setFont(generalFont);
+        orginFlightTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        orginFlightTimeLabel.setText("6:00 am - 9:07 am");
 
         PassengerTitleLabel.setBackground(new java.awt.Color(204, 153, 0));
         PassengerTitleLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -153,6 +157,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         firstNameInforLabel.setText("First name");
 
         cardNumberLabel.setFont(generalFont);
+        cardNumberLabel.setForeground(new java.awt.Color(102, 102, 102));
         cardNumberLabel.setText("Card number");
 
         lastNameLabel.setFont(generalFont);
@@ -172,9 +177,64 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         paymentMethodTitleLabel1.setBackground(new java.awt.Color(204, 153, 0));
         paymentMethodTitleLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         paymentMethodTitleLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        paymentMethodTitleLabel1.setText("Payment Method");
+        paymentMethodTitleLabel1.setText("Payment");
 
         travelerContentPanel.setLayout(new java.awt.GridLayout(rowNumber, 1));
+
+        fareLabel1.setFont(generalFont);
+        fareLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        fareLabel1.setText("Fare");
+
+        fareFeeLabel1.setFont(generalFont);
+        fareFeeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        fareFeeLabel1.setText("$500,00");
+
+        taxLabel1.setFont(generalFont);
+        taxLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        taxLabel1.setText("Taxes and fees");
+
+        jLabel8.setFont(generalFont);
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Total");
+
+        taxFeeLabel1.setFont(generalFont);
+        taxFeeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        taxFeeLabel1.setText("$28.33");
+
+        jLabel9.setFont(generalFont);
+        jLabel9.setForeground(generalColor);
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("$508.33");
+
+        jLabel10.setFont(generalFont);
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Rewards redeem");
+
+        jLabel11.setFont(generalFont);
+        jLabel11.setForeground(generalColor);
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("-$20.33");
+
+        returnFlightAirport.setFont(generalFont);
+        returnFlightAirport.setForeground(generalColor);
+        returnFlightAirport.setText("Chicago - NewYork");
+
+        returnTravelTypeLabel1.setFont(generalFont);
+        returnTravelTypeLabel1.setText("Oneway (4 traveler)");
+
+        returnFlightDateLabel.setFont(generalFont);
+        returnFlightDateLabel.setForeground(generalColor);
+        returnFlightDateLabel.setText("Tue, Nov 23, 2016");
+
+        returnFTimeLabel.setFont(generalFont);
+        returnFTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        returnFTimeLabel.setText("6:00 am - 9:07 am");
+
+        outBoundLabel.setFont(Global.normalFont);
+        outBoundLabel.setText("Outbound");
+
+        returnLabel.setFont(Global.normalFont);
+        returnLabel.setText("Return");
 
         javax.swing.GroupLayout ContentPanelLayout = new javax.swing.GroupLayout(ContentPanel);
         ContentPanel.setLayout(ContentPanelLayout);
@@ -182,84 +242,125 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
             ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PassengerTitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(travelerContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ContentPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
-                    .addGroup(ContentPanelLayout.createSequentialGroup()
-                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ContentPanelLayout.createSequentialGroup()
-                                .addComponent(flightCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(travelTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ContentPanelLayout.createSequentialGroup()
-                                .addComponent(flightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(flightTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fareLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fareFeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContentPanelLayout.createSequentialGroup()
-                                .addComponent(taxLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(taxFeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContentPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jSeparator2)
                     .addGroup(ContentPanelLayout.createSequentialGroup()
                         .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cardNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cardNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ContentPanelLayout.createSequentialGroup()
                                 .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator2))
+                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cardNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ContentPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ContentPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ContentPanelLayout.createSequentialGroup()
+                                .addComponent(fareLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fareFeeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ContentPanelLayout.createSequentialGroup()
+                                .addComponent(taxLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                .addComponent(taxFeeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContentPanelLayout.createSequentialGroup()
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(ContentPanelLayout.createSequentialGroup()
+                                    .addComponent(orginFlightAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(orginTravelTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ContentPanelLayout.createSequentialGroup()
+                                    .addComponent(orginFlightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(orginFlightTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(outBoundLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(returnLabel)
+                            .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(ContentPanelLayout.createSequentialGroup()
+                                    .addComponent(returnFlightAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(returnTravelTypeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ContentPanelLayout.createSequentialGroup()
+                                    .addComponent(returnFlightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(returnFTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
-            .addComponent(travelerContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE))
+                .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE))
         );
         ContentPanelLayout.setVerticalGroup(
             ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentPanelLayout.createSequentialGroup()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(outBoundLabel)
+                    .addComponent(returnLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(travelTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(flightCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fareLabel)
-                    .addComponent(taxLabel)
-                    .addComponent(fareFeeLabel)
-                    .addComponent(taxFeeLabel))
-                .addGap(10, 10, 10)
-                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(flightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(flightTimeLabel)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
+                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContentPanelLayout.createSequentialGroup()
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(orginTravelTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(orginFlightAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(orginFlightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(orginFlightTimeLabel))
+                        .addGap(15, 15, 15))
+                    .addGroup(ContentPanelLayout.createSequentialGroup()
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(returnTravelTypeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(returnFlightAirport, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(returnFlightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(returnFTimeLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastNameLabel)
                     .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameInforLabel1))
+                    .addComponent(lastNameInforLabel1)
+                    .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fareLabel1)
+                        .addComponent(fareFeeLabel1)))
+                .addGap(10, 10, 10)
+                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cardNumberLabel)
+                        .addComponent(cardNumberInforLabel))
+                    .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(taxFeeLabel1)
+                        .addComponent(taxLabel1)))
                 .addGap(10, 10, 10)
                 .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cardNumberLabel)
-                    .addComponent(cardNumberInforLabel))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -286,7 +387,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
                         .addGap(10, 10, 10)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -299,7 +400,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 273, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -335,32 +436,40 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
     private java.awt.Label PassengerTitleLabel;
     private javax.swing.JLabel cardNumberInforLabel;
     private javax.swing.JLabel cardNumberLabel;
-    private javax.swing.JLabel fareFeeLabel;
-    private javax.swing.JLabel fareLabel;
+    private javax.swing.JLabel fareFeeLabel1;
+    private javax.swing.JLabel fareLabel1;
     private javax.swing.JLabel firstNameInforLabel;
     private javax.swing.JLabel firstNameLabel1;
-    private javax.swing.JLabel flightCityLabel;
-    private javax.swing.JLabel flightDateLabel;
-    private javax.swing.JLabel flightTimeLabel;
     private javax.swing.JPanel insideSrollPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label1;
     private javax.swing.JLabel lastNameInforLabel1;
     private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JLabel orginFlightAirport;
+    private javax.swing.JLabel orginFlightDateLabel;
+    private javax.swing.JLabel orginFlightTimeLabel;
+    private javax.swing.JLabel orginTravelTypeLabel;
+    private javax.swing.JLabel outBoundLabel;
     private java.awt.Label paymentMethodTitleLabel1;
-    private javax.swing.JLabel taxFeeLabel;
-    private javax.swing.JLabel taxLabel;
-    private javax.swing.JLabel travelTypeLabel;
+    private javax.swing.JLabel returnFTimeLabel;
+    private javax.swing.JLabel returnFlightAirport;
+    private javax.swing.JLabel returnFlightDateLabel;
+    private javax.swing.JLabel returnLabel;
+    private javax.swing.JLabel returnTravelTypeLabel1;
+    private javax.swing.JLabel taxFeeLabel1;
+    private javax.swing.JLabel taxLabel1;
     private javax.swing.JPanel travelerContentPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package java_air.panel.reservation;
 
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,11 +17,23 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReservationBillInformationPanel
      */
+    private ReservationBillInformDetailPanel reservationBillInformDetailPanel;
+    
     public ReservationBillInformationPanel() {
         initComponents();
-         reservationPanel1.getContentPanel().add(new ReservationBillInformDetailPanel(),BorderLayout.CENTER);
+        reservationBillInformDetailPanel = new ReservationBillInformDetailPanel();
+         reservationPanel1.getContentPanel().add(reservationBillInformDetailPanel,BorderLayout.CENTER);
     }
-
+    
+    public ReservationBillInformDetailPanel getBillDetailPanel(){
+        return reservationBillInformDetailPanel;
+    }
+    public void setReservationFlightDetail(JPanel flightDetailPanel){
+        JPanel reservDetialContainPanel = reservationPanel1.getReservationDetialContainPanel();
+        reservDetialContainPanel.removeAll();
+        reservDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
+        reservDetialContainPanel.revalidate();  
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
