@@ -39,7 +39,7 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
         totalFee = fare + taxFee;
         totalPriceLabel.setText("$" + decimalFormat.format(totalFee));
     }
-        public double getAmoutPaid(){
+    public double getAmoutPaid(){
         return totalFee;
     }
     private void setFlightDate(){

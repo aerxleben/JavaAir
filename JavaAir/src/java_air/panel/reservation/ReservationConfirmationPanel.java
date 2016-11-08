@@ -22,7 +22,9 @@ public class ReservationConfirmationPanel extends ReservationPanel {
         initComponents();
         //reservationPanel1.getContentPanel().add(new ReservationConfirmDetailPanel(),BorderLayout.CENTER);
     }
-
+    public ReservationConfirmDetailPanel getReservationConfirmDetailPanel(){
+        return reservationConfirmDetailPanel;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +34,7 @@ public class ReservationConfirmationPanel extends ReservationPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        reservationConfirmDetailPanel1 = new java_air.panel.reservation.ReservationConfirmDetailPanel();
+        reservationConfirmDetailPanel = new java_air.panel.reservation.ReservationConfirmDetailPanel();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,20 +42,20 @@ public class ReservationConfirmationPanel extends ReservationPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(reservationConfirmDetailPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reservationConfirmDetailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(240, 240, 240))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(reservationConfirmDetailPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reservationConfirmDetailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java_air.panel.reservation.ReservationConfirmDetailPanel reservationConfirmDetailPanel1;
+    private java_air.panel.reservation.ReservationConfirmDetailPanel reservationConfirmDetailPanel;
     // End of variables declaration//GEN-END:variables
 }

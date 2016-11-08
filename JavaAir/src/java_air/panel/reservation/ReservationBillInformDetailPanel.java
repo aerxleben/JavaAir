@@ -19,6 +19,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     public ReservationBillInformDetailPanel() {
         initComponents();
         rewardPointsPanel.setVisible(false);
+        
     }
     public void setRewardPointsPanel(){
         rewardPointsPanel.setVisible(true);
@@ -530,10 +531,17 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Global.currentReservation;
-        // TODO add your handling code here:
+        ReservationConfirmationPanel reservationConfirmationPanel
+                = (ReservationConfirmationPanel) Global.jPanelMap.get(Global.textReservationConfirmation);
+        reservationConfirmationPanel.getReservationConfirmDetailPanel().setFlightInformation();
+        setPaymentInfor2Reservation();
         Global.panelSwitch(Global.textReservationConfirmation);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void setPaymentInfor2Reservation(){
+        Global.currentReservation.setPaymentFirstName(firstNameText.getText());
+        Global.currentReservation.setPaymentLastName(lastNameText.getText());
+        Global.currentReservation.setPaymentCardNumber(cardNumberText.getText());
+    }
     private void useSomePointBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useSomePointBoxActionPerformed
         useAllPointBox.setSelected(false);
         rewardPointUseText.setVisible(true);

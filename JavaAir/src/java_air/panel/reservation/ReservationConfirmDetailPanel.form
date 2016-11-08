@@ -25,7 +25,7 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -39,7 +39,7 @@
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="81" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="273" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -145,49 +145,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="label1" alignment="0" max="32767" attributes="0"/>
                       <Component id="PassengerTitleLabel" alignment="1" max="32767" attributes="0"/>
+                      <Component id="travelerContentPanel" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jSeparator1" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="flightCityLabel" min="-2" pref="184" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="travelTypeLabel" min="-2" pref="165" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="flightDateLabel" min="-2" pref="174" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="flightTimeLabel" min="-2" pref="150" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="fareLabel" min="-2" pref="58" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="fareFeeLabel" min="-2" pref="68" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="taxLabel" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="taxFeeLabel" min="-2" pref="66" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel6" min="-2" pref="91" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" pref="97" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
+                              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="firstNameLabel1" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                                       <Component id="cardNumberLabel" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cardNumberInforLabel" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="firstNameInforLabel" min="-2" pref="131" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -195,16 +165,70 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lastNameInforLabel1" min="-2" pref="118" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="cardNumberInforLabel" alignment="0" min="-2" pref="293" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel8" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel9" min="-2" pref="97" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel10" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" min="-2" pref="97" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="fareLabel1" min="-2" pref="88" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="fareFeeLabel1" min="-2" pref="68" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="taxLabel1" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                                          <Component id="taxFeeLabel1" min="-2" pref="66" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="orginFlightAirport" min="-2" pref="184" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="orginTravelTypeLabel" min="-2" pref="165" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="orginFlightDateLabel" min="-2" pref="174" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="orginFlightTimeLabel" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="outBoundLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="returnLabel" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="returnFlightAirport" min="-2" pref="184" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="returnTravelTypeLabel1" min="-2" pref="165" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="returnFlightDateLabel" min="-2" pref="174" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="returnFTimeLabel" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Component id="travelerContentPanel" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="paymentMethodTitleLabel1" alignment="0" pref="717" max="32767" attributes="0"/>
+                          <Component id="paymentMethodTitleLabel1" alignment="0" pref="766" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -212,23 +236,38 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="outBoundLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="returnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="travelTypeLabel" alignment="3" max="32767" attributes="0"/>
-                              <Component id="flightCityLabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="fareLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="taxLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fareFeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="taxFeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="orginTravelTypeLabel" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="orginFlightAirport" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="orginFlightDateLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="orginFlightTimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="returnTravelTypeLabel1" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="returnFlightAirport" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="returnFlightDateLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="returnFTimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="flightDateLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="flightTimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -236,13 +275,33 @@
                               <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="firstNameLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="lastNameInforLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Component id="fareLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fareFeeLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cardNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cardNumberInforLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="taxFeeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="taxLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cardNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cardNumberInforLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel11" alignment="3" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel8" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel9" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="PassengerTitleLabel" min="-2" pref="32" max="-2" attributes="0"/>
@@ -275,7 +334,7 @@
                     <Property name="text" type="java.lang.String" value="Flight"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="travelTypeLabel">
+                <Component class="javax.swing.JLabel" name="orginTravelTypeLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
@@ -283,7 +342,7 @@
                     <Property name="text" type="java.lang.String" value="Oneway (4 traveler)"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="flightDateLabel">
+                <Component class="javax.swing.JLabel" name="orginFlightDateLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
@@ -294,7 +353,7 @@
                     <Property name="text" type="java.lang.String" value="Tue, Nov 23, 2016"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="flightCityLabel">
+                <Component class="javax.swing.JLabel" name="orginFlightAirport">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
@@ -305,67 +364,13 @@
                     <Property name="text" type="java.lang.String" value="Chicago - NewYork"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="flightTimeLabel">
+                <Component class="javax.swing.JLabel" name="orginFlightTimeLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="6:00 am - 9:07 am"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="fareLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Fare"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="taxLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Taxes and fees"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="taxFeeLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="$28.33"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="fareFeeLabel">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="$500,00"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Total"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalFont" type="code"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="generalColor" type="code"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="$528.33"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -396,6 +401,9 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Card number"/>
                   </Properties>
@@ -449,7 +457,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Payment Method"/>
+                    <Property name="text" type="java.lang.String" value="Payment"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator2">
@@ -463,6 +471,147 @@
                     </Property>
                   </Layout>
                 </Container>
+                <Component class="javax.swing.JLabel" name="fareLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fare"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="fareFeeLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="$500,00"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="taxLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Taxes and fees"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel8">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Total"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="taxFeeLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="$28.33"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel9">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalColor" type="code"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="$508.33"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Rewards redeem"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel11">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalColor" type="code"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="-$20.33"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="returnFlightAirport">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Chicago - NewYork"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="returnTravelTypeLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Oneway (4 traveler)"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="returnFlightDateLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Tue, Nov 23, 2016"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="returnFTimeLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="generalFont" type="code"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="6:00 am - 9:07 am"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="outBoundLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Global.normalFont" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Outbound"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="returnLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Global.normalFont" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Return"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

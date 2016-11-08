@@ -18,11 +18,13 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
      * Creates new form ReservationBillInformationPanel
      */
     private ReservationBillInformDetailPanel reservationBillInformDetailPanel;
+    
     public ReservationBillInformationPanel() {
         initComponents();
         reservationBillInformDetailPanel = new ReservationBillInformDetailPanel();
          reservationPanel1.getContentPanel().add(reservationBillInformDetailPanel,BorderLayout.CENTER);
     }
+    
     public ReservationBillInformDetailPanel getBillDetailPanel(){
         return reservationBillInformDetailPanel;
     }
