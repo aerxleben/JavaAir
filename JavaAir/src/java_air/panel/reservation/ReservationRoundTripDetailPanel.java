@@ -7,6 +7,7 @@ package java_air.panel.reservation;
 
 import java.awt.Color;
 import java.awt.Font;
+import java_air.main.Global;
 
 /**
  *
@@ -19,6 +20,37 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
      */
     public ReservationRoundTripDetailPanel() {
         initComponents();
+        travelTypeLabel.setText("RoundTrip"+ " ("+Global.currentReservation.getNumberOfPassenger()+ " traveler)");
+        setAmoutPaid();
+        setFlightDate();
+        setFlightInformation();
+        this.revalidate();
+        
+    }
+    private void setAmoutPaid(){
+       float fare = (float) ((Global.currentReservation.getOriginFlight().getTripMileage()
+               + Global.currentReservation.getReturnFlight().getTripMileage()) * 0.27)
+               * Global.currentReservation.getNumberOfPassenger();
+       fareFeeLabel.setText("$" + fare);
+       float taxFee =  (float) (fare*0.1432);
+       taxFeeLabel.setText("$" + taxFee);
+       float totalFee = fare + taxFee;
+       totalPriceLabel.setText("$" + totalFee);
+
+    }
+    private void setFlightDate(){
+        flightOriginDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
+        flightOriginTimeLabel.setText(Global.currentReservation.getOriginFlight().getScheduledDeparture()
+                                + " - "+ Global.currentReservation.getOriginFlight().getScheduledArrival());
+        flightReturnDateLabel.setText(Global.currentReservation.getflightReturnDatePrint());
+        flightReturnTimeLabel.setText(Global.currentReservation.getReturnFlight().getScheduledDeparture()
+                                + " - "+ Global.currentReservation.getReturnFlight().getScheduledArrival());
+    }
+    public void setFlightInformation(){
+        flightOriginAirportLabel.setText(Global.currentReservation.getOriginFlight().getOriginAirport() + " - " + 
+                                Global.currentReservation.getOriginFlight().getDestinationAirport());
+        flightReturnAirportLabel.setText(Global.currentReservation.getReturnFlight().getOriginAirport() + " - " + 
+                                Global.currentReservation.getReturnFlight().getDestinationAirport());
     }
 
     /**
@@ -33,19 +65,19 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         travelTypeLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         title = new java.awt.Label();
-        flightDateLabel = new javax.swing.JLabel();
-        flightCityLabel = new javax.swing.JLabel();
-        flightTimeLabel = new javax.swing.JLabel();
+        flightReturnDateLabel = new javax.swing.JLabel();
+        flightReturnAirportLabel = new javax.swing.JLabel();
+        flightOriginTimeLabel = new javax.swing.JLabel();
         fareLabel = new javax.swing.JLabel();
         taxLabel = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         fareFeeLabel = new javax.swing.JLabel();
         taxFeeLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        flightDateLabel1 = new javax.swing.JLabel();
-        flightCityLabel1 = new javax.swing.JLabel();
-        flightTimeLabel1 = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
+        flightOriginDateLabel = new javax.swing.JLabel();
+        flightOriginAirportLabel = new javax.swing.JLabel();
+        flightReturnTimeLabel = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
 
         travelTypeLabel.setFont(generalFont);
@@ -58,16 +90,16 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         title.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         title.setText("Flight");
 
-        flightDateLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        flightDateLabel.setText("Tue, Nov 23, 2016");
+        flightReturnDateLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        flightReturnDateLabel.setText("Tue, Nov 23, 2016");
 
-        flightCityLabel.setFont(generalFont);
-        flightCityLabel.setForeground(generalColor);
-        flightCityLabel.setText("NewYork - Chicago");
+        flightReturnAirportLabel.setFont(generalFont);
+        flightReturnAirportLabel.setForeground(generalColor);
+        flightReturnAirportLabel.setText("NewYork - Chicago");
 
-        flightTimeLabel.setFont(generalFont);
-        flightTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        flightTimeLabel.setText("6:00 am - 9:07 am");
+        flightOriginTimeLabel.setFont(generalFont);
+        flightOriginTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        flightOriginTimeLabel.setText("6:00 am - 9:07 am");
 
         fareLabel.setFont(generalFont);
         fareLabel.setForeground(generalColor);
@@ -90,20 +122,20 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         jLabel1.setText("TOTAL");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("$528.33");
+        totalPriceLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        totalPriceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        totalPriceLabel.setText("$528.33");
 
-        flightDateLabel1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        flightDateLabel1.setText("Tue, Nov 23, 2016");
+        flightOriginDateLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        flightOriginDateLabel.setText("Tue, Nov 23, 2016");
 
-        flightCityLabel1.setFont(generalFont);
-        flightCityLabel1.setForeground(generalColor);
-        flightCityLabel1.setText("Chicago - NewYork");
+        flightOriginAirportLabel.setFont(generalFont);
+        flightOriginAirportLabel.setForeground(generalColor);
+        flightOriginAirportLabel.setText("Chicago - NewYork");
 
-        flightTimeLabel1.setFont(generalFont);
-        flightTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        flightTimeLabel1.setText("6:00 am - 9:07 am");
+        flightReturnTimeLabel.setFont(generalFont);
+        flightReturnTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        flightReturnTimeLabel.setText("6:00 am - 9:07 am");
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -125,12 +157,12 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(flightDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(flightOriginDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(flightCityLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(flightOriginAirportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(flightTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(flightOriginTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,16 +176,16 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(flightCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(flightReturnAirportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(flightTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(flightReturnTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(flightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(flightReturnDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -173,21 +205,20 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(flightDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(flightOriginDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(flightDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
+                        .addComponent(flightReturnDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(flightTimeLabel)
-                            .addComponent(flightCityLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(flightOriginTimeLabel)
+                            .addComponent(flightOriginAirportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(flightCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(flightTimeLabel1))
+                    .addComponent(flightReturnAirportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(flightReturnTimeLabel))
                 .addGap(5, 5, 5)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
@@ -203,7 +234,7 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(totalPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,20 +243,20 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fareFeeLabel;
     private javax.swing.JLabel fareLabel;
-    private javax.swing.JLabel flightCityLabel;
-    private javax.swing.JLabel flightCityLabel1;
-    private javax.swing.JLabel flightDateLabel;
-    private javax.swing.JLabel flightDateLabel1;
-    private javax.swing.JLabel flightTimeLabel;
-    private javax.swing.JLabel flightTimeLabel1;
+    private javax.swing.JLabel flightOriginAirportLabel;
+    private javax.swing.JLabel flightOriginDateLabel;
+    private javax.swing.JLabel flightOriginTimeLabel;
+    private javax.swing.JLabel flightReturnAirportLabel;
+    private javax.swing.JLabel flightReturnDateLabel;
+    private javax.swing.JLabel flightReturnTimeLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel taxFeeLabel;
     private javax.swing.JLabel taxLabel;
     private java.awt.Label title;
+    private javax.swing.JLabel totalPriceLabel;
     private javax.swing.JLabel travelTypeLabel;
     // End of variables declaration//GEN-END:variables
 }

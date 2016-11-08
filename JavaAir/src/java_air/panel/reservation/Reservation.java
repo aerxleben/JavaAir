@@ -11,7 +11,7 @@ package java_air.panel.reservation;
  * Creation: 2016-10-29
  * 
  * Changelog:
- * 
+ * 1. change getAmountPaid()
  */
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class Reservation {
     }
 
     public void setReturnFlight(Flight returnFlight) {
-        if(!isRoundTrip){ this.returnFlight = returnFlight; }
+        if(isRoundTrip){ this.returnFlight = returnFlight; }
     }
 
     public ArrayList<Passenger> getPassengerList() {

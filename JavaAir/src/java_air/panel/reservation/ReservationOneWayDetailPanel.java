@@ -21,10 +21,29 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
      */
     public ReservationOneWayDetailPanel() {
         initComponents();
+        travelTypeLabel.setText("Oneway"+ " (" + Global.currentReservation.getNumberOfPassenger()+ " traveler)");
+        setAmoutPaid();
+        setFlightDate();
+        setFlightInformation();
+        this.revalidate();
     }
-    public void setFlightInformation(Flight currentFlight){
-        flightCityLabel.setText(currentFlight.getOriginAirport() + " - " + 
-                                currentFlight.getDestinationAirport());
+    private void setAmoutPaid(){
+       float fare = (float) (Global.currentReservation.getOriginFlight().getTripMileage() * 0.27
+               * Global.currentReservation.getNumberOfPassenger());
+        fareFeeLabel.setText("$" + fare);
+        float taxFee =  (float) (fare*0.1432);
+        taxFeeLabel.setText("$" + taxFee);
+        float totalFee = fare + taxFee;
+        totalPriceLabel.setText("$" + totalFee);
+    }
+    private void setFlightDate(){
+        flightDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
+        flightTimeLabel.setText(Global.currentReservation.getOriginFlight().getScheduledDeparture()
+                                + " - "+ Global.currentReservation.getOriginFlight().getScheduledArrival());
+    }
+    public void setFlightInformation(){
+        flightCityLabel.setText(Global.currentReservation.getOriginFlight().getOriginAirport() + " - " + 
+                                Global.currentReservation.getOriginFlight().getDestinationAirport());
         //flightTimeLabel.setText(currentFlight.get);
     }
     /**
