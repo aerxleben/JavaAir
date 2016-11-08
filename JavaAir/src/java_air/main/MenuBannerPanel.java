@@ -14,6 +14,7 @@ package java_air.main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class MenuBannerPanel extends JPanel{
 
@@ -111,6 +112,19 @@ public class MenuBannerPanel extends JPanel{
             add(reservationButton);
 
             accountButton = new JButton(Global.textAcct);
+            accountButton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    if(Global.currentCustomer == null){
+                        //not logged in; display log-in
+                        Global.switchCard(Global.textLogin);
+                    }
+                    else{
+                        //logged in already
+                        Global.switchCard(Global.textAcct);
+                    }
+                }
+            });
             //accountButton.setFont(new Font("Times",Font.PLAIN, 30));
             accountButton.setFont(Global.titleFont);
             accountButton.setBackground(buttonColor);
@@ -173,5 +187,5 @@ public class MenuBannerPanel extends JPanel{
             constraints.weighty = 10;
             layout.setConstraints(annonymousButton, constraints);
             add(annonymousButton);
-	}//end constructor
+	};//end constructor
 }//end class

@@ -35,7 +35,7 @@ public class JavaAirApp implements ActionListener{
         MenuBannerPanel panelMenu = new MenuBannerPanel();
         panelMenu.getHomeButton().addActionListener(this);
         panelMenu.getReservationButton().addActionListener(this);
-        panelMenu.getAccountButton().addActionListener(this);
+        //panelMenu.getAccountButton().addActionListener(this);
         panelMenu.getHelpButton().addActionListener(this);
         panelMenu.getLoginButton().addActionListener(this);
         
