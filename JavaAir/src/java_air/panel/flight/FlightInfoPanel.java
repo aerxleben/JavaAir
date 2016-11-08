@@ -302,7 +302,8 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                 // set ReservationRoundTripDetailPanel to BillInformation Panel
                 ReservationRoundTripDetailPanel reservationRoundTripDetailPanelcopy
                        = new ReservationRoundTripDetailPanel();
-               reservationBillInformationPanel.setReservationFlightDetail(reservationRoundTripDetailPanelcopy);
+                reservationBillInformationPanel.setReservationFlightDetail(reservationRoundTripDetailPanelcopy);
+                Global.currentReservation.setAmountPaid((float) reservationRoundTripDetailPanelcopy.getAmoutPaid());
            }else{
                // get reference of ReservationPassengerPanel.
                 Global.currentReservation.setOriginFlight(currentFlight);
@@ -315,6 +316,9 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                ReservationOneWayDetailPanel reservOneWayDetailPanelcopy
                        = new ReservationOneWayDetailPanel();
                reservationBillInformationPanel.setReservationFlightDetail(reservOneWayDetailPanelcopy);
+               // set Reservation amout paid.
+               Global.currentReservation.setAmountPaid((float) reservOneWayDetailPanelcopy.getAmoutPaid());
+              
            }
            // fill in Passenger panel.
            reservationPassengerDetailPanel.travelerLabelSet(); 

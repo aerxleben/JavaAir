@@ -28,6 +28,7 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
         setFlightInformation();
         this.revalidate();
     }
+    private double totalFee;
     private void setAmoutPaid(){
         DecimalFormat decimalFormat = new DecimalFormat(".##");
         double fare = (Global.currentReservation.getOriginFlight().getTripMileage() * 0.27
@@ -35,8 +36,11 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
         fareFeeLabel.setText("$" + decimalFormat.format(fare));
         double taxFee =  (fare*0.1432);
         taxFeeLabel.setText("$" + decimalFormat.format(taxFee));
-        double totalFee = fare + taxFee;
+        totalFee = fare + taxFee;
         totalPriceLabel.setText("$" + decimalFormat.format(totalFee));
+    }
+        public double getAmoutPaid(){
+        return totalFee;
     }
     private void setFlightDate(){
         flightDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());

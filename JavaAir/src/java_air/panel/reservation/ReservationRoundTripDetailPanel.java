@@ -12,10 +12,11 @@ import java_air.main.Global;
 
 /**
  *
- * @author Georege
+ * @author Rui Zhang
  */
 public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
 
+ 
     /**
      * Creates new form ReservationRoundTripDetailPanel
      */
@@ -28,6 +29,7 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         this.revalidate();
         
     }
+    private double totalFee;
     private void setAmoutPaid(){    
         DecimalFormat decimalFormat = new DecimalFormat(".##");
         double fare = (float) ((Global.currentReservation.getOriginFlight().getTripMileage()
@@ -36,8 +38,12 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         fareFeeLabel.setText("$" + decimalFormat.format(fare));
         double taxFee =  (fare*0.1432);
         taxFeeLabel.setText("$" + decimalFormat.format(taxFee));
-        double totalFee = fare + taxFee;
+        totalFee = fare + taxFee;
         totalPriceLabel.setText("$" + decimalFormat.format(totalFee));
+        
+    }
+    public double getAmoutPaid(){
+        return totalFee;
     }
     private void setFlightDate(){
         flightOriginDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
