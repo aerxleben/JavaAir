@@ -160,6 +160,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     private void storePassengerInfomation() throws Exception{
         ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
         for(ReservationSinglePassengerPanel reservPassengerPanel : reservationPassengerPanelList) {
+            System.out.println(reservationPassengerPanelList.size());
             Passenger passenger = null;
             try {
                 passenger = new Passenger(reservPassengerPanel.getFirstName(),

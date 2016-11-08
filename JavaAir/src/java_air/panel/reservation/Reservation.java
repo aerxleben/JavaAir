@@ -38,11 +38,38 @@ public class Reservation {
     private ReservationStatus status;
     private String flightOriginDatePrint;
     private String flightReturnDatePrint;
-    
+    private String paymentFirstName;
+    private String paymentLastName;
+    private String paymentCardNumber;
+    private PriceCalculator priceCalulator;
     public Reservation(boolean isRoundTrip){
         this.isRoundTrip = isRoundTrip;
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
+    }
+    public void setPriceCalulator(PriceCalculator priceCalulator){
+        this.priceCalulator = priceCalulator;
+    }
+    public PriceCalculator getPriceCaluator(){
+        return priceCalulator;
+    }
+    public void setPaymentFirstName(String paymentFirstName){
+        this.paymentFirstName = paymentFirstName;
+    }
+    public String getPaymentFirstName(){
+        return paymentFirstName;
+    }
+    public void setPaymentLastName(String paymentLastName){
+        this.paymentLastName = paymentLastName;
+    }
+    public String getPaymentLastName(){
+        return paymentLastName;
+    }
+    public void setPaymentCardNumber(String paymentCardNumber){
+        this.paymentCardNumber = paymentCardNumber;
+    }
+    public String getPaymentCardNumber(){
+        return paymentCardNumber;
     }
     public void setflightOriginDatePrint(String flightOriginDatePrint){
         this.flightOriginDatePrint =flightOriginDatePrint;

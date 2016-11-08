@@ -29,22 +29,16 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         this.revalidate();
         
     }
-    private double totalFee;
+    private PriceCalculator priceCalculator;
     private void setAmoutPaid(){    
-        DecimalFormat decimalFormat = new DecimalFormat(".##");
-        double fare = (float) ((Global.currentReservation.getOriginFlight().getTripMileage()
-               + Global.currentReservation.getReturnFlight().getTripMileage()) * 0.27)
-               * Global.currentReservation.getNumberOfPassenger();
-        fareFeeLabel.setText("$" + decimalFormat.format(fare));
-        double taxFee =  (fare*0.1432);
-        taxFeeLabel.setText("$" + decimalFormat.format(taxFee));
-        totalFee = fare + taxFee;
-        totalPriceLabel.setText("$" + decimalFormat.format(totalFee));
+        priceCalculator = new PriceCalculator();
+        fareFeeLabel.setText(priceCalculator.getFare());
+        taxFeeLabel.setText(priceCalculator.getTaxFee());
+        totalPriceLabel.setText(priceCalculator.getTotalFee());
+        Global.currentReservation.setPriceCalulator(priceCalculator);
         
     }
-    public double getAmoutPaid(){
-        return totalFee;
-    }
+
     private void setFlightDate(){
         flightOriginDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
         flightOriginTimeLabel.setText(Global.currentReservation.getOriginFlight().getScheduledDeparture()

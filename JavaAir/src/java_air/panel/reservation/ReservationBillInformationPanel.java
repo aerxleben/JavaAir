@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Georege
+ * @author Rui Zhang
  */
 public class ReservationBillInformationPanel extends javax.swing.JPanel {
 
