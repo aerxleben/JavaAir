@@ -30,12 +30,7 @@ public class ReservationPanel extends javax.swing.JPanel {
         //reservationDetialContainPanel.setBackground(Global.transparentColor);
        
     }
-    public void setReservationFlightDetail(JPanel flightDetailPanel){
-        reservationDetialContainPanel.removeAll();
-        reservationDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
-        reservationDetialContainPanel.validate();
-        
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,6 +79,9 @@ public class ReservationPanel extends javax.swing.JPanel {
     }
     public JPanel getContentPanel(){
         return contentPanel;
+    }
+    public JPanel getReservationDetialContainPanel(){
+        return reservationDetialContainPanel;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;

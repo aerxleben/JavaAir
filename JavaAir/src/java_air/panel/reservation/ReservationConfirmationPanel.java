@@ -11,7 +11,7 @@ import java_air.main.Global;
 
 /**
  *
- * @author Georege
+ * @author Rui Zhang
  */
 public class ReservationConfirmationPanel extends ReservationPanel {
 

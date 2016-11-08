@@ -7,6 +7,7 @@ package java_air.panel.reservation;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.text.DecimalFormat;
 import java_air.main.Flight;
 import java_air.main.Global;
 
@@ -28,13 +29,14 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
         this.revalidate();
     }
     private void setAmoutPaid(){
-       float fare = (float) (Global.currentReservation.getOriginFlight().getTripMileage() * 0.27
+        DecimalFormat decimalFormat = new DecimalFormat(".##");
+        double fare = (Global.currentReservation.getOriginFlight().getTripMileage() * 0.27
                * Global.currentReservation.getNumberOfPassenger());
-        fareFeeLabel.setText("$" + fare);
-        float taxFee =  (float) (fare*0.1432);
-        taxFeeLabel.setText("$" + taxFee);
-        float totalFee = fare + taxFee;
-        totalPriceLabel.setText("$" + totalFee);
+        fareFeeLabel.setText("$" + decimalFormat.format(fare));
+        double taxFee =  (fare*0.1432);
+        taxFeeLabel.setText("$" + decimalFormat.format(taxFee));
+        double totalFee = fare + taxFee;
+        totalPriceLabel.setText("$" + decimalFormat.format(totalFee));
     }
     private void setFlightDate(){
         flightDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());

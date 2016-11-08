@@ -22,8 +22,12 @@ public class ReservationPassengerPanel extends javax.swing.JPanel {
         reservationPassengerDetailPanel = new ReservationPassengerDetailPanel();
         reservationPanel1.getContentPanel().add(reservationPassengerDetailPanel,BorderLayout.CENTER);
     }
-    public ReservationPanel getReservationPanel(){
-        return reservationPanel1;
+    public void setReservationFlightDetail(JPanel flightDetailPanel){
+        JPanel reservDetialContainPanel = reservationPanel1.getReservationDetialContainPanel();
+        reservDetialContainPanel.removeAll();
+        reservDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
+        reservDetialContainPanel.revalidate();  
+        System.out.println("set up flightDetailPanel in ReservationFlight");
     }
     /**
      * This method is called from within the constructor to initialize the form.
