@@ -36,11 +36,25 @@ public class Reservation {
     private String billingPhone;
     private String billingEmail;
     private ReservationStatus status;
+    private String flightOriginDatePrint;
+    private String flightReturnDatePrint;
     
     public Reservation(boolean isRoundTrip){
         this.isRoundTrip = isRoundTrip;
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
+    }
+    public void setflightOriginDatePrint(String flightOriginDatePrint){
+        this.flightOriginDatePrint =flightOriginDatePrint;
+    }
+    public String getflightOriginDatePrint(){
+        return flightOriginDatePrint;
+    }
+    public void setflightReturnDatePrint(String flightReturnDatePrint){
+        this.flightReturnDatePrint =flightReturnDatePrint;
+    }
+    public String getflightReturnDatePrint(){
+        return flightReturnDatePrint;
     }
     
     public void setNumberOfPassenger(int numOfPassenger){

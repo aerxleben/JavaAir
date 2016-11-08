@@ -66,9 +66,15 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public String getArrivalTime(){
         return this.arriveTimeLabel.getText();
     }
+    public String getDepartureDate(){
+        return this.departureDateLabel.getText();
+    }
     
+    public String getArrivalDate(){
+        return this.arriveDateLabel.getText();
+    }    
     public String getFlightPrice(){
-        return this.flightPriveLabel.getText();
+        return this.flightPriceLabel.getText();
     }
 
     public void setFlightNo(String flightNo){
@@ -90,9 +96,15 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     public void setArrivalTime(String arrival){
         this.arriveTimeLabel.setText(arrival);
     }
+      public void setDepartureDate(String depart){
+        this.departureDateLabel.setText(depart);
+    }
     
+    public void setArrivalDate(String arrival){
+        this.arriveDateLabel.setText(arrival);
+    }  
     public void setFlightPrice(String price){
-        this.flightPriveLabel.setText(price);
+        this.flightPriceLabel.setText(price);
     }
 
     public String getFlightDuration() {
@@ -126,7 +138,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         flightNumLabel = new javax.swing.JLabel();
-        flightPriveLabel = new javax.swing.JButton();
+        flightPriceLabel = new javax.swing.JButton();
         departureAirportLabel = new javax.swing.JLabel();
         directionLabel = new javax.swing.JLabel();
         departureDateLabel = new javax.swing.JLabel();
@@ -141,13 +153,13 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         flightNumLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         flightNumLabel.setText("JA 2045");
 
-        flightPriveLabel.setBackground(new java.awt.Color(204, 153, 0));
-        flightPriveLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        flightPriveLabel.setForeground(new java.awt.Color(255, 255, 255));
-        flightPriveLabel.setText("$560");
-        flightPriveLabel.addActionListener(new java.awt.event.ActionListener() {
+        flightPriceLabel.setBackground(new java.awt.Color(204, 153, 0));
+        flightPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        flightPriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        flightPriceLabel.setText("$560");
+        flightPriceLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                flightPriveLabelActionPerformed(evt);
+                flightPriceLabelActionPerformed(evt);
             }
         });
 
@@ -213,7 +225,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                                     .addComponent(labelFlightDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(arriveAirportLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))))
                         .addGap(10, 10, 10)
-                        .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(flightPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );
         layout.setVerticalGroup(
@@ -242,7 +254,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(flightPriveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(flightPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelFlightDuration))
                         .addGap(18, 18, 18)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,7 +262,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void flightPriveLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriveLabelActionPerformed
+    private void flightPriceLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightPriceLabelActionPerformed
        //Global.panelSwitch(Global.textReservationPassenger);
        //new ReservationBuilder(currentFlight);
        FlightResultPanel resultsPanel = 
@@ -260,8 +272,9 @@ public class FlightInfoPanel extends javax.swing.JPanel {
        if(Global.currentReservation.getIsRoundTrip() 
                && bookTravelPanel.getOriginFlightOn()){
            Global.currentReservation.setOriginFlight(currentFlight);
-           bookTravelPanel.showReturnFlights();
            bookTravelPanel.setOriginFlightOn(false);
+           bookTravelPanel.showReturnFlights();
+           
            
        }else{
            // get reference of ReservationPassengerDetailPanel.
@@ -278,8 +291,9 @@ public class FlightInfoPanel extends javax.swing.JPanel {
             ReservationRoundTripDetailPanel reservRoundTripDetailPanel
                     = new ReservationRoundTripDetailPanel();
             reservPassengerPanel.getReservationPanel().setReservationFlightDetail(reservRoundTripDetailPanel);
-            //reservPassengerPanel.getReservationPanel().validate();
+            
            }else{
+               // get reference of ReservationPassengerPanel.
                ReservationPassengerPanel reservPassengerPanel = 
                (ReservationPassengerPanel )Global.jPanelMap.get(Global.textReservationPassenger);
                ReservationOneWayDetailPanel reservOneWayDetailPanel
@@ -288,14 +302,12 @@ public class FlightInfoPanel extends javax.swing.JPanel {
                //reservPassengerPanel.getReservationPanel().validate();
                Global.currentReservation.setOriginFlight(currentFlight);
            }
-           
-           reservationPassengerDetailPanel.getContentPanel().removeAll();
-           reservationPassengerDetailPanel.travelerLabelSet();
-           reservationPassengerDetailPanel.validate();
-           
-          Global.panelSwitch(Global.textReservationPassenger); 
+           // fill in Passenger panel.
+           reservationPassengerDetailPanel.travelerLabelSet(); 
+           // switch to Reservation Passenger Panel
+           Global.panelSwitch(Global.textReservationPassenger); 
        }
-    }//GEN-LAST:event_flightPriveLabelActionPerformed
+    }//GEN-LAST:event_flightPriceLabelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,7 +320,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel departureTimeLabel;
     private javax.swing.JLabel directionLabel;
     private javax.swing.JLabel flightNumLabel;
-    private javax.swing.JButton flightPriveLabel;
+    private javax.swing.JButton flightPriceLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelFlightDuration;
     // End of variables declaration//GEN-END:variables

@@ -7,10 +7,15 @@ package java_air.panel.flight;
 
 import java_air.main.*;
 import java.awt.Color;
+import static java.lang.String.format;
+import static java.lang.String.format;
+import static java.lang.String.format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 import java_air.database.DataClient;
 import java_air.main.Global;
 import java_air.panel.reservation.Reservation;
@@ -359,7 +364,11 @@ public class BookTravelPanel extends javax.swing.JPanel {
             }
         }
         Global.currentReservation = new Reservation(this.isRoundTrip());
-        //Global.currentReservation.se
+        Global.currentReservation.setflightOriginDatePrint(getFlightPrintDate(this.datePickerDepart.getDate()));
+        if(isRoundTrip()){
+            Global.currentReservation.setflightReturnDatePrint(getFlightPrintDate(this.datePickerReturn.getDate()));
+        } 
+
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();
         Global.currentReservation.setNumberOfPassenger(Integer.parseInt(numOfPassengers));
         //display flight search results
@@ -369,6 +378,24 @@ public class BookTravelPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_buttonSearchActionPerformed
+    public String getFlightPrintDate(Date date){
+        String flightDate = "";
+        int dayOfWeek, day, month;
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        calendar.setTime(date); 
+        dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        String[] dayOfWeekName = {  "Sat","Sun","Mon", "Tue", "Wen", "Thu", "Fri" };
+        flightDate += dayOfWeekName[dayOfWeek];
+        flightDate +=",";
+        month = calendar.get(Calendar.MONTH);
+        String[] monthName = { "Jan", "Feb", "Mar", "Apr", "May", "June", "July",
+        "Aug", "Sep", "Oct", "Nov", "Dec" };
+        flightDate += monthName[month];
+        flightDate +=" ";
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        flightDate += day;
+        return flightDate;
+    }
     public void showOriginFlights() {
         FlightResultPanel resultsPanel = 
             (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);

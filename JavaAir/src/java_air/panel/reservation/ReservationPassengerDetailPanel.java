@@ -28,14 +28,13 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(5);
         //travelerLabelSet();
         validate();
-        //Dimension d = this.getPreferredSize();
-        //d = new Dimension(d.width, d.height+100);
         this.setPreferredSize(d);
     }
     public void travelerLabelSet(){
         rowNumber = Global.currentReservation.getNumberOfPassenger();
         reservationPassengerList = new ArrayList<ReservationSinglePassengerPanel>();
-        
+        contentPanel.removeAll();
+        contentPanel.setLayout(new java.awt.GridLayout(rowNumber, 1, 3, 5));
         for(int i = 0; i < rowNumber; i++){
             ReservationSinglePassengerPanel reservationSinglePassenger
                     = new ReservationSinglePassengerPanel();
@@ -51,6 +50,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
             
             reservationSinglePassenger.getTravelerLabel().setText(travelNumberText);
         } 
+        contentPanel.revalidate();
     }
     /**
      * This method is called from within the constructor to initialize the form.

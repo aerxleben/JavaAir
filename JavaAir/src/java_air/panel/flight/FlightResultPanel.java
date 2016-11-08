@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import java_air.main.Flight;
+import java_air.main.Global;
 
 /**
  *
@@ -54,6 +55,13 @@ public class FlightResultPanel extends javax.swing.JPanel {
         for(Flight flight : flightList){
             FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
                 //flightInfoPanel.setFlightDate();
+            if(panelSearchInput.isRoundTrip() && !panelSearchInput.getOriginFlightOn()){    
+                flightInfoPanel.setDepartureDate(Global.currentReservation.getflightReturnDatePrint());
+                flightInfoPanel.setArrivalDate(Global.currentReservation.getflightReturnDatePrint());
+            }else{
+                flightInfoPanel.setDepartureDate(Global.currentReservation.getflightOriginDatePrint());
+                flightInfoPanel.setArrivalDate(Global.currentReservation.getflightOriginDatePrint());   
+            }
             scrollContentPanel.add(flightInfoPanel);
         }
         gui.validate();
