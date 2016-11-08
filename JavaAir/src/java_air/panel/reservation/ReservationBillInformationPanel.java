@@ -17,11 +17,15 @@ public class ReservationBillInformationPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReservationBillInformationPanel
      */
+    private ReservationBillInformDetailPanel reservationBillInformDetailPanel;
     public ReservationBillInformationPanel() {
         initComponents();
-         reservationPanel1.getContentPanel().add(new ReservationBillInformDetailPanel(),BorderLayout.CENTER);
+        reservationBillInformDetailPanel = new ReservationBillInformDetailPanel();
+         reservationPanel1.getContentPanel().add(reservationBillInformDetailPanel,BorderLayout.CENTER);
     }
-
+    public ReservationBillInformDetailPanel getBillDetailPanel(){
+        return reservationBillInformDetailPanel;
+    }
     public void setReservationFlightDetail(JPanel flightDetailPanel){
         JPanel reservDetialContainPanel = reservationPanel1.getReservationDetialContainPanel();
         reservDetialContainPanel.removeAll();

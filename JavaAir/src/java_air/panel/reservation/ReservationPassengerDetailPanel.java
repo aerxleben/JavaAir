@@ -7,6 +7,8 @@ package java_air.panel.reservation;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java_air.main.Global;
 import java_air.main.Passenger;
 import javax.swing.JPanel;
@@ -32,14 +34,14 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     }
     public void travelerLabelSet(){
         rowNumber = Global.currentReservation.getNumberOfPassenger();
-        reservationPassengerList = new ArrayList<ReservationSinglePassengerPanel>();
+        reservationPassengerPanelList = new ArrayList<ReservationSinglePassengerPanel>();
         contentPanel.removeAll();
         contentPanel.setLayout(new java.awt.GridLayout(rowNumber, 1, 3, 5));
         for(int i = 0; i < rowNumber; i++){
             ReservationSinglePassengerPanel reservationSinglePassenger
                     = new ReservationSinglePassengerPanel();
             contentPanel.add(reservationSinglePassenger);
-            reservationPassengerList.add(reservationSinglePassenger);
+            reservationPassengerPanelList.add(reservationSinglePassenger);
             
             String travelNumberText;
             if(i!=0){
@@ -155,13 +157,45 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     public JPanel getContentPanel(){
         return contentPanel;
     }
-        
+    private void storePassengerInfomation() throws Exception{
+        ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
+        for(ReservationSinglePassengerPanel reservPassengerPanel : reservationPassengerPanelList) {
+            Passenger passenger = null;
+            try {
+                passenger = new Passenger(reservPassengerPanel.getFirstName(),
+                                                    reservPassengerPanel.getLastName(),
+                                                    reservPassengerPanel.getDateBirth(),
+                                                    reservPassengerPanel.getGender(),
+                                                    reservPassengerPanel.getPassID(),
+                                                    reservPassengerPanel.getPhoneNumber());
+            } catch (Exception ex) {
+                Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            passengerList.add(passenger);
+        }
+        // set the first passenger as primary passenger
+        passengerList.get(0).setPrimaryStatus(true);
+        Global.currentReservation.setPassengerList(passengerList);
+    }    
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            storePassengerInfomation();
+        } catch (Exception ex) {
+            Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // if there is user login, set up rewardPointsPanel.
+        if(Global.currentCustomer != null){
+            ReservationBillInformationPanel reservationBillInformationPanel =
+            (ReservationBillInformationPanel) Global.jPanelMap.get(Global.textReservationBillInformation);
+            // set RewardPointsPanel
+            reservationBillInformationPanel.getBillDetailPanel().setRewardPointsPanel();
+        }
         Global.panelSwitch(Global.textReservationBillInformation);
+        
     }//GEN-LAST:event_continueButtonActionPerformed
     private int rowNumber = 4;
-    private ArrayList<ReservationSinglePassengerPanel> reservationPassengerList;
+    private ArrayList<ReservationSinglePassengerPanel> reservationPassengerPanelList;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton continueButton;
