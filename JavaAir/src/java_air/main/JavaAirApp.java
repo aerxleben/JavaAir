@@ -119,6 +119,7 @@ public class JavaAirApp implements ActionListener{
         //pane.add(menu, BorderLayout.PAGE_START);
         pane.add(cards, BorderLayout.CENTER);
 
+        new TestPanel();
     }
     
     @Override
