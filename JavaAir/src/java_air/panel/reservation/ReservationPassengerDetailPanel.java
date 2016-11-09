@@ -184,6 +184,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         passengerList.get(0).setPrimaryStatus(true);
         Global.currentReservation.setPassengerList(passengerList);
     }    
+    
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         try {
             // TODO add your handling code here:
@@ -195,12 +196,17 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         if(Global.currentCustomer != null){
             ReservationBillInformationPanel reservationBillInformationPanel =
             (ReservationBillInformationPanel) Global.jPanelMap.get(Global.textReservationBillInformation);
+            
+            // load customer info
+            reservationBillInformationPanel.getBillDetailPanel().loadCustomerAddress();
+
             // set RewardPointsPanel
             reservationBillInformationPanel.getBillDetailPanel().setRewardPointsPanel();
         }
-        Global.panelSwitch(Global.textReservationBillInformation);
         
+        Global.panelSwitch(Global.textReservationBillInformation);
     }//GEN-LAST:event_continueButtonActionPerformed
+    
     private int rowNumber = 4;
     private ArrayList<ReservationSinglePassengerPanel> reservationPassengerPanelList;
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,7 @@
  */
 package java_air.panel.reservation;
 
+import java_air.main.Customer;
 import java_air.main.Global;
 
 /**
@@ -22,7 +23,22 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         
     }
     public void setRewardPointsPanel(){
+        this.currentPointsLabel.setText(
+                String.valueOf(Global.currentCustomer.getCurrentRewardPoints()));
         rewardPointsPanel.setVisible(true);
+    }
+    
+    public void loadCustomerAddress(){
+        Customer c = Global.currentCustomer;
+        this.firstNameText.setText(c.getFirstName());
+        this.billFirstNameText.setText(c.getFirstName());
+        this.lastNameText.setText(c.getLastName());
+        this.billLastNameText1.setText(c.getLastName());
+        this.billAddressText.setText(c.getPhysicalAddress());
+        this.billCityText.setText(c.getAddressCity());
+        this.billStateText.setText(c.getAddressState());
+        this.billZipText.setText(c.getAddressZipCode());
+        this.billCountryText.setText("USA");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,25 +70,25 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         cvcText = new javax.swing.JTextField();
         billAddressPanel = new javax.swing.JPanel();
         paymentMethodTitleLabel1 = new java.awt.Label();
-        firstNameLabel1 = new javax.swing.JLabel();
-        firstNameText1 = new javax.swing.JTextField();
-        lastNameLabel1 = new javax.swing.JLabel();
-        lastNameText1 = new javax.swing.JTextField();
-        firstNameLabel2 = new javax.swing.JLabel();
-        firstNameText2 = new javax.swing.JTextField();
-        firstNameLabel3 = new javax.swing.JLabel();
-        firstNameText3 = new javax.swing.JTextField();
-        firstNameLabel4 = new javax.swing.JLabel();
-        firstNameText4 = new javax.swing.JTextField();
-        firstNameLabel5 = new javax.swing.JLabel();
-        firstNameText5 = new javax.swing.JTextField();
-        firstNameLabel6 = new javax.swing.JLabel();
-        firstNameText6 = new javax.swing.JTextField();
+        billFirstNameLabel = new javax.swing.JLabel();
+        billCityText = new javax.swing.JTextField();
+        billLastNameLabel = new javax.swing.JLabel();
+        billLastNameText1 = new javax.swing.JTextField();
+        billAddressLabel = new javax.swing.JLabel();
+        billAddressText = new javax.swing.JTextField();
+        billStateLabel = new javax.swing.JLabel();
+        billFirstNameText = new javax.swing.JTextField();
+        billCityLabel = new javax.swing.JLabel();
+        billStateText = new javax.swing.JTextField();
+        billZipLabel = new javax.swing.JLabel();
+        billZipText = new javax.swing.JTextField();
+        billCountryLabel = new javax.swing.JLabel();
+        billCountryText = new javax.swing.JTextField();
         rewardPointsPanel = new javax.swing.JPanel();
         label1 = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        currentPointsLabel = new javax.swing.JLabel();
         useAllPointBox = new javax.swing.JCheckBox();
         useSomePointBox = new javax.swing.JCheckBox();
         rewardPointUseText = new javax.swing.JTextField();
@@ -205,74 +221,74 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         paymentMethodTitleLabel1.setForeground(new java.awt.Color(255, 255, 255));
         paymentMethodTitleLabel1.setText("Billing Address");
 
-        firstNameLabel1.setFont(Global.normalFont);
-        firstNameLabel1.setText("First name");
+        billFirstNameLabel.setFont(Global.normalFont);
+        billFirstNameLabel.setText("First name");
 
-        firstNameText1.setFont(Global.normalFont);
-        firstNameText1.addActionListener(new java.awt.event.ActionListener() {
+        billCityText.setFont(Global.normalFont);
+        billCityText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText1ActionPerformed(evt);
+                billCityTextActionPerformed(evt);
             }
         });
 
-        lastNameLabel1.setFont(Global.normalFont);
-        lastNameLabel1.setText("Last name");
+        billLastNameLabel.setFont(Global.normalFont);
+        billLastNameLabel.setText("Last name");
 
-        lastNameText1.setFont(Global.normalFont);
-        lastNameText1.addActionListener(new java.awt.event.ActionListener() {
+        billLastNameText1.setFont(Global.normalFont);
+        billLastNameText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameText1ActionPerformed(evt);
+                billLastNameText1ActionPerformed(evt);
             }
         });
 
-        firstNameLabel2.setFont(Global.normalFont);
-        firstNameLabel2.setText("Street address");
+        billAddressLabel.setFont(Global.normalFont);
+        billAddressLabel.setText("Street address");
 
-        firstNameText2.setFont(Global.normalFont);
-        firstNameText2.addActionListener(new java.awt.event.ActionListener() {
+        billAddressText.setFont(Global.normalFont);
+        billAddressText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText2ActionPerformed(evt);
+                billAddressTextActionPerformed(evt);
             }
         });
 
-        firstNameLabel3.setFont(Global.normalFont);
-        firstNameLabel3.setText("State/Province");
+        billStateLabel.setFont(Global.normalFont);
+        billStateLabel.setText("State/Province");
 
-        firstNameText3.setFont(Global.normalFont);
-        firstNameText3.addActionListener(new java.awt.event.ActionListener() {
+        billFirstNameText.setFont(Global.normalFont);
+        billFirstNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText3ActionPerformed(evt);
+                billFirstNameTextActionPerformed(evt);
             }
         });
 
-        firstNameLabel4.setFont(Global.normalFont);
-        firstNameLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        firstNameLabel4.setText("City");
+        billCityLabel.setFont(Global.normalFont);
+        billCityLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        billCityLabel.setText("City");
 
-        firstNameText4.setFont(Global.normalFont);
-        firstNameText4.addActionListener(new java.awt.event.ActionListener() {
+        billStateText.setFont(Global.normalFont);
+        billStateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText4ActionPerformed(evt);
+                billStateTextActionPerformed(evt);
             }
         });
 
-        firstNameLabel5.setFont(Global.normalFont);
-        firstNameLabel5.setText("Postal Code");
+        billZipLabel.setFont(Global.normalFont);
+        billZipLabel.setText("Postal Code");
 
-        firstNameText5.setFont(Global.normalFont);
-        firstNameText5.addActionListener(new java.awt.event.ActionListener() {
+        billZipText.setFont(Global.normalFont);
+        billZipText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText5ActionPerformed(evt);
+                billZipTextActionPerformed(evt);
             }
         });
 
-        firstNameLabel6.setFont(Global.normalFont);
-        firstNameLabel6.setText("Country");
+        billCountryLabel.setFont(Global.normalFont);
+        billCountryLabel.setText("Country");
 
-        firstNameText6.setFont(Global.normalFont);
-        firstNameText6.addActionListener(new java.awt.event.ActionListener() {
+        billCountryText.setFont(Global.normalFont);
+        billCountryText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameText6ActionPerformed(evt);
+                billCountryTextActionPerformed(evt);
             }
         });
 
@@ -286,35 +302,35 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                 .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(billAddressPanelLayout.createSequentialGroup()
                         .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(billAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(billFirstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(billAddressPanelLayout.createSequentialGroup()
-                                .addComponent(firstNameText3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(billFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49)
-                                .addComponent(lastNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(billLastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(firstNameText2, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(billLastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(billAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(billAddressPanelLayout.createSequentialGroup()
                         .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billAddressPanelLayout.createSequentialGroup()
-                                .addComponent(firstNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(billCountryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(firstNameText6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(billCountryText, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billAddressPanelLayout.createSequentialGroup()
-                                .addComponent(firstNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(billCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(firstNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(billCityText, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(53, 53, 53)
                         .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(billStateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(billZipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameText5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(firstNameText4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(billZipText, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(billStateText, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         billAddressPanelLayout.setVerticalGroup(
@@ -323,26 +339,26 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                 .addComponent(paymentMethodTitleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameLabel1)
-                    .addComponent(lastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(billFirstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billLastNameLabel)
+                    .addComponent(billLastNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(billAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(billStateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billCityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billCityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billStateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(billAddressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(firstNameText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(billCountryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billCountryText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billZipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billZipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -359,10 +375,10 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Would you like to redeem?");
 
-        jLabel3.setFont(Global.normalFont);
-        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("1354134");
+        currentPointsLabel.setFont(Global.normalFont);
+        currentPointsLabel.setForeground(new java.awt.Color(0, 102, 204));
+        currentPointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        currentPointsLabel.setText("1354134");
 
         useAllPointBox.setFont(Global.normalFont);
         useAllPointBox.setText("Yes, I will use all points");
@@ -403,7 +419,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
             rewardPointsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(currentPointsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(rewardPointsPanelLayout.createSequentialGroup()
                 .addContainerGap()
@@ -426,7 +442,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jLabel3)
+                .addComponent(currentPointsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
@@ -501,33 +517,33 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextActionPerformed
 
-    private void firstNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText1ActionPerformed
+    private void billCityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billCityTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText1ActionPerformed
+    }//GEN-LAST:event_billCityTextActionPerformed
 
-    private void lastNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameText1ActionPerformed
+    private void billLastNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billLastNameText1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameText1ActionPerformed
+    }//GEN-LAST:event_billLastNameText1ActionPerformed
 
-    private void firstNameText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText2ActionPerformed
+    private void billAddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billAddressTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText2ActionPerformed
+    }//GEN-LAST:event_billAddressTextActionPerformed
 
-    private void firstNameText3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText3ActionPerformed
+    private void billFirstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billFirstNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText3ActionPerformed
+    }//GEN-LAST:event_billFirstNameTextActionPerformed
 
-    private void firstNameText4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText4ActionPerformed
+    private void billStateTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billStateTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText4ActionPerformed
+    }//GEN-LAST:event_billStateTextActionPerformed
 
-    private void firstNameText5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText5ActionPerformed
+    private void billZipTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billZipTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText5ActionPerformed
+    }//GEN-LAST:event_billZipTextActionPerformed
 
-    private void firstNameText6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameText6ActionPerformed
+    private void billCountryTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billCountryTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameText6ActionPerformed
+    }//GEN-LAST:event_billCountryTextActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -567,46 +583,49 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         useSomePointBox.setSelected(false);
         rewardPointUseText.setVisible(false);
     }//GEN-LAST:event_useAllPointBoxActionPerformed
+    
+    
+    
     //private javax.swing.DefaultComboBoxModel monthList
     //        = new javax.swing.DefaultComboBoxModel<>(
     //                new String[] { "1","2","3","4","5","6","7","8","9","10","11","12" });
     private int rewardPointUse;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel billAddressLabel;
     private javax.swing.JPanel billAddressPanel;
+    private javax.swing.JTextField billAddressText;
+    private javax.swing.JLabel billCityLabel;
+    private javax.swing.JTextField billCityText;
+    private javax.swing.JLabel billCountryLabel;
+    private javax.swing.JTextField billCountryText;
+    private javax.swing.JLabel billFirstNameLabel;
+    private javax.swing.JTextField billFirstNameText;
+    private javax.swing.JLabel billLastNameLabel;
+    private javax.swing.JTextField billLastNameText1;
+    private javax.swing.JLabel billStateLabel;
+    private javax.swing.JTextField billStateText;
+    private javax.swing.JLabel billZipLabel;
+    private javax.swing.JTextField billZipText;
     private javax.swing.JLabel cardNumberLabel;
     private javax.swing.JTextField cardNumberText;
     private javax.swing.JLabel confirmLabel;
     private javax.swing.JLabel connectLabel1;
     private javax.swing.JLabel connectLabel2;
+    private javax.swing.JLabel currentPointsLabel;
     private javax.swing.JLabel cvcLabel;
     private javax.swing.JTextField cvcText;
     private javax.swing.JLabel expireDateLabel;
     private javax.swing.JTextField expireMonthText;
     private javax.swing.JTextField expireYearText;
     private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JLabel firstNameLabel1;
-    private javax.swing.JLabel firstNameLabel2;
-    private javax.swing.JLabel firstNameLabel3;
-    private javax.swing.JLabel firstNameLabel4;
-    private javax.swing.JLabel firstNameLabel5;
-    private javax.swing.JLabel firstNameLabel6;
     private javax.swing.JTextField firstNameText;
-    private javax.swing.JTextField firstNameText1;
-    private javax.swing.JTextField firstNameText2;
-    private javax.swing.JTextField firstNameText3;
-    private javax.swing.JTextField firstNameText4;
-    private javax.swing.JTextField firstNameText5;
-    private javax.swing.JTextField firstNameText6;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label1;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JLabel lastNameLabel1;
     private javax.swing.JTextField lastNameText;
-    private javax.swing.JTextField lastNameText1;
     private javax.swing.JLabel paymentLabel;
     private javax.swing.JPanel paymentMethodPanel;
     private java.awt.Label paymentMethodTitleLabel;

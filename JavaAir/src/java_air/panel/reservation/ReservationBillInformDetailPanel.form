@@ -320,43 +320,43 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="firstNameLabel2" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                              <Component id="firstNameLabel1" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="billAddressLabel" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="billFirstNameLabel" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="firstNameText3" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <Component id="billFirstNameText" min="-2" pref="107" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="lastNameLabel1" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="billLastNameLabel" min="-2" pref="94" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lastNameText1" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Component id="billLastNameText1" min="-2" pref="112" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="firstNameText2" min="-2" pref="423" max="-2" attributes="0"/>
+                              <Component id="billAddressText" min="-2" pref="423" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="firstNameLabel6" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="billCountryLabel" min="-2" pref="63" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="firstNameText6" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="billCountryText" min="-2" pref="63" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="firstNameLabel4" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="billCityLabel" min="-2" pref="29" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="firstNameText1" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="billCityText" min="-2" pref="63" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="firstNameLabel3" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                              <Component id="firstNameLabel5" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                              <Component id="billStateLabel" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="billZipLabel" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="firstNameText5" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="firstNameText4" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="billZipText" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="billStateText" min="-2" pref="63" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -370,29 +370,29 @@
                   <Component id="paymentMethodTitleLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="firstNameLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="lastNameLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lastNameText1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="firstNameText3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billFirstNameLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billLastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billLastNameText1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billFirstNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="firstNameLabel2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="firstNameText2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billAddressLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billAddressText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="firstNameLabel3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="firstNameText1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="firstNameLabel4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="firstNameText4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billStateLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billCityText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billCityLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billStateText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="firstNameLabel6" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="firstNameText6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="firstNameLabel5" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="firstNameText5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billCountryLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billCountryText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="billZipLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="billZipText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -414,7 +414,7 @@
             <Property name="text" type="java.lang.String" value="Billing Address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel1">
+        <Component class="javax.swing.JLabel" name="billFirstNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -422,17 +422,17 @@
             <Property name="text" type="java.lang.String" value="First name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText1">
+        <Component class="javax.swing.JTextField" name="billCityText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billCityTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lastNameLabel1">
+        <Component class="javax.swing.JLabel" name="billLastNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -440,17 +440,17 @@
             <Property name="text" type="java.lang.String" value="Last name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lastNameText1">
+        <Component class="javax.swing.JTextField" name="billLastNameText1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameText1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billLastNameText1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel2">
+        <Component class="javax.swing.JLabel" name="billAddressLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -458,17 +458,17 @@
             <Property name="text" type="java.lang.String" value="Street address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText2">
+        <Component class="javax.swing.JTextField" name="billAddressText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billAddressTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel3">
+        <Component class="javax.swing.JLabel" name="billStateLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -476,17 +476,17 @@
             <Property name="text" type="java.lang.String" value="State/Province"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText3">
+        <Component class="javax.swing.JTextField" name="billFirstNameText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billFirstNameTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel4">
+        <Component class="javax.swing.JLabel" name="billCityLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -495,17 +495,17 @@
             <Property name="text" type="java.lang.String" value="City"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText4">
+        <Component class="javax.swing.JTextField" name="billStateText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billStateTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel5">
+        <Component class="javax.swing.JLabel" name="billZipLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -513,17 +513,17 @@
             <Property name="text" type="java.lang.String" value="Postal Code"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText5">
+        <Component class="javax.swing.JTextField" name="billZipText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billZipTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameLabel6">
+        <Component class="javax.swing.JLabel" name="billCountryLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
@@ -531,14 +531,14 @@
             <Property name="text" type="java.lang.String" value="Country"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="firstNameText6">
+        <Component class="javax.swing.JTextField" name="billCountryText">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameText6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="billCountryTextActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -550,7 +550,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="label1" max="32767" attributes="0"/>
               <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+              <Component id="currentPointsLabel" alignment="0" max="32767" attributes="0"/>
               <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -578,7 +578,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="currentPointsLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -627,7 +627,7 @@
             <Property name="text" type="java.lang.String" value="Would you like to redeem?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="currentPointsLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="Global.normalFont" type="code"/>
