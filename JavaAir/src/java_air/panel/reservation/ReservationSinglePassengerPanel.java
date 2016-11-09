@@ -252,7 +252,8 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     }
     
     public String getGender(){
-        return genderInformation;
+        return(femaleRadioButton.isSelected() ? "Female" : "Male");
+        //return genderInformation;
     }
     
     public String getFirstName(){
@@ -286,6 +287,17 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         new TextPrompt("Email address", emailText);
         new TextPrompt("Know Traveler Number/PASS ID", passIDText);
     }
+    
+    public boolean hasEmptyFields(){
+        return(firstNameText.getText().isEmpty()
+                || lastNameText.getText().isEmpty()
+                || monthText.getText().isEmpty()
+                || dayText.getText().isEmpty()
+                || yearText.getText().isEmpty()
+                || mobileNumberText.getText().isEmpty()
+                || emailText.getText().isEmpty()
+                || passIDText.getText().isEmpty());
+    }//end hasEmptyFields()
     
     public void loadCurrentCustomerInfo(){
         if(Global.currentCustomer != null){

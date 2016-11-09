@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_air.main.Global;
 import java_air.main.Passenger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -32,6 +33,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         validate();
         this.setPreferredSize(d);
     }
+    
     public void travelerLabelSet(){
         rowNumber = Global.currentReservation.getNumberOfPassenger();
         reservationPassengerPanelList = new ArrayList<ReservationSinglePassengerPanel>();
@@ -163,10 +165,21 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     public JPanel getContentPanel(){
         return contentPanel;
     }
+    
+    
     private void storePassengerInfomation() throws Exception{
         ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
         for(ReservationSinglePassengerPanel reservPassengerPanel : reservationPassengerPanelList) {
             //System.out.println(reservationPassengerPanelList.size());
+            
+            if(reservPassengerPanel.hasEmptyFields()){
+                JOptionPane.showMessageDialog(null
+                        , "Please Fill In All Missing Information"
+                        , "Missing Info Error"
+                        , JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
             Passenger passenger = null;
             try {
                 passenger = new Passenger(reservPassengerPanel.getFirstName(),
@@ -176,7 +189,12 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                                                     reservPassengerPanel.getPassID(),
                                                     reservPassengerPanel.getPhoneNumber());
             } catch (Exception ex) {
-                Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null
+                        , ex.getMessage()
+                        , "Passenger Info Error"
+                        , JOptionPane.ERROR_MESSAGE);
+                return;
             }
             passengerList.add(passenger);
         }
@@ -187,11 +205,11 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         try {
-            // TODO add your handling code here:
             storePassengerInfomation();
         } catch (Exception ex) {
             Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         // if there is user login, set up rewardPointsPanel.
         if(Global.currentCustomer != null){
             ReservationBillInformationPanel reservationBillInformationPanel =
