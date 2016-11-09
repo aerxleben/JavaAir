@@ -38,6 +38,7 @@ public class Flight{
     private float flightDuration;
     private FlightStatus flightStatus;
     private int totalCheckedBags;
+    private double flightCost;
     
     private final SimpleDateFormat sdf = 
             new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -137,6 +138,11 @@ public class Flight{
 
     public void setTripMileage(int tripMileage) {
         this.tripMileage = tripMileage;
+        this.flightCost = tripMileage * 0.24;
+    }
+    
+    public double getFlightCost(){
+        return this.flightCost;
     }
 
     public float getFlightDuration() {

@@ -47,7 +47,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         setDestination(flight.getDestinationAirport());
         setDepartureTime(flight.getScheduledDeparture());
         setArrivalTime(flight.getScheduledArrival());
-        setFlightPrice(Double.toString(flight.getTripMileage()*0.24)); //$0.27 per mile; change later
+        setFlightPrice(Double.toString(flight.getFlightCost()));
         setFlightDuration(Float.toString(flight.getFlightDuration()));
     }
     

@@ -340,7 +340,8 @@ public class Reservation {
                     "'" + r.getFlightOriginDatePrint() + "', " +
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
-                    (idList.size() > 2 ? idList.get(2) : 0) + ", 0, " +
+                    (idList.size() > 2 ? idList.get(2) : 0) + ", " + 
+                    r.getOriginFlight().getFlightCost() + "', " +
                     r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
                     r.getPaymentCardNumber() + "'";
             
@@ -359,7 +360,8 @@ public class Reservation {
                     "'" + r.getFlightReturnDatePrint() + "', " +
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
-                    (idList.size() > 2 ? idList.get(2) : 0) + ", 0, " +
+                    (idList.size() > 2 ? idList.get(2) : 0) + ", " +
+                    r.getReturnFlight().getFlightCost() + "', " +
                     r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
                     r.getPaymentCardNumber() + "'";
                 
