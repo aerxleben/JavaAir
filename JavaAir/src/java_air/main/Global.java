@@ -85,10 +85,10 @@ public class Global {
             cl.show(Global.cardsPanel, targetPanel); 
     }
     
-    public static int maxRewards = 60000;
-    public static int bronzeRewards = 5000;
-    public static int silverRewards = 15000;
-    public static int goldRewards = 30000;
-    public static int platinumRewards = 50000;
+    public static int maxRewards = 100000000;
+    public static int bronzeRewards = 100000;
+    public static int silverRewards = 600000;
+    public static int goldRewards = 1800000;
+    public static int platinumRewards = 5000000;
 
 }

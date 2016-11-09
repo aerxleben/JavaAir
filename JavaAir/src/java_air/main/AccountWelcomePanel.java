@@ -169,6 +169,8 @@ public class AccountWelcomePanel extends JPanel{
     }
     
     public void rewardsButtonPressed(){
+        this.aRewardsPanel.loadRewards();
+        
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Rewards");
     }//end rewardsButtonPressed()

@@ -16,7 +16,7 @@ import java.awt.event.*;
 import java.util.*;
 
 public class RewardsPanel extends JPanel{
-
+        private JLabel pointsLabel;
         private JSlider rewardsSlider;
 //        private Dictionary sliderLabels;
     
@@ -35,10 +35,10 @@ public class RewardsPanel extends JPanel{
             Color fontColor = new Color(0,35,102);
             
             Hashtable<Integer, javax.swing.JComponent> rewardsLabels = new Hashtable<Integer, javax.swing.JComponent>();
-            rewardsLabels.put(Global.bronzeRewards, new JLabel("Bronze"));
-            rewardsLabels.put(Global.silverRewards, new JLabel("Silver"));
-            rewardsLabels.put(Global.goldRewards, new JLabel("Gold"));
             rewardsLabels.put(Global.platinumRewards, new JLabel("Platinum"));
+            rewardsLabels.put(Global.goldRewards, new JLabel("Gold"));
+            rewardsLabels.put(Global.silverRewards, new JLabel("Silver"));
+            rewardsLabels.put(Global.bronzeRewards, new JLabel("Bronze"));
             
             JLabel messageLabel = new JLabel("Your Rewards!");
             messageLabel.setFont(new Font("Times", Font.PLAIN, 36));
@@ -55,7 +55,7 @@ public class RewardsPanel extends JPanel{
             layout.setConstraints(messageLabel, constraints);
             add(messageLabel);
             
-            JLabel pointsLabel = new JLabel("You have 40,000 AirBeans!");
+            pointsLabel = new JLabel("You Have 40,000 AirBeans!");
             pointsLabel.setFont(new Font("Times", Font.PLAIN, 36));
             pointsLabel.setForeground(fontColor);
             pointsLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -71,15 +71,15 @@ public class RewardsPanel extends JPanel{
             add(pointsLabel);
             
             rewardsSlider = new JSlider(JSlider.VERTICAL);
-            rewardsSlider.setMaximum(Global.maxRewards);
+            rewardsSlider.setMaximum(Global.platinumRewards);
             rewardsSlider.setBackground(new Color(255,255,255,0));
             rewardsSlider.setOpaque(false);
             rewardsSlider.setMinimum(0);
-            rewardsSlider.setMajorTickSpacing(5000);
+            rewardsSlider.setMajorTickSpacing(100000);
             rewardsSlider.setPaintTicks(true);
             rewardsSlider.setLabelTable(rewardsLabels);
             rewardsSlider.setPaintLabels(true);
-            rewardsSlider.setValue(40000);
+            rewardsSlider.setValue(400000);
 //            rewardsSlider.setSize(100,100);
 //            rewardsSlider.setEnabled(false);
             constraints.gridx = 1;
@@ -95,12 +95,11 @@ public class RewardsPanel extends JPanel{
             layout.setConstraints(rewardsSlider, constraints);
             add(rewardsSlider);
             
-            
-            String bronzeText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
-                    + "about the Brozne Level rewards program");
-            JLabel bronzeLabel = new JLabel (bronzeText);
-            bronzeLabel.setFont(Global.normalFont);
-            bronzeLabel.setOpaque(false);
+            String platinumText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Platinum Level Will Get You: "
+                    + "You Get To Fly The Plane!");
+            JLabel platinumLabel = new JLabel (platinumText);
+            platinumLabel.setFont(Global.normalFont);
+            platinumLabel.setOpaque(false);
             constraints.gridx = 2;
             constraints.gridy = 1;
             constraints.gridwidth = 1;
@@ -109,32 +108,16 @@ public class RewardsPanel extends JPanel{
            // constraints.insets = new Insets(12, 12, 3, 3);
             constraints.weightx = 10;
             constraints.weighty = 10;
-            layout.setConstraints(bronzeLabel, constraints);
-            add(bronzeLabel);
+            layout.setConstraints(platinumLabel, constraints);
+            add(platinumLabel);
             
-            String silverText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
-                    + "about the Silver Level rewards program");
-            JLabel silverLabel = new JLabel (silverText);
-            silverLabel.setFont(Global.normalFont);
-            silverLabel.setOpaque(false);
-            constraints.gridx = 2;
-            constraints.gridy = 2;
-            constraints.gridwidth = 1;
-            constraints.gridheight = 1;
-            constraints.fill = GridBagConstraints.NONE;
-           // constraints.insets = new Insets(12, 12, 3, 3);
-            constraints.weightx = 10;
-            constraints.weighty = 10;
-            layout.setConstraints(silverLabel, constraints);
-            add(silverLabel);
-            
-            String goldText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
-                    + "about the Gold Level rewards program");
+            String goldText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Gold Level Will Get You: "
+                    + "Unlimited Snacks and Priority Use Of Plane Bathrooms!");
             JLabel goldLabel = new JLabel (goldText);
             goldLabel.setFont(Global.normalFont);
             goldLabel.setOpaque(false);
             constraints.gridx = 2;
-            constraints.gridy = 3;
+            constraints.gridy = 2;
             constraints.gridwidth = 1;
             constraints.gridheight = 1;
             constraints.fill = GridBagConstraints.NONE;
@@ -144,11 +127,27 @@ public class RewardsPanel extends JPanel{
             layout.setConstraints(goldLabel, constraints);
             add(goldLabel);
             
-            String platinumText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Here is some information"
-                    + "about the Platinum Level rewards program");
-            JLabel platinumLabel = new JLabel (platinumText);
-            platinumLabel.setFont(Global.normalFont);
-            platinumLabel.setOpaque(false);
+            String silverText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Silver Level Will Get You: "
+                    + "Free Use Of Java Air Lounge! (Food and Drink Are Not Free)");
+            JLabel silverLabel = new JLabel (silverText);
+            silverLabel.setFont(Global.normalFont);
+            silverLabel.setOpaque(false);
+            constraints.gridx = 2;
+            constraints.gridy = 3;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+           // constraints.insets = new Insets(12, 12, 3, 3);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(silverLabel, constraints);
+            add(silverLabel);
+            
+            String bronzeText = String.format("<html><div WIDTH=%d>%s</div><html>", 400, "Brozne Level Will Get You: "
+                    + "Priority Boarding! Wait In Queue Faster!");
+            JLabel bronzeLabel = new JLabel (bronzeText);
+            bronzeLabel.setFont(Global.normalFont);
+            bronzeLabel.setOpaque(false);
             constraints.gridx = 2;
             constraints.gridy = 4;
             constraints.gridwidth = 1;
@@ -157,10 +156,28 @@ public class RewardsPanel extends JPanel{
            // constraints.insets = new Insets(12, 12, 3, 3);
             constraints.weightx = 10;
             constraints.weighty = 10;
-            layout.setConstraints(platinumLabel, constraints);
-            add(platinumLabel);
-                    
-           
+            layout.setConstraints(bronzeLabel, constraints);
+            add(bronzeLabel);
+
 	}//end constructor 
+        
+        
+        public void loadRewards(){
+            //check to make sure logged in
+            if(Global.currentCustomer == null){
+                JOptionPane.showMessageDialog(null
+                    , "No Currently Logged In Customer"
+                    , "Must Be Logged In"
+                    , JOptionPane.WARNING_MESSAGE);
+                Global.switchCard(Global.textLogin);
+            }//end if
+            
+            this.pointsLabel.setText("You Have " 
+                    + Global.currentCustomer.getCurrentRewardPoints() 
+                    + " Air Beans!");
+            
+            this.rewardsSlider.setValue(Global.currentCustomer.getTotalRewardPoints());
+            this.rewardsSlider.setEnabled(false);
+        }//end loadRewards()
         
 }//end class
