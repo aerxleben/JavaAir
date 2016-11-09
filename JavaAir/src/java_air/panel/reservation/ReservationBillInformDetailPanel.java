@@ -7,6 +7,7 @@ package java_air.panel.reservation;
 
 import java_air.main.Customer;
 import java_air.main.Global;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,7 +50,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        paymentContinueButton = new javax.swing.JButton();
         travelerLabel = new javax.swing.JLabel();
         paymentLabel = new javax.swing.JLabel();
         confirmLabel = new javax.swing.JLabel();
@@ -96,12 +97,12 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
 
         setBackground(Global.transparentColor);
 
-        jButton1.setBackground(new java.awt.Color(204, 153, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton1.setText("Continue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        paymentContinueButton.setBackground(new java.awt.Color(204, 153, 0));
+        paymentContinueButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        paymentContinueButton.setText("Continue");
+        paymentContinueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                paymentContinueButtonActionPerformed(evt);
             }
         });
 
@@ -471,7 +472,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1))
+                                .addComponent(paymentContinueButton))
                             .addComponent(rewardPointsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(travelerLabel)
@@ -504,7 +505,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rewardPointsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(paymentContinueButton)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -545,21 +546,62 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_billCountryTextActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void paymentContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentContinueButtonActionPerformed
         setPaymentInfor2Reservation();
+        
+        //apply points
+        try{
+            double pointsRequiredToPayForFlight 
+                    = Global.currentReservation.getPriceCaluator().getFareValue() 
+                    * Global.currentReservation.getPriceCaluator().getRate();
+            
+            double rewardUsed = 0.0;
+            if(this.useAllPointBox.isSelected() 
+                    && !this.useSomePointBox.isSelected()){
+                rewardUsed = 
+                        Global.currentCustomer.getCurrentRewardPoints()
+                        > pointsRequiredToPayForFlight ? pointsRequiredToPayForFlight
+                        : Global.currentCustomer.getCurrentRewardPoints();
+            }//end if
+            else if(!this.useAllPointBox.isSelected()
+                    && this.useSomePointBox.isSelected()){
+                if(Integer.parseInt(this.rewardPointUseText.getText())
+                        > Global.currentCustomer.getCurrentRewardPoints()){
+                    throw new Exception("AirBeans Amount You Entered Are More Than You Have");
+                }
+
+                rewardUsed = 
+                        Double.parseDouble(this.rewardPointUseText.getText());
+            }//end elseif
+            
+            Global.currentReservation.getPriceCaluator().setRewardPointUse(
+                    new Double(rewardUsed).intValue());
+        }//end try
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , x.getMessage()
+                    , "AirBeans Error"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }//end try-catch
+        
         ReservationConfirmationPanel reservationConfirmationPanel
                 = (ReservationConfirmationPanel) Global.jPanelMap.get(Global.textReservationConfirmation);
+        
         reservationConfirmationPanel.getReservationConfirmDetailPanel().setFlightInformation();
         
         reservationConfirmationPanel.getReservationConfirmDetailPanel().setPaymentInformation();
+        
+        reservationConfirmationPanel.getReservationConfirmDetailPanel().setPassengerLabels();
+        
         Global.panelSwitch(Global.textReservationConfirmation);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_paymentContinueButtonActionPerformed
     private void setPaymentInfor2Reservation(){
         Global.currentReservation.setPaymentFirstName(firstNameText.getText());
         Global.currentReservation.setPaymentLastName(lastNameText.getText());
         Global.currentReservation.setPaymentCardNumber(cardNumberText.getText());
     }
+    
     private void useSomePointBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useSomePointBoxActionPerformed
         useAllPointBox.setSelected(false);
         rewardPointUseText.setVisible(true);
@@ -619,13 +661,13 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     private javax.swing.JTextField expireYearText;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
+    private javax.swing.JButton paymentContinueButton;
     private javax.swing.JLabel paymentLabel;
     private javax.swing.JPanel paymentMethodPanel;
     private java.awt.Label paymentMethodTitleLabel;

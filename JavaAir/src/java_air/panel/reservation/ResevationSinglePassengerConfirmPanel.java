@@ -6,6 +6,7 @@
 package java_air.panel.reservation;
 
 import java.awt.Font;
+import java_air.main.Passenger;
 
 /**
  *
@@ -16,8 +17,16 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
     /**
      * Creates new form ResevationSinglePassengerConfirmPanel
      */
-    public ResevationSinglePassengerConfirmPanel() {
+    public ResevationSinglePassengerConfirmPanel(Passenger p) {
         initComponents();
+        
+        this.labelFirstNameContent.setText(p.getFirstName());
+        this.labelLastNameContent.setText(p.getLastName());
+        this.labelDobContent.setText(p.getDateOfBirth());
+        this.labelEmailContent.setText(p.getFirstName()+p.getLastName()+"@javaair.com");
+        this.labelPhoneContent.setText(p.getPhone());
+        this.labelGender.setText(p.getGender());
+        this.labelPassportIdContent.setText(p.getPassID());
     }
 
     /**
@@ -29,60 +38,60 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        firstNameInforLabel = new javax.swing.JLabel();
-        lastNameInforLabel1 = new javax.swing.JLabel();
-        dateBirthInforLabel = new javax.swing.JLabel();
-        genderInforLabel = new javax.swing.JLabel();
-        mobileNumberInforLabel = new javax.swing.JLabel();
-        passIDInforLabel = new javax.swing.JLabel();
-        passIDLabel1 = new javax.swing.JLabel();
+        labelFirstNameContent = new javax.swing.JLabel();
+        labelLastNameContent = new javax.swing.JLabel();
+        labelDobContent = new javax.swing.JLabel();
+        labelGender = new javax.swing.JLabel();
+        labelPhoneContent = new javax.swing.JLabel();
+        labelPassportIdContent = new javax.swing.JLabel();
+        labelPassportId = new javax.swing.JLabel();
         mobileNumberLabel = new javax.swing.JLabel();
-        mobileNumberLabel1 = new javax.swing.JLabel();
-        mobileNumberLabel2 = new javax.swing.JLabel();
+        labelEmailContent = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        genderInforLabel1 = new javax.swing.JLabel();
-        genderInforLabel2 = new javax.swing.JLabel();
+        labelGenderContent = new javax.swing.JLabel();
+        labelDob = new javax.swing.JLabel();
 
-        firstNameInforLabel.setFont(generalFont);
-        firstNameInforLabel.setText("First name,");
+        labelFirstNameContent.setFont(generalFont);
+        labelFirstNameContent.setText("First Name,");
 
-        lastNameInforLabel1.setFont(generalFont);
-        lastNameInforLabel1.setText("Last name");
+        labelLastNameContent.setFont(generalFont);
+        labelLastNameContent.setText("Last name");
 
-        dateBirthInforLabel.setFont(generalFont);
-        dateBirthInforLabel.setText("09/08/1980");
+        labelDobContent.setFont(generalFont);
+        labelDobContent.setText("09/08/1980");
 
-        genderInforLabel.setFont(generalFont);
-        genderInforLabel.setForeground(new java.awt.Color(102, 102, 102));
-        genderInforLabel.setText("Gender:");
+        labelGender.setFont(generalFont);
+        labelGender.setForeground(new java.awt.Color(102, 102, 102));
+        labelGender.setText("Gender:");
 
-        mobileNumberInforLabel.setFont(generalFont);
-        mobileNumberInforLabel.setText("219-548-6814");
+        labelPhoneContent.setFont(generalFont);
+        labelPhoneContent.setText("219-548-6814");
 
-        passIDInforLabel.setFont(generalFont);
-        passIDInforLabel.setText("777700757");
+        labelPassportIdContent.setFont(generalFont);
+        labelPassportIdContent.setText("777700757");
 
-        passIDLabel1.setFont(generalFont);
-        passIDLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        passIDLabel1.setText("Pass ID:");
+        labelPassportId.setFont(generalFont);
+        labelPassportId.setForeground(new java.awt.Color(102, 102, 102));
+        labelPassportId.setText("Pass ID:");
 
         mobileNumberLabel.setFont(generalFont);
         mobileNumberLabel.setForeground(new java.awt.Color(102, 102, 102));
-        mobileNumberLabel.setText("Mobile number:");
+        mobileNumberLabel.setText("Mobile Number:");
 
-        mobileNumberLabel1.setFont(generalFont);
-        mobileNumberLabel1.setText("demo@gmail.com");
+        labelEmailContent.setFont(generalFont);
+        labelEmailContent.setText("demo@gmail.com");
 
-        mobileNumberLabel2.setFont(generalFont);
-        mobileNumberLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        mobileNumberLabel2.setText("Email address:");
+        labelEmail.setFont(generalFont);
+        labelEmail.setForeground(new java.awt.Color(102, 102, 102));
+        labelEmail.setText("Email Address:");
 
-        genderInforLabel1.setFont(generalFont);
-        genderInforLabel1.setText("Male");
+        labelGenderContent.setFont(generalFont);
+        labelGenderContent.setText("Male");
 
-        genderInforLabel2.setFont(generalFont);
-        genderInforLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        genderInforLabel2.setText("Date birth:");
+        labelDob.setFont(generalFont);
+        labelDob.setForeground(new java.awt.Color(102, 102, 102));
+        labelDob.setText("Birth Date:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -97,31 +106,31 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(mobileNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mobileNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labelPhoneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(genderInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(genderInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labelGenderContent, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelFirstNameContent, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastNameInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labelLastNameContent, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(passIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelPassportId, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(passIDInforLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(labelPassportIdContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(mobileNumberLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(mobileNumberLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(labelEmailContent, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(genderInforLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelDob, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(dateBirthInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(labelDobContent, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 104, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -130,23 +139,24 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameInforLabel1)
-                    .addComponent(passIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passIDInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelFirstNameContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelLastNameContent)
+                    .addComponent(labelPassportId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPassportIdContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(genderInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(genderInforLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dateBirthInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(genderInforLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelDobContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDob, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelGenderContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mobileNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mobileNumberInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mobileNumberLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mobileNumberLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelPhoneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmailContent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -154,18 +164,18 @@ public class ResevationSinglePassengerConfirmPanel extends javax.swing.JPanel {
 private Font generalFont = new java.awt.Font("Times", 0, 18);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel dateBirthInforLabel;
-    private javax.swing.JLabel firstNameInforLabel;
-    private javax.swing.JLabel genderInforLabel;
-    private javax.swing.JLabel genderInforLabel1;
-    private javax.swing.JLabel genderInforLabel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lastNameInforLabel1;
-    private javax.swing.JLabel mobileNumberInforLabel;
+    private javax.swing.JLabel labelDob;
+    private javax.swing.JLabel labelDobContent;
+    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelEmailContent;
+    private javax.swing.JLabel labelFirstNameContent;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelGenderContent;
+    private javax.swing.JLabel labelLastNameContent;
+    private javax.swing.JLabel labelPassportId;
+    private javax.swing.JLabel labelPassportIdContent;
+    private javax.swing.JLabel labelPhoneContent;
     private javax.swing.JLabel mobileNumberLabel;
-    private javax.swing.JLabel mobileNumberLabel1;
-    private javax.swing.JLabel mobileNumberLabel2;
-    private javax.swing.JLabel passIDInforLabel;
-    private javax.swing.JLabel passIDLabel1;
     // End of variables declaration//GEN-END:variables
 }

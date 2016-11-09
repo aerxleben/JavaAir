@@ -5,10 +5,6 @@
  */
 package java_air.panel.reservation;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java_air.main.Global;
-
 /**
  *
  * @author Rui Zhang
@@ -22,6 +18,7 @@ public class ReservationConfirmationPanel extends ReservationPanel {
         initComponents();
         //reservationPanel1.getContentPanel().add(new ReservationConfirmDetailPanel(),BorderLayout.CENTER);
     }
+    
     public ReservationConfirmDetailPanel getReservationConfirmDetailPanel(){
         return reservationConfirmDetailPanel;
     }

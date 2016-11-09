@@ -19,8 +19,9 @@ public class PriceCalculator {
     private int rewardPointUse = 0;
     private int rewardRate2Cash = 1000;
     private DecimalFormat decimalFormat = new DecimalFormat(".##");
+    
     public PriceCalculator(){
-        fare = (Global.currentReservation.getOriginFlight().getTripMileage() * 0.27
+        fare = (Global.currentReservation.getOriginFlight().getFlightCost()
                * Global.currentReservation.getNumberOfPassenger());
         taxFee =  (fare*0.1432);
         totalFee = fare + taxFee;
@@ -28,15 +29,27 @@ public class PriceCalculator {
     public String getFare(){
         return ("$" + decimalFormat.format(fare));
     }
+    
+    public double getFareValue(){
+        return this.fare;
+    }
+    
     public String getTaxFee(){
         return ("$" + decimalFormat.format(taxFee));
     }
+    
     public String getTotalFee(){
         return ("$" + decimalFormat.format(totalFee));
     }
+    
     public String getRewardRedeem(){
         return ("$" + this.rewardPointUse/rewardRate2Cash);
     }
+    
+    public int getRate(){
+        return rewardRate2Cash;
+    }
+    
     public void setRewardPointUse(int rewardPointUse){
         this.rewardPointUse = rewardPointUse;
         totalFee -= this.rewardPointUse/rewardRate2Cash;

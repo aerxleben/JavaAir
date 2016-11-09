@@ -226,7 +226,7 @@ public class Reservation {
 
     public void saveReservationToDB(){
         DataClient sqlClient = new DataClient();
-        Reservation r = Global.currentReservation;
+        //Reservation r = Global.currentReservation;
         
         try{
             /*first need to check passengers in DB
@@ -235,7 +235,7 @@ public class Reservation {
             the customerID; store the customerIDs in a list
             */
             ArrayList<Integer> customerIdList = new ArrayList<Integer>();
-            for(Passenger p : r.getPassengerList()){
+            for(Passenger p : this.passengerList){
                 int tempId = getCustomerId(p);
                 
                 if(tempId <= 0){
@@ -257,7 +257,7 @@ public class Reservation {
                 if a partial cash payment is used, calculat points earned
                 and add to customer account
             */
-            insertReservationInfo(r, customerIdList);
+            insertReservationInfo(customerIdList);
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
@@ -321,7 +321,7 @@ public class Reservation {
         return newId;
     }//end savePassengerInfo()
     
-    private void insertReservationInfo(Reservation r, ArrayList<Integer> idList){
+    private void insertReservationInfo(ArrayList<Integer> idList){
         try{
             String queryReservNum = 
                     "SELECT MAX(ReservationNumber)+1 AS NextNumber FROM Reservations";
@@ -335,19 +335,19 @@ public class Reservation {
                     "CardNumber) " +
                     "VALUES " +
                     "(" + reservNum + ", " +
-                    "'" + r.getOriginFlight().getFlightNumber() + "', " +
-                    "'" + r.getFlightOriginDatePrint() + "', " +
-                    "'" + r.getFlightOriginDatePrint() + "', " +
+                    "'" + this.originFlight.getFlightNumber() + "', " +
+                    "'" + this.flightOriginDatePrint + "', " +
+                    "'" + this.flightOriginDatePrint + "', " +
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " + 
-                    r.getOriginFlight().getFlightCost() + "', " +
-                    r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
-                    r.getPaymentCardNumber() + "'";
+                    this.originFlight.getFlightCost() + "', " +
+                    this.amountPaid + ", " + this.pointsRedeemed + ", 0, '" +
+                    this.paymentCardNumber + "'";
             
             new DataClient().dbInsertOrUpdate(queryReserv);
             
-            if(r.isRoundTrip){
+            if(this.isRoundTrip){
                 String queryReserv2 = "INSERT INTO Reservations " +
                     "(ReservationNumber, FlightNumber, DepartDateTime, " +
                     "ArrivalDateTime, Status, CustomerID, CustomerID2, " +
@@ -355,19 +355,18 @@ public class Reservation {
                     "CardNumber) " +
                     "VALUES " +
                     "(" + reservNum + ", " +
-                    "'" + r.getReturnFlight().getFlightNumber() + "', " +
-                    "'" + r.getFlightReturnDatePrint() + "', " +
-                    "'" + r.getFlightReturnDatePrint() + "', " +
+                    "'" + this.returnFlight.getFlightNumber() + "', " +
+                    "'" + this.flightReturnDatePrint + "', " +
+                    "'" + this.flightReturnDatePrint + "', " +
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " +
-                    r.getReturnFlight().getFlightCost() + "', " +
-                    r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
-                    r.getPaymentCardNumber() + "'";
+                    this.returnFlight.getFlightCost() + "', " +
+                    this.amountPaid + ", " + this.pointsRedeemed + ", 0, '" +
+                    this.paymentCardNumber + "'";
                 
                 new DataClient().dbInsertOrUpdate(queryReserv2);
             }//end if
-                    
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null

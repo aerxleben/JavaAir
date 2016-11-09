@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java_air.main.Flight;
 import java_air.main.Global;
+import java_air.main.Passenger;
 
 /**
  *
@@ -23,17 +24,20 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
     public ReservationConfirmDetailPanel() {
         Dimension d = this.getPreferredSize();
         initComponents();
-        travelerLabelSet();
+        //travelerLabelSet();
         validate();
         this.setPreferredSize(d);
-    }
-    public void travelerLabelSet(){
-        for(int i = 0; i < rowNumber; i++){
+    }//end constructor
+    
+    public void setPassengerLabels(){
+        //for(int i = 0; i < Global.currentReservation.getNumberOfPassenger(); i++){
+        for(Passenger p : Global.currentReservation.getPassengerList()){
             ResevationSinglePassengerConfirmPanel reservationSingleConfirmPassenger
-                    = new ResevationSinglePassengerConfirmPanel();
+                    = new ResevationSinglePassengerConfirmPanel(p);
             travelerContentPanel.add(reservationSingleConfirmPassenger);
-        } 
-    }
+        }//end for loop 
+    }//end travelerLabelSet()
+    
     //private Reservation reservation = Global.currentReservation;
     public void setFlightInformation(){
         Reservation reservation = Global.currentReservation;
@@ -54,9 +58,9 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
           returnFlightPassengerLabel.setText(reservation.getNumberOfPassenger() + " traveler");
         }else{
             LabelsShow(false);        
-        }
-        
-    }
+        }//end if-else
+    }//end setFlightInformation()
+    
     private void LabelsShow(Boolean booleanValue) {
            returnFlightAirport.setVisible(booleanValue);
            returnFlightDateLabel.setVisible(booleanValue);
@@ -64,16 +68,19 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
            returnFlightPassengerLabel.setVisible(booleanValue);      
            outBoundLabel.setVisible(booleanValue);  
            returnLabel.setVisible(booleanValue);  
-    }
+    }//end LabelsShow()
+    
     public void setPaymentInformation(){
         Reservation reservation = Global.currentReservation;
         firstNameInforLabel.setText(reservation.getPaymentFirstName());
         lastNameInforLabel1.setText(reservation.getPaymentLastName());
         cardNumberInforLabel.setText(reservation.getPaymentCardNumber());
+        
         PriceCalculator priceCalculator = Global.currentReservation.getPriceCaluator();
         this.fareFeeLabel.setText(priceCalculator.getFare());
         this.taxFeeLabel.setText(priceCalculator.getTaxFee());
         this.totalPriceLabel.setText(priceCalculator.getTotalFee());
+        
         if(Global.currentCustomer != null){
             this.rewardLabel.setVisible(true);
             this.rewardInforLabel.setVisible(true);
@@ -81,8 +88,9 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         }else{
             this.rewardLabel.setVisible(false);
             this.rewardInforLabel.setVisible(false);
-        }
-    }
+        }//end if-else
+    }//end setPaymentInformation()
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
