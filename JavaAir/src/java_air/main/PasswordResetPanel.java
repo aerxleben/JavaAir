@@ -14,22 +14,26 @@ package java_air.main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Properties;
+import java_air.database.DataClient;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
+
 
 public class PasswordResetPanel extends JPanel{
     //private MenuBannerPanel aMenuBannerPanel;
     
     private JTextField emailField;
     private JTextField customerIDField;
-    private JTextField passwordField;
-    private JTextField cPasswordField;
+    private JPasswordField passwordField;
+    private JPasswordField cPasswordField;
     
     private JDatePickerImpl birthdayPicker;
-   
+    private JFormattedTextField birthdayField;
+            
     private JButton resetButton;
     
     private Image background;
@@ -106,7 +110,7 @@ public class PasswordResetPanel extends JPanel{
         layout.setConstraints(emailLabel, constraints);
         add(emailLabel);
       
-        emailField = new JTextField("");
+        emailField = new JTextField();
         //emailField.setFont(new Font("Times", Font.PLAIN, 30));
         emailField.setFont(Global.normalFont);
         emailField.setHorizontalAlignment(JTextField.LEFT);
@@ -138,7 +142,7 @@ public class PasswordResetPanel extends JPanel{
         layout.setConstraints(idLabel, constraints);
         add(idLabel);
       
-        customerIDField = new JTextField("");
+        customerIDField = new JTextField();
         //emailField.setFont(new Font("Times", Font.PLAIN, 30));
         customerIDField.setFont(Global.normalFont);
         customerIDField.setHorizontalAlignment(JTextField.LEFT);
@@ -170,7 +174,7 @@ public class PasswordResetPanel extends JPanel{
         layout.setConstraints(bDayLabel, constraints);
         add(bDayLabel);
       
-        UtilDateModel model = new UtilDateModel();
+        /*UtilDateModel model = new UtilDateModel();
         Calendar now = Calendar.getInstance();
         model.setDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DATE));
         model.setSelected(true);
@@ -179,8 +183,10 @@ public class PasswordResetPanel extends JPanel{
         p.put("text.month", "Month");
         p.put("text.year", "Year");
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-        birthdayPicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());
-        birthdayPicker.setFont(new Font("Times", Font.PLAIN, 30));
+        birthdayPicker = new JDatePickerImpl(datePanel, new DataLabelFormatter());*/
+        birthdayField = new JFormattedTextField(Global.dateFormat);
+        birthdayField.setValue(Calendar.getInstance().getTime());
+        birthdayField.setColumns(10);
         constraints.gridx = 4;
         constraints.gridy = 3;
         constraints.gridwidth = 2;
@@ -189,8 +195,8 @@ public class PasswordResetPanel extends JPanel{
         constraints.insets = new Insets(0,0,0,50);
         constraints.weightx = 10;
         constraints.weighty = 10;
-        layout.setConstraints(birthdayPicker, constraints);
-        add(birthdayPicker);
+        layout.setConstraints(birthdayField, constraints);
+        add(birthdayField);
         
         JLabel passwordLabel = new JLabel("New Password");
         //passwordLabel.setFont(new Font("Times", Font.BOLD, 30));
@@ -208,7 +214,7 @@ public class PasswordResetPanel extends JPanel{
         layout.setConstraints(passwordLabel, constraints);
         add(passwordLabel);
 
-        passwordField = new JTextField("");
+        passwordField = new JPasswordField();
         //passwordField.setFont(new Font("Times", Font.PLAIN, 30));
         passwordField.setFont(Global.normalFont);
         passwordField.setHorizontalAlignment(JLabel.LEFT);
@@ -240,7 +246,7 @@ public class PasswordResetPanel extends JPanel{
         layout.setConstraints(confirmLabel, constraints);
         add(confirmLabel);
 
-        cPasswordField = new JTextField("");
+        cPasswordField = new JPasswordField();
         //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
         cPasswordField.setFont(Global.normalFont);
         cPasswordField.setHorizontalAlignment(JLabel.LEFT);
@@ -257,7 +263,48 @@ public class PasswordResetPanel extends JPanel{
         add(cPasswordField);
         
         resetButton = new JButton("RESET");
-        //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
+        resetButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String message = "Passwords Do Not Match";
+                //check user input
+                PasswordResetPanel parent 
+                        = (PasswordResetPanel)Global.jPanelMap.get(Global.textForgot);
+                if(Arrays.equals(parent.passwordField.getPassword()
+                        , parent.cPasswordField.getPassword())){
+                   String newPassword = new String(parent.passwordField.getPassword());
+                   
+                   if(newPassword.isEmpty()){ newPassword = " "; }
+                   
+                   String email = parent.emailField.getText();
+                   if(email.isEmpty()){ email = " ";}
+                   
+                   String dob = parent.birthdayField.getText();
+                   if(dob.isEmpty()){dob = " ";}
+                   
+                   String cid = parent.customerIDField.getText();
+                   if(cid.isEmpty()){cid = "-99";}
+                   
+                   String query = "UPDATE CUSTOMERS SET PASSWORD = '" + newPassword + "' "
+                           + "WHERE EMAIL = '" + email + "' AND "
+                           + "DOB = '" + dob + "' AND "
+                           + "CUSTOMERID = " + cid;
+                   
+                   try{
+                       DataClient.dbInsertOrUpdate(query);
+                       message = "Password Reset Successfully";
+                   }
+                   catch(Exception x){
+                       message = "No Such Account Found";
+                   }
+                }//end if
+                
+                JOptionPane.showMessageDialog(null
+                        , message
+                        , "Password Reset Message"
+                        , JOptionPane.INFORMATION_MESSAGE);
+            }//end actionPerformed
+        });//end addActionListener
         resetButton.setFont(Global.normalFont);
         resetButton.setHorizontalAlignment(JLabel.LEFT);
         resetButton.setBackground(buttonColor);
@@ -281,4 +328,5 @@ public class PasswordResetPanel extends JPanel{
       g.drawImage(background,0,0,null);
    }
   
+   
 }

@@ -24,7 +24,6 @@ import java.awt.event.*;
 import java.util.*;
 import java.text.*;
 import java_air.panel.reservation.Reservation;
-import org.jdatepicker.impl.*;
 import org.jdesktop.swingx.*;
 
 public class FlightSearchPanel extends JPanel{

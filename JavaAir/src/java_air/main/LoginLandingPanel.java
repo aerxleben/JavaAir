@@ -27,7 +27,8 @@ public class LoginLandingPanel extends JPanel{
     private MenuBannerPanel aMenuBannerPanel;
     
     private JTextField emailField;
-    private JTextField passwordField;
+    //private JTextField passwordField;
+    private JPasswordField passwordField;
     
     private JButton loginButton;
     private JButton forgotPasswordButton;
@@ -136,7 +137,7 @@ public class LoginLandingPanel extends JPanel{
         layout.setConstraints(passwordLabel, constraints);
         add(passwordLabel);
       
-        passwordField = new JTextField("");
+        passwordField = new JPasswordField();
         //passwordField.setFont(new Font("Times", Font.PLAIN, 30));
         passwordField.setFont(Global.titleFont);
         passwordField.setHorizontalAlignment(JTextField.LEFT);
