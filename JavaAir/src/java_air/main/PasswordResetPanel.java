@@ -266,43 +266,7 @@ public class PasswordResetPanel extends JPanel{
         resetButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                String message = "Passwords Do Not Match";
-                //check user input
-                PasswordResetPanel parent 
-                        = (PasswordResetPanel)Global.jPanelMap.get(Global.textForgot);
-                if(Arrays.equals(parent.passwordField.getPassword()
-                        , parent.cPasswordField.getPassword())){
-                   String newPassword = new String(parent.passwordField.getPassword());
-                   
-                   if(newPassword.isEmpty()){ newPassword = " "; }
-                   
-                   String email = parent.emailField.getText();
-                   if(email.isEmpty()){ email = " ";}
-                   
-                   String dob = parent.birthdayField.getText();
-                   if(dob.isEmpty()){dob = " ";}
-                   
-                   String cid = parent.customerIDField.getText();
-                   if(cid.isEmpty()){cid = "-99";}
-                   
-                   String query = "UPDATE CUSTOMERS SET PASSWORD = '" + newPassword + "' "
-                           + "WHERE EMAIL = '" + email + "' AND "
-                           + "DOB = '" + dob + "' AND "
-                           + "CUSTOMERID = " + cid;
-                   
-                   try{
-                       DataClient.dbInsertOrUpdate(query);
-                       message = "Password Reset Successfully";
-                   }
-                   catch(Exception x){
-                       message = "No Such Account Found";
-                   }
-                }//end if
-                
-                JOptionPane.showMessageDialog(null
-                        , message
-                        , "Password Reset Message"
-                        , JOptionPane.INFORMATION_MESSAGE);
+                resetPassword();
             }//end actionPerformed
         });//end addActionListener
         resetButton.setFont(Global.normalFont);
@@ -326,7 +290,45 @@ public class PasswordResetPanel extends JPanel{
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
-   }
+    }
   
-   
-}
+    private void resetPassword(){
+        String message = "Passwords Do Not Match";
+        //check user input
+        PasswordResetPanel parent 
+                = (PasswordResetPanel)Global.jPanelMap.get(Global.textForgot);
+        if(Arrays.equals(parent.passwordField.getPassword()
+                , parent.cPasswordField.getPassword())){
+           String newPassword = new String(parent.passwordField.getPassword());
+
+           if(newPassword.isEmpty()){ newPassword = " "; }
+
+           String email = parent.emailField.getText();
+           if(email.isEmpty()){ email = " ";}
+
+           String dob = parent.birthdayField.getText();
+           if(dob.isEmpty()){dob = " ";}
+
+           String cid = parent.customerIDField.getText();
+           if(cid.isEmpty()){cid = "-99";}
+
+           String query = "UPDATE CUSTOMERS SET PASSWORD = '" + newPassword + "' "
+                   + "WHERE EMAIL = '" + email + "' AND "
+                   + "DOB = '" + dob + "' AND "
+                   + "CUSTOMERID = " + cid;
+
+           try{
+               DataClient.dbInsertOrUpdate(query);
+               message = "Password Reset Successfully";
+           }
+           catch(Exception x){
+               message = "No Such Account Found";
+           }
+        }//end if
+
+        JOptionPane.showMessageDialog(null
+                , message
+                , "Password Reset Message"
+                , JOptionPane.INFORMATION_MESSAGE);
+    }//end resetPassword()
+}//end class PasswordResetPanel

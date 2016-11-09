@@ -37,11 +37,11 @@ public class JavaAirApp implements ActionListener{
         panelMenu.getReservationButton().addActionListener(this);
         //panelMenu.getAccountButton().addActionListener(this);
         panelMenu.getHelpButton().addActionListener(this);
-        panelMenu.getLoginButton().addActionListener(this);
-        
+        //panelMenu.getLoginButton().addActionListener(this);
         panelMenu.getAboutButton().addActionListener(
                 new PanelAboutAction()
         );
+        Global.jPanelMap.put(Global.textMenu, panelMenu);
         
         //Home Panel
         HomePanel panelHome = new HomePanel();

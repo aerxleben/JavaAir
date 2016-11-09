@@ -267,7 +267,6 @@ public class LoginLandingPanel extends JPanel{
     }
     
     public void loginButtonPressed(){
-        
         //validate user inputs
         if(this.emailField.getText() == null
                 && this.passwordField.getText() == null){
@@ -311,7 +310,14 @@ public class LoginLandingPanel extends JPanel{
                     , "Login Error"
                     , JOptionPane.ERROR_MESSAGE);
         }
-    }
+        
+        //with a logged in customer, change Login button text to logout
+        if(Global.currentCustomer != null){
+            MenuBannerPanel menu = 
+                    (MenuBannerPanel)Global.jPanelMap.get(Global.textMenu);
+            menu.getLoginButton().setText("Logout");
+        }//end if
+    }//end loginButtonPressed()
     
     public void forgotPasswordButtonPressed(){
         CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
@@ -329,4 +335,12 @@ public class LoginLandingPanel extends JPanel{
             update();
     
     }*/
+    
+    public void setEmailField(String newEmailInput){
+        this.emailField.setText(newEmailInput);
+    }
+    
+    public void setPasswordField(String newPasswordInput){
+        this.passwordField.setText(newPasswordInput);
+    }
 }
