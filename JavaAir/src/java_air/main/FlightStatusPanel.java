@@ -81,7 +81,7 @@ public class FlightStatusPanel extends javax.swing.JPanel {
         panelInsideScrollPane.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 102)));
         panelInsideScrollPane.setLayout(new java.awt.BorderLayout());
 
-        panelStatus.setLayout(new java.awt.GridLayout());
+        panelStatus.setLayout(new java.awt.GridLayout(3, 1, 0, 2));
         panelInsideScrollPane.add(panelStatus, java.awt.BorderLayout.CENTER);
 
         scrollPaneStatus.setViewportView(panelInsideScrollPane);
