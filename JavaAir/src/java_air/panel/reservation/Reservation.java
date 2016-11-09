@@ -256,6 +256,7 @@ public class Reservation {
             */
             insertReservationInfo(customerIdList);
             updateRewards();
+            JOptionPane.showMessageDialog(null, "Reservation Completed Successfully!");
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
