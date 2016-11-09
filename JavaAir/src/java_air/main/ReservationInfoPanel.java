@@ -102,7 +102,7 @@ public class ReservationInfoPanel extends JPanel{
         layout.setConstraints(departFlightNumberLabel, constraints);
         add(departFlightNumberLabel);
                
-        originLabel = new JLabel("Chicago(MDW) ");
+        originLabel = new JLabel("Chicago");
         originLabel.setFont(Global.normalFont);
         originLabel.setHorizontalAlignment(JLabel.LEFT);
         originLabel.setForeground(buttonColor);
@@ -132,7 +132,7 @@ public class ReservationInfoPanel extends JPanel{
         layout.setConstraints(arrowLabel, constraints);
         add(arrowLabel); 
         
-        destinationLabel = new JLabel("New York(LGA)");
+        destinationLabel = new JLabel("New York");
         destinationLabel.setFont(Global.normalFont);
         destinationLabel.setHorizontalAlignment(JTextField.LEFT);
         destinationLabel.setForeground(buttonColor);

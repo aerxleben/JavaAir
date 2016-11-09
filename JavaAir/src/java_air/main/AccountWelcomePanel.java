@@ -171,23 +171,26 @@ public class AccountWelcomePanel extends JPanel{
     public void rewardsButtonPressed(){
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Rewards");
-    }
+    }//end rewardsButtonPressed()
     
     public void personalInformationButtonPressed(){
+        //load current customer's information
         this.aRegistrationPanel.loadCurrentCustomerInfo();
+        
+        //display panel
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Info");
-    }
+    }//end personalInformationButtonPressed()
     
     public void reservationsButtonPressed(){
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Reservation");
-    }
+    }//end reservationsButtonPressed()
     
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
-   }
+    }
     
     public void setHelloText(String newName){
         this.helloLabel.setText("Hello! " + newName);
