@@ -23,6 +23,7 @@ public class Reservation {
     public static enum PaymentType{ CREDIT, REWARD }
     public static enum ReservationStatus { NORMAL, CANCELLED }
     
+    private int reservationNumber;
     private boolean isRoundTrip;
     private Flight originFlight;
     private Flight returnFlight;
@@ -42,44 +43,71 @@ public class Reservation {
     private String paymentLastName;
     private String paymentCardNumber;
     private PriceCalculator priceCalulator;
+    
+    /*Constructor 1*/
     public Reservation(boolean isRoundTrip){
         this.isRoundTrip = isRoundTrip;
         this.passengerList = new ArrayList<Passenger>();
         this.status = ReservationStatus.NORMAL;
     }
+    
+    /*Constructor 2*/
+    public Reservation(int reservNum){
+        this.reservationNumber = reservNum;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+    
     public void setPriceCalulator(PriceCalculator priceCalulator){
         this.priceCalulator = priceCalulator;
     }
+    
     public PriceCalculator getPriceCaluator(){
         return priceCalulator;
     }
+    
     public void setPaymentFirstName(String paymentFirstName){
         this.paymentFirstName = paymentFirstName;
     }
+    
     public String getPaymentFirstName(){
         return paymentFirstName;
     }
+    
     public void setPaymentLastName(String paymentLastName){
         this.paymentLastName = paymentLastName;
     }
+    
     public String getPaymentLastName(){
         return paymentLastName;
     }
+    
     public void setPaymentCardNumber(String paymentCardNumber){
         this.paymentCardNumber = paymentCardNumber;
     }
+    
     public String getPaymentCardNumber(){
         return paymentCardNumber;
     }
+    
     public void setflightOriginDatePrint(String flightOriginDatePrint){
         this.flightOriginDatePrint =flightOriginDatePrint;
     }
+    
     public String getflightOriginDatePrint(){
         return flightOriginDatePrint;
     }
+    
     public void setflightReturnDatePrint(String flightReturnDatePrint){
         this.flightReturnDatePrint =flightReturnDatePrint;
     }
+    
     public String getflightReturnDatePrint(){
         return flightReturnDatePrint;
     }
