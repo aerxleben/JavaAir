@@ -68,11 +68,11 @@ public class Reservation {
         this.reservationNumber = reservationNumber;
     }
     
-    public void setPriceCalulator(PriceCalculator priceCalulator){
+    public void setPriceCalculator(PriceCalculator priceCalulator){
         this.priceCalulator = priceCalulator;
     }
     
-    public PriceCalculator getPriceCaluator(){
+    public PriceCalculator getPriceCalcuator(){
         return priceCalulator;
     }
     
@@ -258,6 +258,7 @@ public class Reservation {
                 and add to customer account
             */
             insertReservationInfo(customerIdList);
+            updateRewards();
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
@@ -342,7 +343,8 @@ public class Reservation {
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " + 
                     this.originFlight.getFlightCost() + "', " +
-                    this.amountPaid + ", " + this.pointsRedeemed + ", 0, '" +
+                    this.getPriceCalcuator().getTotalFee() + ", " + 
+                    this.getPriceCalcuator().getRewardPointsUsed() + ", 0, '" +
                     this.paymentCardNumber + "'";
             
             new DataClient().dbInsertOrUpdate(queryReserv);
@@ -362,7 +364,8 @@ public class Reservation {
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " +
                     this.returnFlight.getFlightCost() + "', " +
-                    this.amountPaid + ", " + this.pointsRedeemed + ", 0, '" +
+                    this.getPriceCalcuator().getTotalFee() + ", " + 
+                    this.getPriceCalcuator().getRewardPointsUsed() + ", 0, '" +
                     this.paymentCardNumber + "'";
                 
                 new DataClient().dbInsertOrUpdate(queryReserv2);
@@ -375,5 +378,33 @@ public class Reservation {
                 ,JOptionPane.ERROR_MESSAGE);
         }//end try-catch
     }//end insertReservationInfo()
+    
+    private void updateRewards() throws Exception{
+        if(Global.currentCustomer == null){ return; }
+        
+        PriceCalculator pc = this.getPriceCalcuator();
+        double pointsEarned 
+                = pc.getTotalFeeValue() * pc.getCashRate();
+        double netPoints
+                = (pc.getRewardRedeemValue() * -1) + pointsEarned;
+        
+        String queryRewards = "UPDATE Customers " +
+                "SET CurrentRewardPoints = CurrentRewardPoints + " + 
+                new Double(netPoints).intValue() +
+                ", TotalRewardPoints = TotalRewardPoints + " + 
+                new Double(pointsEarned).intValue() + " " +
+                "WHERE CustomerID = " + 
+                Global.currentCustomer.getCustomerID() + " " +
+                "AND FirstName = '" + 
+                Global.currentCustomer.getFirstName() + "' " +
+                "AND LastName = '" + Global.currentCustomer.getLastName() + "'";
+        
+        try{
+            new DataClient().dbInsertOrUpdate(queryRewards);
+        }
+        catch(Exception x){
+            throw x;
+        }
+    }//end updateRewards()
     
 }//end class Reservation

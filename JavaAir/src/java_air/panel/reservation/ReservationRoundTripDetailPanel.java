@@ -35,7 +35,7 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
         fareFeeLabel.setText(priceCalculator.getFare());
         taxFeeLabel.setText(priceCalculator.getTaxFee());
         totalPriceLabel.setText(priceCalculator.getTotalFee());
-        Global.currentReservation.setPriceCalulator(priceCalculator);
+        Global.currentReservation.setPriceCalculator(priceCalculator);
         
     }
 

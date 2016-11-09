@@ -76,7 +76,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         lastNameInforLabel1.setText(reservation.getPaymentLastName());
         cardNumberInforLabel.setText(reservation.getPaymentCardNumber());
         
-        PriceCalculator priceCalculator = Global.currentReservation.getPriceCaluator();
+        PriceCalculator priceCalculator = Global.currentReservation.getPriceCalcuator();
         this.fareFeeLabel.setText(priceCalculator.getFare());
         this.taxFeeLabel.setText(priceCalculator.getTaxFee());
         this.totalPriceLabel.setText(priceCalculator.getTotalFee());
@@ -84,7 +84,9 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         if(Global.currentCustomer != null){
             this.rewardLabel.setVisible(true);
             this.rewardInforLabel.setVisible(true);
-            this.rewardLabel.setText(priceCalculator.getRewardRedeem());
+            this.rewardInforLabel.setText("(" + priceCalculator.getRewardRedeem() + ")");
+            //this.rewardLabel.setText(priceCalculator.getRewardRedeem());
+            this.rewardLabel.setText(priceCalculator.getRewardPointsUsed());
         }else{
             this.rewardLabel.setVisible(false);
             this.rewardInforLabel.setVisible(false);
@@ -105,7 +107,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        confirmReservationButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         insideSrollPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
@@ -157,12 +159,12 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setText("Confirm");
 
-        jButton1.setBackground(new java.awt.Color(204, 153, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton1.setText("Confirm");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        confirmReservationButton.setBackground(new java.awt.Color(204, 153, 0));
+        confirmReservationButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        confirmReservationButton.setText("Confirm");
+        confirmReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmReservationButtonActionPerformed(evt);
             }
         });
 
@@ -430,7 +432,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addGap(10, 10, 10)
-                        .addComponent(jButton1))
+                        .addComponent(confirmReservationButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
@@ -458,17 +460,17 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(confirmReservationButton))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void confirmReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReservationButtonActionPerformed
+        Global.currentReservation.saveReservationToDB();
         // TODO add your handling code here:
         Global.panelSwitch(Global.textHome);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_confirmReservationButtonActionPerformed
     private int rowNumber = 4;
     private Font generalFont = new java.awt.Font("Times", 0, 18);
     private Color generalColor = new java.awt.Color(0, 102, 255);
@@ -477,12 +479,12 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
     private java.awt.Label PassengerTitleLabel;
     private javax.swing.JLabel cardNumberInforLabel;
     private javax.swing.JLabel cardNumberLabel;
+    private javax.swing.JButton confirmReservationButton;
     private javax.swing.JLabel fareFeeLabel;
     private javax.swing.JLabel fareLabel1;
     private javax.swing.JLabel firstNameInforLabel;
     private javax.swing.JLabel firstNameLabel1;
     private javax.swing.JPanel insideSrollPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

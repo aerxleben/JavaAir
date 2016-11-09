@@ -552,8 +552,8 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         //apply points
         try{
             double pointsRequiredToPayForFlight 
-                    = Global.currentReservation.getPriceCaluator().getFareValue() 
-                    * Global.currentReservation.getPriceCaluator().getRate();
+                    = Global.currentReservation.getPriceCalcuator().getFareValue() 
+                    * Global.currentReservation.getPriceCalcuator().getRate();
             
             double rewardUsed = 0.0;
             if(this.useAllPointBox.isSelected() 
@@ -574,7 +574,7 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
                         Double.parseDouble(this.rewardPointUseText.getText());
             }//end elseif
             
-            Global.currentReservation.getPriceCaluator().setRewardPointUse(
+            Global.currentReservation.getPriceCalcuator().setRewardPointUse(
                     new Double(rewardUsed).intValue());
         }//end try
         catch(Exception x){

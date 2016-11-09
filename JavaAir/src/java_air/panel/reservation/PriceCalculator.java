@@ -18,6 +18,7 @@ public class PriceCalculator {
     private double totalFee;
     private int rewardPointUse = 0;
     private int rewardRate2Cash = 1000;
+    private int cashRate2Reward = 2;
     private DecimalFormat decimalFormat = new DecimalFormat(".##");
     
     public PriceCalculator(){
@@ -42,12 +43,28 @@ public class PriceCalculator {
         return ("$" + decimalFormat.format(totalFee));
     }
     
+    public double getTotalFeeValue(){
+        return totalFee;
+    }
+    
     public String getRewardRedeem(){
         return ("$" + this.rewardPointUse/rewardRate2Cash);
     }
     
+    public int getRewardRedeemValue(){
+        return this.rewardPointUse;
+    }
+    
+    public String getRewardPointsUsed(){
+        return (this.rewardPointUse + " AirBeans");
+    }
+    
     public int getRate(){
         return rewardRate2Cash;
+    }
+    
+    public int getCashRate(){
+        return cashRate2Reward;
     }
     
     public void setRewardPointUse(int rewardPointUse){

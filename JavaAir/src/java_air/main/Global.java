@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import java_air.panel.reservation.Reservation;
 
 public class Global {
-    public static String version = "1.0.0";
+    public static String version = "1.25.0";
     
     public static String textMenu = "Menu"; //reference menu bar
     public static String textHome = "Home";//refrence home page
