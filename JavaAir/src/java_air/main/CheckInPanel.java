@@ -13,13 +13,8 @@ package java_air.main;
  */
 import javax.swing.*;
 import java.awt.*;
-/*import java.awt.event.*;
-import java.util.Calendar;
-import java.util.Properties;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-*/
+import java.awt.event.*;
+import java_air.database.DataClient;
 
 public class CheckInPanel extends JPanel{
     //private MenuBannerPanel aMenuBannerPanel;
@@ -182,6 +177,12 @@ public class CheckInPanel extends JPanel{
         add(lastField);
         
         checkInButton = new JButton("CHECK IN");
+        checkInButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                checkIntoFlight();
+            }
+        });
         //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
         checkInButton.setFont(Global.boldFont);
         checkInButton.setHorizontalAlignment(JLabel.LEFT);
@@ -197,11 +198,45 @@ public class CheckInPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(checkInButton, constraints);
         add(checkInButton);
-    }
+    }//end constructor
     
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.drawImage(background,0,0,null);
-   }
-  
-}
+    }
+   
+    private void checkIntoFlight(){
+        
+        int reservNumberInput = 
+                this.reservationIDField.getText().isEmpty() ? 
+                    -99 : Integer.parseInt(this.reservationIDField.getText());
+        
+        String firstNameInput = this.firstField.getText().isEmpty() ?
+                " " : this.firstField.getText();
+        
+        String lastNameInput = this.lastField.getText().isEmpty() ?
+                " " : this.lastField.getText();
+        
+        String query = "UPDATE Reservations " + 
+                "SET CheckedIn = 1 " +
+                "WHERE ReservationNumber = " + reservNumberInput + " " +
+                "AND CustomerID = (SELECT CustomerID FROM Customers C " +
+                "WHERE C.FirstName = '" + firstNameInput + "' AND " +
+                "C.LastName = '" + lastNameInput + "' LIMIT 1)";
+        
+        String message;
+        
+        try{
+            new DataClient().dbInsertOrUpdate(query);
+            message = "Check In Successful";
+        }
+        catch(Exception x){
+            message = x.getMessage();
+        }
+        
+        JOptionPane.showMessageDialog(null
+                    , message
+                    , "Reservation"
+                    , JOptionPane.INFORMATION_MESSAGE);
+    }//end checkIntoFlight()
+}//end class CheckInPanel
