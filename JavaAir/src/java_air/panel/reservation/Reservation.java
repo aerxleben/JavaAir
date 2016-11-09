@@ -15,6 +15,7 @@ package java_air.panel.reservation;
  */
 
 import java.util.ArrayList;
+import java_air.database.DataClient;
 import java_air.main.Flight;
 import java_air.main.Passenger;
 
@@ -221,21 +222,11 @@ public class Reservation {
         this.isCheckedIn = isCheckedIn;
     }
 
-    /*public String getFlightOriginDatePrint() {
-        return flightOriginDatePrint;
+    public void saveReservationToDB(){
+        DataClient sqlClient = new DataClient();
+        
+        String query = "";
     }
-
-    public void setFlightOriginDatePrint(String flightOriginDatePrint) {
-        this.flightOriginDatePrint = flightOriginDatePrint;
-    }
-
-    public String getFlightReturnDatePrint() {
-        return flightReturnDatePrint;
-    }
-
-    public void setFlightReturnDatePrint(String flightReturnDatePrint) {
-        this.flightReturnDatePrint = flightReturnDatePrint;
-    }*/
     
     
 }

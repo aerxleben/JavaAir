@@ -6,6 +6,7 @@
 package java_air.panel.reservation;
 
 import java.awt.Label;
+import java_air.main.Customer;
 import java_air.main.Global;
 
 /**
@@ -249,15 +250,19 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     public Label getTravelerLabel(){
         return travelerlLabel;
     }
+    
     public String getGender(){
         return genderInformation;
     }
+    
     public String getFirstName(){
         return firstNameText.getText();
     }
+    
     public String getLastName(){
         return lastNameText.getText();
     }
+    
     public String getDateBirth(){
         dataBirthInformation = monthText.getText() + "/" + dayText.getText()
                                 + "/" + yearText.getText();
@@ -266,9 +271,11 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     public String getPhoneNumber(){
         return mobileNumberText.getText();
     }
+    
     public String getPassID(){
         return passIDText.getText();
     }
+    
     public void textPrompt(){
         new TextPrompt("First name*", firstNameText);
         new TextPrompt("Last name*", lastNameText);
@@ -279,6 +286,22 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         new TextPrompt("Email address", emailText);
         new TextPrompt("Know Traveler Number/PASS ID", passIDText);
     }
+    
+    public void loadCurrentCustomerInfo(){
+        if(Global.currentCustomer != null){
+            Customer c = Global.currentCustomer;
+            firstNameText.setText(c.getFirstName());
+            lastNameText.setText(c.getLastName());
+            emailText.setText(c.getEmailAddress());
+            mobileNumberText.setText(c.getPhoneNumber());
+            maleRadioButton.setSelected(c.getGender().equals("Male"));
+            femaleRadioButton.setSelected(c.getGender().equals("Female"));
+            yearText.setText(c.getDateOfBirth().substring(0, 4));
+            monthText.setText(c.getDateOfBirth().substring(5, 7));
+            dayText.setText(c.getDateOfBirth().substring(8));
+        }//end if
+    }//end loadCurrentCustomerInfo()
+    
     private String dataBirthInformation;
     private String genderInformation;
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -40,6 +40,12 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         for(int i = 0; i < rowNumber; i++){
             ReservationSinglePassengerPanel reservationSinglePassenger
                     = new ReservationSinglePassengerPanel();
+            
+            //populate first passenger info if customer is logged in
+            if(Global.currentCustomer != null && i == 0){
+                reservationSinglePassenger.loadCurrentCustomerInfo();
+            }
+            
             contentPanel.add(reservationSinglePassenger);
             reservationPassengerPanelList.add(reservationSinglePassenger);
             
@@ -160,7 +166,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
     private void storePassengerInfomation() throws Exception{
         ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
         for(ReservationSinglePassengerPanel reservPassengerPanel : reservationPassengerPanelList) {
-            System.out.println(reservationPassengerPanelList.size());
+            //System.out.println(reservationPassengerPanelList.size());
             Passenger passenger = null;
             try {
                 passenger = new Passenger(reservPassengerPanel.getFirstName(),
