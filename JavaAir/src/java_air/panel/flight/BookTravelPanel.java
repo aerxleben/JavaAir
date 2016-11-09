@@ -57,7 +57,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         //jComboBox1.setEditable(true);
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
-    
+        this.comboBoxDestination.setSelectedItem(Global.airportList[1]);
     }
     
     public String getDestination(){

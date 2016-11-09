@@ -13,7 +13,7 @@ import java_air.main.Global;
 
 /**
  *
- * @author Georege
+ * @author Rui
  */
 public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
 

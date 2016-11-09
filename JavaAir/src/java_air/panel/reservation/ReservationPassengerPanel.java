@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Georege
+ * @author Rui
  */
 public class ReservationPassengerPanel extends javax.swing.JPanel {
 
@@ -27,7 +27,7 @@ public class ReservationPassengerPanel extends javax.swing.JPanel {
         reservDetialContainPanel.removeAll();
         reservDetialContainPanel.add(flightDetailPanel, BorderLayout.CENTER);
         reservDetialContainPanel.revalidate();  
-        System.out.println("set up flightDetailPanel in ReservationFlight");
+        //System.out.println("set up flightDetailPanel in ReservationFlight");
     }
     /**
      * This method is called from within the constructor to initialize the form.

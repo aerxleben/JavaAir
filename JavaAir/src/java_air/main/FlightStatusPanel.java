@@ -16,6 +16,7 @@ public class FlightStatusPanel extends javax.swing.JPanel {
     }
     
     public void loadFlightStatus(){
+        this.panelStatus.removeAll();
         //get a list of flights that have landed
         String queryLandedFlights = "SELECT * " +
                     "FROM FLIGHTS F " +
