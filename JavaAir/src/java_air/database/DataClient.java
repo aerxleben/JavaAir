@@ -117,11 +117,13 @@ public class DataClient {
                 tempList.add(set.getString("Email"));
                 tempList.add(set.getString("Password"));
                 
-                int rewardPoints = set.getInt("RewardMiles");
+                int currentRewardPoints = set.getInt("CurrentRewardPoints");
+                int totalRewardPoints = set.getInt("TotalRewardPoints");
                 
                 Customer tempCustomer = new Customer(tempList);
                 tempCustomer.setCustomerId(customerId);
-                tempCustomer.setRewardPoints(rewardPoints);
+                tempCustomer.setCurrentRewardPoints(currentRewardPoints);
+                tempCustomer.setTotalRewardPoints(totalRewardPoints);
                 
                 customerData.add(tempCustomer);
             }

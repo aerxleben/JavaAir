@@ -16,7 +16,6 @@ package java_air.main;
 
 import java.util.ArrayList;
 import java.io.*;
-import java.sql.ResultSet;
 import java.util.Scanner;
 import java_air.database.DataClient;
  
@@ -36,7 +35,8 @@ public class Customer{
    private String password;		//index 10*/
    
    private int customerId;
-   private int rewardPoints;
+   private int currentRewardPoints;
+   private int totalRewardPoints;
            
    private final String notApplicable = "N/A";
    private final String textSetValueError = "Setting Customer Value Error; Null ";
@@ -346,14 +346,19 @@ public class Customer{
         this.customerId = customerId;
     }
 
-    public void setRewardPoints(int rewardPoints) {
-        this.rewardPoints = rewardPoints;
+    public int getCurrentRewardPoints() {
+        return currentRewardPoints;
     }
 
-    public int getRewardPoints() {
-        return rewardPoints;
+    public void setCurrentRewardPoints(int currentRewardPoints) {
+        this.currentRewardPoints = currentRewardPoints;
     }
-   
-   
- 
- }
+
+    public int getTotalRewardPoints() {
+        return totalRewardPoints;
+    }
+
+    public void setTotalRewardPoints(int totalRewardPoints) {
+        this.totalRewardPoints = totalRewardPoints;
+    }
+ }//end class Customer
