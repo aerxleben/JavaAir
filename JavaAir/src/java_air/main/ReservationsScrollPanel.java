@@ -30,6 +30,13 @@ public class ReservationsScrollPanel extends JPanel{
         BoxLayout layout = new BoxLayout(this,BoxLayout.Y_AXIS); 
         this.setLayout(layout);
         
+        /*for(int i=1;i<5;i++){
+            ReservationInfoPanel aReservationInfoPanel = new ReservationInfoPanel();
+            add(aReservationInfoPanel);
+        }*/
+    }//end constructor
+    
+    public void loadReservations(){
         //check to make sure logged in
         if(Global.currentCustomer == null){
             JOptionPane.showMessageDialog(null
@@ -61,7 +68,7 @@ public class ReservationsScrollPanel extends JPanel{
         
         ArrayList<Reservation> reservList = null;
         try{
-            reservList = DataClient.getReservationData(query);
+            reservList = new DataClient().getReservationData(query);
         }
         catch(Exception x){
             return;
@@ -73,10 +80,6 @@ public class ReservationsScrollPanel extends JPanel{
                 //add(infoPanel);
             }//end for loop
         }//end if
-        
-        /*for(int i=1;i<5;i++){
-            ReservationInfoPanel aReservationInfoPanel = new ReservationInfoPanel();
-            add(aReservationInfoPanel);
-        }*/
-    }
-}
+    }//end loadReservations()
+    
+}//end class ReservationScrollPanel

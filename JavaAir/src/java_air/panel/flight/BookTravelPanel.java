@@ -423,7 +423,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         
         //DB return data table
         try{
-            departFlights = DataClient.getFlightData(queryDepart);
+            departFlights = new DataClient().getFlightData(queryDepart);
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
@@ -438,7 +438,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
                 "DESTINATIONAIRPORT = '" + origin + "'";
             
             try{
-                returnFlights = DataClient.getFlightData(queryReturn);
+                returnFlights = new DataClient().getFlightData(queryReturn);
             }
             catch(Exception x){
                 JOptionPane.showMessageDialog(null

@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 public class DataClient {
     
-    private static final String dbUrl = "jdbc:sqlite:java_air.db";
+    private final String dbUrl = "jdbc:sqlite:java_air.db";
     
-    public static Connection getConnection() 
+    public Connection getConnection() 
             throws SQLException{
         Connection dbConnection = null;
         try{
@@ -25,7 +25,7 @@ public class DataClient {
     }//end getConnection()
     
     
-    public static ResultSet getData(String query) 
+    public ResultSet getData(String query) 
             throws Exception{
         ResultSet set = null;
         try{
@@ -46,7 +46,7 @@ public class DataClient {
         return set;
     }//end getData()
     
-    public static void dbInsertOrUpdate(String query) throws Exception{
+    public void dbInsertOrUpdate(String query) throws Exception{
         try{
             Connection c = getConnection();
             Statement stmt = c.createStatement();
@@ -65,7 +65,7 @@ public class DataClient {
         }
     }//get insertData()
     
-    public static int getCount(String query) 
+    public int getCount(String query) 
             throws Exception{
         ResultSet set = null;
         int count = 0;
@@ -89,7 +89,7 @@ public class DataClient {
     }//end getData()
     
     
-    public static ArrayList<Customer> getCustomerData(String query) 
+    public ArrayList<Customer> getCustomerData(String query) 
             throws Exception{
         //ResultSet set = null;
         ArrayList<Customer> customerData = null;
@@ -143,7 +143,7 @@ public class DataClient {
     }//end getCustomerData()
     
     
-    public static ArrayList<Flight> getFlightData(String query) 
+    public ArrayList<Flight> getFlightData(String query) 
             throws Exception{
         //ResultSet set = null;
         ArrayList<Flight> flightsList = null;
@@ -155,7 +155,7 @@ public class DataClient {
             flightsList = new ArrayList<Flight>();
             
             while(set.next()){
-                Flight tempFlight = new Flight(set.getString("FlightNumber")
+                /*Flight tempFlight = new Flight(set.getString("FlightNumber")
                         , set.getString("OriginAirport")
                         , set.getString("DestinationAirport")
                         , set.getString("ScheduledDepartureTime")
@@ -163,9 +163,9 @@ public class DataClient {
                 
                 tempFlight.setAircraftName(set.getString("AircraftType"));
                 tempFlight.setTripMileage(set.getInt("FlightDistance"));
-                tempFlight.setFlightDuration(Float.parseFloat(set.getString("FlightDuration")));
+                tempFlight.setFlightDuration(Float.parseFloat(set.getString("FlightDuration")));*/
                 
-                flightsList.add(tempFlight);
+                flightsList.add(createFlight(set));
             }
             
             set.close();
@@ -183,7 +183,7 @@ public class DataClient {
     }//end getFlightData()
     
     
-    public static ArrayList<Reservation> getReservationData(String query) 
+    public ArrayList<Reservation> getReservationData(String query) 
             throws Exception{
         //ResultSet set = null;
         ArrayList<Reservation> reservationList = null;
@@ -195,6 +195,7 @@ public class DataClient {
             reservationList = new ArrayList<Reservation>();
             
             while(set.next()){
+                Reservation tempReserv = new Reservation(set.getInt("ReservationNumber"));
                 
             }
             
@@ -211,4 +212,25 @@ public class DataClient {
         
         return reservationList;
     }//end getFlightData()
+    
+    private Flight createFlight(ResultSet set) throws Exception{
+        Flight tempFlight = null;
+        
+        try{
+            tempFlight = new Flight(set.getString("FlightNumber")
+                        , set.getString("OriginAirport")
+                        , set.getString("DestinationAirport")
+                        , set.getString("ScheduledDepartureTime")
+                        , set.getString("ScheduledArriveTime"));
+                
+            tempFlight.setAircraftName(set.getString("AircraftType"));
+            tempFlight.setTripMileage(set.getInt("FlightDistance"));
+            tempFlight.setFlightDuration(Float.parseFloat(set.getString("FlightDuration")));
+        }
+        catch(Exception x){
+            throw new Exception("DataClient.createFlight(): " + x.getMessage());
+        }//end try-catch
+        
+        return tempFlight;
+    }//end createFlight
 }

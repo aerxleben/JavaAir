@@ -115,12 +115,15 @@ public class Reservation {
     public void setNumberOfPassenger(int numOfPassenger){
         numberOfPassenger = numOfPassenger;
     }
+    
     public int getNumberOfPassenger(){
         return numberOfPassenger;
     }
+    
     public boolean getIsRoundTrip(){
         return isRoundTrip;
     }
+    
     public Flight getOriginFlight() {
         return originFlight;
     }

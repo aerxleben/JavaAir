@@ -31,7 +31,7 @@ public class FlightDAO implements IFlightDAO{
         Statement stmt = null;
         ResultSet rs = null;
         try {
-            Connection conn = DataClient.getConnection();
+            Connection conn = new DataClient().getConnection();
             stmt = conn.createStatement();
             MySQLFlightQueryBuilder mySQL = new MySQLFlightQueryBuilder();
             String sql = mySQL.buildQueryStrForSearchFlight(flight);

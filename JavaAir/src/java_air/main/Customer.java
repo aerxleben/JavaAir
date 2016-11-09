@@ -229,7 +229,7 @@ public class Customer{
        
        //ResultSet res = DataClient.getData(queryExist);
        //int rowCount = res.getInt("ROWCOUNT");
-       int rowCount = DataClient.getCount(queryExist);
+       int rowCount = new DataClient().getCount(queryExist);
        
        String query = null;
        
@@ -269,7 +269,7 @@ public class Customer{
                    "LASTNAME = '" + customerInfoList.get(1) + "'";
        }//end if-else
        
-       DataClient.dbInsertOrUpdate(query);
+       new DataClient().dbInsertOrUpdate(query);
        
        return isNewAccount;
    }//end saveCustomerInfo()

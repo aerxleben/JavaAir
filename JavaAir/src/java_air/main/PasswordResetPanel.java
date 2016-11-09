@@ -318,7 +318,7 @@ public class PasswordResetPanel extends JPanel{
                    + "CUSTOMERID = " + cid;
 
            try{
-               DataClient.dbInsertOrUpdate(query);
+               new DataClient().dbInsertOrUpdate(query);
                message = "Password Reset Successfully";
            }
            catch(Exception x){

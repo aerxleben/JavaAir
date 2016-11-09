@@ -284,7 +284,7 @@ public class LoginLandingPanel extends JPanel{
         
         ArrayList<Customer> customerList = null;
         try{
-            customerList = DataClient.getCustomerData(query);
+            customerList = new DataClient().getCustomerData(query);
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
