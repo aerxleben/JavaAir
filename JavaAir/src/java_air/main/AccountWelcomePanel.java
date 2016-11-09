@@ -183,6 +183,8 @@ public class AccountWelcomePanel extends JPanel{
     }//end personalInformationButtonPressed()
     
     public void reservationsButtonPressed(){
+        this.aReservationsScrollPanel.loadReservations();
+        
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Reservation");
     }//end reservationsButtonPressed()

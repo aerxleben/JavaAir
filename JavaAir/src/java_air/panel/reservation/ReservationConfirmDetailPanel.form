@@ -270,14 +270,16 @@
                           </Group>
                           <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="firstNameInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="firstNameLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="lastNameInforLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                  <Component id="fareLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                   <Component id="fareFeeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fareLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="firstNameInforLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstNameLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="lastNameInforLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>

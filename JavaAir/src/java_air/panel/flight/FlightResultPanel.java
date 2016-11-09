@@ -56,11 +56,11 @@ public class FlightResultPanel extends javax.swing.JPanel {
             FlightInfoPanel flightInfoPanel = new FlightInfoPanel(flight);
                 //flightInfoPanel.setFlightDate();
             if(panelSearchInput.isRoundTrip() && !panelSearchInput.getOriginFlightOn()){    
-                flightInfoPanel.setDepartureDate(Global.currentReservation.getflightReturnDatePrint());
-                flightInfoPanel.setArrivalDate(Global.currentReservation.getflightReturnDatePrint());
+                flightInfoPanel.setDepartureDate(Global.currentReservation.getFlightReturnDatePrint());
+                flightInfoPanel.setArrivalDate(Global.currentReservation.getFlightReturnDatePrint());
             }else{
-                flightInfoPanel.setDepartureDate(Global.currentReservation.getflightOriginDatePrint());
-                flightInfoPanel.setArrivalDate(Global.currentReservation.getflightOriginDatePrint());   
+                flightInfoPanel.setDepartureDate(Global.currentReservation.getFlightOriginDatePrint());
+                flightInfoPanel.setArrivalDate(Global.currentReservation.getFlightOriginDatePrint());   
             }
             scrollContentPanel.add(flightInfoPanel);
         }

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
 import java_air.database.DataClient;
+import javax.swing.JOptionPane;
  
 public class Customer{
  
@@ -269,7 +270,15 @@ public class Customer{
                    "LASTNAME = '" + customerInfoList.get(1) + "'";
        }//end if-else
        
-       new DataClient().dbInsertOrUpdate(query);
+       try{
+           new DataClient().dbInsertOrUpdate(query);
+       }
+       catch(Exception x){
+           JOptionPane.showMessageDialog(null
+                    ,x.getMessage()
+                    ,"Customer Account Error"
+                    ,JOptionPane.ERROR_MESSAGE);
+       }
        
        return isNewAccount;
    }//end saveCustomerInfo()

@@ -40,10 +40,10 @@ public class ReservationRoundTripDetailPanel extends javax.swing.JPanel {
     }
 
     private void setFlightDate(){
-        flightOriginDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
+        flightOriginDateLabel.setText(Global.currentReservation.getFlightOriginDatePrint());
         flightOriginTimeLabel.setText(Global.currentReservation.getOriginFlight().getScheduledDeparture()
                                 + " - "+ Global.currentReservation.getOriginFlight().getScheduledArrival());
-        flightReturnDateLabel.setText(Global.currentReservation.getflightReturnDatePrint());
+        flightReturnDateLabel.setText(Global.currentReservation.getFlightReturnDatePrint());
         flightReturnTimeLabel.setText(Global.currentReservation.getReturnFlight().getScheduledDeparture()
                                 + " - "+ Global.currentReservation.getReturnFlight().getScheduledArrival());
     }

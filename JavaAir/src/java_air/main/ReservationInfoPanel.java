@@ -13,17 +13,12 @@ package java_air.main;
  */
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
-/*import java.awt.event.*;
-import java.util.Calendar;
-import java.util.Properties;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-*/
+import java_air.database.DataClient;
+import java_air.panel.reservation.Reservation;
+import java.awt.event.*;
 
 public class ReservationInfoPanel extends JPanel{
-    //private MenuBannerPanel aMenuBannerPanel;
+    private Reservation thisReservation;
     
     private JLabel reservationNumberLabel;
     private JLabel departFlightNumberLabel;
@@ -61,7 +56,11 @@ public class ReservationInfoPanel extends JPanel{
     public JButton getCheckInButton(){return checkInButton;}
     public JButton getReturnCheckInButton(){return returnCheckInButton;}
     
-    public ReservationInfoPanel(){
+    public ReservationInfoPanel(Reservation r){
+        if(r == null){ return; }
+        
+        thisReservation = r;
+        
         GridBagLayout layout = new GridBagLayout();
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(layout);
@@ -72,7 +71,9 @@ public class ReservationInfoPanel extends JPanel{
         Color backgroundColor = new Color(255,255,255,150);
         this.setBackground(backgroundColor);
            
-        reservationNumberLabel = new JLabel("Reservation # "); // append reservationInfo to this label
+        reservationNumberLabel = 
+                new JLabel("Reservation # JAR0" 
+                        + r.getReservationNumber());
         reservationNumberLabel.setFont(Global.boldFont);
         reservationNumberLabel.setHorizontalAlignment(JLabel.LEFT);
         reservationNumberLabel.setForeground(buttonColor);
@@ -81,13 +82,14 @@ public class ReservationInfoPanel extends JPanel{
         constraints.gridwidth = 4;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;
-        //  constraints.insets = new Insets(0,200,0,0);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(reservationNumberLabel, constraints);
         add(reservationNumberLabel);
        
-        departFlightNumberLabel = new JLabel("Flight Number: ");// Append Flight Info Here
+        departFlightNumberLabel = 
+                new JLabel("Flight Number: " 
+                        + r.getOriginFlight().getFlightNumber());
         departFlightNumberLabel.setFont(Global.boldFont);
         departFlightNumberLabel.setHorizontalAlignment(JLabel.LEFT);
         departFlightNumberLabel.setForeground(buttonColor);
@@ -96,13 +98,13 @@ public class ReservationInfoPanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.VERTICAL;
-        //  constraints.insets = new Insets(0,200,0,0);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(departFlightNumberLabel, constraints);
         add(departFlightNumberLabel);
                
-        originLabel = new JLabel("Chicago");
+        originLabel = 
+                new JLabel(r.getOriginFlight().getOriginAirport());
         originLabel.setFont(Global.normalFont);
         originLabel.setHorizontalAlignment(JLabel.LEFT);
         originLabel.setForeground(buttonColor);
@@ -111,7 +113,6 @@ public class ReservationInfoPanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;
-       //   constraints.insets = new Insets(0,200,0,0);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(originLabel, constraints);
@@ -126,13 +127,13 @@ public class ReservationInfoPanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;
-        //constraints.insets = new Insets(0,0,0,50);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(arrowLabel, constraints);
         add(arrowLabel); 
         
-        destinationLabel = new JLabel("New York");
+        destinationLabel = 
+                new JLabel(r.getOriginFlight().getDestinationAirport());
         destinationLabel.setFont(Global.normalFont);
         destinationLabel.setHorizontalAlignment(JTextField.LEFT);
         destinationLabel.setForeground(buttonColor);
@@ -141,13 +142,14 @@ public class ReservationInfoPanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.BOTH;
-       // constraints.insets = new Insets(0,0,0,50);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(destinationLabel, constraints);
         add(destinationLabel);
         
-        departureLabel = new JLabel("6:50AM 12/15/16");
+        departureLabel = 
+                new JLabel(r.getFlightOriginDatePrint() 
+                        + " " + r.getOriginFlight().getScheduledDeparture());
         departureLabel.setFont(Global.normalFont);
         departureLabel.setHorizontalAlignment(JLabel.LEFT);
         departureLabel.setForeground(buttonColor);
@@ -162,7 +164,9 @@ public class ReservationInfoPanel extends JPanel{
         layout.setConstraints(departureLabel, constraints);
         add(departureLabel);
         
-        arrivalLabel = new JLabel("11:00AM 12/15/16");
+        arrivalLabel = 
+                new JLabel(r.getFlightOriginDatePrint() 
+                        + " " + r.getOriginFlight().getScheduledArrival());
         arrivalLabel.setFont(Global.normalFont);
         arrivalLabel.setHorizontalAlignment(JTextField.LEFT);
         arrivalLabel.setForeground(buttonColor);
@@ -177,7 +181,8 @@ public class ReservationInfoPanel extends JPanel{
         layout.setConstraints(arrivalLabel, constraints);
         add(arrivalLabel);
         
-        durationLabel = new JLabel(" Duration: 3h10min ");
+        durationLabel = 
+                new JLabel(" Duration: " + r.getOriginFlight().getFlightDuration());
         durationLabel.setFont(Global.normalFont);
         durationLabel.setHorizontalAlignment(JTextField.LEFT);
         durationLabel.setForeground(buttonColor);
@@ -192,144 +197,59 @@ public class ReservationInfoPanel extends JPanel{
         layout.setConstraints(durationLabel, constraints);
         add(durationLabel); 
         
-        checkInButton = new JButton("CHECK IN");
-        //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
-        checkInButton.setFont(Global.boldFont);
-        checkInButton.setHorizontalAlignment(JLabel.LEFT);
-        checkInButton.setBackground(buttonColor);
-        checkInButton.setForeground(Color.WHITE);
-        constraints.gridx = 5;
-        constraints.gridy = 1;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.NONE;
-        //constraints.insets = new Insets(0,0,0,0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(checkInButton, constraints);
-        add(checkInButton);
+        if(!r.isCheckedIn()){
+            checkInButton = new JButton("Check-In");
+            checkInButton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    checkIntoFlight();
+                }
+            });
+            checkInButton.setFont(Global.boldFont);
+            checkInButton.setHorizontalAlignment(JLabel.LEFT);
+            checkInButton.setBackground(buttonColor);
+            checkInButton.setForeground(Color.WHITE);
+            constraints.gridx = 5;
+            constraints.gridy = 1;
+            constraints.gridwidth = 1;
+            constraints.gridheight = 1;
+            constraints.fill = GridBagConstraints.NONE;
+            //constraints.insets = new Insets(0,0,0,0);
+            constraints.weightx = 10;
+            constraints.weighty = 10;
+            layout.setConstraints(checkInButton, constraints);
+            add(checkInButton);
+        }
         
-        returnFlightNumberLabel = new JLabel("Flight Number: ");// Append Flight Info Here
-        returnFlightNumberLabel.setFont(Global.boldFont);
-        returnFlightNumberLabel.setHorizontalAlignment(JLabel.LEFT);
-        returnFlightNumberLabel.setForeground(buttonColor);
-        constraints.gridx = 1;
-        constraints.gridy = 3;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.VERTICAL;
-        //  constraints.insets = new Insets(0,200,0,0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnFlightNumberLabel, constraints);
-        add(returnFlightNumberLabel);
-               
-        returnOriginLabel = new JLabel("New York(LGA) ");
-        returnOriginLabel.setFont(Global.normalFont);
-        returnOriginLabel.setHorizontalAlignment(JLabel.LEFT);
-        returnOriginLabel.setForeground(buttonColor);
-        constraints.gridx = 2;
-        constraints.gridy = 3;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-       //   constraints.insets = new Insets(0,200,0,0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnOriginLabel, constraints);
-        add(returnOriginLabel);
-      
-        JLabel arrowLabel2 = new JLabel(" ---> ");
-        arrowLabel2.setFont(Global.normalFont);
-        arrowLabel2.setHorizontalAlignment(JTextField.LEFT);
-        arrowLabel2.setForeground(buttonColor);
-        constraints.gridx = 3;
-        constraints.gridy = 3;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-        //constraints.insets = new Insets(0,0,0,50);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(arrowLabel2, constraints);
-        add(arrowLabel2); 
-        
-        returnDestinationLabel = new JLabel("Chicago(MDW)");
-        returnDestinationLabel.setFont(Global.normalFont);
-        returnDestinationLabel.setHorizontalAlignment(JTextField.LEFT);
-        returnDestinationLabel.setForeground(buttonColor);
-        constraints.gridx = 4;
-        constraints.gridy = 3;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-       // constraints.insets = new Insets(0,0,0,50);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnDestinationLabel, constraints);
-        add(returnDestinationLabel);
-        
-        returnDepartureLabel = new JLabel("7:30PM 12/20/16");
-        returnDepartureLabel.setFont(Global.normalFont);
-        returnDepartureLabel.setHorizontalAlignment(JLabel.LEFT);
-        returnDepartureLabel.setForeground(buttonColor);
-        constraints.gridx = 2;
-        constraints.gridy = 4;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-       //   constraints.insets = new Insets(0,200,0,0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnDepartureLabel, constraints);
-        add(returnDepartureLabel);
-        
-        returnArrivalLabel = new JLabel("10:30)M 12/25/16");
-        returnArrivalLabel.setFont(Global.normalFont);
-        returnArrivalLabel.setHorizontalAlignment(JTextField.LEFT);
-        returnArrivalLabel.setForeground(buttonColor);
-        constraints.gridx = 4;
-        constraints.gridy = 4;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-        //constraints.insets = new Insets(0,0,0,50);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnArrivalLabel, constraints);
-        add(returnArrivalLabel);
-        
-        returnDurationLabel = new JLabel(" Duration: 4h0min ");
-        returnDurationLabel.setFont(Global.normalFont);
-        returnDurationLabel.setHorizontalAlignment(JTextField.LEFT);
-        returnDurationLabel.setForeground(buttonColor);
-        constraints.gridx = 5;
-        constraints.gridy = 4;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.BOTH;
-        //constraints.insets = new Insets(0,0,0,50);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnDurationLabel, constraints);
-        add(returnDurationLabel); 
-        
-        returnCheckInButton = new JButton("CHECK IN");
-        //cPasswordField.setFont(new Font("Times", Font.PLAIN, 30));
-        returnCheckInButton.setFont(Global.boldFont);
-        returnCheckInButton.setHorizontalAlignment(JLabel.LEFT);
-        returnCheckInButton.setBackground(buttonColor);
-        returnCheckInButton.setForeground(Color.WHITE);
-        constraints.gridx = 5;
-        constraints.gridy = 3;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.NONE;
-        //constraints.insets = new Insets(0,0,0,0);
-        constraints.weightx = 10;
-        constraints.weighty = 10;
-        layout.setConstraints(returnCheckInButton, constraints);
-        add(returnCheckInButton);
-    }
+    }//end constructor
     
-}
+    private void checkIntoFlight(){
+        if(thisReservation == null){ return; }
+        
+        //int checkIn_numeric = thisReservation.isCheckedIn() ? 1 : 0;
+        
+        String query = "UPDATE Reservations " +
+                "SET CheckedIn = 1" +
+                " WHERE ReservationNumber = " + thisReservation.getReservationNumber() +
+                " AND FlightNumber = '" + thisReservation.getOriginFlight().getFlightNumber() + "'";
+        
+        String message;
+        
+        try{
+            new DataClient().dbInsertOrUpdate(query);
+            message = "Check In Successful";
+            thisReservation.setCheckedIn(true);
+            this.checkInButton.setVisible(false);
+            this.validate();
+        }
+        catch(Exception x){
+            message = x.getMessage();
+        }
+        
+        JOptionPane.showMessageDialog(null
+                    , message
+                    , "Reservation"
+                    , JOptionPane.INFORMATION_MESSAGE);
+    }//end checkIntoFlight
+    
+}//end class ReservationInfoPanel

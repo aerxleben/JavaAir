@@ -37,6 +37,9 @@ public class ReservationsScrollPanel extends JPanel{
     }//end constructor
     
     public void loadReservations(){
+        //reset
+        this.removeAll();
+
         //check to make sure logged in
         if(Global.currentCustomer == null){
             JOptionPane.showMessageDialog(null
@@ -62,7 +65,8 @@ public class ReservationsScrollPanel extends JPanel{
                 ", R.CUSTOMERID AS CustomerID" +
                 ", R.COST AS Cost" +
                 ", R.CASHPAID AS CashPaid" +
-                ", R.REWARDSUSED AS RewardsUsed " +
+                ", R.REWARDSUSED AS RewardsUsed" +
+                ", R.CHECKEDIN AS CheckedIn " +
                 "FROM RESERVATIONS R INNER JOIN FLIGHTS F " +
                 "ON R.FLIGHTNUMBER = F.FLIGHTNUMBER " +
                 "WHERE R.CUSTOMERID = " + Global.currentCustomer.getCustomerID();
@@ -77,8 +81,8 @@ public class ReservationsScrollPanel extends JPanel{
         
         if(reservList != null && !reservList.isEmpty()){
             for(Reservation reserv : reservList){
-                //ReservationInfoPanel infoPanel = new ReservationInfoPanel(reserv);
-                //add(infoPanel);
+                ReservationInfoPanel infoPanel = new ReservationInfoPanel(reserv);
+                add(infoPanel);
             }//end for loop
         }//end if
     }//end loadReservations()

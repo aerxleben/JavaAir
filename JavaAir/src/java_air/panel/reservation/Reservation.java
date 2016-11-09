@@ -43,6 +43,7 @@ public class Reservation {
     private String paymentLastName;
     private String paymentCardNumber;
     private PriceCalculator priceCalulator;
+    private boolean isCheckedIn;
     
     /*Constructor 1*/
     public Reservation(boolean isRoundTrip){
@@ -96,19 +97,19 @@ public class Reservation {
         return paymentCardNumber;
     }
     
-    public void setflightOriginDatePrint(String flightOriginDatePrint){
+    public void setFlightOriginDatePrint(String flightOriginDatePrint){
         this.flightOriginDatePrint =flightOriginDatePrint;
     }
     
-    public String getflightOriginDatePrint(){
+    public String getFlightOriginDatePrint(){
         return flightOriginDatePrint;
     }
     
-    public void setflightReturnDatePrint(String flightReturnDatePrint){
+    public void setFlightReturnDatePrint(String flightReturnDatePrint){
         this.flightReturnDatePrint =flightReturnDatePrint;
     }
     
-    public String getflightReturnDatePrint(){
+    public String getFlightReturnDatePrint(){
         return flightReturnDatePrint;
     }
     
@@ -211,6 +212,30 @@ public class Reservation {
     public void setStatus(ReservationStatus status) {
         this.status = status;
     }
+
+    public boolean isCheckedIn() {
+        return isCheckedIn;
+    }
+
+    public void setCheckedIn(boolean isCheckedIn) {
+        this.isCheckedIn = isCheckedIn;
+    }
+
+    /*public String getFlightOriginDatePrint() {
+        return flightOriginDatePrint;
+    }
+
+    public void setFlightOriginDatePrint(String flightOriginDatePrint) {
+        this.flightOriginDatePrint = flightOriginDatePrint;
+    }
+
+    public String getFlightReturnDatePrint() {
+        return flightReturnDatePrint;
+    }
+
+    public void setFlightReturnDatePrint(String flightReturnDatePrint) {
+        this.flightReturnDatePrint = flightReturnDatePrint;
+    }*/
     
     
 }

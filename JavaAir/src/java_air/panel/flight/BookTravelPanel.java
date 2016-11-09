@@ -365,9 +365,9 @@ public class BookTravelPanel extends javax.swing.JPanel {
         }
         Global.currentReservation = new Reservation(this.isRoundTrip());
         
-        Global.currentReservation.setflightOriginDatePrint(getFlightPrintDate(this.datePickerDepart.getDate()));
+        Global.currentReservation.setFlightOriginDatePrint(getFlightPrintDate(this.datePickerDepart.getDate()));
         if(isRoundTrip()){
-            Global.currentReservation.setflightReturnDatePrint(getFlightPrintDate(this.datePickerReturn.getDate()));
+            Global.currentReservation.setFlightReturnDatePrint(getFlightPrintDate(this.datePickerReturn.getDate()));
         } 
 
         String numOfPassengers = this.comboBoxNumOfPassengers.getSelectedItem().toString();

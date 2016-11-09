@@ -39,7 +39,7 @@ public class ReservationOneWayDetailPanel extends javax.swing.JPanel {
     }
 
     private void setFlightDate(){
-        flightDateLabel.setText(Global.currentReservation.getflightOriginDatePrint());
+        flightDateLabel.setText(Global.currentReservation.getFlightOriginDatePrint());
         flightTimeLabel.setText(Global.currentReservation.getOriginFlight().getScheduledDeparture()
                                 + " - "+ Global.currentReservation.getOriginFlight().getScheduledArrival());
     }

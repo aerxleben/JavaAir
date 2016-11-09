@@ -58,10 +58,7 @@ public class DataClient {
             c.close();
         }
         catch(Exception x){
-            JOptionPane.showMessageDialog(null
-                    ,x.getMessage()
-                    ,"DB Insert/Update Error"
-                    ,JOptionPane.ERROR_MESSAGE);
+            throw new Exception("DB Insert/Update Error; " + x.getMessage());
         }
     }//get insertData()
     
@@ -155,16 +152,6 @@ public class DataClient {
             flightsList = new ArrayList<Flight>();
             
             while(set.next()){
-                /*Flight tempFlight = new Flight(set.getString("FlightNumber")
-                        , set.getString("OriginAirport")
-                        , set.getString("DestinationAirport")
-                        , set.getString("ScheduledDepartureTime")
-                        , set.getString("ScheduledArriveTime"));
-                
-                tempFlight.setAircraftName(set.getString("AircraftType"));
-                tempFlight.setTripMileage(set.getInt("FlightDistance"));
-                tempFlight.setFlightDuration(Float.parseFloat(set.getString("FlightDuration")));*/
-                
                 flightsList.add(createFlight(set));
             }
             
@@ -197,7 +184,10 @@ public class DataClient {
             while(set.next()){
                 Reservation tempReserv = new Reservation(set.getInt("ReservationNumber"));
                 tempReserv.setOriginFlight(createFlight(set));
+                tempReserv.setCheckedIn(set.getInt("CheckedIn")==1);
+                tempReserv.setFlightOriginDatePrint(set.getString("DepartDate"));
                 
+                reservationList.add(tempReserv);
             }
             
             set.close();

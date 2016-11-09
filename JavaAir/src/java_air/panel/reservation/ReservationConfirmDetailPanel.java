@@ -40,7 +40,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         Flight orginFlight = Global.currentReservation.getOriginFlight();
         Flight returnFlight;
         orginFlightAirport.setText(orginFlight.getOriginAirport()+ " - " + orginFlight.getDestinationAirport());
-        orginFlightDateLabel.setText(reservation.getflightOriginDatePrint());
+        orginFlightDateLabel.setText(reservation.getFlightOriginDatePrint());
         orginFlightTimeLabel.setText(orginFlight.getScheduledDeparture() + " - "
                                         + orginFlight.getScheduledArrival());
         orginFlightPassengerLabel.setText(reservation.getNumberOfPassenger() + " traveler");
@@ -48,7 +48,7 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
           LabelsShow(true);
           returnFlight = reservation.getReturnFlight();
           returnFlightAirport.setText(returnFlight.getOriginAirport()+ " - " + returnFlight.getDestinationAirport());
-          returnFlightDateLabel.setText(reservation.getflightReturnDatePrint());
+          returnFlightDateLabel.setText(reservation.getFlightReturnDatePrint());
           returnFTimeLabel.setText(returnFlight.getScheduledDeparture() + " - "
                                         + returnFlight.getScheduledArrival());
           returnFlightPassengerLabel.setText(reservation.getNumberOfPassenger() + " traveler");
@@ -369,14 +369,15 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameLabel)
-                    .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameInforLabel1)
+                .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(fareFeeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(fareLabel1))
                     .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fareLabel1)
-                        .addComponent(fareFeeLabel)))
+                        .addComponent(firstNameInforLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastNameLabel)
+                        .addComponent(firstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastNameInforLabel1)))
                 .addGap(10, 10, 10)
                 .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

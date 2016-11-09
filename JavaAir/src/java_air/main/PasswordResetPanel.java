@@ -322,7 +322,7 @@ public class PasswordResetPanel extends JPanel{
                message = "Password Reset Successfully";
            }
            catch(Exception x){
-               message = "No Such Account Found";
+               message = x.getMessage();
            }
         }//end if
 
