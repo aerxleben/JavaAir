@@ -17,7 +17,9 @@ package java_air.panel.reservation;
 import java.util.ArrayList;
 import java_air.database.DataClient;
 import java_air.main.Flight;
+import java_air.main.Global;
 import java_air.main.Passenger;
+import javax.swing.JOptionPane;
 
 public class Reservation {
     
@@ -224,9 +226,153 @@ public class Reservation {
 
     public void saveReservationToDB(){
         DataClient sqlClient = new DataClient();
+        Reservation r = Global.currentReservation;
         
-        String query = "";
-    }
+        try{
+            /*first need to check passengers in DB
+            if a passenger's name is not in the DB, we need to create
+            the record and obtain the CustomerID; otherwise just get
+            the customerID; store the customerIDs in a list
+            */
+            ArrayList<Integer> customerIdList = new ArrayList<Integer>();
+            for(Passenger p : r.getPassengerList()){
+                int tempId = getCustomerId(p);
+                
+                if(tempId <= 0){
+                    //no record found
+                    tempId = savePassengerInfo(p);
+                }
+                
+                if(tempId > 0){
+                    customerIdList.add(tempId);
+                }
+                else{
+                    throw new Exception("Invalid CustomerID " + tempId);
+                }
+            }//end for-loop
+
+            /*insert the record into DB
+                if this reservation used points, deduct the amount from
+                customer's account
+                if a partial cash payment is used, calculat points earned
+                and add to customer account
+            */
+            insertReservationInfo(r, customerIdList);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                ,x.getMessage()
+                ,"DB Reservation Save Error"
+                ,JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+        
+    }//end saveReservationToDB
     
+    private int getCustomerId(Passenger p){
+        int newId = 0;
+        
+        String queryGetId = "SELECT CustomerID FROM Customers " +
+                    "WHERE FirstName = '" + p.getFirstName() + "' " +
+                    "AND LastName = '" + p.getLastName() + "' LIMIT 1";
+        try{
+            newId = new DataClient().getCount(queryGetId);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                ,x.getMessage()
+                ,"DB CustomerID Error"
+                ,JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+        
+        return newId;
+    }//end getCustomerId()
     
-}
+    private int savePassengerInfo(Passenger p){
+        int newId = 0;
+        String queryAddPassenger = "INSERT INTO CUSTOMERS " + 
+                    "(FIRSTNAME, LASTNAME, DOB, GENDER, " + 
+                    "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, " +
+                    "EMAIL, PASSWORD, REWARDMILES)" + 
+                    "VALUES " + 
+                    "('" + p.getFirstName() + "', " +
+                    "'" + p.getLastName() + "', " +
+                    "'" + p.getDateOfBirth() + "', " +
+                    "'" + p.getGender() + "', " +
+                    "' ', " +   //address
+                    "' ', " +   //city
+                    "' ', " +   //state
+                    "' ', " +   //zip
+                    "'" + p.getPhone() + "', " +
+                    "'" + p.getFirstName()+ p.getLastName() + "@javaair.com', " +
+                    "'12345', " +
+                    "0)";
+        try{
+            new DataClient().dbInsertOrUpdate(queryAddPassenger);
+            
+            newId = getCustomerId(p);
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                ,x.getMessage()
+                ,"DB Add Passenger Error"
+                ,JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+        
+        return newId;
+    }//end savePassengerInfo()
+    
+    private void insertReservationInfo(Reservation r, ArrayList<Integer> idList){
+        try{
+            String queryReservNum = 
+                    "SELECT MAX(ReservationNumber)+1 AS NextNumber FROM Reservations";
+            int reservNum = new DataClient().getCount(queryReservNum);
+            if(reservNum <= 1){ throw new Exception("Invalid Reservation Number " + reservNum); }
+            
+            String queryReserv = "INSERT INTO Reservations " +
+                    "(ReservationNumber, FlightNumber, DepartDateTime, " +
+                    "ArrivalDateTime, Status, CustomerID, CustomerID2, " +
+                    "CustomerID3, Cost, CashPaid, RewardsUsed, CheckedIn, " +
+                    "CardNumber) " +
+                    "VALUES " +
+                    "(" + reservNum + ", " +
+                    "'" + r.getOriginFlight().getFlightNumber() + "', " +
+                    "'" + r.getFlightOriginDatePrint() + "', " +
+                    "'" + r.getFlightOriginDatePrint() + "', " +
+                    "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
+                    (idList.size() > 1 ? idList.get(1) : 0) + ", " +
+                    (idList.size() > 2 ? idList.get(2) : 0) + ", 0, " +
+                    r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
+                    r.getPaymentCardNumber() + "'";
+            
+            new DataClient().dbInsertOrUpdate(queryReserv);
+            
+            if(r.isRoundTrip){
+                String queryReserv2 = "INSERT INTO Reservations " +
+                    "(ReservationNumber, FlightNumber, DepartDateTime, " +
+                    "ArrivalDateTime, Status, CustomerID, CustomerID2, " +
+                    "CustomerID3, Cost, CashPaid, RewardsUsed, CheckedIn, " +
+                    "CardNumber) " +
+                    "VALUES " +
+                    "(" + reservNum + ", " +
+                    "'" + r.getReturnFlight().getFlightNumber() + "', " +
+                    "'" + r.getFlightReturnDatePrint() + "', " +
+                    "'" + r.getFlightReturnDatePrint() + "', " +
+                    "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
+                    (idList.size() > 1 ? idList.get(1) : 0) + ", " +
+                    (idList.size() > 2 ? idList.get(2) : 0) + ", 0, " +
+                    r.getAmountPaid() + ", " + r.getPointsRedeemed() + ", 0, '" +
+                    r.getPaymentCardNumber() + "'";
+                
+                new DataClient().dbInsertOrUpdate(queryReserv2);
+            }//end if
+                    
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                ,x.getMessage()
+                ,"DB Insert Reserv Error"
+                ,JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+    }//end insertReservationInfo()
+    
+}//end class Reservation

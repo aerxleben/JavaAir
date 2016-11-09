@@ -76,10 +76,7 @@ public class DataClient {
             c.close();
         }//end try
         catch(Exception x){
-            JOptionPane.showMessageDialog(null
-                    ,x.getMessage()
-                    ,"DB Select Error"
-                    ,JOptionPane.ERROR_MESSAGE);
+            throw new Exception("DB Select Int Error; " + x.getMessage());
         }//end catch
         
         return count;
