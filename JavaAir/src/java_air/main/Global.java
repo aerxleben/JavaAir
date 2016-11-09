@@ -48,7 +48,7 @@ public class Global {
     
 //    public static String textAccountWelcome = ""
     
-    public static String[] airportList = {"Chicago", "New York", "Los Angeles"};
+    public static String[] airportList = {"Chicago", "New York", "Los Angeles", "St. Louis"};
     //2016-11-5 S. Jia: changed number list from 5 to 3; change back if something breaks
     public static String[] numberList = {"1", "2", "3"}; 
     public static String[] genderList = {"Female", "Male"};
