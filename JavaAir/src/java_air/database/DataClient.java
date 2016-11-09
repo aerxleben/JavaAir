@@ -196,6 +196,7 @@ public class DataClient {
             
             while(set.next()){
                 Reservation tempReserv = new Reservation(set.getInt("ReservationNumber"));
+                tempReserv.setOriginFlight(createFlight(set));
                 
             }
             

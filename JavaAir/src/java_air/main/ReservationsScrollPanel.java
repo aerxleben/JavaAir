@@ -54,9 +54,10 @@ public class ReservationsScrollPanel extends JPanel{
                 ", F.DESTINATIONAIRPORT AS DestinationAirport" +
                 ", R.DEPARTDATETIME AS DepartDate" +
                 ", R.ARRIVALDATETIME AS ArrivalDate" +
-                ", F.SCHEDULEDDEPARTURETIME AS DepartTime" +
-                ", F.SCHEDULEDARRIVETIME AS ArrivalTime" +
+                ", F.SCHEDULEDDEPARTURETIME AS ScheduledDepartureTime" +
+                ", F.SCHEDULEDARRIVETIME AS ScheduledArriveTime" +
                 ", F.AIRCRAFTTYPE AS AircraftType" +
+                ", F.FLIGHTDISTANCE AS FlightDistance" +
                 ", F.FLIGHTDURATION AS FlightDuration" +
                 ", R.CUSTOMERID AS CustomerID" +
                 ", R.COST AS Cost" +
