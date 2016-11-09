@@ -225,9 +225,6 @@ public class Reservation {
     }
 
     public void saveReservationToDB(){
-        DataClient sqlClient = new DataClient();
-        //Reservation r = Global.currentReservation;
-        
         try{
             /*first need to check passengers in DB
             if a passenger's name is not in the DB, we need to create
@@ -342,10 +339,10 @@ public class Reservation {
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " + 
-                    this.originFlight.getFlightCost() + "', " +
-                    this.getPriceCalcuator().getTotalFee() + ", " + 
-                    this.getPriceCalcuator().getRewardPointsUsed() + ", 0, '" +
-                    this.paymentCardNumber + "'";
+                    this.originFlight.getFlightCost() + ", " +
+                    this.getPriceCalcuator().getTotalFeeValue() + ", " + 
+                    this.getPriceCalcuator().getRewardRedeemValue() + ", 0, '" +
+                    this.paymentCardNumber + "')";
             
             new DataClient().dbInsertOrUpdate(queryReserv);
             
@@ -363,10 +360,10 @@ public class Reservation {
                     "'Normal', " + (idList.size() > 0 ? idList.get(0) : 0) + ", " +
                     (idList.size() > 1 ? idList.get(1) : 0) + ", " +
                     (idList.size() > 2 ? idList.get(2) : 0) + ", " +
-                    this.returnFlight.getFlightCost() + "', " +
-                    this.getPriceCalcuator().getTotalFee() + ", " + 
-                    this.getPriceCalcuator().getRewardPointsUsed() + ", 0, '" +
-                    this.paymentCardNumber + "'";
+                    this.returnFlight.getFlightCost() + ", " +
+                    this.getPriceCalcuator().getTotalFeeValue() + ", " + 
+                    this.getPriceCalcuator().getRewardRedeemValue() + ", 0, '" +
+                    this.paymentCardNumber + "')";
                 
                 new DataClient().dbInsertOrUpdate(queryReserv2);
             }//end if
