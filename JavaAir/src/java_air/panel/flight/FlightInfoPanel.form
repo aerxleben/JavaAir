@@ -50,7 +50,7 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="flightPriceLabel" min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="flightPriceButton" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -88,7 +88,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="flightPriceLabel" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="flightPriceButton" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="labelFlightDuration" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
         <Property name="text" type="java.lang.String" value="JA 2045"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="flightPriceLabel">
+    <Component class="javax.swing.JButton" name="flightPriceButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="99" red="cc" type="rgb"/>
@@ -123,7 +123,7 @@
         <Property name="text" type="java.lang.String" value="$560"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="flightPriceLabelActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="flightPriceButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="departureAirportLabel">

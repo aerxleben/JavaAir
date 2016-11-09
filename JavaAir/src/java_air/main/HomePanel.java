@@ -97,6 +97,12 @@ public class HomePanel extends JPanel{
       add(searchPanel);
    
       flightStatusButton = new JButton("FLIGHT STATUS");
+      flightStatusButton.addActionListener(new ActionListener(){
+          @Override
+          public void actionPerformed(ActionEvent e){
+              showFlightStatus();
+          }
+      });
       flightStatusButton.setFont(new Font("Times",Font.PLAIN, 24));
       flightStatusButton.setBackground(buttonColor);
       flightStatusButton.setForeground(Color.WHITE);
@@ -167,4 +173,10 @@ public class HomePanel extends JPanel{
          cl.show(Global.cardsPanel, Global.textCheckIn);
     }
    
+   private void showFlightStatus(){
+       FlightStatusPanel sp = 
+               (FlightStatusPanel)Global.jPanelMap.get(Global.textFlightStatus);
+       sp.loadFlightStatus();
+       Global.switchCard(Global.textFlightStatus);
+   }//end showFlightStatus()
 }
