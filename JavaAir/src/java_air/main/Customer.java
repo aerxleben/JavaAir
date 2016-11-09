@@ -212,7 +212,9 @@ public class Customer{
        }
    }
    
-   public void saveCustomerInfo() throws Exception{
+   public boolean saveCustomerInfo() throws Exception{
+       boolean isNewAccount = true;
+       
        if(this.customerInfoList == null){
            throw new NullPointerException("Customer.saveCustomerInfo(): Null customerInfoList");
        }
@@ -252,7 +254,8 @@ public class Customer{
                     "0)";
        }
        else{
-           //perform update operation
+            isNewAccount = false;
+            //perform update operation
            query = "UPDATE CUSTOMERS " +
                    "SET ADDRESS = '" + customerInfoList.get(4) + "', " +
                    "CITY = '" + customerInfoList.get(5) + "', " +
@@ -264,9 +267,11 @@ public class Customer{
                    "WHERE CUSTOMERID = " + Global.currentCustomer.getCustomerID() + " AND " +
                    "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
                    "LASTNAME = '" + customerInfoList.get(1) + "'";
-       }
+       }//end if-else
        
        DataClient.dbInsertOrUpdate(query);
+       
+       return isNewAccount;
    }//end saveCustomerInfo()
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{
@@ -360,5 +365,9 @@ public class Customer{
 
     public void setTotalRewardPoints(int totalRewardPoints) {
         this.totalRewardPoints = totalRewardPoints;
+    }
+    
+    public String getPassword(){
+        return customerInfoList.get(10);
     }
  }//end class Customer

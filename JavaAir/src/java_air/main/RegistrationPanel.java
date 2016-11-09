@@ -724,36 +724,64 @@ public class RegistrationPanel extends JPanel{
         }
         else{
             try{
-                Customer newAcct = new Customer(list);
-                newAcct.saveCustomerInfo();
+                Customer account = new Customer(list);
+                boolean isNewAccount = account.saveCustomerInfo();
                 
-                JOptionPane.showMessageDialog(null
-                    , "New Account Creation Successful"
-                    , "Good News!"
-                    , JOptionPane.INFORMATION_MESSAGE);
-                
-                //display AccountConfirmationPanel
-                if(Global.jPanelMap != null){
-                    AccountConfirmationPanel confirmPanel = (AccountConfirmationPanel)Global.jPanelMap.get(Global.textRegConfirm);
-                    confirmPanel.setEmailLabelText(newAcct.getEmailAddress());
+                if(isNewAccount){
+                    JOptionPane.showMessageDialog(null
+                        , "New Account Creation Successful"
+                        , "Good News!"
+                        , JOptionPane.INFORMATION_MESSAGE);
+
+                    //display AccountConfirmationPanel
+                    if(Global.jPanelMap != null){
+                        AccountConfirmationPanel confirmPanel = (AccountConfirmationPanel)Global.jPanelMap.get(Global.textRegConfirm);
+                        confirmPanel.setEmailLabelText(account.getEmailAddress());
+                    }
+
+                    Global.switchCard(Global.textRegConfirm);
                 }
-                
-                CardLayout cl = (CardLayout)this.getParent().getLayout();
-                cl.show(this.getParent(), Global.textRegConfirm);
-                
-                /*CardLayout newCL = new CardLayout();
-                this.setLayout(newCL);
-                this.add(new AccountConfirmationPanel(), "Confirm");
-                //newCL.show(this, "Confirm");
-                newCL.next(this);*/
+                else{
+                    JOptionPane.showMessageDialog(null
+                        , "Account Information Updated Successfully"
+                        , "Good News!"
+                        , JOptionPane.INFORMATION_MESSAGE);
+                }
             }
             catch(Exception x){
                 JOptionPane.showMessageDialog(null
-                    , "Failed Creating New Account; " + x.getMessage()
-                    , "New Account Error"
+                    , "Failed Creating/Update Account; " + x.getMessage()
+                    , "Account Error"
                     , JOptionPane.ERROR_MESSAGE);
-            }
-        }
+            }//end try-catch
+        }//end if-else
     }//end: createNewAccount()
     
+    
+    public void loadCurrentCustomerInfo(){
+        if(Global.currentCustomer == null){ return; }
+        
+        Customer c = Global.currentCustomer;
+        
+        try{
+            this.firstField.setText(c.getFirstName());
+            this.lastField.setText(c.getLastName());
+            this.genderBox.setSelectedItem(c.getGender());
+            this.birthdayPicker.setDate(Global.dateFormat.parse(c.getDateOfBirth()));
+            this.addressField.setText(c.getPhysicalAddress());
+            this.cityField.setText(c.getAddressCity());
+            this.stateField.setText(c.getAddressState());
+            this.zipField.setText(c.getAddressZipCode());
+            this.phoneField.setText(c.getPhoneNumber());
+            this.emailField.setText(c.getEmailAddress());
+            this.passwordField.setText(c.getPassword());
+            this.cPasswordField.setText(c.getPassword());
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                    , x.getMessage()
+                    , "Load Customer Info Error"
+                    , JOptionPane.ERROR_MESSAGE);
+        }//end try-catch
+    }//end loadCurrentCustomerInfo()
 }

@@ -26,6 +26,9 @@ public class AccountWelcomePanel extends JPanel{
     
     private JPanel cards;
     private JPanel panel;
+    private RewardsPanel aRewardsPanel;
+    private ReservationsScrollPanel aReservationsScrollPanel;
+    private RegistrationPanel aRegistrationPanel;
     
     private Image background;
     
@@ -82,7 +85,7 @@ public class AccountWelcomePanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,80,0,0);
+        constraints.insets = new Insets(0,80,0,0);
         constraints.weightx = 0;
         constraints.weighty = 0;
         layout.setConstraints(personalInfoButton, constraints);
@@ -107,7 +110,7 @@ public class AccountWelcomePanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,250,0,200);
+        constraints.insets = new Insets(0,250,0,200);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(reservationsButton, constraints);
@@ -131,7 +134,7 @@ public class AccountWelcomePanel extends JPanel{
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
-          constraints.insets = new Insets(0,80,0,80);
+        constraints.insets = new Insets(0,80,0,80);
         constraints.weightx = 10;
         constraints.weighty = 10;
         layout.setConstraints(rewardsButton, constraints);
@@ -142,18 +145,14 @@ public class AccountWelcomePanel extends JPanel{
         cards = new JPanel(new CardLayout());
         cards.setOpaque(false);
         cards.add(panel,"Start");
-        RewardsPanel aRewardsPanel = new RewardsPanel();
+        aRewardsPanel = new RewardsPanel();
         cards.add(aRewardsPanel, "Rewards");
-        ReservationsScrollPanel aReservationsScrollPanel = new ReservationsScrollPanel();
+        aReservationsScrollPanel = new ReservationsScrollPanel();
         JScrollPane scrollPane = new JScrollPane(aReservationsScrollPanel);
         scrollPane.setOpaque(false);
         cards.add(scrollPane, "Reservation");
-        RegistrationPanel aRegistrationPanel = new RegistrationPanel(false);
+        aRegistrationPanel = new RegistrationPanel(false);
         aRegistrationPanel.setBackground(new Color(255,255,255,150));
-      //  aRegistrationPanel.getPasswordLabel().setVisible(false);
-      //  aRegistrationPanel.getPasswordField().setVisible(false);
-      //  aRegistrationPanel.getConfirmLabel().setVisible(false);
-      //  aRegistrationPanel.getCPasswordField().setVisible(false);
         cards.add(aRegistrationPanel,"Info");    
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -175,6 +174,7 @@ public class AccountWelcomePanel extends JPanel{
     }
     
     public void personalInformationButtonPressed(){
+        this.aRegistrationPanel.loadCurrentCustomerInfo();
         CardLayout c2 = (CardLayout)(cards.getLayout());
         c2.show(cards,"Info");
     }
