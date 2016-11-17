@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Georege
+ * @author Rui 
  */
 public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
 
@@ -166,9 +166,9 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         return contentPanel;
     }
     
-    
+    private ArrayList<Passenger> passengerList;
     private void storePassengerInfomation() throws Exception{
-        ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
+        passengerList = new ArrayList<Passenger>();
         for(ReservationSinglePassengerPanel reservPassengerPanel : reservationPassengerPanelList) {
             //System.out.println(reservationPassengerPanelList.size());
             
@@ -197,6 +197,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                 return;
             }
             passengerList.add(passenger);
+            
         }
         // set the first passenger as primary passenger
         passengerList.get(0).setPrimaryStatus(true);
@@ -209,7 +210,10 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        // if passengerList is empty, then break out continueButtonActionPerformed.
+        if(passengerList.size()==0){
+            return;
+        }
         // if there is user login, set up rewardPointsPanel.
         if(Global.currentCustomer != null){
             ReservationBillInformationPanel reservationBillInformationPanel =
