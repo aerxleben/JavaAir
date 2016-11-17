@@ -7,9 +7,12 @@ package java_air.panel.flight;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java_air.main.Flight;
 import java_air.main.Global;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -146,7 +149,13 @@ public class FlightResultPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void paintComponent(Graphics g){
+        //super.paintComponent(g);
+        
+        ImageIcon im = new ImageIcon("heart.jpg");
+	Image background = im.getImage();
+        g.drawImage(background,0,0,null);
+    }
     private int flightNumber = 4;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel insideSrollPanel;
