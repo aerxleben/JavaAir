@@ -395,8 +395,15 @@ public class BookTravelPanel extends javax.swing.JPanel {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
         calendar.setTime(date); 
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        String[] dayOfWeekName = {  "Sat","Sun","Mon", "Tue", "Wen", "Thu", "Fri" };
-        flightDate += dayOfWeekName[dayOfWeek];
+        
+        /*Rui made an error with dayOfWeek and dayOfWeekName index
+            DAY_OF_WEEK will return 5 for Thursday and 7 for Saturday
+            The array needs to be arranged as Sun to Sat, and the
+            dayOfWeek needs to have a minus one
+        */
+        //String[] dayOfWeekName = {  "Sat","Sun","Mon", "Tue", "Wen", "Thu", "Fri" }; //wrong
+        String[] dayOfWeekName = {"Sun","Mon", "Tue", "Wen", "Thu", "Fri", "Sat"};
+        flightDate += dayOfWeekName[--dayOfWeek];
         flightDate +=",";
         month = calendar.get(Calendar.MONTH);
         String[] monthName = { "Jan", "Feb", "Mar", "Apr", "May", "June", "July",

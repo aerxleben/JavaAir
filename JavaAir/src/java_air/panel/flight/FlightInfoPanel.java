@@ -108,7 +108,7 @@ public class FlightInfoPanel extends javax.swing.JPanel {
         this.arriveDateLabel.setText(arrival);
     }  
     public void setFlightPrice(String price){
-        this.flightPriceButton.setText(price);
+        this.flightPriceButton.setText("$" + price);
     }
 
     public String getFlightDuration() {

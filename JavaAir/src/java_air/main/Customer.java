@@ -239,7 +239,7 @@ public class Customer{
             query = "INSERT INTO CUSTOMERS " + 
                     "(FIRSTNAME, LASTNAME, DOB, GENDER, " + 
                     "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, " +
-                    "EMAIL, PASSWORD, REWARDMILES)" + 
+                    "EMAIL, PASSWORD, CURRENTREWARDPOINTS, TOTALREWARDPOINTS)" + 
                     "VALUES " + 
                     "('" + customerInfoList.get(0) + "', " +
                     "'" + customerInfoList.get(1) + "', " +
@@ -252,7 +252,7 @@ public class Customer{
                     "'" + customerInfoList.get(8) + "', " +
                     "'" + customerInfoList.get(9) + "', " +
                     "'" + customerInfoList.get(10) + "', " +
-                    "0)";
+                    "0, 0)";
        }
        else{
             isNewAccount = false;
