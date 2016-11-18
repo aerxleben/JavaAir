@@ -164,15 +164,13 @@ public class JavaAirApp implements ActionListener{
     }//end class PanelAboutAction
     
     
-    
-    
     //open the about JPanel
     public class HelpAction extends AbstractAction{
         //public PanelAboutAction(){}
         @Override
         public void actionPerformed(ActionEvent e){
             Desktop desktop = Desktop.getDesktop();
-            File file = new File("src/Java Air - UserManual.pdf");
+            File file = new File("JavaAirUserManual.pdf");
             if(file.exists()) try{desktop.open(file);} catch (IOException ex) {
                 Logger.getLogger(JavaAirApp.class.getName()).log(Level.SEVERE, null, ex);
             }
