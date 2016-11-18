@@ -30,9 +30,18 @@ public class FlightResultPanel extends javax.swing.JPanel {
         initComponents();
         panelSearchInput = new BookTravelPanel();
         searchPanel.add(panelSearchInput, BorderLayout.CENTER);
+        setComponentOpaque();
+        this.validate();
         //flightLabelSet();
     }
 
+    public void setComponentOpaque(){
+        this.jScrollPane1.setOpaque(false);
+        this.flightResultPanel.setOpaque(false);
+        this.scrollContentPanel.setOpaque(false);
+        this.insideSrollPanel.setOpaque(false); 
+        this.jScrollPane1.getViewport().setBackground(Global.transparentColor);
+    }
     public BookTravelPanel getSearchInputPanel() {
         return panelSearchInput;
     }
@@ -79,7 +88,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        flightResultPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         insideSrollPanel = new javax.swing.JPanel();
         scrollContentPanel = new javax.swing.JPanel();
@@ -88,7 +97,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new Color(250,250,250,150));
 
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        flightResultPanel.setLayout(new java.awt.BorderLayout());
 
         insideSrollPanel.setLayout(new java.awt.BorderLayout());
 
@@ -97,7 +106,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(insideSrollPanel);
 
-        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        flightResultPanel.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         searchPanel.setLayout(new java.awt.BorderLayout());
 
@@ -114,7 +123,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
+                    .addComponent(flightResultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,7 +137,7 @@ public class FlightResultPanel extends javax.swing.JPanel {
                         .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                         .addGap(180, 180, 180))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(flightResultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(19, 19, 19))))
         );
 
@@ -158,10 +167,10 @@ public class FlightResultPanel extends javax.swing.JPanel {
     }
     private int flightNumber = 4;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel flightResultPanel;
     private javax.swing.JPanel insideSrollPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel scrollContentPanel;
     private javax.swing.JPanel searchPanel;

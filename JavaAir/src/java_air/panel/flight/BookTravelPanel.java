@@ -58,6 +58,12 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
         this.comboBoxDestination.setSelectedItem(Global.airportList[1]);
+        setComponentOpaque();
+        this.validate();
+    }
+    private void setComponentOpaque(){
+        this.oneWayButton.setOpaque(false);
+        this.roundTripButton.setOpaque(false);
     }
     
     public String getDestination(){
@@ -161,6 +167,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel1.setText("Book travel");
 
+        roundTripButton.setBackground(Global.transparentColor);
         roundTripButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         roundTripButton.setText("Roundtrip");
         roundTripButton.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +176,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
             }
         });
 
+        oneWayButton.setBackground(Global.transparentColor);
         oneWayButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         oneWayButton.setText("One-way");
         oneWayButton.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +307,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
         this.datePickerReturn.setVisible(true);
+        
     }//GEN-LAST:event_roundTripButtonActionPerformed
     
     private boolean originFlightOn = true;
@@ -462,6 +471,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(false);
         this.oneWayButton.setSelected(true);
         this.datePickerReturn.setVisible(false);
+        
     }//GEN-LAST:event_oneWayButtonActionPerformed
 
    // private DefaultComboBoxModel airportModel = new DefaultComboBoxModel(Global.airportList);
