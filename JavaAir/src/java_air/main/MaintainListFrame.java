@@ -116,14 +116,35 @@ public class MaintainListFrame extends javax.swing.JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void maintainCompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                       
+    private void maintainCompleteButtonActionPerformed(java.awt.event.ActionEvent evt){                                                       
         if(unloadluggageCheckBox.isSelected() && planeStatusCheckBox.isSelected() && refuelCheckBox.isSelected()){ 
-            JOptionPane.showMessageDialog(null, "Cool! We are ready to go.", "Maintenance Tasks", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cool! We are ready to go.", "Maintenance Tasks", JOptionPane.INFORMATION_MESSAGE);  
         }
         else{
             JOptionPane.showMessageDialog(null, "We can't take off with unfulfilled maintain tasks.", "Maintenance Tasks", JOptionPane.INFORMATION_MESSAGE);
         }
-    }                                                      
+    }         
+    
+    
+    public void setPlaneStatusCheckBox(){
+        planeStatusCheckBox.setSelected(true);
+    }
+    
+    public void setRefuelCheckBox(){
+        refuelCheckBox.setSelected(true);
+    }
+     
+    public void setuUnloadluggageCheckBox(){
+        unloadluggageCheckBox.setSelected(true);
+    }
+    
+    
+    public void setMaintainCompleteButton(){
+        maintainCompleteButton.setSelected(true);
+    }
+    
+     
+    
 
     /**
      * @param args the command line arguments
@@ -164,7 +185,7 @@ public class MaintainListFrame extends javax.swing.JFrame{
     private javax.swing.JLabel employeeIDLabel;
     private javax.swing.JLabel employeeLabel;
     private javax.swing.JLabel flightNoLabel;
-    private javax.swing.JButton maintainCompleteButton;
+    javax.swing.JButton maintainCompleteButton;
     private javax.swing.JCheckBox planeStatusCheckBox;
     private javax.swing.JCheckBox refuelCheckBox;
     private javax.swing.JCheckBox unloadluggageCheckBox;
