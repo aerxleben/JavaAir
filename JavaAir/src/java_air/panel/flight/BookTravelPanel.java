@@ -388,6 +388,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_buttonSearchActionPerformed
+    
     public String getFlightPrintDate(Date date){
         String flightDate = "";
         int dayOfWeek, day, month;
@@ -406,6 +407,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         flightDate += day;
         return flightDate;
     }
+    
     public void showOriginFlights() {
         FlightResultPanel resultsPanel = 
             (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
