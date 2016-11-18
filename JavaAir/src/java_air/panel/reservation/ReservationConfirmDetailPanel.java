@@ -467,9 +467,10 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReservationButtonActionPerformed
-        Global.currentReservation.saveReservationToDB();
-        // TODO add your handling code here:
-        Global.panelSwitch(Global.textHome);
+        if(Global.currentReservation.saveReservationToDB()){
+            Global.currentReservation = null;
+            Global.panelSwitch(Global.textHome);
+        }
     }//GEN-LAST:event_confirmReservationButtonActionPerformed
     private int rowNumber = 4;
     private Font generalFont = new java.awt.Font("Times", 0, 18);
