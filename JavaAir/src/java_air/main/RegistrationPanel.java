@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
+import javax.swing.text.MaskFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -42,7 +43,8 @@ public class RegistrationPanel extends JPanel{
     private JTextField cityField;
     private JTextField stateField;
     private JTextField zipField;
-    private JTextField phoneField;
+    //private JTextField phoneField;
+    private JFormattedTextField phoneField;
     private JTextField emailField;
     //private JTextField passwordField;
     private JPasswordField passwordField;
@@ -70,7 +72,7 @@ public class RegistrationPanel extends JPanel{
     public JTextField getCityField(){return addressField;}
     public JTextField getStateField(){return stateField;}
     public JTextField getZipField(){return zipField;}
-    public JTextField getPhoneField(){return phoneField;}
+    public JFormattedTextField getPhoneField(){return phoneField;}
     public JTextField getEmailField(){return emailField;}
 //    public JTextField getPasswordField(){return passwordField;}
     public JPasswordField getPasswordField(){return passwordField;}
@@ -383,7 +385,16 @@ public class RegistrationPanel extends JPanel{
         layout.setConstraints(phoneLabel, constraints);
         add(phoneLabel);
 
-        phoneField = new JTextField("");
+        
+        try{
+            MaskFormatter phoneFormat = new MaskFormatter("(###) ###-####");
+            phoneFormat.setPlaceholder("_");
+            phoneField = new JFormattedTextField(phoneFormat);
+        }
+        catch(Exception x){
+            phoneField = new JFormattedTextField();
+        }
+        //phoneField = new JTextField("");
         //phoneField.setFont(new Font("Times", Font.PLAIN, 30));
         phoneField.setFont(Global.normalFont);
         phoneField.setHorizontalAlignment(JLabel.LEFT);
@@ -681,14 +692,14 @@ public class RegistrationPanel extends JPanel{
         }
         
         //check phone number
-        if(phoneField.getText().length() == 10){
+        //if(phoneField.getText().length() == 10){
             list.add(phoneField.getText());
             phoneField.setBackground(normal);
-        }
-        else{
-            phoneField.setBackground(error);
-            missing++;
-        }
+        //}
+        //else{
+        //    phoneField.setBackground(error);
+        //    missing++;
+        //}
         
         //check email
         if(emailField.getText().length() > 0

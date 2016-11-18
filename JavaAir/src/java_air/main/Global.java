@@ -21,6 +21,7 @@ import java.text.*;
 import java.util.HashMap;
 import javax.swing.JPanel;
 import java_air.panel.reservation.Reservation;
+import javax.swing.text.MaskFormatter;
 
 public class Global {
     public static String version = "1.50.0";
