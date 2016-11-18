@@ -388,7 +388,7 @@ public class RegistrationPanel extends JPanel{
         
         try{
             MaskFormatter phoneFormat = new MaskFormatter("(###) ###-####");
-            phoneFormat.setPlaceholder("_");
+            phoneFormat.setPlaceholder("#");
             phoneField = new JFormattedTextField(phoneFormat);
         }
         catch(Exception x){
