@@ -9,12 +9,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 /**
  *
- * @author Dbowie
+ * @author Yuwei Cao
  */
 public class MaintainListTest {
     
 	@Test
-	public void seTasksFulfilled_testNormal() {
+	public void tasksFulfilled_testNormal() {
 		MaintainListFrame frame = new MaintainListFrame();
 		frame.setPlaneStatusCheckBox();
                 frame.setRefuelCheckBox();
@@ -29,7 +29,7 @@ public class MaintainListTest {
 	}
         
         @Test
-	public void seTasksUnfulfilled_testNormal() {
+	public void tasksUnfulfilled_testNormal() {
 		MaintainListFrame frame = new MaintainListFrame();
 		frame.setPlaneStatusCheckBox();
                 try{

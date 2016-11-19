@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Dbowie
+ * @author Yuwei Cao
  */
 public class MaintainListFrame extends javax.swing.JFrame{
      /**
@@ -140,7 +140,7 @@ public class MaintainListFrame extends javax.swing.JFrame{
     
     
     public void setMaintainCompleteButton(){
-        maintainCompleteButton.setSelected(true);
+        maintainCompleteButton.doClick();
     }
     
      
