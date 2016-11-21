@@ -133,6 +133,7 @@ public class RegistrationPanel extends JPanel{
         try{
             String str=firstField.getText();                  
             str =str.replaceFirst(str.substring(0, 1),str.substring(0, 1).toUpperCase());
+//              str = str.substring(0, 1).toUpperCase()+str.substring(1);
             firstField=new JTextField(str);
         }
         catch(Exception x){
