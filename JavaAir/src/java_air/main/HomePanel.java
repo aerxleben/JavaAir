@@ -13,6 +13,9 @@ package java_air.main;
  *	Updated 10/16/16, Erxleben, Added FlightSearchPanel
  *
  *      Updated 10/31/16, Erxleben, added action listener for CheckIn Button
+ *      
+ *      Changelog:
+ *      1. change background rendering method, improve rendering speed
  *
  */
 
@@ -31,7 +34,6 @@ public class HomePanel extends JPanel{
    private FlightSearchPanel searchPanel;
    //private BookTravelPanel searchPanel;
 
-   private Image background;
 
    public JButton getFlightStatusButton(){return flightStatusButton;}
    public JButton getCheckInButton(){return checkInButton;}
@@ -49,8 +51,6 @@ public class HomePanel extends JPanel{
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(layout);
    
-   	//get image for panel background
-      background = Toolkit.getDefaultToolkit().createImage("heart.jpg");
    
    	//create "Coffee Brown" color for buttons and fonts.
       Color buttonColor = new Color(100,76,55);
@@ -163,11 +163,13 @@ public class HomePanel extends JPanel{
    }
 
 	//method used to paint background with image
-   public void paintComponent(Graphics g){
-      super.paintComponent(g);
-      g.drawImage(background,0,0,null);
-   }
-   
+    public void paintComponent(Graphics g){
+        //super.paintComponent(g);
+        
+        ImageIcon im = new ImageIcon("heart.jpg");
+	Image background = im.getImage();
+        g.drawImage(background,0,0,null);
+    }
    public void checkInButtonPressed(){
          CardLayout cl = (CardLayout)Global.cardsPanel.getLayout();
          cl.show(Global.cardsPanel, Global.textCheckIn);

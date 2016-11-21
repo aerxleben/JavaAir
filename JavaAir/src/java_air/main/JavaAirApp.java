@@ -24,6 +24,11 @@ import java_air.panel.reservation.ReservationBillInformationPanel;
 import java_air.panel.reservation.ReservationConfirmationPanel;
 import java_air.panel.reservation.ReservationPassengerPanel;
 import javax.swing.*;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JavaAirApp implements ActionListener{
     private JPanel cards;
@@ -36,7 +41,9 @@ public class JavaAirApp implements ActionListener{
         panelMenu.getHomeButton().addActionListener(this);
         panelMenu.getReservationButton().addActionListener(this);
         //panelMenu.getAccountButton().addActionListener(this);
-        panelMenu.getHelpButton().addActionListener(this);
+        panelMenu.getHelpButton().addActionListener(
+                new HelpAction()
+        );
         //panelMenu.getLoginButton().addActionListener(this);
         panelMenu.getAboutButton().addActionListener(
                 new PanelAboutAction()
@@ -155,6 +162,20 @@ public class JavaAirApp implements ActionListener{
             panelAbout.setVisible(true);
         }
     }//end class PanelAboutAction
+    
+    
+    //open the about JPanel
+    public class HelpAction extends AbstractAction{
+        //public PanelAboutAction(){}
+        @Override
+        public void actionPerformed(ActionEvent e){
+            Desktop desktop = Desktop.getDesktop();
+            File file = new File("JavaAirUserManual.pdf");
+            if(file.exists()) try{desktop.open(file);} catch (IOException ex) {
+                Logger.getLogger(JavaAirApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//end class PanelAboutAction 
     
     
     public static void main(String[] args){

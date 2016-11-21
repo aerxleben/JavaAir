@@ -58,6 +58,12 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
         this.comboBoxDestination.setSelectedItem(Global.airportList[1]);
+        setComponentOpaque();
+        this.validate();
+    }
+    private void setComponentOpaque(){
+        this.oneWayButton.setOpaque(false);
+        this.roundTripButton.setOpaque(false);
     }
     
     public String getDestination(){
@@ -161,6 +167,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel1.setText("Book travel");
 
+        roundTripButton.setBackground(Global.transparentColor);
         roundTripButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         roundTripButton.setText("Roundtrip");
         roundTripButton.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +176,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
             }
         });
 
+        oneWayButton.setBackground(Global.transparentColor);
         oneWayButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         oneWayButton.setText("One-way");
         oneWayButton.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +307,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
         this.datePickerReturn.setVisible(true);
+        
     }//GEN-LAST:event_roundTripButtonActionPerformed
     
     private boolean originFlightOn = true;
@@ -379,14 +388,22 @@ public class BookTravelPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_buttonSearchActionPerformed
+    
     public String getFlightPrintDate(Date date){
         String flightDate = "";
         int dayOfWeek, day, month;
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
         calendar.setTime(date); 
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        String[] dayOfWeekName = {  "Sat","Sun","Mon", "Tue", "Wen", "Thu", "Fri" };
-        flightDate += dayOfWeekName[dayOfWeek];
+        
+        /*Rui made an error with dayOfWeek and dayOfWeekName index
+            DAY_OF_WEEK will return 5 for Thursday and 7 for Saturday
+            The array needs to be arranged as Sun to Sat, and the
+            dayOfWeek needs to have a minus one
+        */
+        //String[] dayOfWeekName = {  "Sat","Sun","Mon", "Tue", "Wen", "Thu", "Fri" }; //wrong
+        String[] dayOfWeekName = {"Sun","Mon", "Tue", "Wen", "Thu", "Fri", "Sat"};
+        flightDate += dayOfWeekName[--dayOfWeek];
         flightDate +=",";
         month = calendar.get(Calendar.MONTH);
         String[] monthName = { "Jan", "Feb", "Mar", "Apr", "May", "June", "July",
@@ -397,6 +414,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         flightDate += day;
         return flightDate;
     }
+    
     public void showOriginFlights() {
         FlightResultPanel resultsPanel = 
             (FlightResultPanel)Global.jPanelMap.get(Global.textFlights);
@@ -462,6 +480,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(false);
         this.oneWayButton.setSelected(true);
         this.datePickerReturn.setVisible(false);
+        
     }//GEN-LAST:event_oneWayButtonActionPerformed
 
    // private DefaultComboBoxModel airportModel = new DefaultComboBoxModel(Global.airportList);

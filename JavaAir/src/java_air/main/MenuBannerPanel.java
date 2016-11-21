@@ -148,19 +148,6 @@ public class MenuBannerPanel extends JPanel{
 
         helpButton = new JButton(Global.textHelp);
         accountButton = new JButton(Global.textAcct);
-        helpButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                HelpPanel panelHelp = new HelpPanel();
-                panelHelp.setVisible(true);                       
-            }
-        }); 
-//        helpButton.addWindowListener(new WindowAdapter() {
-//            @Override
- //           public void windowClosing(WindowEvent e) {
- //           System.exit(0);
- //           }
- //       });
         //helpButton.setFont(new Font("Times",Font.PLAIN, 30));
         helpButton.setFont(Global.titleFont);
         helpButton.setBackground(buttonColor);

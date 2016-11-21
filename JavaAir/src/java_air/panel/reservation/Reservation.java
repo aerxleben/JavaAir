@@ -224,7 +224,8 @@ public class Reservation {
         this.isCheckedIn = isCheckedIn;
     }
 
-    public void saveReservationToDB(){
+    public boolean saveReservationToDB(){
+        boolean result = false;
         try{
             /*first need to check passengers in DB
             if a passenger's name is not in the DB, we need to create
@@ -257,6 +258,7 @@ public class Reservation {
             insertReservationInfo(customerIdList);
             updateRewards();
             JOptionPane.showMessageDialog(null, "Reservation Completed Successfully!");
+            result = true;
         }
         catch(Exception x){
             JOptionPane.showMessageDialog(null
@@ -264,7 +266,7 @@ public class Reservation {
                 ,"DB Reservation Save Error"
                 ,JOptionPane.ERROR_MESSAGE);
         }//end try-catch
-        
+        return result;
     }//end saveReservationToDB
     
     private int getCustomerId(Passenger p){
@@ -291,7 +293,7 @@ public class Reservation {
         String queryAddPassenger = "INSERT INTO CUSTOMERS " + 
                     "(FIRSTNAME, LASTNAME, DOB, GENDER, " + 
                     "ADDRESS, CITY, STATE, ZIPCODE, PHONENUMBER, " +
-                    "EMAIL, PASSWORD, REWARDMILES)" + 
+                    "EMAIL, PASSWORD, CURRENTREWARDPOINTS, TOTALREWARDPOINTS)" + 
                     "VALUES " + 
                     "('" + p.getFirstName() + "', " +
                     "'" + p.getLastName() + "', " +
@@ -304,7 +306,7 @@ public class Reservation {
                     "'" + p.getPhone() + "', " +
                     "'" + p.getFirstName()+ p.getLastName() + "@javaair.com', " +
                     "'12345', " +
-                    "0)";
+                    "0, 0)";
         try{
             new DataClient().dbInsertOrUpdate(queryAddPassenger);
             
