@@ -129,6 +129,16 @@ public class RegistrationPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(firstField, constraints);
         add(firstField);
+        
+        try{
+            String str=firstField.getText();                  
+            str =str.replaceFirst(str.substring(0, 1),str.substring(0, 1).toUpperCase());
+            firstField=new JTextField(str);
+        }
+        catch(Exception x){
+            firstField = new JTextField();
+        }        
+        
 
         JLabel lastLabel = new JLabel("Last");
         //lastLabel.setFont(new Font("Times", Font.BOLD, 30));
@@ -386,14 +396,14 @@ public class RegistrationPanel extends JPanel{
         add(phoneLabel);
 
         
-        try{
+/*        try{
             MaskFormatter phoneFormat = new MaskFormatter("(###) ###-####");
             phoneFormat.setPlaceholder("#");
             phoneField = new JFormattedTextField(phoneFormat);
         }
         catch(Exception x){
             phoneField = new JFormattedTextField();
-        }
+        }*/
         //phoneField = new JTextField("");
         //phoneField.setFont(new Font("Times", Font.PLAIN, 30));
         phoneField.setFont(Global.normalFont);
