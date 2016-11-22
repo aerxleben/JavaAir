@@ -132,8 +132,8 @@ public class RegistrationPanel extends JPanel{
         
         try{
             String str=firstField.getText();                  
-            str =str.replaceFirst(str.substring(0, 1),str.substring(0, 1).toUpperCase());
-//              str = str.substring(0, 1).toUpperCase()+str.substring(1);
+//            str =str.replaceFirst(str.substring(0, 1),str.substring(0, 1).toUpperCase());
+              str = str.substring(0, 1).toUpperCase()+str.substring(1);
             firstField=new JTextField(str);
         }
         catch(Exception x){
@@ -397,14 +397,14 @@ public class RegistrationPanel extends JPanel{
         add(phoneLabel);
 
         
-/*        try{
+        try{
             MaskFormatter phoneFormat = new MaskFormatter("(###) ###-####");
             phoneFormat.setPlaceholder("#");
             phoneField = new JFormattedTextField(phoneFormat);
         }
         catch(Exception x){
             phoneField = new JFormattedTextField();
-        }*/
+        }
         //phoneField = new JTextField("");
         //phoneField.setFont(new Font("Times", Font.PLAIN, 30));
         phoneField.setFont(Global.normalFont);
