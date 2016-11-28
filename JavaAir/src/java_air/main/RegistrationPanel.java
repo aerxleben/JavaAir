@@ -69,7 +69,7 @@ public class RegistrationPanel extends JPanel{
     public JXDatePicker getBirthdayPicker(){return birthdayPicker;}
     public JComboBox<String> getGenderBox(){return genderBox;}
     public JTextField getAddressField(){return addressField;}
-    public JTextField getCityField(){return addressField;}
+    public JTextField getCityField(){return cityField;}
     public JTextField getStateField(){return stateField;}
     public JTextField getZipField(){return zipField;}
     public JFormattedTextField getPhoneField(){return phoneField;}
