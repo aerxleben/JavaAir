@@ -293,10 +293,9 @@ public class LoginLandingPanel extends JPanel{
                     , JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+       
         if(!customerList.isEmpty()){
             Global.currentCustomer = customerList.get(0);
-            
             AccountWelcomePanel acctPanel = 
                     (AccountWelcomePanel)Global.jPanelMap.get(Global.textAcct);
             acctPanel.setHelloText(Global.currentCustomer.getFirstName()
@@ -310,7 +309,7 @@ public class LoginLandingPanel extends JPanel{
                     , "Login Error"
                     , JOptionPane.ERROR_MESSAGE);
         }
-        
+         
         //with a logged in customer, change Login button text to logout
         if(Global.currentCustomer != null){
             MenuBannerPanel menu = 

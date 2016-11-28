@@ -24,7 +24,7 @@ public class CheckInTest {
         
         //make new test reservation
         try{
-            new NewReservationTest().newReservation_testNormal1();
+            new NewReservationTest().guestNewReservation_testNormal1();
             //get test reservation number
             String existCustomerQuery = "SELECT CustomerID FROM Customers WHERE FIRSTNAME = 'TestFirstName' AND LASTNAME = 'TestLastName' LIMIT 1";
             testCustomerId = new DataClient().getCount(existCustomerQuery);
