@@ -147,7 +147,6 @@ public class MenuBannerPanel extends JPanel{
         add(accountButton);
 
         helpButton = new JButton(Global.textHelp);
-        accountButton = new JButton(Global.textAcct);
         //helpButton.setFont(new Font("Times",Font.PLAIN, 30));
         helpButton.setFont(Global.titleFont);
         helpButton.setBackground(buttonColor);

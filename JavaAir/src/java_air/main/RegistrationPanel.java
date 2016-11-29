@@ -129,17 +129,6 @@ public class RegistrationPanel extends JPanel{
         constraints.weighty = 10;
         layout.setConstraints(firstField, constraints);
         add(firstField);
-        
-        try{
-            String str=firstField.getText();                  
-//            str =str.replaceFirst(str.substring(0, 1),str.substring(0, 1).toUpperCase());
-              str = str.substring(0, 1).toUpperCase()+str.substring(1);
-            firstField=new JTextField(str);
-        }
-        catch(Exception x){
-            firstField = new JTextField();
-        }        
-        
 
         JLabel lastLabel = new JLabel("Last");
         //lastLabel.setFont(new Font("Times", Font.BOLD, 30));
