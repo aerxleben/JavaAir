@@ -205,7 +205,7 @@ public class BookTravelPanel extends javax.swing.JPanel {
 
         buttonSearch.setBackground(new java.awt.Color(204, 153, 0));
         buttonSearch.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        buttonSearch.setText("Flind Flights");
+        buttonSearch.setText("Find Flights");
         buttonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSearchActionPerformed(evt);
