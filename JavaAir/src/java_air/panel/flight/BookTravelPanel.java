@@ -58,6 +58,16 @@ public class BookTravelPanel extends javax.swing.JPanel {
         this.roundTripButton.setSelected(true);
         this.oneWayButton.setSelected(false);
         this.comboBoxDestination.setSelectedItem(Global.airportList[1]);
+        
+        Calendar departCal = datePickerDepart.getMonthView().getCalendar();
+        departCal.setTime(new Date());
+        datePickerDepart.getMonthView().setLowerBound(departCal.getTime());
+        
+        Calendar returnCal = datePickerReturn.getMonthView().getCalendar();
+        returnCal.setTime(new Date());
+        returnCal.add(Calendar.DATE, 1);
+        datePickerReturn.getMonthView().setLowerBound(returnCal.getTime());
+        
         setComponentOpaque();
         this.validate();
     }

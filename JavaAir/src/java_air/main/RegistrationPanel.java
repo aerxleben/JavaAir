@@ -736,9 +736,9 @@ public class RegistrationPanel extends JPanel{
         else{
             try{
                 Customer account = new Customer(list);
-                boolean isNewAccount = account.saveCustomerInfo();
+                int custId = account.saveCustomerInfo();
                 
-                if(isNewAccount){
+                if(custId > 0){
                     JOptionPane.showMessageDialog(null
                         , "New Account Creation Successful"
                         , "Good News!"
@@ -746,17 +746,22 @@ public class RegistrationPanel extends JPanel{
 
                     //display AccountConfirmationPanel
                     if(Global.jPanelMap != null){
-                        AccountConfirmationPanel confirmPanel = (AccountConfirmationPanel)Global.jPanelMap.get(Global.textRegConfirm);
+                        AccountConfirmationPanel confirmPanel 
+                                = (AccountConfirmationPanel)Global.jPanelMap.get(Global.textRegConfirm);
                         confirmPanel.setEmailLabelText(account.getEmailAddress());
+                        confirmPanel.setCustIdLabelText(String.valueOf(custId));
                     }
 
                     Global.switchCard(Global.textRegConfirm);
                 }
-                else{
+                else if(custId == 0){
                     JOptionPane.showMessageDialog(null
                         , "Account Information Updated Successfully"
                         , "Good News!"
                         , JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    throw new Exception();
                 }
             }
             catch(Exception x){

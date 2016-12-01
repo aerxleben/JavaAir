@@ -213,7 +213,13 @@ public class Customer{
        }
    }
    
-   public boolean saveCustomerInfo() throws Exception{
+   public int saveCustomerInfo() throws Exception{
+       /* status: negative = error
+       *    0 = existing account / update
+       *    positive = new account id
+       */
+       int status = 0;
+       int ERROR = -99;
        boolean isNewAccount = true;
        
        if(this.customerInfoList == null){
@@ -272,15 +278,24 @@ public class Customer{
        
        try{
            new DataClient().dbInsertOrUpdate(query);
+           
+           if(isNewAccount){
+               query = "SELECT CUSTOMERID FROM CUSTOMERS " +
+                       "WHERE FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
+                       "LASTNAME = '" + customerInfoList.get(1) + "' AND " +
+                       "DOB = '" + customerInfoList.get(2) + "'";
+               status = new DataClient().getCount(query);
+           }
        }
        catch(Exception x){
+           status = ERROR;
            JOptionPane.showMessageDialog(null
                     ,x.getMessage()
                     ,"Customer Account Error"
                     ,JOptionPane.ERROR_MESSAGE);
        }
        
-       return isNewAccount;
+       return status;
    }//end saveCustomerInfo()
    
    private static Customer loadCustomerInfo(String email, String password) throws Exception{

@@ -222,6 +222,9 @@ public class FlightSearchPanel extends JPanel{
         JDatePanelImpl datePanelDepart = new JDatePanelImpl(model, p);*/
         //departDatePicker = new JDatePickerImpl(datePanelDepart, new DataLabelFormatter());
         departDatePicker = new JXDatePicker();
+        Calendar departCal = departDatePicker.getMonthView().getCalendar();
+        departCal.setTime(new Date());
+        departDatePicker.getMonthView().setLowerBound(departCal.getTime());
         //departDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
         departDatePicker.setFont(Global.normalFont);
         constraints.gridx = 1;
@@ -260,6 +263,10 @@ public class FlightSearchPanel extends JPanel{
         JDatePanelImpl datePanelReturn = new JDatePanelImpl(model, p);*/
         //returnDatePicker = new JDatePickerImpl(datePanelReturn, new DataLabelFormatter());
         returnDatePicker = new JXDatePicker();
+        Calendar returnCal = returnDatePicker.getMonthView().getCalendar();
+        returnCal.setTime(new Date());
+        returnCal.add(Calendar.DATE, 1);
+        returnDatePicker.getMonthView().setLowerBound(returnCal.getTime());
         //returnDatePicker.setFont(new Font("Times", Font.PLAIN, 30));
         returnDatePicker.setFont(Global.normalFont);
         constraints.gridx = 3;
