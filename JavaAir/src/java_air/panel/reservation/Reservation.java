@@ -224,7 +224,7 @@ public class Reservation {
         this.isCheckedIn = isCheckedIn;
     }
 
-    public boolean saveReservationToDB(){
+    public boolean saveReservationToDB() throws Exception{
         boolean result = false;
         try{
             /*first need to check passengers in DB
@@ -261,10 +261,7 @@ public class Reservation {
             result = true;
         }
         catch(Exception x){
-            JOptionPane.showMessageDialog(null
-                ,x.getMessage()
-                ,"DB Reservation Save Error"
-                ,JOptionPane.ERROR_MESSAGE);
+            throw x;
         }//end try-catch
         return result;
     }//end saveReservationToDB

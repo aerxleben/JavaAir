@@ -11,6 +11,7 @@ import java.awt.Font;
 import java_air.main.Flight;
 import java_air.main.Global;
 import java_air.main.Passenger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -467,7 +468,18 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReservationButtonActionPerformed
-        if(Global.currentReservation.saveReservationToDB()){
+        boolean reserveSuccessful = false;
+        try{
+            reserveSuccessful = Global.currentReservation.saveReservationToDB();
+        }
+        catch(Exception x){
+            JOptionPane.showMessageDialog(null
+                ,x.getMessage()
+                ,"DB Reservation Save Error"
+                ,JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if(reserveSuccessful){
             Global.currentReservation = null;
             Global.panelSwitch(Global.textHome);
         }
