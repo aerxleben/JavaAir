@@ -24,7 +24,7 @@ import java_air.panel.reservation.Reservation;
 import javax.swing.text.MaskFormatter;
 
 public class Global {
-    public static String version = "1.50.0";
+    public static String version = "1.30.0";
     
     public static String textMenu = "Menu"; //reference menu bar
     public static String textHome = "Home";//refrence home page

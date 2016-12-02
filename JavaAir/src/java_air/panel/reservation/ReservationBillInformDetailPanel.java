@@ -547,6 +547,14 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_billCountryTextActionPerformed
 
     private void paymentContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentContinueButtonActionPerformed
+        if(hasEmptyFields()){
+            JOptionPane.showMessageDialog(null
+                    , "Please Enter All Billing Information"
+                    , "Incomplete Billing Form"
+                    , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         setPaymentInfor2Reservation();
         
         //apply points
@@ -600,6 +608,22 @@ public class ReservationBillInformDetailPanel extends javax.swing.JPanel {
         Global.currentReservation.setPaymentFirstName(firstNameText.getText());
         Global.currentReservation.setPaymentLastName(lastNameText.getText());
         Global.currentReservation.setPaymentCardNumber(cardNumberText.getText());
+    }
+    
+    private boolean hasEmptyFields(){
+        return(this.firstNameText.getText().isEmpty()
+                || this.lastNameText.getText().isEmpty()
+                || this.cardNumberText.getText().isEmpty()
+                || this.expireMonthText.getText().isEmpty()
+                || this.expireYearText.getText().isEmpty()
+                || this.cvcText.getText().isEmpty()
+                || this.billFirstNameText.getText().isEmpty()
+                || this.billLastNameText1.getText().isEmpty()
+                || this.billAddressText.getText().isEmpty()
+                || this.billCityText.getText().isEmpty()
+                || this.billStateText.getText().isEmpty()
+                || this.billCountryText.getText().isEmpty()
+                || this.billZipText.getText().isEmpty());
     }
     
     private void useSomePointBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useSomePointBoxActionPerformed
