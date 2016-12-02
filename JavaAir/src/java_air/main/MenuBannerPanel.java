@@ -199,6 +199,20 @@ public class MenuBannerPanel extends JPanel{
         if(this.loginButton.getText().equals("Logout")){
             //reset currentCustomer
             Global.currentCustomer = null;
+
+            Component[] comps = Global.cardsPanel.getComponents();
+            for(Component comp : comps){
+                if(comp.getName().equals(Global.textAcct)){
+                    Global.cardsPanel.getLayout().removeLayoutComponent(comp);
+                    break;
+                }
+            }//end for-loop
+            
+            AccountWelcomePanel newAcctWelcomePanel = new AccountWelcomePanel();
+            newAcctWelcomePanel.setName(Global.textAcct);
+            Global.cardsPanel.add(newAcctWelcomePanel, Global.textAcct);
+            Global.jPanelMap.put(Global.textAcct, newAcctWelcomePanel);
+            
             //change button text to login
             this.loginButton.setText("Login");
             //reset login info

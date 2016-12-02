@@ -48,6 +48,7 @@ public class JavaAirApp implements ActionListener{
         panelMenu.getAboutButton().addActionListener(
                 new PanelAboutAction()
         );
+        panelMenu.setName(Global.textMenu);
         Global.jPanelMap.put(Global.textMenu, panelMenu);
         
         //Home Panel
@@ -55,50 +56,62 @@ public class JavaAirApp implements ActionListener{
         //panelHome.getFlightSearchPanel().getSearchButton().addActionListener(this);
         panelHome.getFlightStatusButton().addActionListener(this);
         panelHome.getCheckInButton().addActionListener(this);
+        panelHome.setName(Global.textHome);
         Global.jPanelMap.put(Global.textHome, panelHome);
         
         //Login Landing Panel
         LoginLandingPanel panelLoginLanding = new LoginLandingPanel();
         panelLoginLanding.getRegisterButton().addActionListener(this);
+        panelLoginLanding.setName(Global.textLogin);
         Global.jPanelMap.put(Global.textLogin, panelLoginLanding);
         
         //Registration Panel
         RegistrationPanel panelRegister = new RegistrationPanel();
+        panelRegister.setName(Global.textRegister);
         Global.jPanelMap.put(Global.textRegister, panelRegister);
         
         //Account Confirmation Panel
         AccountConfirmationPanel panelAcctConfirm = new AccountConfirmationPanel();
+        panelAcctConfirm.setName(Global.textRegConfirm);
         Global.jPanelMap.put(Global.textRegConfirm, panelAcctConfirm);
         
         //Flight Search Result Panel
         FlightResultPanel panelFlights = new FlightResultPanel();
+        panelFlights.setName(Global.textFlights);
         Global.jPanelMap.put(Global.textFlights, panelFlights);
         
        //Account Welcome Panel
         AccountWelcomePanel anAccountWelcomePanel = new AccountWelcomePanel();
+        anAccountWelcomePanel.setName(Global.textAcct);
         Global.jPanelMap.put(Global.textAcct, anAccountWelcomePanel);
         
-        //Pasword Reset Panel
+        //Password Reset Panel
         PasswordResetPanel aPasswordResetPanel = new PasswordResetPanel();
+        aPasswordResetPanel.setName(Global.textForgot);
         Global.jPanelMap.put(Global.textForgot, aPasswordResetPanel);
         
         //CheckIn Panel
         CheckInPanel aCheckInPanel = new CheckInPanel();
+        aCheckInPanel.setName(Global.textCheckIn);
         Global.jPanelMap.put(Global.textCheckIn, aCheckInPanel);
         
         /* Reservation Panels */
         // Reservation Confirmation Panel
         ReservationConfirmationPanel reservationConfirmPanel = new ReservationConfirmationPanel();
+        reservationConfirmPanel.setName(Global.textReservationConfirmation);
         Global.jPanelMap.put(Global.textReservationConfirmation,reservationConfirmPanel);
         // Reservation Confirmation Panel
         ReservationBillInformationPanel reservationBillPanel = new ReservationBillInformationPanel();
+        reservationBillPanel.setName(Global.textReservationBillInformation);
         Global.jPanelMap.put(Global.textReservationBillInformation,reservationBillPanel);
         // Reservation Confirmation Panel
         ReservationPassengerPanel reservationPassengerPanel = new ReservationPassengerPanel();
+        reservationPassengerPanel.setName(Global.textReservationPassenger);
         Global.jPanelMap.put(Global.textReservationPassenger,reservationPassengerPanel);
         
         /* Flight Status Panel */
         FlightStatusPanel statusPanel = new FlightStatusPanel();
+        statusPanel.setName(Global.textFlightStatus);
         Global.jPanelMap.put(Global.textFlightStatus, statusPanel);
         
         //Add panels to the CardLayout
@@ -118,7 +131,7 @@ public class JavaAirApp implements ActionListener{
         cards.add(reservationBillPanel, Global.textReservationBillInformation);
         cards.add(reservationPassengerPanel, Global.textReservationPassenger);
         
-        if(cards != null){ Global.cardsPanel = cards; }
+        Global.cardsPanel = cards;
         
         pane.add(panelMenu, BorderLayout.PAGE_START);
         //pane.add(menu, BorderLayout.PAGE_START);
@@ -176,7 +189,6 @@ public class JavaAirApp implements ActionListener{
             }
         }
     }//end class PanelAboutAction 
-    
     
     public static void main(String[] args){
         javax.swing.SwingUtilities.invokeLater(new Runnable(){

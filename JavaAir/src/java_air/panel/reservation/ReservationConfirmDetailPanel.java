@@ -6,11 +6,13 @@
 package java_air.panel.reservation;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java_air.main.Flight;
 import java_air.main.Global;
 import java_air.main.Passenger;
+import java_air.panel.flight.FlightResultPanel;
 import javax.swing.JOptionPane;
 
 /**
@@ -481,6 +483,43 @@ public class ReservationConfirmDetailPanel extends javax.swing.JPanel {
         
         if(reserveSuccessful){
             Global.currentReservation = null;
+            
+            Component[] comps = Global.cardsPanel.getComponents();
+            for (Component comp : comps) {
+                if(comp.getName().equals(Global.textFlights)){
+                    Global.cardsPanel.remove(comp);
+                }
+                else if(comp.getName().equals(Global.textReservationPassenger)){
+                    Global.cardsPanel.remove(comp);
+                }
+                else if(comp.getName().equals(Global.textReservationBillInformation)){
+                    Global.cardsPanel.remove(comp);
+                }
+                else if (comp.getName().equals(Global.textReservationConfirmation)) {
+                    Global.cardsPanel.remove(comp);
+                }//end if-else
+            }//end for-loop
+            
+            FlightResultPanel newFlightsPanel = new FlightResultPanel();
+            newFlightsPanel.setName(Global.textFlights);
+            Global.cardsPanel.add(newFlightsPanel, Global.textFlights);
+            Global.jPanelMap.put(Global.textFlights, newFlightsPanel);
+            
+            ReservationPassengerPanel newReservPassPanel = new ReservationPassengerPanel();
+            newReservPassPanel.setName(Global.textReservationPassenger);
+            Global.cardsPanel.add(newReservPassPanel, Global.textReservationPassenger);
+            Global.jPanelMap.put(Global.textReservationPassenger, newReservPassPanel);
+            
+            ReservationBillInformationPanel newBillPanel = new ReservationBillInformationPanel();
+            newBillPanel.setName(Global.textReservationBillInformation);
+            Global.cardsPanel.add(newBillPanel, Global.textReservationBillInformation);
+            Global.jPanelMap.put(Global.textReservationBillInformation, newBillPanel);
+            
+            ReservationConfirmationPanel newConfirmPanel = new ReservationConfirmationPanel();
+            newConfirmPanel.setName(Global.textReservationConfirmation);
+            Global.cardsPanel.add(newConfirmPanel, Global.textReservationConfirmation);
+            Global.jPanelMap.put(Global.textReservationConfirmation, newConfirmPanel);
+            
             Global.panelSwitch(Global.textHome);
         }
     }//GEN-LAST:event_confirmReservationButtonActionPerformed

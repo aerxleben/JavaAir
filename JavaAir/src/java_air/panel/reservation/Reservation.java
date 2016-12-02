@@ -385,11 +385,14 @@ public class Reservation {
         double netPoints
                 = (pc.getRewardRedeemValue() * -1) + pointsEarned;
         
+        int currentPoints = Global.currentCustomer.getCurrentRewardPoints() + 
+                new Double(netPoints).intValue();
+        int totalPoints = Global.currentCustomer.getTotalRewardPoints() +
+                new Double(pointsEarned).intValue();
+        
         String queryRewards = "UPDATE Customers " +
-                "SET CurrentRewardPoints = CurrentRewardPoints + " + 
-                new Double(netPoints).intValue() +
-                ", TotalRewardPoints = TotalRewardPoints + " + 
-                new Double(pointsEarned).intValue() + " " +
+                "SET CurrentRewardPoints = " + currentPoints +
+                ", TotalRewardPoints = " + totalPoints + " " +
                 "WHERE CustomerID = " + 
                 Global.currentCustomer.getCustomerID() + " " +
                 "AND FirstName = '" + 
@@ -398,6 +401,9 @@ public class Reservation {
         
         try{
             new DataClient().dbInsertOrUpdate(queryRewards);
+            
+            Global.currentCustomer.setCurrentRewardPoints(currentPoints);
+            Global.currentCustomer.setTotalRewardPoints(totalPoints);
         }
         catch(Exception x){
             throw x;
