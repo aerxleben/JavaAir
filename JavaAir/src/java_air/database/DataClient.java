@@ -70,7 +70,9 @@ public class DataClient {
             Connection c = getConnection();
             Statement stmt = c.createStatement();
             set = stmt.executeQuery(query);
-            count = set.getInt(1);
+            if(set.next()){
+                count = set.getInt(1);
+            }
             
             stmt.close();
             c.close();
