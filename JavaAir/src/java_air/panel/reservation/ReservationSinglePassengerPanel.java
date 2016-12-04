@@ -285,7 +285,7 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         new TextPrompt("YYYY*", yearText);
         new TextPrompt("Mobile number", mobileNumberText);
         new TextPrompt("Email address", emailText);
-        new TextPrompt("Know Traveler Number/PASS ID", passIDText);
+        new TextPrompt("Know Traveler Number/PASS ID, 0 if Guest", passIDText);
     }
     
     public boolean hasEmptyFields(){
