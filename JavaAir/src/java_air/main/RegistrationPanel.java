@@ -728,7 +728,7 @@ public class RegistrationPanel extends JPanel{
         
         if(missing > 0){
             JOptionPane.showMessageDialog(null
-                    , "Please Incorrect Highlighted Fields"
+                    , "Please Correct Highlighted Fields"
                     , "Fields With Error: " + missing
                     , JOptionPane.ERROR_MESSAGE);
             list = null;
@@ -739,6 +739,20 @@ public class RegistrationPanel extends JPanel{
                 int custId = account.saveCustomerInfo();
                 
                 if(custId > 0){
+                    
+                    //reset all fields @Matt
+firstField.setText("");
+lastField.setText("");
+addressField.setText("");
+cityField.setText("");
+stateField.setText("");
+zipField.setText("");
+emailField.setText("");
+passwordField.setText("");
+cPasswordField.setText("");
+phoneField.setValue(null);
+birthdayPicker.setDate(null);
+                    
                     JOptionPane.showMessageDialog(null
                         , "New Account Creation Successful"
                         , "Good News!"
