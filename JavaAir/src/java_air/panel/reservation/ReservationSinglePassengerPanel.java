@@ -300,7 +300,7 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         if(!format.parse(dataBirthCheck.trim()).before(mostYoungDate)){
             throw new Exception("Are you coming from Future? Invalid Date Of Birth.");
         }
-        Date oldestDate = new Date(0,11,29);
+        Date oldestDate = new Date(-1,11,29);
         if(!format.parse(dataBirthCheck.trim()).after(oldestDate)){
              throw new Exception("Invalid Passenger Date Of Birth.");
         }
@@ -312,7 +312,7 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     public String getPhoneNumber() throws Exception{
         if(!mobileNumberText.getText().matches("[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)")
                 || mobileNumberText.getText().length() != 10){
-            throw new Exception("Invalid phone number");
+            throw new Exception("Invalid Phone Number");
         }
         return mobileNumberText.getText();
     }
