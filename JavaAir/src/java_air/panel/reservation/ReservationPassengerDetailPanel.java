@@ -210,7 +210,8 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // if passengerList is empty, then break out continueButtonActionPerformed.
+        // if passengerList siz is not equal to reservationPassengerPanelList size,
+        // then break out continueButtonActionPerformed.
         if(passengerList.size()!=reservationPassengerPanelList.size()){
             return;
         }
