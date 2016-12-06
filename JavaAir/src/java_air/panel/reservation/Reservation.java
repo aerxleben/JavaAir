@@ -255,9 +255,9 @@ public class Reservation {
                 if a partial cash payment is used, calculat points earned
                 and add to customer account
             */
-            insertReservationInfo(customerIdList);
+            int reservNum = insertReservationInfo(customerIdList);
             updateRewards();
-            JOptionPane.showMessageDialog(null, "Reservation Completed Successfully!");
+            JOptionPane.showMessageDialog(null, "Reservation Completed Successfully! Your Reservation Number Is " + reservNum);
             result = true;
         }
         catch(Exception x){
@@ -319,11 +319,12 @@ public class Reservation {
         return newId;
     }//end savePassengerInfo()
     
-    private void insertReservationInfo(ArrayList<Integer> idList){
+    private int insertReservationInfo(ArrayList<Integer> idList) throws Exception{
+        int reservNum = -99;
         try{
             String queryReservNum = 
                     "SELECT MAX(ReservationNumber)+1 AS NextNumber FROM Reservations";
-            int reservNum = new DataClient().getCount(queryReservNum);
+            reservNum = new DataClient().getCount(queryReservNum);
             if(reservNum <= 1){ throw new Exception("Invalid Reservation Number " + reservNum); }
             
             String queryReserv = "INSERT INTO Reservations " +
@@ -369,11 +370,15 @@ public class Reservation {
             }//end if
         }
         catch(Exception x){
-            JOptionPane.showMessageDialog(null
-                ,x.getMessage()
-                ,"DB Insert Reserv Error"
-                ,JOptionPane.ERROR_MESSAGE);
+            reservNum = -99;
+            throw new Exception("Insert Into Reservation: " + x.getMessage());
+//            JOptionPane.showMessageDialog(null
+//                ,x.getMessage()
+//                ,"DB Insert Reserv Error"
+//                ,JOptionPane.ERROR_MESSAGE);
         }//end try-catch
+        
+        return reservNum;
     }//end insertReservationInfo()
     
     private void updateRewards() throws Exception{
