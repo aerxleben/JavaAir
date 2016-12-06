@@ -211,7 +211,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
             Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         // if passengerList is empty, then break out continueButtonActionPerformed.
-        if(passengerList.size()==0){
+        if(passengerList.size()!=reservationPassengerPanelList.size()){
             return;
         }
         // if there is user login, set up rewardPointsPanel.
