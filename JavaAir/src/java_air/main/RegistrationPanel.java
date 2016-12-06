@@ -735,23 +735,34 @@ public class RegistrationPanel extends JPanel{
         }
         else{
             try{
+                int custId;
                 Customer account = new Customer(list);
-                int custId = account.saveCustomerInfo();
+                try {
+                custId = account.saveCustomerInfo();
+                } catch (Exception ex) {
+                    //Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null
+                            , ex.getMessage() 
+                            , "Registration Info Error"
+                            , JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
                 
                 if(custId > 0){
                     
                     //reset all fields @Matt
-firstField.setText("");
-lastField.setText("");
-addressField.setText("");
-cityField.setText("");
-stateField.setText("");
-zipField.setText("");
-emailField.setText("");
-passwordField.setText("");
-cPasswordField.setText("");
-phoneField.setValue(null);
-birthdayPicker.setDate(null);
+                    firstField.setText("");
+                    lastField.setText("");
+                    addressField.setText("");
+                    cityField.setText("");
+                    stateField.setText("");
+                    zipField.setText("");
+                    emailField.setText("");
+                    passwordField.setText("");
+                    cPasswordField.setText("");
+                    phoneField.setValue(null);
+                    birthdayPicker.setDate(null);
                     
                     JOptionPane.showMessageDialog(null
                         , "New Account Creation Successful"

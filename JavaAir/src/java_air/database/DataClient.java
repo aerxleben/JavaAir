@@ -62,10 +62,35 @@ public class DataClient {
         }
     }//get insertData()
     
+    public int getValidation(String query) 
+            throws Exception{
+        ResultSet set = null;
+        int count = 1;
+        try{
+            Connection c = getConnection();
+            Statement stmt = c.createStatement();
+            set = stmt.executeQuery(query);
+            /*
+            if(set.next()){
+                count = set.getInt(1);
+            }
+            */
+            if(set.next()){
+                count = 0;
+            }
+            stmt.close();
+            c.close();
+        }//end try
+        catch(Exception x){
+            throw new Exception("DB Select Int Error; " + x.getMessage());
+        }//end catch
+        
+        return count;
+    }
     public int getCount(String query) 
             throws Exception{
         ResultSet set = null;
-        int count = 0;
+        int count = 1;
         try{
             Connection c = getConnection();
             Statement stmt = c.createStatement();
@@ -73,7 +98,6 @@ public class DataClient {
             if(set.next()){
                 count = set.getInt(1);
             }
-            
             stmt.close();
             c.close();
         }//end try
