@@ -6,8 +6,15 @@
 package java_air.panel.reservation;
 
 import java.awt.Label;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java_air.main.Customer;
 import java_air.main.Global;
+import org.sqlite.util.StringUtils;
 
 /**
  *
@@ -251,32 +258,75 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
         return travelerlLabel;
     }
     
-    public String getGender(){
+    public String getGender() throws Exception{
+        if(!femaleRadioButton.isSelected() && !maleRadioButton.isSelected()){
+             throw new Exception("Gender is not selected.");
+        }
         return(femaleRadioButton.isSelected() ? "Female" : "Male");
         //return genderInformation;
     }
     
-    public String getFirstName(){
+    public String getFirstName() throws Exception{
+        if(firstNameText.getText().isEmpty() || firstNameText.getText().matches(".*\\d.*")){
+            throw new Exception("Invalid first name");
+        }
         return firstNameText.getText();
     }
     
-    public String getLastName(){
+    public String getLastName() throws Exception{
+        if(lastNameText.getText().isEmpty() || lastNameText.getText().matches(".*\\d.*")){
+            throw new Exception("Invalid last name");
+        }
         return lastNameText.getText();
     }
     
-    public String getDateBirth(){
+    public String getDateBirth() throws Exception{
+        // Test the input of date is number.
+        String dataBirthCheck = monthText.getText() + "-" + dayText.getText()
+                                + "-" + yearText.getText();
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+        try {
+            
+            format.setLenient(false);
+            format.parse(dataBirthCheck.trim());
+        } catch (Exception e) {
+            throw new Exception("Invalid Passenger Date Of Birth.");}
+        
+        int year = Integer.parseInt(yearText.getText());  
+        
+        // Check the year is valid.
+        Date mostYoungDate = new Date();
+        // If the input date is after today, a error will be thrown.
+        if(!format.parse(dataBirthCheck.trim()).before(mostYoungDate)){
+            throw new Exception("Are you coming from Future? Invalid Date Of Birth.");
+        }
+        Date oldestDate = new Date(0,11,29);
+        if(!format.parse(dataBirthCheck.trim()).after(oldestDate)){
+             throw new Exception("Invalid Passenger Date Of Birth.");
+        }
+        
         dataBirthInformation = monthText.getText() + "/" + dayText.getText()
                                 + "/" + yearText.getText();
         return dataBirthInformation;
     }
-    public String getPhoneNumber(){
+    public String getPhoneNumber() throws Exception{
+        if(!mobileNumberText.getText().matches("[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)")
+                || mobileNumberText.getText().length() != 10){
+            throw new Exception("Invalid phone number");
+        }
         return mobileNumberText.getText();
     }
     
     public String getPassID(){
+        
         return passIDText.getText();
     }
-    
+    public void checkEmail() throws Exception {
+        String emailFormat = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        if(!emailText.getText().matches(emailFormat)){
+            throw new Exception("Invalid Email");
+        }
+    }
     public void textPrompt(){
         new TextPrompt("First name*", firstNameText);
         new TextPrompt("Last name*", lastNameText);
@@ -333,4 +383,6 @@ public class ReservationSinglePassengerPanel extends javax.swing.JPanel {
     private java.awt.Label travelerlLabel;
     private javax.swing.JTextField yearText;
     // End of variables declaration//GEN-END:variables
+
+
 }

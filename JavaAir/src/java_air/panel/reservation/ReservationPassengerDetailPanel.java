@@ -180,6 +180,7 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                 return;
             }
             
+            int travelerNum = reservationPassengerPanelList.indexOf(reservPassengerPanel) + 1;
             Passenger passenger = null;
             try {
                 passenger = new Passenger(reservPassengerPanel.getFirstName(),
@@ -188,10 +189,11 @@ public class ReservationPassengerDetailPanel extends javax.swing.JPanel {
                                                     reservPassengerPanel.getGender(),
                                                     reservPassengerPanel.getPassID(),
                                                     reservPassengerPanel.getPhoneNumber());
+                reservPassengerPanel.checkEmail();
             } catch (Exception ex) {
                 //Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null
-                        , ex.getMessage()
+                        , "About Traveler " + travelerNum + "\n" + ex.getMessage() 
                         , "Passenger Info Error"
                         , JOptionPane.ERROR_MESSAGE);
                 return;

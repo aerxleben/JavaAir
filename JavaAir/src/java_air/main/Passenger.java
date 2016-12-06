@@ -53,7 +53,7 @@ public class Passenger {
     public boolean getPrimaryStatus(){ return this.isPrimaryPassenger; }
     public String getPassID(){ return this.passID;}
     public void setFirstName(String newFirst) throws Exception{
-        if(newFirst != null && !newFirst.isEmpty()){
+        if(newFirst != null && !newFirst.isEmpty() && !newFirst.matches(".*\\d.*")){
             this.firstName = newFirst;
         }
         else{
@@ -62,7 +62,7 @@ public class Passenger {
     }
     
     public void setLastName(String newLast) throws Exception{
-        if(newLast != null && !newLast.isEmpty()){
+        if(newLast != null && !newLast.isEmpty()&& !newLast.matches(".*\\d.*")){
             this.lastName = newLast;
         }
         else{
