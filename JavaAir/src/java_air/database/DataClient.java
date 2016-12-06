@@ -87,10 +87,11 @@ public class DataClient {
         
         return count;
     }
+    
     public int getCount(String query) 
             throws Exception{
         ResultSet set = null;
-        int count = 1;
+        int count = 0;
         try{
             Connection c = getConnection();
             Statement stmt = c.createStatement();
