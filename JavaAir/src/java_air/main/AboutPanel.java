@@ -59,7 +59,7 @@ public class AboutPanel extends javax.swing.JFrame {
         jLabel3.setText("CS5900 Software Engineering");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Dr. Ruijian Zhang");
+        jLabel4.setText("Adviser: Dr. Ruijian Zhang");
         jLabel4.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
