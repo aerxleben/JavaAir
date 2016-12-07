@@ -225,44 +225,9 @@ public class Customer{
        if(this.customerInfoList == null){
            throw new NullPointerException("Customer.saveCustomerInfo(): Null customerInfoList");
        }
-       
-       //save to file for now, later save to DB
-       //saveToFile();
-       
-       
-       
-       
+
        //ResultSet res = DataClient.getData(queryExist);
        //int rowCount = res.getInt("ROWCOUNT");
-       
-       // In getCount method, the first name and last name are used to search,
-       // If the user want to change name, it will give a negtive rowCount.
-       // so change the method.
-       // In new method, if there is no current customer, 
-       // check whether the email is duplicate, 
-       // and, check whether the first name and last name are duplicate.
-       // If yes, throw exception.
-       int rowCount;
-       if(Global.currentCustomer == null){
-           // Test email.
-            String queryExistEmail = "SELECT CUSTOMERID " +
-               "FROM CUSTOMERS " + "WHERE " +
-               "EMAIL = '" + customerInfoList.get(9) + "'";
-            rowCount = new DataClient().getValidation(queryExistEmail);
-            if(rowCount == 0){
-                throw new Exception("This email is already registered.");
-            }
-           // Test first name and last name.
-           String queryExistName = "SELECT CUSTOMERID " +
-               "FROM CUSTOMERS " + "WHERE " +
-               "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
-                   "LASTNAME = '" + customerInfoList.get(1) + "'";
-           rowCount = new DataClient().getValidation(queryExistName);
-           if(rowCount == 0){
-                throw new Exception("You already have a account.");
-            }
-       }
-       
        
        String query = null;
        
@@ -270,6 +235,31 @@ public class Customer{
        // if yes, update the customer information.
        // if no, create a new acount.
        if(Global.currentCustomer == null){
+            // Test email.
+            String queryExistEmail = "SELECT COUNT(CUSTOMERID) " +
+               "FROM CUSTOMERS WHERE " +
+               "EMAIL = '" + customerInfoList.get(9) + "'";
+
+            int rowCount = new DataClient().getCount(queryExistEmail);
+
+            if(rowCount > 0){
+                throw new Exception("This email is already registered.");
+            }
+            
+            // Test first name and last name.
+            String queryExistName = "SELECT COUNT(CUSTOMERID) " +
+                "FROM CUSTOMERS WHERE " +
+                "FIRSTNAME = '" + customerInfoList.get(0) + "' AND " +
+                    "LASTNAME = '" + customerInfoList.get(1) + "' AND " +
+                    "DOB = '" + customerInfoList.get(2) + "'";
+
+            rowCount = new DataClient().getCount(queryExistName);
+
+            if(rowCount > 0){
+                 throw new Exception("You already have a account.");
+            }
+           
+           
            // Before create a new count
            //perform insert operation
             query = "INSERT INTO CUSTOMERS " + 
@@ -294,7 +284,7 @@ public class Customer{
             isNewAccount = false;
             //perform update operation
             System.out.println("Customer ID " + Global.currentCustomer.getCustomerID());
-           query = "UPDATE CUSTOMERS " +
+            query = "UPDATE CUSTOMERS " +
                    "SET ADDRESS = '" + customerInfoList.get(4) + "', " +
                    "FIRSTNAME = '" + customerInfoList.get(0) + "', " +
                    "LASTNAME = '" + customerInfoList.get(1) + "', " +
@@ -319,7 +309,9 @@ public class Customer{
                        "LASTNAME = '" + customerInfoList.get(1) + "' AND " +
                        "DOB = '" + customerInfoList.get(2) + "'";
                status = new DataClient().getCount(query);
-               System.out.println(status);
+           }
+           else if(!isNewAccount && Global.currentCustomer != null){
+               
            }
        }
        catch(Exception x){

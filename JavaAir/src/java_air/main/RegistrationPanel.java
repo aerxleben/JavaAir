@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
+import java_air.database.DataClient;
 import javax.swing.text.MaskFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -735,19 +736,9 @@ public class RegistrationPanel extends JPanel{
         }
         else{
             try{
-                int custId;
                 Customer account = new Customer(list);
-                try {
-                custId = account.saveCustomerInfo();
-                } catch (Exception ex) {
-                    //Logger.getLogger(ReservationPassengerDetailPanel.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null
-                            , ex.getMessage() 
-                            , "Registration Info Error"
-                            , JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                
+
+                int custId = account.saveCustomerInfo();
                 
                 if(custId > 0){
                     
@@ -780,6 +771,18 @@ public class RegistrationPanel extends JPanel{
                     Global.switchCard(Global.textRegConfirm);
                 }
                 else if(custId == 0){
+                    
+                    //update the customer info
+                    String query = "SELECT * FROM CUSTOMERS WHERE " +
+                                    "CUSTOMERID = " + Global.currentCustomer.getCustomerID() + " LIMIT 1";
+        
+                    ArrayList<Customer> customerList = null;
+                    customerList = new DataClient().getCustomerData(query);
+       
+                    if(customerList.isEmpty()){ return; }
+                    Global.currentCustomer = customerList.get(0);
+                    this.loadCurrentCustomerInfo();
+                    
                     JOptionPane.showMessageDialog(null
                         , "Account Information Updated Successfully"
                         , "Good News!"
